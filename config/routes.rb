@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'leads/add'
+  end
+
   namespace :dashboard do
     root 'leads#index'
     get 'leads/index'
