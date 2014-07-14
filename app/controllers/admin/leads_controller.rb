@@ -20,9 +20,9 @@ class Admin::LeadsController < Admin::ApplicationController
       csv_file = object.read
       csv_text = CSV.parse(csv_file)
       csv_text.each do |row|
-        tweet_text = row[1]
-        screen_name = row[7]
-        location = row[17]
+        tweet_text = row[0]
+        screen_name = row[1]
+        location = row[2]
         profile_url = "https://twitter.com/" + screen_name
         date_last_shown = Time.now - 3.month
         Lead.create(:tweet => tweet_text, :screen_name => screen_name, :location => location, :profile_url => profile_url, :date_last_shown => date_last_shown)
