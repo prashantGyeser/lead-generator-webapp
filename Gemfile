@@ -42,6 +42,8 @@ gem 'pg'
 
 gem 'aws-sdk', '~> 1.0'
 
+gem 'devise'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"

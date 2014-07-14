@@ -24,7 +24,8 @@ class Admin::LeadsController < Admin::ApplicationController
         screen_name = row[7]
         location = row[17]
         profile_url = "https://twitter.com/" + screen_name
-        Lead.create(:tweet => tweet_text, :screen_name => screen_name, :location => location, :profile_url => profile_url)
+        date_last_shown = Time.now - 3.month
+        Lead.create(:tweet => tweet_text, :screen_name => screen_name, :location => location, :profile_url => profile_url, :date_last_shown => date_last_shown)
       end
       object.delete
     end
