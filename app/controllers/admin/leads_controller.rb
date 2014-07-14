@@ -20,7 +20,7 @@ class Admin::LeadsController < Admin::ApplicationController
       csv_file = object.read
       csv_text = CSV.parse(csv_file)
       csv_text.each do |row|
-        tweet_text = row[3]
+        tweet_text = row[1]
         screen_name = row[7]
         location = row[17]
         profile_url = "https://twitter.com/" + screen_name
