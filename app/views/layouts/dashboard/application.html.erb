@@ -24,8 +24,10 @@
       <!-- BEGIN CHAT TOGGLER -->
       <div class="pull-right">
         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
-          <div class="user-details">
-            <div class="username"> John <span class="bold">Smith</span> </div>
+          <div class="user-details" style="margin-right: 20px;">
+            <div class="username">
+              <%= current_user.email %>
+            </div>
           </div>
         </a>
 

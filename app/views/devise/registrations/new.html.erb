@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row login-container column-seperation">
+    <div class="col-md-5 col-md-offset-1">
+      <h2>Sign up for urbanzeak</h2>
+      <p>
+        urbanzeak is the easiest way to sell your city tour or activity. Sign up for a <span class="semi-bold">30 day free trial</span> period and start selling.
+        <br/>
+        <%= link_to "Sign in now", new_session_path(resource_name) %> if you already have an account.
+      </p>
+      <br>
+
+    </div>
+    <div class="col-md-5 "> <br>
+
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="row">
+            <div class="form-group col-md-10">
+              <%= f.label :email, :class => "form-label" %>
+              <div class="controls">
+                <div class="input-with-icon  right">
+                  <i class=""></i>
+                  <%= f.email_field :email, :class => "form-control", :autofocus => true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-10">
+              <%= f.label :password, :class => "form-label" %>
+              <div class="controls">
+                <div class="input-with-icon  right">
+                  <i class=""></i>
+                  <%= f.password_field :password, :class => "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-10">
+              <%= f.label :password_confirmation, :class => "form-label" %>
+              <div class="controls">
+                <div class="input-with-icon  right">
+                  <i class=""></i>
+                  <%= f.password_field :password_confirmation, :class => "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-10">
+              <div class="sharedLinks">
+                <%= render "devise/shared/links" %>
+              </div>
+              <%= f.submit "Sign up", :class => 'btn btn-primary btn-cons pull-right' %>
+            </div>
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
