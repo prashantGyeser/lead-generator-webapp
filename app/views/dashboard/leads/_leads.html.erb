@@ -8,11 +8,24 @@
   <tbody>
 
   <% @leads.each do |lead| %>
+    <% if lead.viewed == false %>
+      <tr class="bold">
+    <% else  %>
       <tr>
+    <% end  %>
+
+
         <% lead_to_show = Lead.find(lead.lead_id)  %>
-        <td class="v-align-middle"><a href="<%= lead_to_show.profile_url %>"><%= lead_to_show.screen_name %></a></td>
+        <td class="v-align-middle">
+          <a href="<%= lead_to_show.profile_url %>"><%= lead_to_show.screen_name %></a>
+          <% if lead.viewed == false  %>
+              <span class="label label-success">NEW</span>
+          <% end %>
+        </td>
         <td class="v-align-middle"><span class="muted"><%= lead_to_show.tweet %></span></td>
       </tr>
+      <% lead.viewed = true  %>
+      <% lead.save  %>
   <% end %>
 
   </tbody>

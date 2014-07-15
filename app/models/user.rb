@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
       UserLead.create(:lead_id => lead.id, :user_id => self.id)
       lead.date_last_shown = Time.now - 3.month
       lead.save
+      logger.debug "The new user lead was saved"
     end
   end
 end
