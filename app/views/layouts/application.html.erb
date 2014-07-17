@@ -1,14 +1,514 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LeadGeneratorWebapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Find leads fast!</title>
+  <script type="text/javascript" src="//use.typekit.net/yjy6rjo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <style type="text/css">
+      html, body{height:100%; margin:0;padding:0}
+
+      .container{
+          height:100%;
+          display:table;
+          width: 100%;
+          padding: 0;
+      }
+
+      .row {height: 100%; display:table-cell; vertical-align: middle;}
+
+      .centering {
+          float:none;
+          margin:0 auto;
+      }
+    body
+    {
+        font-family: "proxima-nova",sans-serif;
+        font-size: 18px;
+        background-color: #e5e9ec;
+    }
+
+
+    h1
+    {
+        font-size: 33px;
+        font-weight: bold;
+    }
+    h4
+    {
+        line-height: 1.4em;
+    }
+          /*Button style start*/
+      .btn {
+          display: inline-block;
+          padding: 9px 12px;
+          padding-top: 7px;
+          margin-bottom: 0;
+          font-size: 14px;
+          line-height: 20px;
+          color: #5e5e5e;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #d1dade;
+          -webkit-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          background-image: none !important;
+          border: none;
+          text-shadow: none;
+          box-shadow: none;
+          transition: all 0.12s linear 0s !important;
+          font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+      }
+          /* line 25, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn:focus {
+          outline: none;
+      }
+          /* line 28, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn .caret {
+          margin-left: 3px;
+      }
+          /* line 30, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn .caret.single {
+          margin-left: 0px;
+      }
+
+          /* line 35, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn:hover, .btn:focus, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+          background-color: #c1cace;
+      }
+
+          /* line 38, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-cons {
+          margin-right: 5px;
+          min-width: 120px;
+          margin-bottom: 8px;
+      }
+
+          /* line 43, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-demo-space {
+          margin-bottom: 8px;
+      }
+
+          /* line 46, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .demo-placeholder {
+          width: 100%;
+          height: 250px;
+      }
+
+          /* line 50, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-social {
+          font-size: 20px;
+          margin: 10px;
+      }
+
+          /* line 54, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-social:hover, .btn-social:focus, .btn-social:active, .btn-social.active, .btn-social.disabled, .btn-social[disabled] {
+          color: #2d8ebf;
+          text-decoration: none;
+      }
+
+          /* line 58, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-primary {
+          color: white;
+          background-color: #0aa699;
+      }
+
+          /* line 62, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+          background-color: #007366;
+      }
+
+          /* line 65, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-success {
+          color: white;
+          background-color: #0aa699;
+      }
+
+          /* line 69, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+          background-color: #007366;
+      }
+
+          /* line 72, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-info {
+          color: white;
+          background-color: #0090d9;
+      }
+
+          /* line 76, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
+          background-color: #005da6;
+      }
+
+          /* line 79, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-warning {
+          color: #1b1e24;
+          background-color: #fdd01c;
+      }
+
+          /* line 83, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+          background-color: #ca9d00;
+      }
+
+          /* line 86, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-danger {
+          color: white;
+          background-color: #f35958;
+      }
+
+          /* line 90, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+          background-color: #c02625;
+      }
+
+          /* line 93, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-danger-dark {
+          color: white;
+          background-color: #009588;
+      }
+
+          /* line 97, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-danger-dark:hover, .btn-danger-dark:focus, .btn-danger-dark:active, .btn-danger-dark.active, .btn-danger-dark.disabled, .btn-danger-dark[disabled] {
+          background-color: #007366;
+          color: white;
+      }
+
+          /* line 101, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-dark {
+          color: white;
+          background-color: #1b1e24;
+      }
+
+          /* line 105, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-white {
+          color: #5e5e5e;
+          background-color: white;
+          border: 1px solid #e5e9ec;
+      }
+
+          /* line 110, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active, .btn-white.disabled, .btn-white[disabled] {
+          background-color: #fbfcfd;
+          border: 1px solid #b4b9be;
+      }
+
+          /* line 114, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-link {
+          color: #5e5e5e;
+          background-color: transparent;
+          border: none;
+      }
+
+          /* line 119, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-large {
+          padding: 11px 19px;
+          font-size: 16px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+      }
+
+          /* line 126, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-link:hover, .btn-link:focus, .btn-link:active, .btn-link.active, .btn-link.disabled, .btn-link[disabled] {
+          background-color: transparent;
+      }
+
+          /* line 129, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-large [class^="icon-"], .btn-large [class*=" icon-"] {
+          margin-top: 4px;
+      }
+
+          /* line 132, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-small {
+          padding: 3px 12px;
+          font-size: 11.9px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+      }
+
+          /* line 139, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-small [class^="icon-"], .btn-small [class*=" icon-"] {
+          margin-top: 0;
+      }
+
+          /* line 142, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-mini [class^="icon-"], .btn-mini [class*=" icon-"] {
+          margin-top: -1px;
+      }
+
+          /* line 145, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-mini {
+          padding: 2px 9px;
+          font-size: 10.5px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+      }
+
+          /* line 155, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn.dropdown-toggle {
+          background-color: #e6e6e6;
+      }
+          /* line 160, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-primary.dropdown-toggle {
+          background-color: #008477;
+      }
+          /* line 165, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-warning.dropdown-toggle {
+          background-color: #dbae00;
+      }
+          /* line 170, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-danger.dropdown-toggle {
+          background-color: #d13736;
+      }
+          /* line 175, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-success.dropdown-toggle {
+          background-color: #008477;
+      }
+          /* line 180, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-info.dropdown-toggle {
+          background-color: #006eb7;
+      }
+          /* line 185, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-inverse.dropdown-toggle {
+          background-color: #222;
+      }
+          /* line 190, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group.open .btn-white.dropdown-toggle {
+          background-color: #fbfcfd;
+      }
+          /* line 196, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .btn + .dropdown-toggle {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+          border-left: 1px #f7f7f7 solid;
+          padding-right: 10px;
+          border-left: 1px solid #E5E9EC;
+      }
+          /* line 205, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .btn.btn-mini + .dropdown-toggle {
+          padding-right: 8px;
+      }
+          /* line 210, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .dropdown-menu {
+          font-size: 13px;
+      }
+          /* line 212, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .dropdown-menu li {
+          padding-left: 0px;
+      }
+
+          /* line 218, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-block + .btn-block {
+          margin-top: 8px;
+      }
+
+          /* line 222, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          display: none;
+          float: left;
+          list-style: none;
+          text-shadow: none;
+          -webkit-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.2);
+          -moz-box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.2);
+          box-shadow: 0px 0px 5px rgba(86, 96, 117, 0.2);
+          border: none;
+          border-radius: 3px;
+          padding: 0px;
+          font-size: 13px;
+      }
+          /* line 238, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu .divider {
+          background-color: #eaedf0;
+          height: 1px;
+          margin: 3px 0;
+          border-bottom: 0px;
+      }
+          /* line 245, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu > li > a {
+          line-height: 25px;
+          color: #2a2e36;
+          margin: 4px;
+          border-radius: 3px;
+          text-align: left;
+      }
+          /* line 253, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu li {
+          padding-left: 0px;
+      }
+
+          /* line 257, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+          color: #1b1e24;
+          text-decoration: none;
+          background-color: #eff2f3;
+          background-image: none;
+      }
+
+          /* line 263, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+          color: #1b1e24;
+          text-decoration: none;
+          background-color: #eff2f3;
+          background-image: none;
+      }
+
+          /* line 269, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+          color: #999;
+      }
+
+          /* line 272, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+          text-decoration: none;
+          cursor: default;
+          background-color: transparent;
+          background-image: none;
+      }
+
+          /* line 278, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active {
+          z-index: 0;
+      }
+
+          /* line 281, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .btn-group > .btn.btn-white:hover, .btn-group > .btn.btn-white:focus, .btn-group > .btn.btn-white:active, .btn-group > .btn.btn-white.active {
+          border: 1px solid #E5E9EC;
+      }
+
+          /* line 284, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      code, pre {
+          border: none;
+      }
+
+          /* line 287, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      code {
+          background-color: #f3f6f9;
+      }
+          /* line 289, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      code:hover {
+          background-color: #e8edf3;
+      }
+
+          /* line 293, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget {
+          height: auto;
+      }
+          /* line 295, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget h3 {
+          font-size: 22px;
+          line-height: 32.5px;
+      }
+          /* line 299, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .heading {
+          padding: 8px 15px;
+          padding-bottom: 4px;
+          background-color: white;
+      }
+          /* line 303, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .heading h4 {
+          margin-bottom: 5px;
+          margin-top: 5px;
+      }
+          /* line 308, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper {
+          padding: 15px 27px;
+          padding-bottom: 20px;
+      }
+          /* line 311, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper i {
+          color: white;
+      }
+          /* line 314, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.red {
+          background-color: #f35958;
+      }
+          /* line 316, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.red p {
+          color: #832929;
+      }
+          /* line 320, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.green {
+          background-color: #0aa699;
+      }
+          /* line 322, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.green p {
+          color: #505458;
+      }
+          /* line 326, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.blue {
+          background-color: #0090d9;
+      }
+          /* line 328, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper.blue p {
+          color: #0a5174;
+      }
+          /* line 332, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper .mini-logo {
+          margin-bottom: 15px;
+          margin-bottom: 15px;
+      }
+          /* line 336, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .single-colored-widget .content-wrapper .h3 {
+          margin-bottom: 15px;
+      }
+
+          /* line 341, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons {
+          padding-top: 17px;
+      }
+          /* line 343, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons i {
+          color: #505458;
+          width: 32px;
+          font-size: 14px;
+          display: inline-block;
+          text-align: right;
+          margin-right: 10px;
+      }
+          /* line 351, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons a {
+          color: #505458;
+          font-size: 14px;
+          cursor: pointer;
+          display: block;
+          height: 32px;
+          line-height: 32px;
+      }
+          /* line 358, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons a:hover {
+          text-decoration: none;
+      }
+          /* line 362, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons [class*="span"]:first-child {
+          margin-left: 2.5641%;
+      }
+
+          /* line 366, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/modules/buttons.scss */
+      .the-icons a:hover .fa, .the-icons a:hover [class*="fa"] {
+          font-size: 28px;
+          vertical-align: -5px;
+      }
+  </style>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
+
 
 </body>
 </html>
