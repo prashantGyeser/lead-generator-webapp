@@ -31,4 +31,6 @@ class Admin::LeadsController < Admin::ApplicationController
     end
 
   end
+
+
 end
