@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
   get 'leads/add'
+  get 'leads/push'
   end
 
   namespace :dashboard do

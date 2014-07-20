@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
    leads = Lead.where("date_last_shown < ?", Time.now - 1.month ).first(5)
     leads.each do |lead|
       UserLead.create(:lead_id => lead.id, :user_id => self.id)
-      lead.date_last_shown = Time.now - 3.month
+      lead.date_last_shown = Time.now
       lead.save
     end
   end
