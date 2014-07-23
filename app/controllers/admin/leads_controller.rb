@@ -35,7 +35,7 @@ class Admin::LeadsController < Admin::ApplicationController
   def push
     users = User.all
     users.each do |user|
-      leads = Lead.where("date_last_shown < ?", Time.now - 1.month ).first(5)
+      leads = Lead.where("date_last_shown < ?", (Time.now - 1.month)).first(5)
       leads.each do |lead|
         UserLead.create(:lead_id => lead.id, :user_id => user.id)
         lead.date_last_shown = Time.now

@@ -14,9 +14,5 @@
 #
 
 class Lead < ActiveRecord::Base
-  after_create :set_last_show_date
-  def set_last_show_date
-    self.date_last_shown = Time.now - 3.month
-    self.save
-  end
+
 end
