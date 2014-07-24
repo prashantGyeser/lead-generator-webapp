@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'subscriptions/show'
+
   namespace :admin do
   get 'dashboard/index'
   end
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   #get 'home/index'
   root 'home#index'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
   get 'leads/add'
   get 'leads/push'
