@@ -1,2 +1,30 @@
-<h1>Subscriptions#show</h1>
-<p>Find me in app/views/subscriptions/show.html.erb</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>Leads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+
+  <%= stylesheet_link_tag    'dashboard/application', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body style="background-color: #e5e9ec; color: #282323; text-align: center">
+    <div class="col-md-6 col-md-offset-3" style="margin-top: 50px; background-color: white; padding: 20px">
+        <div style="text-align: center">
+          <i class="fa fa-check-circle fa-7x" style="color: #0aa699"></i>
+        </div>
+        <h4 style="text-align: center; font-weight: bold">Congratulation you successfully signed up!</h4>
+        <p style="color: #8b91a0; text-align: center">
+          You'll be charged $59/Month after your 7 day trial.
+        </p>
+        <%= link_to "Go to your leads", dashboard_root_path, :style => "text-align: center; font-weight: bold;" %>
+
+    </div>
+</body>
+</html>
