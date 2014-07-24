@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715180843) do
+ActiveRecord::Schema.define(version: 20140724163600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "leads", force: true do |t|
     t.string   "screen_name"
@@ -25,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140715180843) do
     t.datetime "updated_at"
     t.integer  "times_shown"
     t.date     "date_last_shown"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.string   "account_code"
+    t.string   "plan_code"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "user_leads", force: true do |t|
