@@ -1,32 +1,61 @@
-<table class="table table-hover table-condensed" id="example">
-  <thead>
-  <tr>
-    <th style="width:10%">Twitter User</th>
-    <th style="width:38%" data-hide="phone,tablet">Tweet</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="p-t-20 p-b-15 b-b b-grey" style="background-color: #f3faf8">
+  <div class="post overlap-left-10">
+    <div class="user-profile-pic-wrapper">
+      <div class="user-profile-pic-2x white-border">
+        <img width="45" height="45" src="assets/no_profile_pic.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg">
+      </div>
+    </div>
+    <div class="info-wrapper small-width inline">
+      <div class="info text-black ">
+        <p class="semi-bold">
+          ha! i'd ask u about ur "bf" or "love life" later...#practice #dance later, sweetie! @xdontcharlene
+        </p>
+        <p class="semi-bold small-text">
+          <span class="muted">Added: Today</span> <span class="m-l-20"><span class="muted">Message by:</span> <a href="#">i3iebsQueen</a></span>
+        </p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
 
-  <% @leads.each do |lead| %>
+
+
+
+<% @leads.each do |lead| %>
     <% if lead.viewed == false %>
-      <tr class="bold">
-    <% else  %>
-      <tr>
-    <% end  %>
-
-
-        <% lead_to_show = Lead.find(lead.lead_id)  %>
-        <td class="v-align-middle">
-          <a href="<%= lead_to_show.profile_url %>"><%= lead_to_show.screen_name %></a>
-          <% if lead.viewed == false  %>
-              <span class="label label-success">NEW</span>
+    <div class="p-t-20 p-b-15 b-b b-grey" style="background-color: #f3faf8">
+    <% else %>
+    <div class="p-t-20 p-b-15 b-b b-grey">
+    <% end %>
+        <div class="post overlap-left-10">
+      <div class="user-profile-pic-wrapper">
+        <div class="user-profile-pic-2x white-border">
+          <img width="45" height="45" src="assets/no_profile_pic.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg">
+        </div>
+      </div>
+      <div class="info-wrapper small-width inline">
+        <div class="info text-black ">
+          <% if lead.viewed == false %>
+              <p class="semi-bold">
+          <% else %>
+              <p class="">
           <% end %>
-        </td>
-        <td class="v-align-middle"><span class="muted"><%= lead_to_show.tweet %></span></td>
-      </tr>
-      <% lead.viewed = true  %>
-      <% lead.save  %>
-  <% end %>
+            ha! i'd ask u about ur "bf" or "love life" later...#practice #dance later, sweetie! @xdontcharlene
+          </p>
+          <p class="semi-bold small-text">
+            <span class="muted">Added: Today</span> <span class="m-l-20"><span class="muted">Message by:</span> <a href="#">i3iebsQueen</a></span>
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    </div>
+    <% lead.viewed = true %>
+    <% lead.save %>
+<% end %>
 
-  </tbody>
-</table>
+
+
