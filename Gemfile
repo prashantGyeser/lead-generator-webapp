@@ -43,6 +43,8 @@ gem 'aws-sdk', '~> 1.0'
 
 gem 'devise'
 
+gem 'human_date'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
