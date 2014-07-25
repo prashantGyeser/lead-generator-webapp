@@ -14,14 +14,14 @@
       <div class="info-wrapper small-width inline">
         <div class="info text-black ">
           <% if lead.viewed == false %>
-              <p class="semi-bold">
+              <p class="bold">
           <% else %>
-              <p class="">
+              <p>
           <% end %>
             <%= lead_to_show.tweet %>
           </p>
           <p class="semi-bold small-text">
-            <span class="muted">Added: <%= human_date(lead_to_show.created_at) %></span> <span class="m-l-20"><span class="muted">Message by:</span> <a href="<%=  lead_to_show.profile_url%>"><%= lead_to_show.screen_name %></a></span>
+            <span class="muted">Added: <%= human_date(lead.created_at.to_date) %></span> <span class="m-l-20"><span class="muted">Message by:</span> <a href="<%=  lead_to_show.profile_url%>"><%= lead_to_show.screen_name %></a></span>
           </p>
         </div>
         <div class="clearfix"></div>
