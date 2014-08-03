@@ -55,7 +55,8 @@
           <div class="row">
             <div class="col-md-10">
               <div class="sharedLinks" style="margin-bottom: 20px;">
-               By signing up I agree to the <a href="#">Terms and Conditions</a> <%# render "devise/shared/links" %>
+               By signing up I agree to the <%= link_to "Terms and Conditions", policies_terms_and_conditions_path, :target => "_blank" %>
+                 <%# render "devise/shared/links" %>
               </div>
               <%= f.submit "Sign up", :class => 'btn btn-primary btn-cons pull-right' %>
             </div>
