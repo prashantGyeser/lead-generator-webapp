@@ -11,6 +11,7 @@
 #  updated_at      :datetime
 #  times_shown     :integer
 #  date_last_shown :date
+#  user_image_url  :string(255)
 #
 
 class Lead < ActiveRecord::Base

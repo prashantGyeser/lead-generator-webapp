@@ -8,7 +8,12 @@
         <div class="post overlap-left-10">
       <div class="user-profile-pic-wrapper">
         <div class="user-profile-pic-2x white-border">
-          <img width="45" height="45" src="assets/no_profile_pic.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg">
+          <% if lead_to_show.user_image_url.blank? %>
+              <img width="45" height="45" src="assets/no_profile_pic.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg">
+          <% else %>
+              <img width="45" height="45" src="<%= lead_to_show.user_image_url %>" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg">
+          <% end %>
+
         </div>
       </div>
       <div class="info-wrapper small-width inline">

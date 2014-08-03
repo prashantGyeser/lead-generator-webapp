@@ -55,10 +55,9 @@
         <ul class="nav nav-pills pull-right navbar-nav">
           <li class="active"><a href="#home">Home</a></li>
           <li><a href="#marketing">Overview</a></li>
-          <li><a href="#featurettes">Features</a></li>
-          <li><a href="#annotations">Annotations</a></li>
-          <li><a href="#lower-content">Pricing</a></li>
-          <li><a href="#contactModal" class="unscroll" data-toggle="modal">Contact</a></li>
+          <li><a href="#featurettes">Pricing</a></li>
+          <li><a href="#annotations">About</a></li>
+          <li><a href="#lower-content">Contact</a></li>
         </ul>
       </div><!--/.navbar-collapse -->
 
@@ -101,7 +100,8 @@
         <div class="row">
 
           <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3" id="tour-2">
-            <img class="center-image img-responsive" src="img/ss.png" alt="product-teaser" />
+            <!--<img class="center-image img-responsive" src="img/ss.png" alt="product-teaser" />-->
+            <%= image_tag "header-image.png", :class => "center-image img-responsive" %>
             </a>
           </div>
 
@@ -188,8 +188,7 @@
     <div class="row">
 
       <div class="col-md-12 centered section-title-wrapper">
-        <h3 class="section-title">See Plans <span class="normal">and Pricing</span></h3>
-        <p class="section-subtitle">Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus.</p>
+        <h3 class="section-title"><span class="normal">Pricing</span></h3>
       </div> <!--/ .section-title-wrapper -->
 
 
@@ -207,12 +206,10 @@
         <div class="pricing-content">
           <ul>
             <li>Unlimited leads</li>
-            <li>35 Project</li>
-            <li>500K API Access</li>
-            <li>1000MB Storage</li>
-            <li>Custom Cloud Services</li>
-            <li>Performance Management</li>
-            <li>Weekly Reports</li>
+            <li>Real time reporting</li>
+            <li>Geo targeting</li>
+            <li>Customer engagement</li>
+            <li>Account support</li>
           </ul>
         </div> <!--/ .pricing-content -->
 
@@ -296,8 +293,82 @@
       </div> <!--/ .marketing-content -->
 
       <div class="col-md-4 col-sm-4 marketing-content centered">
-        <h5>Customers should love us</h5>
-        <p>We will just about do anything that makes you fall in love with us! We are all hears for your recommedations, rants and raves. Just talk to us if you want anything.</p>
+        <h5>We love our customers</h5>
+        <p>We strive to ensure every customer onboard Urbanzeak have a remarkable experience. Just call us or write to us and we will be there to help you out 24/7.</p>
+      </div> <!--/ .marketing-content -->
+
+
+      <div class="col-md-12 col-sm-12 centered ">
+        <h4 class="section-title">Meet the team</h4>
+
+      </div> <!~-/ .section-title-wrapper -->
+
+      <div class="col-md-6 col-sm-6 marketing-content centered">
+        <h5>Akhilesh Kumar - Chief Hustler </h5>
+        <p style="font-style: italic">
+          The guy thirsting for the craziest sale!
+        </p>
+        <p>
+          I am the guy who does all the talking!
+        </p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-6 col-sm-6 marketing-content centered">
+        <h5>Prashant Angyan - Chief Hacker</h5>
+        <p style="font-style: italic">
+          The guy who does the crazy stuff
+        </p>
+        <p>I am the guy for whom Python is no longer a snake, Ruby no longer a jewel and Java no longer a coffee.</p>
+      </div> <!--/ .marketing-content -->
+
+
+      <div class="col-md-12 col-sm-12 centered ">
+        <h4 class="section-title">Our first investors</h4>
+
+      </div> <!~-/ .section-title-wrapper -->
+
+      <div class="col-md-6 col-sm-6 marketing-content centered">
+        <h5>Ron Katz</h5>
+        <p>
+          Ron Katz is the founder and President of Netcom Data Corp., the first U.S. company to be certified
+
+          by MasterCard International as an independent Member Service Provider. After receiving a PhD at
+
+          the University of California, Berkeley, Dr. Katz held teaching and administrative positions at
+
+          Queens College, Berkeley, and the University of Haifa, Israel. He served for a time as ranking
+
+          aide to in the California State Senate, representing Silicon Valley. He has severed on the boards of
+
+          several not-for-profit organizations and has been deeply involved in philanthropic fundraising. He
+
+          has published a book on rhetoric, is the author of two patents, and his articles have appeared in
+
+          prestigious business, banking, and marketing publications. He is currently working as managing
+
+          partner of European Vacation Experience, and international lodging and tourism company which he
+
+          co-founded.
+        </p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-6 col-sm-6 marketing-content centered">
+        <h5>Jules Kragen</h5>
+        <p>
+          JULES KRAGEN is the founder of eve, an innovate travel and experience company. He advises and invests
+
+          in emerging businesses across a wide spectrum of industries. He previously worked as CEO of Jeremiah’s
+
+          Pick Coffee Company in San Francisco, an artisan coffee roaster and wholesale distributor of organic foods.
+
+          Prior to that, he was responsible for the legal and finical affairs of Morgan Equipment, an international
+
+          mining and equipment distributor. Jules has a bachelor’s degree from U. C. Berkeley and a J.D. from the
+
+          Hastings College of The Law. He is a member of the board of directors of Alameda County Meals on
+
+          Wheels.
+        </p>
       </div> <!--/ .marketing-content -->
 
 
@@ -309,120 +380,72 @@
 <!--/ #marketing -->
 
 
-<!-- Contact Modal -->
-<div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-  <div class="modal-dialog">
+<!-- Horizontal Line -->
+<div class="container">
 
-    <div class="modal-content">
+  <div class="row">
 
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h5 class="modal-label">Contact Us</h5>
-      </div> <!--/ .modal-header -->
+    <div class="col-md-12">
+      <hr class="content-hr" />
+    </div>
 
-      <div class="modal-body contact-form-container">
+  </div> <!--/ .row -->
 
-        <form name="contactForm" id="contact_form" action="contact.php" method="post">
+</div> <!--/ .container -->
+<!--/ END Horizontal Line -->
 
-          <div class="row">
-            <!-- Alert Message for Contact Form -->
-            <div class="alert alert-error form-error-message" id="name_error">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
-              <strong>Error!</strong> Please enter your name.
-            </div>
+<section id="marketing" style="margin-top: 60px;">
 
-            <div class="alert alert-error form-error-message" id="email_error">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
-              <strong>Error!</strong> Please enter your valid email address.
-            </div>
+  <div class="container">
 
-            <div class="alert alert-error form-error-message" id="subject_error">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
-              <strong>Error!</strong> Please enter your subject.
-            </div>
+    <div class="row">
 
-            <div class="alert alert-error form-error-message" id="message_error">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
-              <strong>Error!</strong> Please enter your message.
-            </div>
-            <!--/ END Alert Message for Subscribe Form -->
-          </div> <!--/ .row -->
+      <div class="col-md-12 col-sm-12 centered section-title-wrapper">
+        <h3 class="section-title">Contact Us</h3>
+        <p class="section-subtitle">
+          If you have any questions or issue or if you just want to talk, get in touch with us.
+        </p>
 
-          <div class="row">
+      </div> <!~-/ .section-title-wrapper -->
 
-            <div class="col-md-6">
-              <label>Name :</label>
-              <input name="thename" class="contact-input" id="name" type="text" placeholder="Input your name.." />
-            </div>
 
-            <div class="col-md-6">
-              <label>Email :</label>
-              <input name="email" class="contact-input" id="email" type="text" placeholder="Input your email.." />
-            </div>
+      <div class="col-md-6 col-sm-6 marketing-content centered col-md-offset-3 col-sm-offset-3">
 
-          </div>  <!--/ .row -->
+        <h5>Our Address</h5>
 
-          <div class="row">
+        <address>
+          <strong>Urbanzeak Inc.</strong><br>
+          1056, Monterery Avenue<br>
+          Berkley, California 93940<br>
+          <abbr title="Phone">P:</abbr> +1-201-895-8093<br/>
+          <abbr title="Email">E:</abbr> <a href="mailto:support@urbanzeak.com">support@urbanzeak.com</a>
+        </address>
 
-            <div class="col-md-12">
-              <label>Subject :</label>
-              <input name="subject" class="contact-input" id="subject" type="text" placeholder="Input your subject.." />
-            </div>
+      </div> <!--/ .marketing-content -->
 
-          </div> <!--/ .row -->
 
-          <div class="row">
 
-            <div class="col-md-12">
+    </div> <!--/ .row -->
 
-              <label>Message :</label>
-              <textarea id="message" name="message" rows="7" placeholder="Your message"></textarea>
+  </div> <!-- / .container -->
 
-            </div>
+</section>
 
-          </div> <!--/ .row -->
 
-          <div class="row">
+<!-- Horizontal Line -->
+<div class="container">
 
-            <div class="alert alert-success form-error-message" id="mail_success">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-thumbs-up icon-white"></i></span>
-              <strong>Success!</strong>Your message has been sent successfully.
-            </div>
+  <div class="row">
 
-            <div class="alert form-error-message" id="mail_fail">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <span class="alert-icon"><i class="glyphicon glyphicon-bullhorn icon-white"></i></span>
-              <strong>Sorry!</strong> An error occured this time sending your message.
-            </div>
+    <div class="col-md-12">
+      <hr class="content-hr" />
+    </div>
 
-          </div> <!--/ .row -->
+  </div> <!--/ .row -->
 
-          <div class="row">
-
-            <div class="col-md-12" id="submit">
-              <input type="submit" id="send_message" class="send-button green-btn btn-default"
-                     name="submit" value="Send Message" />
-            </div>
-
-          </div> <!--/ .row -->
-
-        </form> <!-- END Contact Form -->
-
-      </div> <!--/ .modal-body -->
-
-    </div> <!--/ .modal-content -->
-
-  </div> <!--/ .modal-dialog -->
-
-</div>
-<!--/ END Contact Modal -->
-
+</div> <!--/ .container -->
+<!--/ END Horizontal Line -->
 
 <!-- Footer Section -->
 <section id="footer">
