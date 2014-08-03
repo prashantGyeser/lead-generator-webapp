@@ -1,95 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="shortcut icon" href="ico/favicon.png">
+  <meta charset="utf-8" />
+  <title>Helping small businesses sell faster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Katemi - Clean Responsive Product, Service and App Landing Page built with Bootstrap 3.0.3" />
+  <meta name="author" content="Works of Wisnu" />
 
-  <title>Urbanzeak - The easiest way to sell on Twitter</title>
-  <%= stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true %>
-  <!-- Font for this template -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Le styles -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,400italic,500italic" rel="stylesheet" type="text/css" />    <!-- Google Web Fonts - Roboto -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <!-- Custom styles for template skin -->
-  <link href="skins/theme/skin.css" rel="stylesheet">
-
-  <!-- Just for debugging purposes. Don't actually copy this line! -->
-  <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
-  <script src="js/respond.min.js"></script>
   <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png" />
+  <link rel="shortcut icon" href="img/ico/favicon.png" />
+
 </head>
 
 <body>
-<!-- Start home -->
-<section id="home" class="bgslider-wrapper">
-  <div class="home-contain">
+<!-- Begin Main Container Section -->
+<div id="home" class="main-container">
+
+<!-- Top Nav -->
+<section id="top-nav">
+
+  <div class="katemi-nav navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+    <div class="navbar-header">
+
+      <!--<a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo" class="img-responsive" /></a>-->
+      <%= link_to image_tag("logo.png", :class => "img-responsive"), "/", :class => "navbar-brand" %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div> <!--/ .navbar-header -->
+
     <div class="container">
-      <div class="row wow fadeInUp" data-wow-delay="0.2s">
-        <div class="col-md-4 col-md-offset-1">
-          <!--<img src="img/iphone2.png" class="img-mobile" alt="" />-->
-          <%= image_tag "iphone2.png", :class => "img-mobile" %>
-        </div>
-        <div class="col-md-6">
-          <div class="home-wrapp">
-            <h3>
-              <span>Easiest way to sell</span>dance classes
-            </h3>
-            <p>
-              Urbanzeak analyzes over 500 million tweets a day to find people interested in learning to dance.
-            </p>
-            <p>
-              Urbanzeak uses a revolutionary algorithm to read tweets and determine people local to you who are genuinely interested in learning how to dance. When you sign up we'll match you with these people.
-            </p>
-            <p style="font-weight: bold">
-                We are free while we are in beta
-            </p>
-            <a href="/users/sign_up" class="btn btn-default" style="font-weight: bold">Join Now</a>
-            <span style="margin: 0 10px;">Or</span>
-            <a href="/users/sign_in" class="btn btn-default">Login</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav nav-pills pull-right navbar-nav">
+          <li class="active"><a href="#home">Home</a></li>
+          <li><a href="#marketing">Overview</a></li>
+          <li><a href="#featurettes">Features</a></li>
+          <li><a href="#annotations">Annotations</a></li>
+          <li><a href="#lower-content">Pricing</a></li>
+          <li><a href="#contactModal" class="unscroll" data-toggle="modal">Contact</a></li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+
+    </div> <!--/ .container -->
+
+  </div> <!--/ .katemi-nav .navbar -->
+
 </section>
-<!-- End home -->
+<!--/ #top-nav-->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 
-<!-- Fixed navigation -->
-<script src="js/navigation/jquery.smooth-scroll.js"></script>
-<script src="js/navigation/navbar.js"></script>
-<script src="js/navigation/waypoints.min.js"></script>
+<!-- Head Banner Section -->
+<section id="head-banner" class="dark-bg">
 
-<!-- WOW JavaScript -->
-<script src="js/wow.min.js"></script>
+  <div class="container">
 
-<!-- JavaScript bgSlider slider -->
-<script src="js/bgslider/bgSlider.js"></script>
+    <div class="row">
 
-<!-- Flexslider -->
-<script src="js/flexslider/jquery.flexslider.js"></script>
-<script src="js/flexslider/setting.js"></script>
+      <div class="col-md-12" id="tour-1">
+        <h1 class="tagline centered normal">
+          We help <span class="bolder">small business owners</span> find customers fast
+        </h1>
+        <h3 class="centered lighter">
+          We analyze millions of tweets everyday, using our revolutionary algorithm to find people in your city interested in your services
+        </h3>
+      </div>
 
-<!-- prettyPhoto -->
-<script src="js/prettyPhoto/jquery.prettyPhoto.js"></script>
-<script src="js/prettyPhoto/setting.js"></script>
+      <div class="col-md-12 head-cta">
+        <div class="row">
 
-<!-- Contact validation js -->
-<script src="js/validation.js"></script>
+          <div class="col-md-7 col-sm-7 col-xs-7">
+            <a href="#" id="startTourBtn" class="medium-btn btn-default green-btn btn-default pull-right">Find customers now!</a>
+          </div>
 
-<!-- Custom JavaScript -->
-<script src="js/custom.js"></script>
+        </div>
+      </div> <!--/ .head-cta -->
+
+      <div class="col-md-12 product-teaser">
+
+        <div class="row">
+
+          <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3" id="tour-2">
+            <img class="center-image img-responsive" src="img/ss.png" alt="product-teaser" />
+            </a>
+          </div>
+
+
+        </div> <!--/ .row -->
+
+      </div> <!--/ .product-teaser -->
+
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #head-banner -->
+
+
+<!-- Marketing Section -->
+<section id="marketing" style="margin-top: 60px;">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 centered section-title-wrapper">
+        <h3 class="section-title">How it Works</h3>
+      </div> <!~-/ .section-title-wrapper -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <img class="marketing-icon" src="img/join.png" alt="Marketing Icon" />
+        <h5>Join</h5>
+        <p>Sign up for an account in 2 minutes and start receiving leads immedieately.</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+
+        <img class="marketing-icon" src="img/analyze.png" alt="Marketing Icon" />
+        <h5>Analyze</h5>
+        <p>Every minute of every day, we collect tweets and analyze it to find people in your city who are  interested in your services
+          .</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <img class="marketing-icon" src="img/show-3.png" alt="Marketing Icon" />
+        <h5>Show</h5>
+        <p>See your entire list of prospects on an interactive dashboard.</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <img class="marketing-icon" src="img/sell.png" alt="Marketing Icon" />
+        <h5>Sell</h5>
+        <p>Click on the user and start selling.</p>
+      </div> <!--/ .marketing-content -->
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #marketing -->
+
+
+<!-- Horizontal Line -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <hr class="content-hr" />
+    </div>
+
+  </div> <!--/ .row -->
+
+</div> <!--/ .container -->
+<!--/ END Horizontal Line -->
+
+
+
+
+<!-- Lower Content Section -->
+<section id="lower-content">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 centered section-title-wrapper">
+        <h3 class="section-title">See Plans <span class="normal">and Pricing</span></h3>
+        <p class="section-subtitle">Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus.</p>
+      </div> <!--/ .section-title-wrapper -->
+
+
+      <div class="col-md-4 col-sm-4 pricing-table centered col-md-offset-4 col-sm-offset-4">
+        <div class="pricing-head">
+
+          <h5>Coral</h5>
+          <div class="the-price">
+            <h1>$59<span class="subscript">/mo</span></h1>
+            <small>7 days FREE trial</small>
+          </div> <!--/ .the-price -->
+
+        </div> <!--/ .pricing-head -->
+
+        <div class="pricing-content">
+          <ul>
+            <li>Unlimited leads</li>
+            <li>35 Project</li>
+            <li>500K API Access</li>
+            <li>1000MB Storage</li>
+            <li>Custom Cloud Services</li>
+            <li>Performance Management</li>
+            <li>Weekly Reports</li>
+          </ul>
+        </div> <!--/ .pricing-content -->
+
+        <div class="pricing-table-button">
+          <a href="#" class="small-btn btn-default green-btn btn-default uppercase">Sign Up</a>
+        </div>
+
+      </div> <!--/ .pricing-table -->
+
+      <div class="col-md-12 centered">
+        <p style="margin: 20px 0;">Do you have any other ideas regarding the service plans? We'd love to hear from you! Let's <a href="#contactModal" data-toggle="modal" id="tour-9">Contact Us</a>.</p>
+      </div>
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #lower-content -->
+
+
+
+
+<!-- Horizontal Line -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <hr class="content-hr" />
+    </div>
+
+  </div> <!--/ .row -->
+
+</div> <!--/ .container -->
+<!--/ END Horizontal Line -->
+
+
+
+<!-- Marketing Section -->
+<section id="marketing" style="margin-top: 60px;">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 centered section-title-wrapper">
+        <h3 class="section-title">Meet the team</h3>
+        <p class="section-subtitle">Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus.</p>
+      </div> <!~-/ .section-title-wrapper -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <h5>Join</h5>
+        <p>Sign up for an account in 2 minutes and start receiving leads immedieately.</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+
+        <h5>Analyze</h5>
+        <p>Every minute of every day, we collect tweets and analyze it to find people in your city who are  interested in your services
+          .</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <h5>Show</h5>
+        <p>See your entire list of prospects on an interactive dashboard.</p>
+      </div> <!--/ .marketing-content -->
+
+      <div class="col-md-3 col-sm-3 marketing-content centered">
+        <h5>Sell</h5>
+        <p>Click on the user and start selling.</p>
+      </div> <!--/ .marketing-content -->
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #marketing -->
+
+
+<!-- Breakline Section -->
+<section id="breakline" class="dark-bg">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-7 col-sm-7">
+        <h3 class="centered normal">Subscribe and be the first to know all updates and special offers!</h3>
+      </div>
+
+      <div class="col-md-5 col-sm-5" id="tour-9">
+
+        <form id="subscribe_form" action="subscribe.php" method="post">
+          <input id="subscribe_email" class="subscribe-input" placeholder="Enter your valid email address..." type="text" value="" name="subscribe" />
+          <input id="subscribe_btn btn-default" class="subscribe-submit yellow-btn btn-default" type="submit" value="Subscribe" />
+        </form>
+        <!--/ #subscribe_form -->
+
+        <!-- Alert Message for Subscribe Form -->
+        <div class="row">
+
+          <div class="subscribe-alert">
+
+            <div class="alert alert-error form-error-message" id="subscribe_error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
+              <strong>Error!</strong> Please enter your valid email address.
+            </div>
+
+            <div class="alert alert-success form-error-message" id="subscribe_success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-thumbs-up icon-white"></i></span>
+              <strong>Success!</strong>You've been subscribed.
+            </div>
+
+            <div class="alert form-error-message" id="subscribe_fail">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-bullhorn icon-white"></i></span>
+              <strong>Sorry!</strong> An error occured when subscribing your email.
+            </div>
+
+          </div> <!-- subscribe-alert -->
+
+        </div>
+        <!-- END Alert Message for Subscribe Form -->
+
+        <p class="subscribe-text centered">* Don't worry to subscribe. We hate spam too!</p>
+
+      </div>
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #breakline -->
+
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h5 class="modal-label">Contact Us</h5>
+      </div> <!--/ .modal-header -->
+
+      <div class="modal-body contact-form-container">
+
+        <form name="contactForm" id="contact_form" action="contact.php" method="post">
+
+          <div class="row">
+            <!-- Alert Message for Contact Form -->
+            <div class="alert alert-error form-error-message" id="name_error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
+              <strong>Error!</strong> Please enter your name.
+            </div>
+
+            <div class="alert alert-error form-error-message" id="email_error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
+              <strong>Error!</strong> Please enter your valid email address.
+            </div>
+
+            <div class="alert alert-error form-error-message" id="subject_error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
+              <strong>Error!</strong> Please enter your subject.
+            </div>
+
+            <div class="alert alert-error form-error-message" id="message_error">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-fire icon-white"></i></span>
+              <strong>Error!</strong> Please enter your message.
+            </div>
+            <!--/ END Alert Message for Subscribe Form -->
+          </div> <!--/ .row -->
+
+          <div class="row">
+
+            <div class="col-md-6">
+              <label>Name :</label>
+              <input name="thename" class="contact-input" id="name" type="text" placeholder="Input your name.." />
+            </div>
+
+            <div class="col-md-6">
+              <label>Email :</label>
+              <input name="email" class="contact-input" id="email" type="text" placeholder="Input your email.." />
+            </div>
+
+          </div>  <!--/ .row -->
+
+          <div class="row">
+
+            <div class="col-md-12">
+              <label>Subject :</label>
+              <input name="subject" class="contact-input" id="subject" type="text" placeholder="Input your subject.." />
+            </div>
+
+          </div> <!--/ .row -->
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <label>Message :</label>
+              <textarea id="message" name="message" rows="7" placeholder="Your message"></textarea>
+
+            </div>
+
+          </div> <!--/ .row -->
+
+          <div class="row">
+
+            <div class="alert alert-success form-error-message" id="mail_success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-thumbs-up icon-white"></i></span>
+              <strong>Success!</strong>Your message has been sent successfully.
+            </div>
+
+            <div class="alert form-error-message" id="mail_fail">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <span class="alert-icon"><i class="glyphicon glyphicon-bullhorn icon-white"></i></span>
+              <strong>Sorry!</strong> An error occured this time sending your message.
+            </div>
+
+          </div> <!--/ .row -->
+
+          <div class="row">
+
+            <div class="col-md-12" id="submit">
+              <input type="submit" id="send_message" class="send-button green-btn btn-default"
+                     name="submit" value="Send Message" />
+            </div>
+
+          </div> <!--/ .row -->
+
+        </form> <!-- END Contact Form -->
+
+      </div> <!--/ .modal-body -->
+
+    </div> <!--/ .modal-content -->
+
+  </div> <!--/ .modal-dialog -->
+
+</div>
+<!--/ END Contact Modal -->
+
+
+<!-- Footer Section -->
+<section id="footer">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6 col-sm-6">
+        <p class="copyright">
+          <img src="img/small-logo.png" alt="Footer Logo" />© copyright 2013. all rights reserved</p>
+      </div>
+
+      <div class="col-md-6 col-sm-6">
+
+        <ul class="social pull-right">
+          <li><a href="#"><span aria-hidden="true" class="icon-facebook"></span></a></li>
+          <li><a href="#"><span aria-hidden="true" class="icon-twitter"></span></a></li>
+          <li><a href="#"><span aria-hidden="true" class="icon-googleplus"></span></a></li>
+          <li><a href="#"><span aria-hidden="true" class="icon-linkedin"></span></a></li>
+        </ul><!--/ .green-social -->
+
+      </div>
+
+    </div> <!--/ .row -->
+
+  </div> <!-- / .container -->
+
+</section>
+<!--/ #footer -->
+
+</div>
+<!--/ END Main Container -->
+
+<!-- Le javascript==================================================-->
 
 </body>
+
 </html>
