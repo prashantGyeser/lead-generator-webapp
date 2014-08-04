@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
   get 'policies/terms_and_conditions'
 
   get 'policies/privacy_policy'
+
+  get 'subscriptions/show'
+
 
   namespace :admin do
   get 'dashboard/index'
@@ -10,7 +14,7 @@ Rails.application.routes.draw do
   #get 'home/index'
   root 'home#index'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
   get 'leads/add'
   get 'leads/push'
