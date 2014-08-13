@@ -1,66 +1,33 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <meta charset="utf-8" />
-  <title>Leads</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sell fast</title>
 
+  <!--Typekit fonts -- start-->
+  <script type="text/javascript" src="//use.typekit.net/yjy6rjo.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <!--Typekit fonts -- end-->
+
+  <!-- Bootstrap -->
   <%= stylesheet_link_tag    'dashboard/application', media: 'all', 'data-turbolinks-track' => true %>
 
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<body class="">
-<!-- BEGIN HEADER -->
-<div class="header navbar navbar-inverse ">
-  <!-- BEGIN TOP NAVIGATION BAR -->
-  <div class="navbar-inner">
-    <!-- END RESPONSIVE MENU TOGGLER -->
-    <div class="header-quick-nav" >
-      <!-- BEGIN CHAT TOGGLER -->
-      <div class="pull-right">
-        <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
-          <div class="user-details" style="margin-right: 20px;">
-            <div class="username">
-              <%= current_user.email %>
-            </div>
-          </div>
-        </a>
+<body>
+
+<%= yield %>
 
 
-        </div>
-      </div>
-      <!-- END CHAT TOGGLER -->
-    </div>
-    <!-- END TOP NAVIGATION MENU -->
-  </div>
-  <!-- END TOP NAVIGATION BAR -->
-</div>
-<!-- END HEADER -->
-<!-- BEGIN CONTAINER -->
-<div class="page-container row-fluid">
-<!-- BEGIN PAGE CONTAINER-->
-<div class="page-content">
-<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-<div id="portlet-config" class="modal hide">
-  <div class="modal-header">
-    <button data-dismiss="modal" class="close" type="button"></button>
-    <h3>Widget Settings</h3>
-  </div>
-  <div class="modal-body"> Widget settings form goes here </div>
-</div>
-<div class="clearfix"></div>
-<div class="content">
-  <%= yield %>
-</div>
-</div>
-</div>
-<!-- END PAGE -->
-<!-- END CONTAINER -->
-
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<%= javascript_include_tag "dashboard/application.js", "data-turbolinks-track" => true %>
 </body>
 </html>
