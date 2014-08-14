@@ -41,7 +41,7 @@ RSpec.describe SendMessageToQueue do
     UserCity.create(user_id: user.id, city_id: city.id)
     token = Token.create(user_id: user.id, oauth_token: 'rhdskdfhdks', oauth_secret: '435jdsklfjslfdsljjflsdjdlsjfsl' )
 
-    #expect(SendMessageToQueue.push_message_to_queue(user.id)).to eq "Messages put on queue."
+    expect(SendMessageToQueue.push_message_to_queue(user.id)).to eq "Messages put on queue."
 
   end
 

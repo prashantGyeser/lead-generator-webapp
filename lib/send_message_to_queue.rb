@@ -36,6 +36,13 @@ class SendMessageToQueue
   end
 
   def self.push_message_to_queue(user_id)
+
+    ptype = :multicast
+    subscribers = [
+        {:url => "http://urbanzeak-leads-processor.herokuapp.com/users"}
+    ]
+
+
     # Create an IronMQ::Client object
     @ironmq = IronMQ::Client.new()
 
@@ -44,7 +51,7 @@ class SendMessageToQueue
 
     categories = get_and_convert_categories_to_string(user_id)
     cities = get_and_convert_cities_to_string(user_id)
-
+    @queue.update(:subscribers => subscribers, :push_type => ptype)
 
     #message_to_post = generate_message(user_id, categories, cities)
 
