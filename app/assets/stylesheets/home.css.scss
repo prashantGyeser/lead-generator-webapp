@@ -85,20 +85,16 @@ h4
 .pricing_container
 {
   background: $base_light_brown;
-  color: $heading_dark_brown;
-
+  padding: 60px 0;
   h1
   {
-    text-align: center;
-    margin-top: 60px;
+    margin: 0;
+    padding: 0;
   }
-
-  h4
+  .lowered_text
   {
-    text-align: center;
-    margin-bottom: 60px;
+    margin-top: 15px;
   }
-
 }
 
 .pricing_table
@@ -139,6 +135,7 @@ h4
       td
       {
         padding: 20px;
+        //border-bottom: 1px solid $pricing_table_border_color;
       }
     }
   };
