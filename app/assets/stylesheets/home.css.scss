@@ -1,5 +1,5 @@
 $base_green: #4abc96;
-$base_blue: #357180;
+$base_blue: #48a1af;
 
 h1
 {
@@ -18,7 +18,7 @@ h4
 .header
 {
   background: $base_blue;
-  background-image: asset_url('header_background.jpg');
+  //background-image: asset_url('header_background.jpg');
 
   min-height: 400px;
   h1
@@ -46,6 +46,7 @@ h4
 .how_it_works
 {
   margin-top: 50px;
+  margin-bottom: 50px;
   h3
   {
     text-align: center;
@@ -59,4 +60,45 @@ h4
     margin-bottom: 30px;
   }
 
+}
+
+
+.horizontal_line
+{
+  min-height: 1px;
+  background-color: $base_green;
+  margin: 30px 0;
+}
+
+.pricing_container
+{
+  background: $base_green;
+  color: white;
+
+  h1
+  {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  h4
+  {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+}
+
+.pricing_table
+{
+  margin-top: -40px;
+  .white_background
+  {
+    background: #ffffff;
+    border: 1px solid grey;
+  }
+  .border-right-none
+  {
+    border-right: none;
+  }
 }

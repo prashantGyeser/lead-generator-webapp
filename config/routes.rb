@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :dashboard do
+  get 'stats/index'
+  end
+
   get 'policies/terms_and_conditions'
 
   get 'policies/privacy_policy'
