@@ -69,6 +69,10 @@ GEM
     hike (1.2.3)
     human_date (0.0.3)
     i18n (0.6.9)
+    iron_core (1.0.4)
+      rest (>= 2.6.4)
+    iron_mq (5.0.1)
+      iron_core (>= 0.5.1)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -84,6 +88,8 @@ GEM
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+    net-http-persistent (2.9.4)
+    netrc (0.7.7)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
@@ -126,6 +132,11 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
+    rest (2.7.1)
+      net-http-persistent (>= 2.9.1)
+      rest_client (>= 1.7.1)
+    rest_client (1.7.3)
+      netrc (~> 0.7.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -177,6 +188,7 @@ DEPENDENCIES
   devise
   figaro
   human_date
+  iron_mq
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

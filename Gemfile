@@ -55,6 +55,9 @@ gem 'omniauth-twitter'
 # Env config info
 gem "figaro"
 
+# Message queue
+gem 'iron_mq'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
