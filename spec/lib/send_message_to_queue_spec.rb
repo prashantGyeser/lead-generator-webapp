@@ -13,13 +13,14 @@ RSpec.describe SendMessageToQueue do
     expect(SendMessageToQueue.get_and_convert_categories_to_string(user.id)).to eq "bar"
   end
 
-  it "should convert multiple categories into a string" do
-    category_bar = Category.create(name: "bar")
-    category_cafe = Category.create(name: "cafe")
+  it "should convert a single user city into a string" do
+    city = City.create(:name => "NYC")
     user = User.create(:email => "test@test.com", :password => "password@123", :password_confirmation => "password@123" )
-    UserCategory.create(user_id: user.id, category_id: category_bar.id)
-    UserCategory.create(user_id: user.id, category_id: category_cafe.id)
-    expect(SendMessageToQueue.get_and_convert_categories_to_string(user.id)).to eq "bar,cafe"
+    UserCity.create(user_id: user.id, city_id: city.id)
+
+    expect(SendMessageToQueue.get_and_convert_cities_to_string(user.id)).to eq "NYC"
+
   end
+
 
 end

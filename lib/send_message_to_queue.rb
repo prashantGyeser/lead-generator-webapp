@@ -11,4 +11,19 @@ class SendMessageToQueue
     return category_array.join(',')
 
   end
+
+  def self.get_and_convert_cities_to_string(user_id)
+    user_cities = UserCity.where(user_id: user_id)
+    user_cities_array = []
+    user_cities.each do |user_city|
+      city = City.find(user_city.city_id)
+      user_cities_array << city
+    end
+
+    city_array = user_cities_array.map { |x| x[:name] }
+    return city_array.join(',')
+
+
+  end
+
 end
