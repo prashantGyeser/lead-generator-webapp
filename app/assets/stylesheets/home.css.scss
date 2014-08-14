@@ -1,31 +1,45 @@
 $base_green: #4abc96;
-$base_blue: #48a1af;
+$base_light_brown: #f9f8f7;
+$footer_dark_brown: #312d2a;
+$heading_dark_brown: #423c36;
+$pricing_table_border_color: #e6e4e0;
+
+body
+{
+  font-weight: 300;
+  color: $heading_dark_brown;
+}
+
+h1,h2,h3,h4
+{
+  font-family: "jaf-facitweb",sans-serif;
+  font-weight: 200;
+}
 
 h1
 {
-  font-family: "skolar",serif;
+
   margin-bottom: 20px;
 }
 
 h4
 {
-  font-family: "skolar",serif;
   margin-top: 15px;
 }
 
 
-
 .header
 {
-  background: $base_blue;
+  background: $base_light_brown;
   //background-image: asset_url('header_background.jpg');
 
   min-height: 400px;
   h1
   {
     text-align: center;
-    color: white;
-    font-family: "skolar",serif;
+    color: #423c36;
+    font-weight: 700;
+    font-size: 6em;
     margin-top: 30px;
     margin-bottom: 20px;
   }
@@ -33,13 +47,12 @@ h4
   {
     text-align: center;
     color: white;
-    font-family: "skolar",serif;
     margin-top: 15px;
   }
   img
   {
-    -webkit-box-shadow: 0 0 10px #348e70;
-    box-shadow: 0 0 10px #348e70;
+    //-webkit-box-shadow: 0 0 10px #348e70;
+    //box-shadow: 0 0 10px #348e70;
   }
 }
 
@@ -50,7 +63,6 @@ h4
   h3
   {
     text-align: center;
-    font-family: "skolar",serif;
   }
   .img-responsive {
     margin: 0 auto;
@@ -72,8 +84,8 @@ h4
 
 .pricing_container
 {
-  background: $base_green;
-  color: white;
+  background: $base_light_brown;
+  color: $heading_dark_brown;
 
   h1
   {
@@ -95,8 +107,42 @@ h4
   .white_background
   {
     background: #ffffff;
-    border: 1px solid grey;
+    border: 1px solid $pricing_table_border_color;
   }
+
+  table
+  {
+    margin-bottom: 200px;
+    width: 100%;
+    background: white;
+    border: 1px solid $pricing_table_border_color;
+    padding: 20px;
+    tr
+    {
+      //padding: 20px;
+      th
+      {
+        padding: 20px;
+        font-weight: 200;
+        border-bottom: 1px solid $pricing_table_border_color;
+      }
+      .title_column_header
+      {
+        font-size: 1.5em;
+      }
+      .title_bold
+      {
+        font-weight: bold;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      }
+      td
+      {
+        padding: 20px;
+      }
+    }
+  };
+
   .border-right-none
   {
     border-right: none;
