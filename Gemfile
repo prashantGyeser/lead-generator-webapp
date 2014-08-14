@@ -58,10 +58,16 @@ gem "figaro"
 # Message queue
 gem 'iron_mq'
 
-group :development do
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
   gem "binding_of_caller"
-  gem "annotate"
+  #gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'annotate'
+  gem 'faker'
+  #gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :production do
