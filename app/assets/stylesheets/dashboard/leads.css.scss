@@ -1,3 +1,24 @@
-// Place all the styles related to the dashboard/leads controller here.
-// They will automatically be included in application.css.scss.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$base_green: #4abc96;
+$base_light_brown: #f9f8f7;
+$footer_dark_brown: #312d2a;
+$heading_dark_brown: #423c36;
+$pricing_table_border_color: #e6e4e0;
+
+.page_heading_container
+{
+  background: $base_light_brown;
+  margin-bottom: 40px;
+}
+
+.connect_twitter
+{
+  img
+  {
+    margin: 30px auto;
+    display: block;
+  }
+  a
+  {
+    left: 40%;
+  }
+}

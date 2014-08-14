@@ -23,14 +23,4 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :set_leads
-
-  def set_leads
-   leads = Lead.where("date_last_shown < ?", Time.now - 1.month ).first(5)
-    leads.each do |lead|
-      UserLead.create(:lead_id => lead.id, :user_id => self.id)
-      lead.date_last_shown = Time.now
-      lead.save
-    end
-  end
 end
