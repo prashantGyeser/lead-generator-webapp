@@ -1,3 +1,5 @@
+require 'send_message_to_queue'
+
 class SessionsController < ApplicationController
   def create
 
