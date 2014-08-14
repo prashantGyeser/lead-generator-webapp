@@ -5,6 +5,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     if current_user.authorized_application == true
       @leads = UserLead.where(:user_id => current_user.id).order("created_at desc")
     else
+      session[:user_id] = current_user.id
       @application_not_authorized = true
     end
 
