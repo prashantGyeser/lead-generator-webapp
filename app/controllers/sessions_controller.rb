@@ -1,4 +1,4 @@
-require 'send_message_to_queue'
+require 'send_user_to_external_system'
 require 'create_token_from_auth_hash'
 #require 'auth_hash_parser'
 
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     token = CreateTokenFromAuthHash.create_token(env["omniauth.auth"], user_id)
 
-    SendMessageToQueue.push_message_to_queue(user_id)
+    @results = SendUserToExternalSystem.send_user
 
     redirect_to  dashboard_root_path, notice: 'Successfully integrated Twitter'
 
