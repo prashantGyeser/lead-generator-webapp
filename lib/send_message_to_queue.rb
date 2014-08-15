@@ -39,7 +39,8 @@ class SendMessageToQueue
 
     ptype = :multicast
     subscribers = [
-        {:url => "http://urbanzeak-leads-processor.herokuapp.com/users"}
+        #{:url => "http://urbanzeak-leads-processor.herokuapp.com/users"}
+        {:url => "http://http://7f1eb639.ngrok.com/users"}
     ]
 
 
