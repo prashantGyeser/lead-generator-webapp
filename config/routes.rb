@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :dashboard do
+    root 'leads#index'
+    get 'leads/index'
+  end
+
   get 'auth/:provider/callback', to: 'sessions#create'
-
-  get 'policies/terms_and_conditions'
-
-  get 'policies/privacy_policy'
-
-  get 'subscriptions/show'
 
 
   namespace :admin do
@@ -19,15 +18,17 @@ Rails.application.routes.draw do
   get 'leads/push'
   end
 
-  namespace :dashboard do
-    root 'leads#index'
-    get 'leads/index'
-  end
 
 
   #get 'home/index'
   root 'home#index'
   get "/about" => "home#about"
   get "/contact" => "home#contact"
+
+  get 'policies/terms_and_conditions'
+
+  get 'policies/privacy_policy'
+
+  get 'subscriptions/show'
 
 end
