@@ -13,11 +13,6 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   end
 
-  #get 'home/index'
-  root 'home#index'
-  get "/about" => "home#about"
-  get "/contact" => "home#contact"
-
   devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
   get 'leads/add'
@@ -28,5 +23,11 @@ Rails.application.routes.draw do
     root 'leads#index'
     get 'leads/index'
   end
+
+
+  #get 'home/index'
+  root 'home#index'
+  get "/about" => "home#about"
+  get "/contact" => "home#contact"
 
 end
