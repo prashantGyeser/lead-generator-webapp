@@ -1,0 +1,66 @@
+<style>
+  body{
+    background: #312d2a;
+  }
+  html.onboarding #content {
+    padding-bottom: 0;
+    background: white;
+  }
+  #content.welcome {
+    border: 4rem solid #312d2a;
+    height: 100% !important;
+    -webkit-transition: border-color 1.5s linear;
+    transition: border-color 1.5s linear;
+    margin-top: 20px;
+  }
+  #content {
+    background: white;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    padding: 15rem;
+  }
+  html.onboarding #content>div {
+    position: relative;
+  }
+  #welcome {
+    height: 100%;
+    opacity: 1;
+    -webkit-transform: translateY(-0.75rem);
+    -ms-transform: translateY(-0.75rem);
+    transform: translateY(-0.75rem);
+    -webkit-transition: -webkit-transform 0.85s cubic-bezier(0.19, 1, 0.22, 1),opacity 0.75s;
+    transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1),opacity 0.75s;
+    display: table;
+  }
+    .button
+    {
+      background: #4abc96;
+      padding: 10px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .button:hover
+    {
+      background: #399a7a;
+      color: white;
+      text-decoration: none;
+    }
+</style>
+
+<div class="welcome onboarding upstream" id="content">
+  <div id="welcome">
+      <main>
+        <h1>Welcome to Urbanzeak</h1>
+        <p style="margin-bottom: 30px;">
+          To get started, we’re going to walk you through integrating Urbanzeak into Twitter. It is simple and you can turn off the permission granted to Urbanzeak from Twitter at any time.
+        </p>
+
+
+        <h4 style="margin-bottom: 30px;">Twitter Integration</h4>
+
+        <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
+    </main>
+  </div>
+</div>

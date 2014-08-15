@@ -6,8 +6,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     if current_user_tokens.count > 0
 
     else
-      session[:user_id] = current_user.id
-      @application_not_authorized = true
+      redirect_to dashboard_initial_setups_index_path
     end
 
 

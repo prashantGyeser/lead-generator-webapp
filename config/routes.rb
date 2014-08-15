@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :dashboard do
+  get 'initial_setups/index'
+  end
+
+  namespace :dashboard do
     root 'leads#index'
     get 'leads/index'
   end
