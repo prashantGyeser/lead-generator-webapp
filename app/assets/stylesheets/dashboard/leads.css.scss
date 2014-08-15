@@ -8,6 +8,17 @@ $pricing_table_border_color: #e6e4e0;
 {
   background: $base_light_brown;
   margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+}
+
+.leads_container
+{
+  background: white;
+  margin-top: -80px;
+  padding: 20px;
+  border: 1px solid $pricing_table_border_color;
 }
 
 .connect_twitter
@@ -20,5 +31,40 @@ $pricing_table_border_color: #e6e4e0;
   a
   {
     left: 40%;
+  }
+}
+
+.leads_table
+{
+  margin-top: -80px;
+  margin-bottom: 60px;
+  width: 100%;
+  background: white;
+  border: 1px solid $pricing_table_border_color;
+  padding: 20px;
+  tr
+  {
+    //padding: 20px;
+    th
+    {
+      padding: 20px;
+      font-weight: 200;
+      border-bottom: 1px solid $pricing_table_border_color;
+    }
+    .title_column_header
+    {
+      font-size: 1.5em;
+    }
+    .title_bold
+    {
+      font-weight: bold;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+    td
+    {
+      padding: 20px;
+      //border-bottom: 1px solid $pricing_table_border_color;
+    }
   }
 }

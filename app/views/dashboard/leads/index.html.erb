@@ -1,6 +1,15 @@
 <%= render "dashboard/navbar" %>
 
-<% if @application_not_authorized == true %>
-  <%= render 'authorize_app' %>
-<% else  %>
-<% end %>
+
+<div class="page_heading_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Leads</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= render 'dashboard/leads/leads' %>
