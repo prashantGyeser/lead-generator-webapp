@@ -22,7 +22,7 @@ south_american_category = Category.create(name: "south_american")
 barbecue_category = Category.create(name: "barbecue")
 
 
-City.create(city_name: 'New York')
-City.create(city_name: 'Chicago')
-City.create(city_name: 'Los Angeles')
-City.create(city_name: 'San Francisco')
+City.create(name: 'New York' )
+City.create(name: 'Chicago')
+City.create(name: 'Los Angeles')
+City.create(name: 'San Francisco')
