@@ -10,4 +10,5 @@
 #
 
 class UserCategory < ActiveRecord::Base
+  belongs_to :user
 end

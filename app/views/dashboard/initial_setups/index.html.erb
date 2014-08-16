@@ -1,6 +1,7 @@
 <style>
   body{
     background: #312d2a;
+    font-weight: 200;
   }
   html.onboarding #content {
     padding-bottom: 0;
@@ -47,20 +48,52 @@
       color: white;
       text-decoration: none;
     }
+    .row
+    {
+      width: 95%;
+    }
+    select
+    {
+      background: white;
+      padding: 5px;
+    }
 </style>
 
 <div class="welcome onboarding upstream" id="content">
   <div id="welcome">
       <main>
         <h1>Welcome to Urbanzeak</h1>
-        <p style="margin-bottom: 30px;">
+        <p style="margin-bottom: 30px; width: 90%;">
           To get started, we’re going to walk you through integrating Urbanzeak into Twitter. It is simple and you can turn off the permission granted to Urbanzeak from Twitter at any time.
         </p>
 
 
-        <h4 style="margin-bottom: 30px;">Twitter Integration</h4>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h4 style="margin-bottom: 10px;">Twitter Integration</h4>
+              <p style="margin-bottom: 20px; font-style: italic;">
+                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+              </p>
+              <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
 
-        <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
+            </div>
+            <div class="col-md-4">
+              <h4 style="margin-bottom: 10px;">Select your city</h4>
+              <p style="margin-bottom: 20px; font-style: italic;">
+                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+              </p>
+              <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+            </div>
+            <div class="col-md-4">
+              <h4 style="margin-bottom: 10px;">Type of restaurant</h4>
+              <p style="margin-bottom: 20px; font-style: italic;">
+                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+              </p>
+              <%= select("category", "id", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+            </div>
+          </div>
+        </div>
     </main>
   </div>
 </div>
