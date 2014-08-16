@@ -21,4 +21,9 @@ RSpec.describe SetupCompleteSendUserToProcessor do
   end
 
 
+  it "should return an error if there is invalid data" do
+    results = SetupCompleteSendUserToProcessor.send_user_to_processor(@user.id)
+    expect(results).to eq "500"
+  end
+
 end

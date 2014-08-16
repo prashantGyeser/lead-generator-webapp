@@ -15,20 +15,10 @@
 
 class Token < ActiveRecord::Base
 
-  def self.from_omniauth(auth, user_id)
-    #where(auth.slice("provider", "uid")).first || create_from_omniauth(auth, user_id)
-  end
+  after_create :send_to_processor_if_setup_completed
 
-  def self.create_from_omniauth(auth, user_id)
-
-    puts jsds
-
-    user = User.find(user_id)
-
-    user.authorized_application = true
-    user.save
-
-
+  def send_to_processor_if_setup_completed
+    SetupCompleteSendUserToProcessor.send_user_to_processor(self.user_id)
   end
 
 end

@@ -15,7 +15,7 @@ class UserCategory < ActiveRecord::Base
   after_create :send_to_processor_if_setup_completed
 
   def send_to_processor_if_setup_completed
-    #SetupCompleteSendUserToProcessor.send_user_to_processor(self.user_id)
+    SetupCompleteSendUserToProcessor.send_user_to_processor(self.user_id)
   end
 
 end
