@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  authorized_application :boolean
+#  user_sent_to_processor :boolean
 #
 
 class User < ActiveRecord::Base

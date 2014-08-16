@@ -11,8 +11,6 @@ class SessionsController < ApplicationController
 
     token = CreateTokenFromAuthHash.create_token(env["omniauth.auth"], user_id)
 
-    @results = SendUserToExternalSystem.send_user
-
     redirect_to  dashboard_root_path, notice: 'Successfully integrated Twitter'
 
   end
