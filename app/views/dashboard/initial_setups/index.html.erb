@@ -41,6 +41,7 @@
       padding: 10px;
       color: #ffffff;
       text-decoration: none;
+      border: none;
     }
     .button:hover
     {
@@ -56,12 +57,50 @@
     {
       background: white;
       padding: 5px;
+      width: 100%;
+      margin-bottom: 10px;;
     }
+
+    .alert
+    {
+      padding: 10px;
+      margin: 0;
+      width: 90%;
+    }
+
+    .alert-success
+    {
+      background: #dff3ec;
+      border: 1px solid #94d8c1;
+      color: #348e70;
+    }
+
+  .alert-error
+  {
+    background: #f9d0d0;
+    border: 1px solid #f5b2b2;
+    color: #e84849;
+  }
+
 </style>
 
 <div class="welcome onboarding upstream" id="content">
   <div id="welcome">
       <main>
+
+        <% if flash[:error] %>
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><%= flash[:error] %></strong>
+          </div>
+        <% end %>
+        <% if flash[:success] %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><%= flash[:success] %></strong>
+          </div>
+        <% end %>
+
         <h1>Welcome to Urbanzeak</h1>
         <p style="margin-bottom: 30px; width: 90%;">
           To get started, we’re going to walk you through integrating Urbanzeak into Twitter. It is simple and you can turn off the permission granted to Urbanzeak from Twitter at any time.
@@ -83,7 +122,14 @@
               <p style="margin-bottom: 20px; font-style: italic;">
                 Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
               </p>
-              <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+
+              <%= form_for @user_city, :url => dashboard_initial_setups_add_city_path do |f| %>
+                <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+                <%= f.submit "Set city", class: "button outlined" %>
+              <% end %>
+
+
+
             </div>
             <div class="col-md-4">
               <h4 style="margin-bottom: 10px;">Type of restaurant</h4>
