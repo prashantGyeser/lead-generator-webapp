@@ -63,7 +63,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   #gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
   gem 'annotate'
   gem 'faker'
   #gem 'factory_girl'

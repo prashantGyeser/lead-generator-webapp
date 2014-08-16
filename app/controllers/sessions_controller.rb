@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
 
     token = CreateTokenFromAuthHash.create_token(env["omniauth.auth"], user_id)
-
-    redirect_to  dashboard_root_path, notice: 'Successfully integrated Twitter'
+    SetupCompleteSendUserToProcessor.send_user_to_processor(self.user_id)
+    redirect_to  dashboard_initial_setups_index_path, notice: 'Successfully integrated Twitter'
 
   end
 end

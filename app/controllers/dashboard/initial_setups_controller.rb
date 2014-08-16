@@ -1,3 +1,5 @@
+require 'setup_complete_send_user_to_processor'
+
 class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     session[:user_id] = current_user.id
@@ -26,13 +28,14 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
       if @user_city.save
         flash[:success] = "Updated your city preference"
+
+        SetupCompleteSendUserToProcessor.send_user_to_processor(current_user.id)
+
         redirect_to dashboard_initial_setups_index_path
       else
         flash[:error] = @user_city.errors.full_messages.join("<br>").html_safe
         redirect_to dashboard_initial_setups_index_path
       end
-
-
     end
 
 
@@ -49,6 +52,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
       @user_category = UserCategory.new(user_id: current_user.id, category_id: category_id)
       if @user_category.save
         flash[:success] = "Updated your category preference"
+        SetupCompleteSendUserToProcessor.send_user_to_processor(current_user.id)
         redirect_to dashboard_initial_setups_index_path
       else
         flash[:error] = @user_category.errors.full_messages.join("<br>").html_safe

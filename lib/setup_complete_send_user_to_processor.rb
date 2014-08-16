@@ -9,6 +9,8 @@ class SetupCompleteSendUserToProcessor
 
     if (SetupStatus.setup_complete?(user_id) && user.user_sent_to_processor != true)
       SendUserToExternalSystem.send_user(user_id)
+      user.user_sent_to_processor = true
+      user.save
     end
 
   end
