@@ -1,24 +1,35 @@
 class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     session[:user_id] = current_user.id
-    @user_city = UserCity.new
+
+    @user_cities = UserCity.where(user_id: current_user.id)
+    @user_categories = UserCategory.where(user_id: current_user.id)
+    @user_tokens = Token.where(user_id: current_user.id)
+
+    if (@user_cities.count > 0 && @user_categories.count > 0 && @user_tokens.count > 0)
+      redirect_to dashboard_root_path
+    else
+      @user_city = UserCity.new
+      @user_category = UserCategory.new
+    end
+
   end
 
   def add_city
     city_id = params[:city][:id]
 
     if city_id.empty?
-
+      flash[:error] = "You need to select a city"
+      redirect_to dashboard_initial_setups_index_path
     else
       @user_city = UserCity.new(user_id: current_user.id, city_id: city_id)
 
       if @user_city.save
-        #set flash[:success] to "Todo added successfully"
         flash[:success] = "Updated your city preference"
-        render :index
+        redirect_to dashboard_initial_setups_index_path
       else
         flash[:error] = @user_city.errors.full_messages.join("<br>").html_safe
-        render :index
+        redirect_to dashboard_initial_setups_index_path
       end
 
 
@@ -26,5 +37,26 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
 
   end
+
+
+  def add_category
+    category_id = params[:category][:id]
+
+    if category_id.empty?
+      flash[:error] = "You need to select a category"
+      redirect_to dashboard_initial_setups_index_path
+    else
+      @user_category = UserCategory.new(user_id: current_user.id, category_id: category_id)
+      if @user_category.save
+        flash[:success] = "Updated your category preference"
+        redirect_to dashboard_initial_setups_index_path
+      else
+        flash[:error] = @user_category.errors.full_messages.join("<br>").html_safe
+        redirect_to dashboard_initial_setups_index_path
+      end
+    end
+
+  end
+
 
 end

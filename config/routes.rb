@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'
+    post '/initial_setups/add_category' => 'initial_setups#add_category'
   end
 
   namespace :dashboard do

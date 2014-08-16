@@ -114,7 +114,12 @@
               <p style="margin-bottom: 20px; font-style: italic;">
                 Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
               </p>
-              <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
+
+              <% if @user_tokens.count > 0  %>
+                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
+              <% else %>
+                <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
+              <% end %>
 
             </div>
             <div class="col-md-4">
@@ -123,11 +128,14 @@
                 Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
               </p>
 
-              <%= form_for @user_city, :url => dashboard_initial_setups_add_city_path do |f| %>
-                <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
-                <%= f.submit "Set city", class: "button outlined" %>
+              <% if @user_cities.count > 0  %>
+                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
+              <% else %>
+                <%= form_for @user_city, :url => dashboard_initial_setups_add_city_path do |f| %>
+                  <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+                  <%= f.submit "Set city", class: "button outlined" %>
+                <% end %>
               <% end %>
-
 
 
             </div>
@@ -136,7 +144,16 @@
               <p style="margin-bottom: 20px; font-style: italic;">
                 Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
               </p>
-              <%= select("category", "id", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+
+              <% if @user_categories.count > 0  %>
+                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
+              <% else %>
+                <%= form_for @user_category, :url => dashboard_initial_setups_add_category_path do |f| %>
+                  <%= select("category", "id", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
+                  <%= f.submit "Set category", class: "button outlined" %>
+                <% end %>
+              <% end %>
+
             </div>
           </div>
         </div>
