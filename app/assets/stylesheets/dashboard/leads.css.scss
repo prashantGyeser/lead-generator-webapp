@@ -5,6 +5,29 @@ $footer_dark_brown: #312d2a;
 $heading_dark_brown: #423c36;
 $pricing_table_border_color: #e6e4e0;
 
+
+.alert
+{
+  padding: 10px;
+  margin: 0;
+  width: 90%;
+}
+
+.alert-success
+{
+  background: #dff3ec;
+  border: 1px solid #94d8c1;
+  color: #348e70;
+}
+
+.alert-error
+{
+  background: #f9d0d0;
+  border: 1px solid #f5b2b2;
+  color: #e84849;
+}
+
+
 .page_heading_container
 {
   background: $base_light_brown;
@@ -68,4 +91,36 @@ $pricing_table_border_color: #e6e4e0;
       //border-bottom: 1px solid $pricing_table_border_color;
     }
   }
+}
+
+tr.reply
+{
+  border-bottom: 1px solid $pricing_table_border_color;
+  td
+  {
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+
+}
+
+input[type=text]
+{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #e6e4e0
+}
+input:focus
+{
+    outline: 0;
+  border: 1px solid #b9b3a8;
+}
+
+button
+{
+  width: 100%;
+  background: $base_green;
+  border: none;
+  color: #ffffff;
+  padding: 6px;
 }

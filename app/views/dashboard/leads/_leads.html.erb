@@ -9,25 +9,101 @@
         <tr>
           <th>Screename</th>
           <th>Tweet</th>
-          <th>Actions</th>
         </tr>
+
+        <% @leads.each do |lead|  %>
+          <tr>
+            <td><%= lead.screen_name %></td>
+            <td><%= lead.tweet %></td>
+          </tr>
+
+          <tr class="reply">
+            <td colspan="2">
+              <div class="row">
+
+                <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
+
+
+                    <% messages = TweetReply.where(:user_id => lead.user_id).where(:lead_id => lead.id) %>
+
+                    <% if messages.count > 0 %>
+                    <div class="col-md-12">
+                      <%= image_tag "status_available.png", :style => "margin-right: 10px;" %> Message sent
+                    </div>
+
+                    <% else %>
+                    <div class="col-md-10">
+
+                      <%= f.text_field :message, :placeholder => "Reply to #{lead.screen_name}", :required => true %>
+                      <%= f.hidden_field :lead_id, :value => lead.id %>
+                      <%= f.hidden_field :user_id, :value => lead.user_id %>
+                    </div>
+                    <div class="col-md-2">
+                      <button name="commit" type="submit" value="Reply">Reply</button>
+                    </div>
+                    <% end %>
+
+
+                <% end %>
+
+              </div>
+            </td>
+          </tr>
+        <% end %>
 
         <tr>
           <td>mikelberger</td>
           <td>A successful Food Truck Friday at @MatchboxCowork #greaterlala pic.twitter.com/PGb03J4o7P</td>
-          <td><a href="#">Message</a></td>
+        </tr>
+
+        <tr class="reply">
+          <td colspan="2">
+            <div class="row">
+              <div class="col-md-10">
+                <input type="text" placeholder="Reply"/>
+              </div>
+              <div class="col-md-2">
+                <button>Reply</button>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <tr>
           <td>christinaperri</td>
           <td>fun, frolicking and food = pre birthday weekend mission. ohhh and </td>
-          <td><a href="#">Message</a></td>
         </tr>
+
+        <tr class="reply">
+          <td colspan="2">
+            <div class="row">
+              <div class="col-md-10">
+                <input type="text" placeholder="Reply"/>
+              </div>
+              <div class="col-md-2">
+                <button>Reply</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+
 
         <tr>
           <td>Ahmedshabbir20</td>
           <td>Same story @htTweets: #MP: 53 children taken ill after eating #IndependenceDay food at school http://read.ht/hrH  pic.twitter.com/B6wlmSE2LY</td>
-          <td><a href="#">Message</a></td>
+        </tr>
+
+        <tr class="reply">
+          <td colspan="2">
+            <div class="row">
+              <div class="col-md-10">
+                <input type="text" placeholder="Reply"/>
+              </div>
+              <div class="col-md-2">
+                <button>Reply</button>
+              </div>
+            </div>
+          </td>
         </tr>
 
       </table>

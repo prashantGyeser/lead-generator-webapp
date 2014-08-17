@@ -4,7 +4,21 @@
 <div class="page_heading_container">
   <div class="container">
     <div class="row">
+
       <div class="col-md-8 col-md-offset-2">
+
+        <% if flash[:error] %>
+          <div class="alert alert-error">
+            <strong><%= flash[:error] %></strong>
+          </div>
+        <% end %>
+        <% if flash[:success] %>
+          <div class="alert alert-success">
+            <strong><%= flash[:success] %></strong>
+          </div>
+        <% end %>
+
+
         <h1>Leads</h1>
       </div>
     </div>

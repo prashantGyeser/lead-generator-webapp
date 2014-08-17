@@ -24,4 +24,8 @@ class Lead < ActiveRecord::Base
   validates :user_id, presence: true
   validates :tweet, presence: true
   validates :tweet_id, presence: true
+
 end
+
+# Create dummy records
+#Lead.create(screen_name: Faker::Internet.user_name(Faker::Name.name , %w(. _ -)), tweet: Faker::Lorem.sentence, user_id:1, tweet_id: Faker::Lorem.characters(10))
