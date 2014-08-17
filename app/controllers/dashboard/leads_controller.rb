@@ -24,7 +24,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     end
 
     lead = Lead.find(params[:tweet_reply][:lead_id])
-    message_to_send = "@#{}" + params[:tweet_reply][:message]
+    message_to_send = "@#{lead.screen_name}" + params[:tweet_reply][:message]
 
 
     if @tweet_reply.save
