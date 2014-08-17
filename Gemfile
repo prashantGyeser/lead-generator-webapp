@@ -64,7 +64,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
   gem "binding_of_caller"
-  #gem 'factory_girl_rails'
   gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
   gem 'annotate'
   gem 'faker'
@@ -73,7 +72,7 @@ group :development, :test do
 end
 
 group :test do
-
+  gem 'shoulda-matchers'
 end
 
 group :production do

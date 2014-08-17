@@ -17,4 +17,10 @@ RSpec.describe ImportLeads do
                        )
   end
 
+  it "should contain multiple leads" do
+    results = ImportLeads.import_from_processor
+    expect(results.count).to eq 2
+  end
+
+
 end

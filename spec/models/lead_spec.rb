@@ -16,8 +16,8 @@
 #  user_id         :integer
 #
 
-class Lead < ActiveRecord::Base
+require 'rails_helper'
 
-  validates_uniqueness_of :tweet_id, :scope => [:user_id]
-
+RSpec.describe Lead, :type => :model do
+  it { should validate_uniqueness_of(:tweet_id).scoped_to(:user_id)}
 end

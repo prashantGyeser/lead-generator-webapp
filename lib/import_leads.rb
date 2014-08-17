@@ -7,8 +7,13 @@ class ImportLeads
     responce =
       HTTParty.get(ENV['PROCESSOR_SERVER_URL'] + '/api/v1/leads/index')
 
-    return responce
+    #return responce
+
+    responce.each do |lead|
+
+    end
 
   end
+
 
 end
