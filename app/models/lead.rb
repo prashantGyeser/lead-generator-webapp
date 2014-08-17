@@ -18,6 +18,10 @@
 
 class Lead < ActiveRecord::Base
 
-  validates_uniqueness_of :tweet_id, :scope => [:user_id]
+  belongs_to :user
 
+  validates_uniqueness_of :tweet_id, :scope => [:user_id]
+  validates :user_id, presence: true
+  validates :tweet, presence: true
+  validates :tweet_id, presence: true
 end

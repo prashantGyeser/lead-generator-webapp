@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
 
   has_many :user_cities
   has_many :user_categories
+  has_many :leads
 
 
 end
