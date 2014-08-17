@@ -60,6 +60,8 @@ gem 'iron_mq'
 
 gem 'httparty'
 
+gem 'twitter'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"

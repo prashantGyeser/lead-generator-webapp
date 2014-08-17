@@ -23,7 +23,6 @@
 
                 <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
 
-
                     <% messages = TweetReply.where(:user_id => lead.user_id).where(:lead_id => lead.id) %>
 
                     <% if messages.count > 0 %>
