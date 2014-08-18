@@ -13,7 +13,8 @@
 
         <% @leads.each do |lead|  %>
           <tr>
-            <td><%= lead.screen_name %></td>
+            <% profile_url = 'https://twitter.com/' + lead.screen_name %>
+            <td><%= link_to lead.screen_name, profile_url %></td>
             <td><%= lead.tweet %></td>
           </tr>
 
