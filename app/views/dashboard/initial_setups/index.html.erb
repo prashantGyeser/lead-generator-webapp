@@ -111,8 +111,11 @@
           <div class="row" style="width: 90%">
             <div class="col-md-4" style="margin-bottom: 20px;">
               <h4 style="margin-bottom: 10px;">Twitter Integration</h4>
-              <p style="margin-bottom: 20px; font-style: italic;">
-                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+              <p style="margin-bottom: 10px; font-style: italic;">
+                We use this information to search for tweets on your behalf and we also allow you to message from one place
+              </p>
+              <p style="margin-bottom: 20px; font-weight: bold;">
+                We hate spam, we will not post automatically. You have to selct and send the message.
               </p>
 
               <% if @user_tokens.count > 0  %>
@@ -125,7 +128,7 @@
             <div class="col-md-4" style="margin-bottom: 20px;">
               <h4 style="margin-bottom: 10px;">Select your city</h4>
               <p style="margin-bottom: 20px; font-style: italic;">
-                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+                We use the city you select to find people near you.
               </p>
 
               <% if @user_cities.count > 0  %>
@@ -142,7 +145,7 @@
             <div class="col-md-4" style="margin-bottom: 20px;">
               <h4 style="margin-bottom: 10px;">Type of restaurant</h4>
               <p style="margin-bottom: 20px; font-style: italic;">
-                Small description on what this is for. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare orci odio, eget fringilla nunc semper se.
+                We use the category to find people interested in your food.
               </p>
 
               <% if @user_categories.count > 0  %>
