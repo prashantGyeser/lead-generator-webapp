@@ -40,6 +40,13 @@ h4
     margin-right: 15px;
     font-weight: 700;
   }
+
+  #sign_up_button:hover
+  {
+    text-decoration: none;
+    background: #399a7a;
+  }
+
   #login_button
   {
     background-color: $heading_dark_brown;
@@ -49,6 +56,12 @@ h4
     margin-top: 4px;
     font-weight: 700;
   }
+  #login_button:hover
+  {
+    background: #2f2b27;
+    text-decoration: none;
+  }
+
 }
 
 .header_authentication_buttons
@@ -66,6 +79,12 @@ h4
     margin-right: 15px;
     font-weight: 700;
   }
+  #sign_up_button:hover
+  {
+    text-decoration: none;
+    background: #399a7a;
+  }
+
   #login_button
   {
     background-color: $heading_dark_brown;
