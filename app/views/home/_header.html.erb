@@ -4,6 +4,21 @@
       <div class="col-md-12 center-text">
         <h1>Restaurant sales simplified</h1>
         <h4> Urbanzeak uses its revolutionary algorithm and analyzes millions of tweets to find people near you who would be interested to dine at your restaurant</h4>
+
+        <div class="row" style="margin-bottom: 30px;">
+          <div class="col-md-6 col-md-offset-3" style="text-align: center">
+            <ul class="header_authentication_buttons_container">
+              <li class="header_authentication_buttons">
+                <%= link_to "Sign up for free", new_user_registration_path, :id => "sign_up_button"%>
+              </li>
+              <li class="header_authentication_buttons">
+                <%= link_to "Login", new_user_session_path, :id => "login_button"%>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <!--<img src="header_image.png" alt="" class="img-responsive"/>-->
