@@ -14,8 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" style="font-size: 14px">
-        <li><a href="#">Leads</a></li>
-        <li><%= link_to "Sign out", destroy_user_session_path %></li>
+        <!--<li><a href="#">Leads</a></li>-->
+        <li class="authentication_buttons">
+          <%= link_to "Logout", destroy_user_session_path(:authenticity_token => form_authenticity_token()), :method => :delete, :id => "login_button"%>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
