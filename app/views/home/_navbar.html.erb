@@ -17,6 +17,12 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About",about_path %></li>
         <li><%= link_to "Contact",contact_path %></li>
+        <li class="authentication_buttons">
+          <%= link_to "Sign up", '#', :id => "sign_up_button"%>
+        </li>
+        <li class="authentication_buttons">
+          <%= link_to "Login", '#', :id => "login_button"%>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
