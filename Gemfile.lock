@@ -86,6 +86,8 @@ GEM
       rails (>= 3, < 5)
     hashie (3.2.0)
     hike (1.2.3)
+    honeybadger (1.16.3)
+      json
     http (0.6.2)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  honeybadger
   httparty
   human_date
   iron_mq
