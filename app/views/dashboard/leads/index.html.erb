@@ -1,29 +1,58 @@
 <%= render "dashboard/navbar" %>
 
 
-<div class="page_heading_container">
+
+<% if @leads.blank? %>
   <div class="container">
     <div class="row">
-
       <div class="col-md-8 col-md-offset-2">
-
-        <% if flash[:error] %>
-          <div class="alert alert-error">
-            <strong><%= flash[:error] %></strong>
-          </div>
-        <% end %>
-        <% if flash[:success] %>
-          <div class="alert alert-success">
-            <strong><%= flash[:success] %></strong>
-          </div>
-        <% end %>
-
-
-        <h1>Leads</h1>
+        <div class="empty_state_container">
+          <h4>
+            <%= image_tag "status_available.png" %>
+            <br/>
+            Setup successful completed!
+          </h4>
+          <p>
+            Thanks for completing the setup! We have begun collecting leads and it will take a few hours to collect and find the best leads for you.
+          </p>
+          <p>
+            Bookmark this page and come back here in 24 hours to start receiving your customer leads
+          </p>
+          <p>
+            We update your leads every 24 hours, so come back every day to see new leads
+            for the second one
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+<% else %>
+  <div class="page_heading_container">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+          <% if flash[:error] %>
+            <div class="alert alert-error">
+              <strong><%= flash[:error] %></strong>
+            </div>
+          <% end %>
+          <% if flash[:success] %>
+            <div class="alert alert-success">
+              <strong><%= flash[:success] %></strong>
+            </div>
+          <% end %>
 
 
-<%= render 'dashboard/leads/leads' %>
+          <h1>Leads</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%= render 'dashboard/leads/leads' %>
+<% end %>
+

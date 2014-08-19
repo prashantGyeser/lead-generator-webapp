@@ -15,6 +15,32 @@ body
   color: $heading_dark_brown;
 }
 
+
+.empty_state_container
+{
+  background: #f8fcfb;
+  padding: 20px;
+  border: 1px solid #d2eee5;
+  h4{
+    text-align: center;
+    img
+    {
+
+      margin-bottom: 10px;
+    }
+    color: $base_green;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  p
+  {
+    color: #0b1e18;
+  }
+
+}
+
+
+
 .authentication_buttons
 {
   #sign_up_button
