@@ -1,6 +1,6 @@
-namespace :import_leads do
+namespace :import do
   desc "Imports all the leads from processor"
-  task initial_import: :environment do
+  task imported_manually_checked_leads: :environment do
     ImportLeads.import_from_processor
   end
 end
