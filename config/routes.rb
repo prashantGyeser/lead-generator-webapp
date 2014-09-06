@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :lead_streams
+
   namespace :dashboard do
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'

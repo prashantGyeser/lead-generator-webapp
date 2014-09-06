@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lead_stream.user_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @lead_stream.category_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @lead_stream.city_id %>
+</p>
+
+<%= link_to 'Edit', edit_lead_stream_path(@lead_stream) %> |
+<%= link_to 'Back', lead_streams_path %>

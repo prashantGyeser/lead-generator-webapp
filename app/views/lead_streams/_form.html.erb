@@ -1,0 +1,29 @@
+<%= form_for(@lead_stream) do |f| %>
+  <% if @lead_stream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lead_stream.errors.count, "error") %> prohibited this lead_stream from being saved:</h2>
+
+      <ul>
+      <% @lead_stream.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %><br>
+    <%= f.number_field :city_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

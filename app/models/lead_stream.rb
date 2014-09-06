@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: user_categories
+# Table name: lead_streams
 #
 #  id          :integer          not null, primary key
-#  category_id :integer
 #  user_id     :integer
+#  category_id :integer
+#  city_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #
 
-class UserCategory < ActiveRecord::Base
-  belongs_to :user
+class LeadStream < ActiveRecord::Base
 end
