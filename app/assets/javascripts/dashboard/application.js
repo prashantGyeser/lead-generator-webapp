@@ -12,6 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js
+//= require plugins/boostrapv3/js/bootstrap.min
+//= require plugins/breakpoints.min
+//= require plugins/jquery-unveil/jquery.unveil.min
+//= require plugins/jquery.cookie.min
+//= require plugins/jquery-block-ui/jqueryblockui.min
+//= require plugins/jquery-slider/jquery.sidr.min
+//= require plugins/jquery-numberAnimate/jquery.animateNumbers.min
+//= require plugins/jquery-slimscroll/jquery.slimscroll.min
+//= require dashboard/core
+//= require dashboard/demo
 //= require turbolinks
 //= require_tree .

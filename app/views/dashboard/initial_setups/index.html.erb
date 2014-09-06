@@ -1,162 +1,38 @@
-<style>
-  body{
-    background: #312d2a;
-    font-weight: 200;
-  }
-  html.onboarding #content {
-    padding-bottom: 0;
-    background: white;
-  }
-  #content.welcome {
-    border: 4rem solid #312d2a;
-    height: 100% !important;
-    -webkit-transition: border-color 1.5s linear;
-    transition: border-color 1.5s linear;
-    margin-top: 20px;
-  }
-  #content {
-    background: white;
-    height: auto !important;
-    height: 100%;
-    min-height: 100%;
-    position: relative;
-    padding: 15rem;
-  }
-  html.onboarding #content>div {
-    position: relative;
-  }
-  #welcome {
-    height: 100%;
-    opacity: 1;
-    -webkit-transform: translateY(-0.75rem);
-    -ms-transform: translateY(-0.75rem);
-    transform: translateY(-0.75rem);
-    -webkit-transition: -webkit-transform 0.85s cubic-bezier(0.19, 1, 0.22, 1),opacity 0.75s;
-    transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1),opacity 0.75s;
-    display: table;
-  }
-    .button
-    {
-      background: #4abc96;
-      padding: 10px;
-      color: #ffffff;
-      text-decoration: none;
-      border: none;
-    }
-    .button:hover
-    {
-      background: #399a7a;
-      color: white;
-      text-decoration: none;
-    }
-    .row
-    {
-      width: 95%;
-    }
-    select
-    {
-      background: white;
-      padding: 5px;
-      width: 90%;
-      margin-bottom: 10px;;
-    }
 
-    .alert
-    {
-      padding: 10px;
-      margin: 0;
-      width: 80%;
-    }
-
-    .alert-success
-    {
-      background: #dff3ec;
-      border: 1px solid #94d8c1;
-      color: #348e70;
-    }
-
-  .alert-error
-  {
-    background: #f9d0d0;
-    border: 1px solid #f5b2b2;
-    color: #e84849;
-  }
-
-</style>
-
-<div class="welcome onboarding upstream" id="content">
-  <div id="welcome">
-      <main>
-
-        <% if flash[:error] %>
-          <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong><%= flash[:error] %></strong>
-          </div>
-        <% end %>
-        <% if flash[:success] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong><%= flash[:success] %></strong>
-          </div>
-        <% end %>
-
-        <h1>Welcome to Urbanzeak</h1>
-        <p style="margin-bottom: 30px; width: 85%;">
-          To get started, we’re going to walk you through integrating Urbanzeak into Twitter. It is simple and you can turn off the permission granted to Urbanzeak from Twitter at any time.
+<div class="page-title">
+  <h3>Initial - <span class="semi-bold">Setup</span></h3>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="grid simple ">
+      <div class="grid-body no-border" style="padding-top: 21px;">
+        <h3>Twitter  <span class="semi-bold">Integration</span></h3>
+        <p>
+          We hate spam, we will never automatically post. You have to select and send the message.
         </p>
-
-
-        <div class="container">
-          <div class="row" style="width: 90%">
-            <div class="col-md-4" style="margin-bottom: 20px;">
-              <h4 style="margin-bottom: 10px;">Twitter Integration</h4>
-              <p style="margin-bottom: 20px; font-weight: bold;">
-                We hate spam, we will not post automatically. You have to select and send the message.
-              </p>
-
-              <% if @user_tokens.count > 0  %>
-                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
-              <% else %>
-                <a href="/auth/twitter" class="button outlined">Integrate with Twitter</a>
-              <% end %>
-
-            </div>
-            <div class="col-md-4" style="margin-bottom: 20px;">
-              <h4 style="margin-bottom: 10px;">Select your city</h4>
-              <p style="margin-bottom: 20px; font-style: italic;">
-                We use the city you select to find people near you.
-              </p>
-
-              <% if @user_cities.count > 0  %>
-                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
-              <% else %>
-                <%= form_for @user_city, :url => dashboard_initial_setups_add_city_path do |f| %>
-                  <%= select("city", "id", City.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
-                  <%= f.submit "Set city", class: "button outlined" %>
-                <% end %>
-              <% end %>
-
-
-            </div>
-            <div class="col-md-4" style="margin-bottom: 20px;">
-              <h4 style="margin-bottom: 10px;">Type of restaurant</h4>
-              <p style="margin-bottom: 20px; font-style: italic;">
-                We use the category to find people interested in your food.
-              </p>
-
-              <% if @user_categories.count > 0  %>
-                <%= image_tag "status_available.png" %> <span style="margin-left: 10px; font-weight: 700">Done</span>
-              <% else %>
-                <%= form_for @user_category, :url => dashboard_initial_setups_add_category_path do |f| %>
-                  <%= select("category", "id", Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, :class => "sign_up_select") %>
-                  <%= f.submit "Set category", class: "button outlined" %>
-                <% end %>
-              <% end %>
-
-            </div>
+        <a href="#" class="btn btn-primary btn-cons">Activate Twitter</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="grid simple ">
+      <div class="grid-body no-border" style="padding-top: 21px;">
+        <h3>Define  <span class="semi-bold">Streams</span></h3>
+        <p>
+          We use the city and category you select to find people near you that are interested in your food.
+        </p>
+        <div class="row">
+          <div class="col-md-5">
+            <input placeholder="Category" class="form-control" type="text">
+          </div>
+          <div class="col-md-5">
+            <input placeholder="City" class="form-control" type="text">
+          </div>
+          <div class="col-md-2">
+            <a href="#" class="btn btn-primary btn-cons">Save</a>
           </div>
         </div>
-    </main>
+      </div>
+    </div>
   </div>
 </div>
