@@ -4,6 +4,8 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     session[:user_id] = current_user.id
 
+    @lead_stream = LeadStream.new
+
     @user_cities = UserCity.where(user_id: current_user.id)
     @user_categories = UserCategory.where(user_id: current_user.id)
     @user_tokens = Token.where(user_id: current_user.id)

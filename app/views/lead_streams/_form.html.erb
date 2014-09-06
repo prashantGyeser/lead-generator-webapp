@@ -11,10 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div class="col-md-5">
+
+    <%= select("category", "id", Category.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select category'}, style: "width: 100%") %>
   </div>
+  <div class="col-md-5">
+    <%= select("city", "id", City.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select city'}, style: "width: 100%") %>
+  </div>
+  <div class="col-md-2">
+    <a href="#" class="btn btn-primary">Save</a>
+  </div>
+
+
+
   <div class="field">
     <%= f.label :category_id %><br>
     <%= f.number_field :category_id %>
