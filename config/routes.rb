@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root 'leads#index'
-    get 'leads/index'
+    get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
   end
 

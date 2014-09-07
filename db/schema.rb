@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906194404) do
+ActiveRecord::Schema.define(version: 20140907193211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140906194404) do
     t.string   "user_image_url"
     t.string   "tweet_id"
     t.integer  "user_id"
+    t.integer  "lead_stream_id"
   end
 
   create_table "subscriptions", force: true do |t|

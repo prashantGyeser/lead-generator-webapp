@@ -14,6 +14,7 @@
 #  user_image_url  :string(255)
 #  tweet_id        :string(255)
 #  user_id         :integer
+#  lead_stream_id  :integer
 #
 
 require 'rails_helper'
