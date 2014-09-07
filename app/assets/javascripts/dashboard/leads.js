@@ -232,5 +232,21 @@ $(document).ready(function() {
             "Windows",
             "789.","A" ] );
     }
+
+
+    // Setting up the selected checkbox and adding it to the list of people to message
+    $('.tweet_checkbox').click(function(){
+        var selected_tweet = $(this).val()
+        appendWords(selected_tweet)
+    })
+
 });
 
+
+function appendWords(tweet_id_to_append){
+    var resultObj = $("#twitter_user_to_message");
+    var stringToAppend = resultObj.val().length > 0 ? resultObj.val() + "," : "";
+    resultObj .val( stringToAppend + tweet_id_to_append );
+    var number_of_people_being_messaged = resultObj.val().split(',').length
+    $('#number_of_people_being_messaged').html(number_of_people_being_messaged);
+}
