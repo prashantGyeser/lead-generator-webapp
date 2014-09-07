@@ -1356,7 +1356,7 @@ font-weight: 600;
     }
     .admin-bar {
         -moz-box-sizing: border-box;
-        bottom: -115px;
+        bottom: -155px;
         position: fixed;
         width: 100%;
         -webkit-transition: all 0.5s ease-in-out;
@@ -1367,9 +1367,10 @@ font-weight: 600;
             background: none repeat scroll 0 0 padding-box $color-white;
             border-top: 1px solid rgba(0, 0, 0, 0.15);
             box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.08);
-            margin-right:250px;
-            padding: 30px 35px 30px 40px;
-            text-align: right;
+            //margin-right:250px;
+            padding: 40px 35px 20px 40px;
+            //text-align: right;
+
         }
     }
     .header {
