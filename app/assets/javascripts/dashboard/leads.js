@@ -236,17 +236,40 @@ $(document).ready(function() {
 
     // Setting up the selected checkbox and adding it to the list of people to message
     $('.tweet_checkbox').click(function(){
-        var selected_tweet = $(this).val()
-        appendWords(selected_tweet)
+
+        if ($(this).prop('checked') == false) {
+            var selected_tweet = $(this).val();
+            removeTweetId(selected_tweet)
+        }
+        else {
+            var selected_tweet = $(this).val();
+            appendTweetId(selected_tweet)
+        }
     })
 
 });
 
 
-function appendWords(tweet_id_to_append){
+function appendTweetId(tweet_id_to_append){
     var resultObj = $("#twitter_user_to_message");
     var stringToAppend = resultObj.val().length > 0 ? resultObj.val() + "," : "";
-    resultObj .val( stringToAppend + tweet_id_to_append );
-    var number_of_people_being_messaged = resultObj.val().split(',').length
+    resultObj.val( stringToAppend + tweet_id_to_append );
+    var number_of_people_being_messaged = resultObj.val().split(',').length;
     $('#number_of_people_being_messaged').html(number_of_people_being_messaged);
+}
+
+function removeTweetId(tweet_id_to_remove){
+    var resultObj = $("#twitter_user_to_message");
+    people_to_message = resultObj.val();
+    number_of_people_array = people_to_message.split(',');
+    for (var i=number_of_people_array.length-1; i>=0; i--) {
+        if (number_of_people_array[i] === tweet_id_to_remove) {
+            number_of_people_array.splice(i, 1);
+
+        }
+    }
+    resultObj .val( number_of_people_array.join(',') );
+    var number_of_people_being_messaged = resultObj.val().split(',').length;
+    $('#number_of_people_being_messaged').html(number_of_people_being_messaged);
+
 }
