@@ -223,16 +223,6 @@ $(document).ready(function() {
     });
 
 
-    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-
-    function fnClickAddRow() {
-        $('#example3').dataTable().fnAddData( [
-            $("#val1 option:selected").text(),
-            $("#val2 option:selected").text(),
-            "Windows",
-            "789.","A" ] );
-    }
-
 
     // Setting up the selected checkbox and adding it to the list of people to message
     $('.tweet_checkbox').click(function(){
