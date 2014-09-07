@@ -4,35 +4,23 @@
       <h2><%= pluralize(@lead_stream.errors.count, "error") %> prohibited this lead_stream from being saved:</h2>
 
       <ul>
-      <% @lead_stream.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @lead_stream.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="col-md-5">
 
-    <%= select("category", "id", Category.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select category'}, style: "width: 100%") %>
+    <%# select("lead_stream_category", "id", Category.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select category'}, style: "width: 100%") %>
+    <%= f.collection_select :category_id, Category.all, :id, :capitalized_name, {:prompt => 'Select category'} %>
   </div>
   <div class="col-md-5">
-    <%= select("city", "id", City.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select city'}, style: "width: 100%") %>
+    <%# select("city", "id", City.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select city'}, style: "width: 100%") %>
+    <%= f.collection_select :city_id, City.all, :id, :capitalized_name, {:prompt => 'Select city'} %>
   </div>
   <div class="col-md-2">
-    <a href="#" class="btn btn-primary">Save</a>
-  </div>
-
-
-
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", class: "btn btn-primary"%>
   </div>
 <% end %>

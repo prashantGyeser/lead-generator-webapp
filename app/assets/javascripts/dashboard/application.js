@@ -21,6 +21,11 @@
 //= require plugins/jquery-slider/jquery.sidr.min
 //= require plugins/jquery-numberAnimate/jquery.animateNumbers.min
 //= require plugins/jquery-slimscroll/jquery.slimscroll.min
+//= require plugins/jquery-datatable/js/jquery.dataTables.min
+//= require plugins/jquery-datatable/extra/js/dataTables.tableTools.min
+//= require plugins/datatables-responsive/js/datatables.responsive.min
+//= require plugins/datatables-responsive/js/lodash.min
+//= require dashboard/datatables
 //= require dashboard/core
 //= require dashboard/demo
 //= require turbolinks

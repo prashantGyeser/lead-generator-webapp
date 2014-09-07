@@ -25,10 +25,11 @@ class LeadStreamsController < ApplicationController
   # POST /lead_streams.json
   def create
     @lead_stream = LeadStream.new(lead_stream_params)
-
+    @lead_stream[:user_id] = current_user.id
     respond_to do |format|
       if @lead_stream.save
-        format.html { redirect_to @lead_stream, notice: 'Lead stream was successfully created.' }
+        flash[:success] = "Successfully created your stream"
+        format.html { redirect_to dashboard_root_path }
         format.json { render :show, status: :created, location: @lead_stream }
       else
         format.html { render :new }

@@ -9,4 +9,7 @@
 #
 
 class Category < ActiveRecord::Base
+  def capitalized_name
+    return self.name.split.map(&:capitalize).join(' ')
+  end
 end

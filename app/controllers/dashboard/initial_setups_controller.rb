@@ -4,13 +4,18 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     session[:user_id] = current_user.id
 
+    @lead_streams = LeadStream.where(user_id: current_user.id)
+    lead_streams_available = User.find(current_user.id).total_streams
+
+    @number_of_available_streams = lead_streams_available - @lead_streams.count
+
     @lead_stream = LeadStream.new
 
     @user_cities = UserCity.where(user_id: current_user.id)
     @user_categories = UserCategory.where(user_id: current_user.id)
     @user_tokens = Token.where(user_id: current_user.id)
 
-    if (@user_cities.count > 0 && @user_categories.count > 0 && @user_tokens.count > 0)
+    if ((@lead_streams.count == lead_streams_available || (@user_cities.count > 0 && @user_categories.count > 0)) && @user_tokens.count > 0)
       redirect_to dashboard_root_path
     else
       @user_city = UserCity.new

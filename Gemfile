@@ -75,6 +75,11 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :development do
+  #gem 'ruby-debug'
+end
+
+
 group :test do
   gem 'shoulda-matchers'
 end

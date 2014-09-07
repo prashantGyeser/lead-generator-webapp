@@ -17,6 +17,7 @@
 #  updated_at             :datetime
 #  authorized_application :boolean
 #  user_sent_to_processor :boolean
+#  total_streams          :integer
 #
 
 require 'rails_helper'

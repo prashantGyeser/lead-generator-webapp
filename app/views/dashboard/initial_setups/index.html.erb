@@ -2,6 +2,18 @@
 <div class="page-title">
   <h3>Initial - <span class="semi-bold">Setup</span></h3>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %> fade in">
+        <!--<button class="close" data-dismiss="alert">×</button>-->
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-4">
     <div class="grid simple ">
@@ -21,117 +33,24 @@
         <p>
           We use the city and category you select to find people near you that are interested in your food.
         </p>
-        <div class="row" style="margin-bottom: 10px;">
-          <%= render 'lead_streams/form' %>
-        </div>
-        <div class="row" style="margin-bottom: 10px;">
-          <div class="col-md-5">
-            <!--<input placeholder="Category" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Select category...</option>
-              <option value="AK">Asian</option>
-              <option value="AK">American</option>
-              <option value="HI">South Amercian</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-            </select>
+
+        <% i = 0 %>
+        <% while i < @number_of_available_streams %>
+          <div class="row" style="margin-bottom: 10px;">
+            <%= render 'lead_streams/form' %>
           </div>
-          <div class="col-md-5">
-            <!--<input placeholder="City" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Boston</option>
-              <option value="AK">Chicago</option>
-              <option value="HI">Los Angeles</option>
-              <option value="AK">New York</option>
-            </select>
+          <% i = i + 1 %>
+        <% end %>
+
+        <% @lead_streams.each do |stream| %>
+          <div class="row" style="margin-bottom: 10px;">
+            <% category = Category.find(stream.category_id) %>
+            <% city = City.find(stream.city_id) %>
+            <div class="col-md-5"><%= category.capitalized_name %></div>
+            <div class="col-md-5"><%= city.capitalized_name %></div>
+            <div class="col-md-2"><i class="fa fa-check-circle" style="color: #00bc9a; font-size: 30px; text-align: center"></i></div>
           </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-primary">Save</a>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom: 10px;">
-          <div class="col-md-5">
-            <!--<input placeholder="Category" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Select category...</option>
-              <option value="AK">Asian</option>
-              <option value="AK">American</option>
-              <option value="HI">South Amercian</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-            </select>
-          </div>
-          <div class="col-md-5">
-            <!--<input placeholder="City" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Boston</option>
-              <option value="AK">Chicago</option>
-              <option value="HI">Los Angeles</option>
-              <option value="AK">New York</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-primary">Save</a>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom: 10px;">
-          <div class="col-md-5">
-            <!--<input placeholder="Category" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Select category...</option>
-              <option value="AK">Asian</option>
-              <option value="AK">American</option>
-              <option value="HI">South Amercian</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-            </select>
-          </div>
-          <div class="col-md-5">
-            <!--<input placeholder="City" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Boston</option>
-              <option value="AK">Chicago</option>
-              <option value="HI">Los Angeles</option>
-              <option value="AK">New York</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-primary">Save</a>
-          </div>
-        </div>
-        <div class="row" style="margin-bottom: 10px;">
-          <div class="col-md-5">
-            <!--<input placeholder="Category" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Select category...</option>
-              <option value="AK">Asian</option>
-              <option value="AK">American</option>
-              <option value="HI">South Amercian</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-              <option value="AK">Western</option>
-            </select>
-          </div>
-          <div class="col-md-5">
-            <!--<input placeholder="City" class="form-control" type="text">-->
-            <select id="source" style="width:100%">
-              <option value="AK">Boston</option>
-              <option value="AK">Chicago</option>
-              <option value="HI">Los Angeles</option>
-              <option value="AK">New York</option>
-            </select>
-          </div>
-          <div class="col-md-2">
-            <a href="#" class="btn btn-primary">Save</a>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
