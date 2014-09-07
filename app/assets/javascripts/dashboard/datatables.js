@@ -310,7 +310,8 @@ $(document).ready(function() {
         $("#val2 option:selected").text(),
         "Windows",
         "789.","A" ] );     
-	}	
+	}
+
 });
 
 

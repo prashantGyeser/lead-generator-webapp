@@ -245,7 +245,16 @@ $(document).ready(function() {
             var selected_tweet = $(this).val();
             appendTweetId(selected_tweet)
         }
-    })
+    });
+
+    $('#quick-access .btn-cancel').click( function() {
+        $("#quick-access").css("bottom","-215px");
+    });
+    $('#quick-access .btn-add').click( function() {
+        fnClickAddRow();
+        $("#quick-access").css("bottom","-115px");
+    });
+
 
 });
 
