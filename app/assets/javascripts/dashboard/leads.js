@@ -209,6 +209,17 @@ $(document).ready(function() {
 
     $('#test2').on( "click",function() {
         $("#quick-access").css("bottom","0px");
+
+        $('.admin-bar-inner').animate({
+            backgroundColor: "#ffffcc"
+        }, 2000 );
+
+
+        setTimeout(function(){
+            $('.admin-bar-inner').animate({
+                backgroundColor: "#ffffff"
+            }, 2000 );
+        },2000);
     });
 
 
