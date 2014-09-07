@@ -160,7 +160,7 @@ $(document).ready(function() {
     var tableElement = $('#example');
 
     tableElement.dataTable( {
-        "sDom": "<'row'<'col-md-6'l T><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
                 {
@@ -205,51 +205,12 @@ $(document).ready(function() {
     $('#example_wrapper .dataTables_length select').addClass("select2-wrapper span12"); // modify table per page dropdown
 
 
-    /*
-     * Initialse DataTables, with no sorting on the 'details' column
-     */
-    var oTable = $('#example2').dataTable( {
-        "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
-        "aaSorting": [],
-        "oLanguage": {
-            "sLengthMenu": "_MENU_ ",
-            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
-    });
-    var oTable3 = $('#example3').dataTable( {
-        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
-        "oTableTools": {
-            "aButtons": [
-                {
-                    "sExtends":    "collection",
-                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
-                    "aButtons":    [ "csv", "xls", "pdf", "copy"]
-                }
-            ]
-        },
-        "aoColumnDefs": [
-            { "bSortable": false, "aTargets": [ 0 ] }
-        ],
-        "aaSorting": [[ 3, "desc" ]],
-        "oLanguage": {
-            "sLengthMenu": "_MENU_ ",
-            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
-    });
-    $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="test2">Add</button></div>');
+    $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="test2">Reply to selected people</button></div>');
 
     $('#test2').on( "click",function() {
         $("#quick-access").css("bottom","0px");
     });
 
-    $('#example2_wrapper .dataTables_filter input').addClass("input-medium ");
-    $('#example2_wrapper .dataTables_length select').addClass("select2-wrapper span12");
-
-    $('#example3_wrapper .dataTables_filter input').addClass("input-medium ");
-    $('#example3_wrapper .dataTables_length select').addClass("select2-wrapper span12");
-
-
-    
 
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
