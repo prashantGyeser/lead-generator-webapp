@@ -208,12 +208,17 @@
             Info: Messaging <span id="number_of_people_being_messaged">0</span> people.
           </div>
 
-          <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
-            <input type="hidden" id="twitter_user_to_message"/>
-            <input type="text" class="form-control" placeholder="Enter tweet you want to reply with"/>
-          </div>
-          <button class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
-          <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
+
+          <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
+
+            <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
+              <%= f.hidden_field :lead_id , :id => "twitter_user_to_message" %>
+              <%= f.text_field :message, :placeholder => "Enter tweet you want to reply with", :class => "form-control", :required => true %>
+            </div>
+            <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
+            <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
+
+          <% end %>
 
         </div>
       </div>
