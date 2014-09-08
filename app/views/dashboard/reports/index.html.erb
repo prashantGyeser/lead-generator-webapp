@@ -1,62 +1,133 @@
-<div class="page-title"> 
+<div class="page-title">
   <h3>Reports</h3>
 </div>
 
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-12">
     <div class="grid simple">
-      <div class="grid-title no-border">
-        <h4>Flot <span class="semi-bold">Charts</span></h4>
-        <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-      </div>
       <div class="grid-body no-border">
-        <h3>Flot <span class="semi-bold">Charts</span></h3>
-        <p>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</p>
+        <h3>Tweets vs <span class="semi-bold">Leads</span></h3>
+        <p>
+          A chart showing the number of tweets that came in vs the number of leads you got.
+        </p>
         <br>
-        <div id="placeholder" class="demo-placeholder" style="width:100%;height:250px;"></div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="mini-chart-wrapper">
-              <div class="chart-details-wrapper">
-                <div class="chartname"> New Orders </div>
-                <div class="chart-value"> 17,555 </div>
-              </div>
-              <div class="mini-chart">
-                <div id="mini-chart-orders"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mini-chart-wrapper">
-              <div class="chart-details-wrapper">
-                <div class="chartname"> My Balance </div>
-                <div class="chart-value"> $17,555 </div>
-              </div>
-              <div class="mini-chart">
-                <div id="mini-chart-other" ></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="placeholder" class="demo-placeholder" style="width:100%;height:450px;"></div>
       </div>
     </div>
   </div>
-  <div class="col-md-7">
-    <div class="grid simple">
-      <div class="grid-title no-border">
-        <h4>Sparkline <span class="semi-bold">Charts</span></h4>
-        <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-      </div>
-      <div class="grid-body no-border">
-        <div class="row-fluid">
-          <h3>Sparkline <span class="semi-bold">Charts</span></h3>
-          <p>The plugin is compatible with most modern browsers and has been tested with Firefox 2+, Safari 3+, Opera 9, Google Chrome and Internet Explorer 6, 7, 8, 9 & 10 as well as iOS and Android. </p>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles green added-margin  m-b-20">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">OVERALL SALES </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Overall Visits</span> <span class="item-count animate-number semi-bold" data-value="2415" data-animation-duration="700">0</span>
+          </div>
         </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="751" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-title">Monthly</span> <span class="item-count animate-number semi-bold" data-value="1547" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+          <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%" ></div>
+        </div>
+        <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span></div>
       </div>
-      <div class="tiles white no-margin"> <br>
-        <br>
-        <br>
-        <span id="mysparkline"></span> </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles blue added-margin  m-b-20">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">OVERALL VISITS </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Overall Visits</span> <span class="item-count animate-number semi-bold" data-value="15489" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="551" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-title">Monthly</span> <span class="item-count animate-number semi-bold" data-value="1450" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+          <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="54%" ></div>
+        </div>
+        <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles purple added-margin  m-b-20">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">SERVER LOAD </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Overall Load</span> <span class="item-count animate-number semi-bold" data-value="5695" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="568" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-title">Monthly</span> <span class="item-count animate-number semi-bold" data-value="12459" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+          <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="90%" ></div>
+        </div>
+        <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-vlg-3 visible-xlg visible-sm col-sm-6">
+    <div class="tiles red added-margin  m-b-20">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">OVERALL SALES </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Overall Sales</span> <span class="item-count animate-number semi-bold" data-value="5669" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="751" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-title">Monthly</span> <span class="item-count animate-number semi-bold" data-value="1547" data-animation-duration="700">0</span>
+          </div>
+        </div>
+        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+          <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%" ></div>
+        </div>
+        <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span></div>
+      </div>
     </div>
   </div>
 </div>
