@@ -26,6 +26,12 @@
 //= require plugins/jquery-datatable/extra/js/dataTables.tableTools.min
 //= require plugins/datatables-responsive/js/datatables.responsive.min
 //= require plugins/datatables-responsive/js/lodash.min
+//= require plugins/jquery-flot/jquery.flot.js
+//= require plugins/jquery-flot/jquery.flot.time.min
+//= require plugins/jquery-flot/jquery.flot.selection.min
+//= require plugins/jquery-flot/jquery.flot.animator.min
+//= require plugins/jquery-flot/jquery.flot.orderBars.js
+//= require dashboard/reports
 //= require dashboard/leads
 //= require dashboard/core
 //= require dashboard/demo

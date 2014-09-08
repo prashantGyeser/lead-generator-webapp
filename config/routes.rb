@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :dashboard do
+  get 'reports/index'
+  end
+
   resources :lead_streams
 
   namespace :dashboard do
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    root 'leads#index'
+    root 'reports#index'
     get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
   end
