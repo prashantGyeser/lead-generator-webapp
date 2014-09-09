@@ -15,6 +15,8 @@
 #  tweet_id        :string(255)
 #  user_id         :integer
 #  lead_stream_id  :integer
+#  city_id         :integer
+#  category_id     :integer
 #
 
 class Lead < ActiveRecord::Base
@@ -22,7 +24,6 @@ class Lead < ActiveRecord::Base
   belongs_to :user
 
   validates_uniqueness_of :tweet_id, :scope => [:user_id]
-  validates :user_id, presence: true
   validates :tweet, presence: true
   validates :tweet_id, presence: true
 

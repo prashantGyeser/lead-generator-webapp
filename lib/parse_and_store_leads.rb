@@ -3,14 +3,30 @@ class ParseAndStoreLeads
   def self.save_lead(processor_lead)
 
     begin
+      lead_attributes = {}
+      lead_attributes[:screen_name] = processor_lead["tweet_poster_screen_name"]
+      lead_attributes[:tweet] = processor_lead["tweet_body"]
+      lead_attributes[:location] = processor_lead["user_location"]
+      lead_attributes[:tweet_id] = processor_lead["tweet_id"]
+      if processor_lead["email"].blank?
+        puts "It is getting into the blanmk"
+        city = City.find_by_name(processor_lead["city"])
+        category = Category.find_by_name(processor_lead["category"])
+        lead_attributes[:city_id] = city.id
+        lead_attributes[:category_id] = category.id
+        puts "It is getting out of the blanmk"
+      else
+        user = User.find_by_email(processor_lead["email"])
+        lead_attributes[:user_id] = user.id
+      end
 
-      user = User.find_by_email(processor_lead["email"])
-
-      lead = Lead.new(screen_name: processor_lead["tweet_poster_screen_name"], tweet: processor_lead["tweet_body"], location: processor_lead["user_location"], tweet_id: processor_lead["tweet_id"], user_id: user.id)
+      lead = Lead.new(lead_attributes)
 
       if lead.save
+
         return true
       else
+
         return false
       end
     rescue => e

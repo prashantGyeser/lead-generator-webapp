@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'setup_complete_send_user_to_processor'
-require 'send_user_to_external_system'
+require 'send_to_processor'
 
 RSpec.describe SetupCompleteSendUserToProcessor do
 
