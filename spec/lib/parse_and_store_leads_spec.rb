@@ -37,6 +37,7 @@ RSpec.describe ParseAndStoreLeads do
         "tweet_id"=>Faker::Lorem.word,
         "category" => category.name,
         "city" => city.name,
+        "processor_datasift_subscription_id" => "3"
     }
 
     results = ParseAndStoreLeads.save_lead(processor_lead)

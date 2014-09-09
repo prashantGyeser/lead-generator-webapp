@@ -14,7 +14,7 @@ class ParseAndStoreLeads
         category = Category.find_by_name(processor_lead["category"])
         lead_attributes[:city_id] = city.id
         lead_attributes[:category_id] = category.id
-        puts "It is getting out of the blanmk"
+        lead_attributes[:processor_datasift_subscription_id] = processor_lead["processor_datasift_subscription_id"].to_i
       else
         user = User.find_by_email(processor_lead["email"])
         lead_attributes[:user_id] = user.id
