@@ -2,6 +2,8 @@ class ParseAndStoreLeads
 
   def self.save_lead(processor_lead)
 
+    puts "the unprocessed lead is: #{processor_lead.inspect}"
+
     begin
       lead_attributes = {}
       lead_attributes[:screen_name] = processor_lead["tweet_poster_screen_name"]
@@ -9,7 +11,6 @@ class ParseAndStoreLeads
       lead_attributes[:location] = processor_lead["user_location"]
       lead_attributes[:tweet_id] = processor_lead["tweet_id"]
       if processor_lead["email"].blank?
-        puts "It is getting into the blanmk"
         city = City.find_by_name(processor_lead["city"])
         category = Category.find_by_name(processor_lead["category"])
         lead_attributes[:city_id] = city.id
