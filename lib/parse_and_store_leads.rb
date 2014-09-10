@@ -24,7 +24,6 @@ class ParseAndStoreLeads
       lead = Lead.new(lead_attributes)
 
       if lead.save
-
         return true
       else
 

@@ -2,12 +2,13 @@
 #
 # Table name: user_leads
 #
-#  id         :integer          not null, primary key
-#  lead_id    :integer
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  viewed     :boolean
+#  id             :integer          not null, primary key
+#  lead_id        :integer
+#  user_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  viewed         :boolean
+#  lead_stream_id :integer
 #
 
 class UserLead < ActiveRecord::Base

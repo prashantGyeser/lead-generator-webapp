@@ -10,8 +10,6 @@ class ImportLeads
     responce =
       HTTParty.get(ENV['PROCESSOR_SERVER_URL'] + '/api/v1/leads/index')
 
-    puts "The responce is: #{responce.inspect}"
-
     responce.each do |lead|
       ParseAndStoreLeads.save_lead(lead)
     end
