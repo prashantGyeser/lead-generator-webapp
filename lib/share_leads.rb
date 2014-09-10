@@ -8,7 +8,6 @@ class ShareLeads
           UserLead.create(lead_id: lead.id, user_id: lead_stream.user_id, lead_stream_id: lead.id)
         end
       end
-
     end
   end
 
