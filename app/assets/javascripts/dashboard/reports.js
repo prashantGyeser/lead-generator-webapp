@@ -111,33 +111,5 @@ $(document).ready(function() {
         "z-index":"99999",
         opacity: 0.80
     }).appendTo("body");
-    $("#mini-chart-orders").sparkline([1,4,6,2,0,5,6,4], {
-        type: 'bar',
-        height: '30px',
-        barWidth: 6,
-        barSpacing: 2,
-        barColor: '#f35958',
-        negBarColor: '#f35958'});
-
-    $("#mini-chart-other").sparkline([1,4,6,2,0,5,6,4], {
-        type: 'bar',
-        height: '30px',
-        barWidth: 6,
-        barSpacing: 2,
-        barColor: '#0aa699',
-        negBarColor: '#0aa699'});
-
-    $('#ram-usage').easyPieChart({
-        lineWidth:9,
-        barColor:'#f35958',
-        trackColor:'#e5e9ec',
-        scaleColor:false
-    });
-    $('#disk-usage').easyPieChart({
-        lineWidth:9,
-        barColor:'#7dc6ec',
-        trackColor:'#e5e9ec',
-        scaleColor:false
-    });
 
 });

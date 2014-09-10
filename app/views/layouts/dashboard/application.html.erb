@@ -185,9 +185,13 @@
     <ul>
       <li class=""> <a href="javascript:;"> <i class="fa fa-dot-circle-o"></i> <span class="title">Leads</span> <span class="arrow "></span> </a>
         <ul class="sub-menu">
-          <li > <a href="theme_coporate.html">Restaurants name 1 </a> </li>
-          <li > <a href="theme_simple.html">Simple</a> </li>
-          <li > <a href="theme_elegant.html">Elegant</a> </li>
+
+          <% lead_streams = LeadStream.where(user_id: current_user.id) %>
+          <% lead_streams.each do |lead_stream| %>
+            <% category = Category.find(lead_stream.category_id) %>
+            <% city = City.find(lead_stream.city_id) %>
+            <li><a href="<%= dashboard_root_path %>/leads/<%= lead_stream.id %>"><%= category.capitalized_name %> | <%= city.capitalized_name %></a></li>
+          <% end %>
         </ul>
       </li>
       <li class=""> <a href="email.html"> <i class="fa fa-area-chart"></i> <span class="title">Reports</span> <span class=" badge badge-disable pull-right "></span></a> </li>
