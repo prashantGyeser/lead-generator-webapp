@@ -2,11 +2,16 @@ class SetupStatus
 
   def self.setup_complete?(user_id)
     lead_streams = LeadStream.where(user_id: user_id).count
-    if lead_streams.not.blank?
+    user = User.find(user_id)
+    puts "The stat is: #{user.setup_complete == true}"
+    puts "The stat is: #{lead_streams > 0}"
+    if ((user.setup_complete == true) && (lead_streams > 0))
       return true
+    else
+      return false
     end
 
-    return false
+
   end
 
   def self.number_of_steps_completed(user_id)

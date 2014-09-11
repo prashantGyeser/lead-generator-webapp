@@ -1,4 +1,5 @@
 require 'setup_complete_send_user_to_processor'
+require 'setup_status'
 
 class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
@@ -14,18 +15,11 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
       @number_of_available_streams = lead_streams_available - @lead_streams.count
     end
 
-
-    @lead_stream = LeadStream.new
-
-    @user_cities = UserCity.where(user_id: current_user.id)
-    @user_categories = UserCategory.where(user_id: current_user.id)
-    @user_tokens = Token.where(user_id: current_user.id)
-
-    if (@user_tokens.count > 0)
+    @test = SetupStatus.setup_complete?(current_user.id)
+    if SetupStatus.setup_complete?(current_user.id) == true
       redirect_to dashboard_root_path
     else
-      @user_city = UserCity.new
-      @user_category = UserCategory.new
+      @lead_stream = LeadStream.new
     end
 
   end
@@ -79,8 +73,16 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     user = User.find(current_user.id)
     @lead_stream_count = LeadStream.where(user_id: user.id).count
 
+    puts "It is getting here: #{@lead_stream_count}"
+    puts "The user status is: #{user.setup_complete}"
+
     if @lead_stream_count > 0
       user.setup_complete = true
+      user.save
+      redirect_to dashboard_root_path
+    else
+      flash[:error] = "Please select atleast one lead stream and save it before you continue!"
+      redirect_to dashboard_initial_setups_index_path
     end
 
   end

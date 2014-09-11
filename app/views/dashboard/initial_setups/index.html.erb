@@ -1,3 +1,5 @@
+<h1><%= if @why; puts "Hello"; end %></h1>
+
 
 <div class="page-title">
   <h3>Initial - <span class="semi-bold">Setup</span></h3>
@@ -48,6 +50,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <button class="btn btn-success btn-cons" type="button">Done</button>
+    <!--<a href="rfsdds" class="btn btn-success btn-cons">Done</a>-->
+    <%= link_to "Done", dashboard_initial_setups_set_status_path, class: "btn btn-success btn-cons" %>
   </div>
 </div>
