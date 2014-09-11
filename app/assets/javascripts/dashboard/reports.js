@@ -2,25 +2,8 @@
  /* This JS is Only DEMO Purposes
  -----------------------------------------------------------------*/
 $(document).ready(function() {
-
-    var d2 = [ [1, 30],
-        [2, 20],
-        [3, 10],
-        [4, 30],
-        [5,15],
-        [6, 25],
-        [7, 40]
-
-    ];
-    var d1 = [
-        [1, 30],
-        [2, 30],
-        [3, 20],
-        [4, 40],
-        [5, 30],
-        [6, 45],
-        [7, 50],
-    ];
+    var d2 = gon.leads_count;
+    var d1 = gon.tweets_count;
 
     if ( $( "#placeholder" ).length ) {
         var plot = $.plotAnimator($("#placeholder"), [
@@ -28,7 +11,7 @@ $(document).ready(function() {
                 data: d2,
                 lines: {
                     fill: 0.6,
-                    lineWidth: 0,
+                    lineWidth: 0
                 },
                 color:['#f89f9f']
             },{

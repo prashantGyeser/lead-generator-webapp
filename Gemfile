@@ -64,6 +64,8 @@ gem 'twitter'
 
 gem 'honeybadger'
 
+gem 'gon'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
