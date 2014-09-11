@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'
     post '/initial_setups/add_category' => 'initial_setups#add_category'
+    post '/initial_setups/set_status' => 'initial_setups#set_status'
     get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
   end

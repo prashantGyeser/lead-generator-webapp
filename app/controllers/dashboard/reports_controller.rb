@@ -1,3 +1,5 @@
+require 'setup_status'
+
 class Dashboard::ReportsController < Dashboard::ApplicationController
   def index
     if SetupStatus.setup_complete?(current_user.id) == false

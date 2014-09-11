@@ -18,6 +18,7 @@
 #  authorized_application :boolean
 #  user_sent_to_processor :boolean
 #  total_streams          :integer
+#  setup_complete         :boolean
 #
 
 class User < ActiveRecord::Base
@@ -30,5 +31,11 @@ class User < ActiveRecord::Base
   has_many :user_categories
   has_many :leads
 
+  after_create :set_streams
+
+  def set_streams
+    self.total_streams = 5
+    self.save
+  end
 
 end

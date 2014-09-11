@@ -18,6 +18,7 @@
 #  authorized_application :boolean
 #  user_sent_to_processor :boolean
 #  total_streams          :integer
+#  setup_complete         :boolean
 #
 
 require 'rails_helper'

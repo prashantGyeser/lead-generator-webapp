@@ -7,7 +7,13 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @lead_streams = LeadStream.where(user_id: current_user.id)
     lead_streams_available = User.find(current_user.id).total_streams
 
-    @number_of_available_streams = lead_streams_available - @lead_streams.count
+
+    if @lead_streams.blank?
+      @number_of_available_streams = lead_streams_available
+    else
+      @number_of_available_streams = lead_streams_available - @lead_streams.count
+    end
+
 
     @lead_stream = LeadStream.new
 
@@ -69,5 +75,14 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
   end
 
+  def set_status
+    user = User.find(current_user.id)
+    @lead_stream_count = LeadStream.where(user_id: user.id).count
+
+    if @lead_stream_count > 0
+      user.setup_complete = true
+    end
+
+  end
 
 end
