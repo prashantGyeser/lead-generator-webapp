@@ -2,7 +2,7 @@ require 'setup_status'
 
 class Dashboard::LeadsController < Dashboard::ApplicationController
   def index
-    if SetupStatus.setup_complete?(current_user.id) == false
+    if current_user.setup_complete != true
       redirect_to dashboard_initial_setups_index_path
     else
 
