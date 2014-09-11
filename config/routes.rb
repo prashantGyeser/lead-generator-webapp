@@ -7,13 +7,10 @@ Rails.application.routes.draw do
   resources :lead_streams
 
   namespace :dashboard do
+    root 'reports#index'
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'
     post '/initial_setups/add_category' => 'initial_setups#add_category'
-  end
-
-  namespace :dashboard do
-    root 'reports#index'
     get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
   end

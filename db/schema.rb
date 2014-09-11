@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910054302) do
+ActiveRecord::Schema.define(version: 20140910122808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20140910054302) do
     t.integer  "city_id"
     t.integer  "category_id"
     t.integer  "processor_datasift_subscription_id"
+  end
+
+  create_table "reports", force: true do |t|
+    t.integer  "total_tweets_for_day"
+    t.integer  "date_collected"
+    t.integer  "city_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subscriptions", force: true do |t|

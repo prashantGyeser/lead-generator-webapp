@@ -15,7 +15,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @user_categories = UserCategory.where(user_id: current_user.id)
     @user_tokens = Token.where(user_id: current_user.id)
 
-    if ((@lead_streams.count == lead_streams_available || (@user_cities.count > 0 && @user_categories.count > 0)) && @user_tokens.count > 0)
+    if (@user_tokens.count > 0)
       redirect_to dashboard_root_path
     else
       @user_city = UserCity.new
