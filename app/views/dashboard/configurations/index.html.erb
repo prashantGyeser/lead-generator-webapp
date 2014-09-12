@@ -11,7 +11,7 @@
 
 
 <div class="page-title">
-  <h3> <span class="semi-bold">Configurations</span></h3>
+  <h3> <span class="semi-bold">Twitter accounts integrated</span></h3>
 </div>
 
 
@@ -21,9 +21,9 @@
 
       <div class="grid-body ">
         <% @tokens.each do |token| %>
-          <div class="row">
+          <div class="row" style="margin-bottom: 10px;">
             <div class="col-md-12">
-              <%= token.screen_name %>
+              Screen name: <%= token.screen_name %>
             </div>
           </div>
         <% end %>

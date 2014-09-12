@@ -12,3 +12,4 @@
 
 class LeadStream < ActiveRecord::Base
 end
+
