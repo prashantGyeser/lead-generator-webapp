@@ -16,6 +16,9 @@ class ParseAndStoreLeads
         lead_attributes[:city_id] = city.id
         lead_attributes[:category_id] = category.id
         lead_attributes[:processor_datasift_subscription_id] = processor_lead["processor_datasift_subscription_id"].to_i
+        if processor_lead["klout_score"]
+          lead_attributes[:klout_score] = processor_lead["klout_score"].to_i
+        end
       else
         user = User.find_by_email(processor_lead["email"])
         lead_attributes[:user_id] = user.id

@@ -18,6 +18,7 @@
 #  city_id                            :integer
 #  category_id                        :integer
 #  processor_datasift_subscription_id :integer
+#  klout_score                        :integer
 #
 
 require 'rails_helper'
