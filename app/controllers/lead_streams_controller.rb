@@ -32,7 +32,8 @@ class LeadStreamsController < ApplicationController
         format.html { redirect_to dashboard_root_path }
         format.json { render :show, status: :created, location: @lead_stream }
       else
-        format.html { render :new }
+        flash[:error] = "Two streams cannot have the same city and category"
+        format.html { redirect_to dashboard_root_path }
         format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
       end
     end
