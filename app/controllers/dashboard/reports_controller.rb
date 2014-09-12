@@ -10,6 +10,11 @@ class Dashboard::ReportsController < Dashboard::ApplicationController
 
       reports = ReportData.last_7_days_reports_for_user(current_user.id)
       leads = ReportData.lead_count_for_last_7_days(current_user.id)
+      @leads_today = ReportData.total_leads_for_user_today(current_user.id)
+      @total_leads_for_user = ReportData.total_leads_for_user(current_user.id)
+      # @@total_replies_user_sent = ReportData.total_replies_user_sent(current_user.id)
+      @total_replies_user_sent = ReportData.total_tweet_replies_user_sent(current_user.id)
+      @total_replies_user_sent_today = ReportData.total_replies_for_user_today(current_user.id)
 
       total_tweets = []
       total_leads = []

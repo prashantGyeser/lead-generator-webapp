@@ -61,5 +61,12 @@ class ReportData
     return UserLead.where(user_id: user_id).count
   end
 
+  def self.total_tweet_replies_user_sent(user_id)
+    return TweetReply.where(user_id: user_id).count
+  end
+
+  def self.total_replies_for_user_today(user_id)
+    return TweetReply.where(user_id: user_id).where(created_at: Date.today).count
+  end
 
 end
