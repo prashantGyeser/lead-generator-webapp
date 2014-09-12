@@ -53,4 +53,13 @@ class ReportData
 
   end
 
+  def self.total_leads_for_user_today(user_id)
+    return UserLead.where(user_id: user_id).where(created_at: Date.today).count
+  end
+
+  def self.total_leads_for_user(user_id)
+    return UserLead.where(user_id: user_id).count
+  end
+
+
 end
