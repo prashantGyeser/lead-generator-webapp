@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   namespace :dashboard do
+  get 'configurations/index'
+  end
+
+  namespace :dashboard do
+  get 'twitter_accounts/index'
+  end
+
+  namespace :dashboard do
   get 'reports/index'
   end
 

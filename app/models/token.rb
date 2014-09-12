@@ -11,6 +11,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  user_id      :integer
+#  screen_name  :string(255)
 #
 
 class Token < ActiveRecord::Base

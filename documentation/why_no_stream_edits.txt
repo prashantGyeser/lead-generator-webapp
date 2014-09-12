@@ -1,0 +1,1 @@
+Allowing a user to edit/delete a stream will cause teh leads for that stream to seperate out. And there will be no link to the leads on the navigation. Need to decide on how to handle either deletes/edits of streams
