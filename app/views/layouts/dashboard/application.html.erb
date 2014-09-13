@@ -97,8 +97,13 @@
           <% end %>
         </ul>
       </li>
-      <li class=""> <a href="<%= dashboard_configurations_index_path %>"> <i class="fa fa-cog"></i>
-        <span class="title">Configurations</span> <span class=" badge badge-disable pull-right "></span></a> </li>
+
+      <li class=""> <a href="javascript:;"> <i class="fa fa-cog"></i> <span class="title">Configurations</span> <span class="arrow "></span> </a>
+        <ul class="sub-menu">
+          <li><a href="<%= dashboard_configurations_twitter_accounts_path %>">Twitter Accounts</a></li>
+          <li><a href="<%= dashboard_configurations_lead_streams_path %>">Lead Streams</a></li>
+        </ul>
+      </li>
 
     </ul>
     <div class="clearfix"></div>

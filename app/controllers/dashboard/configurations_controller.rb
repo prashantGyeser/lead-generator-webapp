@@ -1,5 +1,9 @@
 class Dashboard::ConfigurationsController < Dashboard::ApplicationController
-  def index
+  def twitter_accounts
+    @tokens = Token.where(user_id: current_user.id)
+  end
+
+  def lead_streams
     @lead_streams = LeadStream.where(user_id: current_user.id)
     lead_streams_available = User.find(current_user.id).total_streams
 
@@ -10,7 +14,6 @@ class Dashboard::ConfigurationsController < Dashboard::ApplicationController
     end
     @lead_stream = LeadStream.new
 
-    @tokens = Token.where(user_id: current_user.id)
-
   end
+
 end

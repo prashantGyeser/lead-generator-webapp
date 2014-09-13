@@ -1,0 +1,35 @@
+
+<div class="page-title">
+  <h3> Lead <span class="semi-bold">Streams</span></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple ">
+      <div class="grid-body no-border" style="padding-top: 21px;">
+        <h3>Define  <span class="semi-bold">Streams</span></h3>
+        <p>
+          We use the city and category you select to find people near you that are interested in your food.
+        </p>
+
+        <% i = 0 %>
+        <% while i < @number_of_available_streams %>
+          <div class="row" style="margin-bottom: 10px;">
+            <%= render 'lead_streams/form' %>
+          </div>
+          <% i = i + 1 %>
+        <% end %>
+
+        <% @lead_streams.each do |stream| %>
+          <div class="row" style="margin-bottom: 10px;">
+            <% category = Category.find(stream.category_id) %>
+            <% city = City.find(stream.city_id) %>
+            <div class="col-md-5"><%= category.capitalized_name %></div>
+            <div class="col-md-5"><%= city.capitalized_name %></div>
+            <div class="col-md-2"><i class="fa fa-check-circle" style="color: #00bc9a; font-size: 30px; text-align: center"></i></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

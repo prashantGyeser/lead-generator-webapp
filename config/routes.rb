@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
   namespace :dashboard do
-  get 'configurations/index'
-  end
-
-  namespace :dashboard do
   get 'twitter_accounts/index'
   end
 
@@ -22,6 +18,8 @@ Rails.application.routes.draw do
     get '/initial_setups/set_status' => 'initial_setups#set_status'
     get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
+    get 'configurations/twitter_accounts'
+    get 'configurations/lead_streams'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'
