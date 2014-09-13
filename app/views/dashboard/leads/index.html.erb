@@ -23,33 +23,43 @@
         <div class="row">
           <div class="col-md-8">
 
-            <div class="alert alert-info">
-              <button data-dismiss="alert" class="close"></button>
-              Info: Messaging <span id="number_of_people_being_messaged">0</span> people.
-            </div>
 
-
-            <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
-
-              <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
-                <%= f.hidden_field :lead_id , :id => "twitter_user_to_message" %>
-                <%= f.hidden_field :current_path , :value => current_uri = request.env['PATH_INFO'] %>
-
-                <div class="row">
-                  <div class="col-md-8">
-                    <%= f.text_field :message, :placeholder => "Enter tweet you want to reply with", :class => "form-control", :required => true %>
-                  </div>
-                  <div class="col-md-4">
-                    <%= f.collection_select :token_id, Token.where(user_id: current_user.id), :id, :screen_name, {:prompt => 'Select twitter account'}, class: "form-control" %>
-                  </div>
-                </div>
-
-
+            <% if Token.where(user_id: current_user.id).count > 0 %>
+              <div class="alert alert-info">
+                <button data-dismiss="alert" class="close"></button>
+                Info: Messaging <span id="number_of_people_being_messaged">0</span> people.
               </div>
-              <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
-              <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
 
-            <% end %>
+
+              <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
+
+                <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
+                  <%= f.hidden_field :lead_id , :id => "twitter_user_to_message" %>
+                  <%= f.hidden_field :current_path , :value => request.env['PATH_INFO'] %>
+
+                  <div class="row">
+                    <div class="col-md-8">
+                      <%= f.text_field :message, :placeholder => "Enter tweet you want to reply with", :class => "form-control", :required => true %>
+                    </div>
+                    <div class="col-md-4">
+                      <%= f.collection_select :token_id, Token.where(user_id: current_user.id), :id, :screen_name, {:prompt => 'Select twitter account'}, class: "form-control" %>
+                    </div>
+                  </div>
+
+
+                </div>
+                <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
+                <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
+
+              <% end %>
+
+            <% else %>
+              <div class="alert alert-info">
+                <button data-dismiss="alert" class="close"></button>
+                Info: You can start messaging people as soon you integrate with Twitter by going to the <a class="link" href="<%=  dashboard_configurations_twitter_accounts_path %>">Twitter Account Configuration</a> page.
+              </div>
+          <% end %>
+
 
           </div>
         </div>
