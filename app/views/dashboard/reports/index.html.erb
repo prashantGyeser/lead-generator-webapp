@@ -20,7 +20,7 @@
 
 
 <div class="row">
-  <div class="col-md-6 col-vlg-6 col-sm-6">
+  <div class="col-md-4 col-vlg-3 col-sm-6">
     <div class="tiles green added-margin  m-b-20">
       <div class="tiles-body">
         <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
@@ -40,7 +40,7 @@
 
 
   </div>
-  <div class="col-md-6 col-vlg-6 col-sm-6">
+  <div class="col-md-4 col-vlg-3 col-sm-6">
     <div class="tiles blue added-margin  m-b-20">
       <div class="tiles-body">
         <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
@@ -49,12 +49,35 @@
         </div>
         <div class="widget-stats">
           <div class="wrapper transparent">
-            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="<%= @total_replies_user_sent_today %>" data-animation-duration="700">0</span>
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="<%= @total_replies_user_sent_today %>" data-animation-duration="700"><%= @total_replies_user_sent_today %></span>
           </div>
         </div>
         <div class="widget-stats ">
           <div class="wrapper last">
-            <span class="item-title">Weekly</span> <span class="item-count animate-number semi-bold" data-value="<%= @total_replies_user_sent_today %>" data-animation-duration="700"><%= @total_replies_user_sent_today %></span>
+            <span class="item-title">Weekly</span> <span class="item-count animate-number semi-bold" data-value="<%= @total_replies_user_sent %>" data-animation-duration="700"><%= @total_replies_user_sent %></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles purple added-margin  m-b-20">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">OVERALL REACH </div>
+        <div class="widget-stats">
+        </div>
+        <div class="widget-stats">
+          <div class="wrapper transparent">
+            <span class="item-title">Today's</span> <span class="item-count animate-number semi-bold" data-value="<%= @reach_today %>" data-animation-duration="700"><%= @reach_today %></span>
+          </div>
+        </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-title">Weekly</span> <span class="item-count animate-number semi-bold" data-value="<%= @total_reach %>" data-animation-duration="700"><%= @total_reach %></span>
           </div>
         </div>
 

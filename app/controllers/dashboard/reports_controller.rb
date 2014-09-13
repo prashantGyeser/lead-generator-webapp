@@ -15,6 +15,8 @@ class Dashboard::ReportsController < Dashboard::ApplicationController
       # @@total_replies_user_sent = ReportData.total_replies_user_sent(current_user.id)
       @total_replies_user_sent = ReportData.total_tweet_replies_user_sent(current_user.id)
       @total_replies_user_sent_today = ReportData.total_replies_for_user_today(current_user.id)
+      @reach_today = ReportData.reach_today(current_user.id)
+      @total_reach = ReportData.total_reach(current_user.id)
 
       total_tweets = []
       total_leads = []
