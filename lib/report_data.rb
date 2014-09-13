@@ -69,4 +69,28 @@ class ReportData
     return TweetReply.where(user_id: user_id).where(created_at: Date.today).count
   end
 
+  def self.reach_today(user_id)
+    total_reach = 0
+    user_leads = UserLead.where(user_id: user_id).where("created_at >= ?", Time.zone.now.beginning_of_day)
+
+    user_leads.each do |user_lead|
+      lead = Lead.find(user_lead.lead_id)
+      total_reach = total_reach + lead.friends_count
+    end
+
+    return total_reach
+  end
+
+  def self.total_reach(user_id)
+    total_reach = 0
+    user_leads = UserLead.where(user_id: user_id)
+
+    user_leads.each do |user_lead|
+      lead = Lead.find(user_lead.lead_id)
+      total_reach = total_reach + lead.friends_count
+    end
+
+    return total_reach
+  end
+
 end

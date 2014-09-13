@@ -28,4 +28,14 @@ RSpec.describe ReportData do
 
   end
 
+  it "should return the reach for a give user for today" do
+    user = User.create(email: Faker::Internet.email, password: "password@123", password_confirmation: "password@123")
+    lead = Lead.create(tweet_id: Faker::Lorem.characters(10), tweet: Faker::Lorem.characters(110), user_id: user.id, friends_count: 100 )
+    UserLead.create(lead_id: lead.id, user_id: user.id)
+
+    expect(ReportData.reach_today(user.id)).to eq 100
+
+  end
+
+
 end
