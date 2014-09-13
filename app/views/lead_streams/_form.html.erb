@@ -18,7 +18,7 @@
   </div>
   <div class="col-md-5">
     <%# select("city", "id", City.all.collect {|p| [ p.name.split.map(&:capitalize).join(' '), p.id ] }, {include_blank: 'Select city'}, style: "width: 100%") %>
-    <%= f.collection_select :city_id, City.all, :id, :capitalized_name, {:prompt => 'Select city'}, class: "form-control" %>
+    <%= f.collection_select :city_id, City.order('name ASC').all, :id, :capitalized_name, {:prompt => 'Select city'}, class: "form-control" %>
   </div>
   <div class="col-md-2">
     <%= f.submit "Save", class: "btn btn-primary"%>
