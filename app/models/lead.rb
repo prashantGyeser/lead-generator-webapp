@@ -19,6 +19,8 @@
 #  category_id                        :integer
 #  processor_datasift_subscription_id :integer
 #  klout_score                        :integer
+#  friends_count                      :integer
+#  followers_count                    :integer
 #
 
 class Lead < ActiveRecord::Base
