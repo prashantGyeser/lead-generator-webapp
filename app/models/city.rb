@@ -9,6 +9,9 @@
 #
 
 class City < ActiveRecord::Base
+
+  validates :name, :uniqueness => true
+
   def capitalized_name
     return self.name.split.map(&:capitalize).join(' ')
   end
