@@ -22,14 +22,6 @@
           We use the city and category you select to find people near you that are interested in your food.
         </p>
 
-        <% i = 0 %>
-        <% while i < @number_of_available_streams %>
-          <div class="row" style="margin-bottom: 10px;">
-            <%= render 'lead_streams/form' %>
-          </div>
-          <% i = i + 1 %>
-        <% end %>
-
         <% @lead_streams.each do |stream| %>
           <div class="row" style="margin-bottom: 10px;">
             <% category = Category.find(stream.category_id) %>
@@ -39,6 +31,15 @@
             <div class="col-md-2"><i class="fa fa-check-circle" style="color: #00bc9a; font-size: 30px; text-align: center"></i></div>
           </div>
         <% end %>
+
+        <% i = 0 %>
+        <% while i < @number_of_available_streams %>
+          <div class="row" style="margin-bottom: 10px;">
+            <%= render 'lead_streams/form' %>
+          </div>
+          <% i = i + 1 %>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -47,7 +48,9 @@
 
 <div class="row">
   <div class="col-md-12">
-    <!--<a href="rfsdds" class="btn btn-success btn-cons">Done</a>-->
-    <%= link_to "Done", dashboard_initial_setups_set_status_path, class: "btn btn-success btn-cons" %>
+
+    <% if @lead_streams.count > 0 %>
+      <%= link_to "Done", dashboard_initial_setups_set_status_path, class: "btn btn-success btn-cons" %>
+    <% end %>
   </div>
 </div>

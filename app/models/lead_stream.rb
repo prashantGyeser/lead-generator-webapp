@@ -12,5 +12,6 @@
 
 class LeadStream < ActiveRecord::Base
   validates_uniqueness_of :user_id, :scope => [:category_id, :city_id], :message => "cannot have two streams with the same city and category"
+  validates_presence_of :category_id, :city_id, :message => "cannot be blank"
 end
 
