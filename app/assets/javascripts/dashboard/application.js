@@ -31,8 +31,12 @@
 //= require plugins/jquery-flot/jquery.flot.selection.min
 //= require plugins/jquery-flot/jquery.flot.animator.min
 //= require plugins/jquery-flot/jquery.flot.orderBars.js
+//= require plugins/introjs/intro
 //= require dashboard/reports
 //= require dashboard/leads
 //= require dashboard/core
 //= require dashboard/demo
 //= require turbolinks
+
+
+

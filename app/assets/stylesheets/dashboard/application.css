@@ -18,6 +18,7 @@
  *= require plugins/font-awesome/css/font-awesome
  *= require plugins/jquery-datatable/css/jquery.dataTables.min
  *= require plugins/datatables-responsive/css/datatables.responsive.css
+ *= require plugins/introjs/introjs
  *= require dashboard/animate.min
  *= require dashboard/style
  *= require dashboard/responsive
