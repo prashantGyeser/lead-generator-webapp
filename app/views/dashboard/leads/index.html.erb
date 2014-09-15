@@ -11,11 +11,38 @@
 
 <% else  %>
   <div class="page-title">
-    <h3>Leads - <span class="semi-bold">Stream name</span></h3>
+    <% category = Category.find(@lead_stream.category_id) %>
+    <% city = City.find(@lead_stream.city_id) %>
+    <h3>Leads - <span class="semi-bold"><%= category.capitalized_name %> in <%= city.capitalized_name %></span></h3>
   </div>
 
-
-  <%= render "leads" %>
+  <% if @leads.count > 0  %>
+    <%= render "leads" %>
+  <% else  %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="grid simple">
+          <div class="grid-body">
+            <h4 class="text-center" style="margin-bottom: 20px;">
+              <%= image_tag "status_available.png", style: "margin-bottom: 10px;" %>
+              <br/>
+              <span class="semi-bold">Setup successful completed!</span>
+            </h4>
+            <p>
+              Thanks for completing the setup! We have begun collecting leads and it will take a few hours to collect and find the best leads for you.
+            </p>
+            <p>
+              Bookmark this page and come back here in 24 hours to start receiving your customer leads
+            </p>
+            <p>
+              We update your leads every 24 hours, so come back every day to see new leads
+              for the second one
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end  %>
 
   <% content_for :footer_form do %>
     <div class="admin-bar" id="quick-access" style="display:">
