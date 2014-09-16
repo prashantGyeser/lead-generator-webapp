@@ -13,7 +13,8 @@
           <thead>
           <tr>
             <th style="width:11%">Email</th>
-            <th style="width:38%" data-hide="phone,tablet">Streams</th>
+            <th style="width:8%">Last sign in</th>
+            <th style="width:30%" data-hide="phone,tablet">Streams</th>
           </tr>
           </thead>
           <tbody>
@@ -22,6 +23,7 @@
             <% lead_streams = LeadStream.where(user_id: user.id) %>
             <tr >
               <td class="v-align-middle"><%= user.email %></td>
+              <td class="v-align-middle"><%= user.last_sign_in_at %></td>
               <td class="v-align-middle">
                 <span class="muted"></span>
                 <ul>
