@@ -19,7 +19,8 @@
         </thead>
         <tbody>
 
-        <% @leads.each do |lead| %>
+        <% @user_leads.each do |user_lead| %>
+          <% lead = Lead.find(user_lead.lead_id)  %>
           <tr >
             <td class="v-align-middle"><div class="checkbox check-default">
               <input type="checkbox" value="<%= lead.id %>" id="checkbox<%= lead.id %>" class="tweet_checkbox">

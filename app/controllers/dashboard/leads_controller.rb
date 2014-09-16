@@ -11,7 +11,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
         @lead_stream = LeadStream.find(params[:stream_id])
 
         if @lead_stream.user_id == current_user.id
-          @leads = Lead.where(:lead_stream_id => params[:stream_id]).order('created_at DESC')
+          @user_leads = UserLead.where(:lead_stream_id => params[:stream_id]).order('created_at DESC')
           @tweet_reply = TweetReply.new
         else
           flash[:notice] = "Oops! The stream you are looking for does not exist"
