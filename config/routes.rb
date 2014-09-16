@@ -25,14 +25,13 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
 
 
-  namespace :admin do
-  get 'dashboard/index'
-  end
-
   devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
-  get 'leads/add'
-  get 'leads/push'
+    root 'dashboard#index'
+    get 'dashboard/index'
+    get 'leads/add'
+    get 'leads/push'
+    get 'users' => 'users#index'
   end
 
 

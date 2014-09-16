@@ -1,0 +1,16 @@
+// Place all the styles related to the admin/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.users_table
+{
+  ul
+  {
+    list-style: none;
+    padding-left: 0;
+    li
+    {
+      margin-bottom: 10px;
+    }
+  }
+}

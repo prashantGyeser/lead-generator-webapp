@@ -1,0 +1,55 @@
+<div class="page-title">
+  <h3><span class="semi-bold">Users</span></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple ">
+
+      <div class="grid-body ">
+
+
+        <table class="table table-hover table-condensed users_table" id="example">
+          <thead>
+          <tr>
+            <th style="width:11%">Email</th>
+            <th style="width:38%" data-hide="phone,tablet">Streams</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @users.each do |user| %>
+            <% lead_streams = LeadStream.where(user_id: user.id) %>
+            <tr >
+              <td class="v-align-middle"><%= user.email %></td>
+              <td class="v-align-middle">
+                <span class="muted"></span>
+                <ul>
+                  <% lead_streams.each do |lead_stream|  %>
+                    <% city = City.find(lead_stream.city_id) %>
+                    <% category = Category.find(lead_stream.category_id) %>
+                    <li>
+                      <%= category.capitalized_name %> in <%= city.capitalized_name %>
+                      <% leads_today = UserLead.where(created_at: Date.today).count %>
+                      <% if leads_today > 0 %>
+                        <span class="label label-success pull-right"><%= leads_today %></span>
+                      <% else %>
+                        <span class="label label-important pull-right">0</span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </td>
+            </tr>
+          <% end %>
+
+
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</div>

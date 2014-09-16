@@ -1,18 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>Webarch - Responsive Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
 
-<%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true %>
-
-<%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
-<body>
+<!-- END HEAD -->
 
-<div class="container">
-  <%= yield %>
+<!-- BEGIN BODY -->
+<body class="">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse ">
+  <!-- BEGIN TOP NAVIGATION BAR -->
+  <div class="navbar-inner">
+    <div class="header-seperation">
+      <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">
+        <li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" > <div class="iconset top-menu-toggle-white"></div> </a> </li>
+      </ul>
+      <!-- BEGIN LOGO -->
+      <a href="index.html">
+        <%= image_tag "logo_v2.jpg", style: "margin-top: 20px; margin-left: 30px;" %>
+        <!--<img src="assets/img/logo.png" class="logo" alt=""  data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>-->
+      </a>
+
+      <!-- END LOGO -->
+    </div>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+    <div class="header-quick-nav" >
+      <!-- BEGIN TOP NAVIGATION MENU -->
+
+      <!-- END TOP NAVIGATION MENU -->
+      <!-- BEGIN CHAT TOGGLER -->
+      <div class="pull-right">
+        <div class="chat-toggler">
+          <div class="user-details" style="color: #1b1e24; font-size: 15px;">
+            <div class="username">
+              <span class="badge badge-important">3</span>
+              <span class="bold"><%= current_user.email %> </span>
+            </div>
+          </div>
+        </div>
+        <ul class="nav quick-section ">
+          <li class="quicklinks"> <span class="h-seperate"></span></li>
+          <li class="quicklinks">
+            <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+              <div class="iconset top-settings-dark "></div>
+            </a>
+            <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+              <li><a href="user-profile.html"> My Account</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <!--<a href="login.html"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a>-->
+                <%= link_to raw("&nbsp;&nbsp;Log Out"), destroy_user_session_path, :method => :delete, class: "fa fa-power-off" %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- END CHAT TOGGLER -->
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+
+  </div>
+  <!-- END TOP NAVIGATION BAR -->
 </div>
 
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row">
+  <!-- BEGIN SIDEBAR -->
+  <div class="page-sidebar" id="main-menu">
+    <!-- BEGIN MINI-PROFILE -->
+    <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+      <div class="user-info-wrapper">
+
+      </div>
+      <!-- END MINI-PROFILE -->
+      <!-- BEGIN SIDEBAR MENU -->
+      <ul>
+        <li class=""> <a href="<%= admin_root_path %>"> <i class="fa fa-area-chart"></i> <span class="title">Dashboard</span> <span class=" badge badge-disable pull-right "></span></a> </li>
+
+        <li class=""> <a href="javascript:;"> <i class="fa fa-cog"></i> <span class="title">Configurations</span> <span class="arrow "></span> </a>
+          <ul class="sub-menu">
+            <li><a href="<%= dashboard_configurations_twitter_accounts_path %>">Twitter Accounts</a></li>
+            <li><a href="<%= dashboard_configurations_lead_streams_path %>">Lead Streams</a></li>
+          </ul>
+        </li>
+
+      </ul>
+      <div class="clearfix"></div>
+      <!-- END SIDEBAR MENU -->
+    </div>
+  </div>
+  <a href="#" class="scrollup">Scroll</a>
+  <!--<div class="footer-widget">-->
+  <!--<div class="progress transparent progress-small no-radius no-margin">-->
+  <!--<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%" style="width: 79%;"></div>-->
+  <!--</div>-->
+  <!--<div class="pull-right">-->
+  <!--<div class="details-status">-->
+  <!--<span class="animate-number" data-value="10" data-animation-duration="560">10</span>%-->
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--</div>-->
+  <!-- END SIDEBAR -->
+  <!-- BEGIN PAGE CONTAINER-->
+  <div class="page-content">
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+    <div id="portlet-config" class="modal hide">
+      <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>Widget Settings</h3>
+
+      </div>
+      <div class="modal-body">Widget settings form goes here</div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="content">
+      <%= yield %>
+
+
+    </div>
+
+    <%= yield :footer_form %>
+    <!-- END PAGE -->
+  </div>
+</div>
+
+<!-- END CONTAINER -->
+
+
+<!-- BEGIN PAGE LEVEL JS -->
+
+
+<%= javascript_include_tag "dashboard/application", 'data-turbolinks-track' => true %>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<script>
+  //Too Small for new file - Helps the to tick all options in the table
+  $('table .checkbox input').click( function() {
+    if($(this).is(':checked')){
+      $(this).parent().parent().parent().toggleClass('row_selected');
+    }
+    else{
+      $(this).parent().parent().parent().toggleClass('row_selected');
+    }
+  });
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+
+  //  $(document).ready(function(){
+  //    introJs().start();
+  //  })
+
+</script>
 
 </body>
+
 </html>
