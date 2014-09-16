@@ -75,7 +75,9 @@ class ReportData
 
     user_leads.each do |user_lead|
       lead = Lead.find(user_lead.lead_id)
-      total_reach = total_reach + lead.friends_count
+      if !lead.friends_count.nil?
+        total_reach = total_reach + lead.friends_count
+      end
     end
 
     return total_reach
@@ -87,7 +89,11 @@ class ReportData
 
     user_leads.each do |user_lead|
       lead = Lead.find(user_lead.lead_id)
-      total_reach = total_reach + lead.friends_count
+
+      if !lead.friends_count.nil?
+        total_reach = total_reach + lead.friends_count
+      end
+
     end
 
     return total_reach
