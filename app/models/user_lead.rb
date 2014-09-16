@@ -9,6 +9,7 @@
 #  updated_at     :datetime
 #  viewed         :boolean
 #  lead_stream_id :integer
+#  reply_sent     :boolean
 #
 
 class UserLead < ActiveRecord::Base
