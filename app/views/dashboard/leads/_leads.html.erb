@@ -26,7 +26,10 @@
             <% tweet_reply = TweetReply.where(user_id: current_user.id).where(lead_id: lead.id) %>
 
             <% if tweet_reply.count > 0 %>
-              <i class="fa fa-check-circle" style="font-size: 24px; color: #00bc9a"></i>
+              <td class="v-align-middle">
+                <i class="fa fa-check-circle" style="font-size: 24px; color: #00bc9a"></i>
+              </td>
+
           <% else %>
               <td class="v-align-middle"><div class="checkbox check-default">
                 <input type="checkbox" value="<%= lead.id %>" id="checkbox<%= lead.id %>" class="tweet_checkbox">
