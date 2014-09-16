@@ -309,7 +309,7 @@ $(document).ready(function() {
         $("#val1 option:selected").text(),
         $("#val2 option:selected").text(),
         "Windows",
-        "789.","A" ] );     
+        "789.","A" ] );
 	}
 
 });
