@@ -2,7 +2,6 @@ class ReportData
 
   def self.last_7_days_reports_for_user(user_id)
 
-
     @lead_streams = LeadStream.where(user_id: user_id)
 
     sum_of_tweets_array = []
@@ -54,7 +53,7 @@ class ReportData
   end
 
   def self.total_leads_for_user_today(user_id)
-    return UserLead.where(user_id: user_id).where(created_at: Date.today).count
+    return  UserLead.where(user_id: 1).where("created_at >= ?", Time.zone.now.beginning_of_day).count
   end
 
   def self.total_leads_for_user(user_id)
@@ -66,7 +65,7 @@ class ReportData
   end
 
   def self.total_replies_for_user_today(user_id)
-    return TweetReply.where(user_id: user_id).where(created_at: Date.today).count
+    return TweetReply.where(user_id: user_id).where("created_at >= ?", Time.zone.now.beginning_of_day).count
   end
 
   def self.reach_today(user_id)
