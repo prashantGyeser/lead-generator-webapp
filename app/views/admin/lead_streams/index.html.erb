@@ -22,7 +22,7 @@
           <% @lead_streams.each do |lead_stream| %>
             <tr >
               <td class="v-align-middle"><%= lead_stream.id %></td>
-              <% if User.where(id: lead_stream.id).count == 0 %>
+              <% if User.where(id: lead_stream.user_id).count == 0 %>
                 <td class="v-align-middle">User does not exist</td>
               <% else %>
                 <td class="v-align-middle"><%= User.find(lead_stream.id).email %></td>
