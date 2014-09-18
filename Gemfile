@@ -66,7 +66,7 @@ gem 'honeybadger'
 
 gem 'gon'
 
-gem 'mandrill-api'
+gem 'human_date'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

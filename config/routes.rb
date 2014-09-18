@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get 'leads/add'
     get 'leads/push'
     get 'users' => 'users#index'
+    get 'lead_streams' => 'lead_streams#index'
   end
 
 

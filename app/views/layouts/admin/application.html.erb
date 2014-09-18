@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8" />
-  <title>Webarch - Responsive Admin Dashboard</title>
+  <title>Urbanzeak Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta content="" name="description" />
   <meta content="" name="author" />
@@ -89,11 +89,8 @@
       <ul>
         <li class=""> <a href="<%= admin_root_path %>"> <i class="fa fa-area-chart"></i> <span class="title">Dashboard</span> <span class=" badge badge-disable pull-right "></span></a> </li>
 
-        <li class=""> <a href="javascript:;"> <i class="fa fa-cog"></i> <span class="title">Configurations</span> <span class="arrow "></span> </a>
-          <ul class="sub-menu">
-            <li><a href="<%= dashboard_configurations_twitter_accounts_path %>">Twitter Accounts</a></li>
-            <li><a href="<%= dashboard_configurations_lead_streams_path %>">Lead Streams</a></li>
-          </ul>
+        <li class=""> <a href="<%= admin_users_path %>"> <i class="fa fa-user"></i> <span class="title">Users</span> </a>
+        <li class=""> <a href="<%= admin_lead_streams_path %>"> <i class="fa fa-ils"></i> <span class="title">Lead Streams</span> </a>
         </li>
 
       </ul>
