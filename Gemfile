@@ -66,6 +66,8 @@ gem 'honeybadger'
 
 gem 'gon'
 
+gem 'mandrill-api'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
