@@ -1,2 +1,43 @@
-<h1>Admin::LeadStreams#index</h1>
-<p>Find me in app/views/admin/lead_streams/index.html.erb</p>
+<div class="page-title">
+  <h3><span class="semi-bold">Lead Streams</span></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple ">
+
+      <div class="grid-body ">
+
+        <table class="table table-hover table-condensed users_table" id="example">
+          <thead>
+          <tr>
+            <th style="width:3%">Id</th>
+            <th style="width:8%">User</th>
+            <th style="width:8%">Date Created</th>
+            <th style="width:30%" data-hide="phone,tablet">Category and City</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @lead_streams.each do |lead_stream| %>
+            <tr >
+              <td class="v-align-middle"><%= lead_stream.id %></td>
+              <% if User.where(id: lead_stream.id).count == 0 %>
+                <td class="v-align-middle">User does not exist</td>
+              <% else %>
+                <td class="v-align-middle"><%= User.find(lead_stream.id).email %></td>
+              <% end %>
+
+
+              <td class="v-align-middle"><%= human_date(lead_stream.created_at) %></td>
+              <td class="v-align-middle"><%= Category.find(lead_stream.category_id).name %> in <%= City.find(lead_stream.city_id).name %> </td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
