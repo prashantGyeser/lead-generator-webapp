@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   after_create :set_streams
 
   def set_streams
-    self.total_streams = 5
+    self.total_streams = 1
     self.save
   end
 
