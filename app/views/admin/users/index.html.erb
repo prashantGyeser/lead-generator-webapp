@@ -40,10 +40,28 @@
                     <li>
                       <%= lead_stream.id %> | <%= category.capitalized_name %> in <%= city.capitalized_name %>
                       <% leads_today = UserLead.where(user_id: user.id).where(lead_stream_id: lead_stream.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                      <% leads_this_month = UserLead.where(user_id: user.id).where(lead_stream_id: lead_stream.id).where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month).count %>
                       <% if leads_today > 0 %>
-                        <span class="label label-success pull-right"><%= leads_today %></span>
+
+                        <% if leads_this_month > 0 %>
+                          <span class="label label-success pull-right"><%= leads_today %></span>
+                          |
+                          <span class="label label-inverse pull-right"><%= leads_this_month %></span>
+                        <% else %>
+                          <span class="label label-success pull-right"><%= leads_today %></span>
+                          |
+                          <span class="label label-important pull-right">0</span>
+                        <% end %>
                       <% else %>
-                        <span class="label label-important pull-right">0</span>
+                        <% if leads_this_month > 0 %>
+                          <span class="label label-important pull-right">0</span>
+                          |
+                          <span class="label label-inverse pull-right"><%= leads_this_month %></span>
+                        <% else %>
+                          <span class="label label-important pull-right">0</span>
+                          |
+                          <span class="label label-important pull-right">0</span>
+                        <% end %>
                       <% end %>
                     </li>
                   <% end %>
