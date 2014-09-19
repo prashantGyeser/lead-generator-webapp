@@ -41,7 +41,7 @@
             <% if lead.klout_score.nil? %>
               <td class="v-align-middle"><%= lead.screen_name %></td>
             <% else %>
-              <% if lead.klout_score > 30 %>
+              <% if lead.klout_score > 40 %>
                 <td class="v-align-middle"><%= lead.screen_name %><span class="label label-info" style="margin-left: 10px;">INFLUENCER</span></td>
               <% else %>
                 <td class="v-align-middle"><%= lead.screen_name %></td>
