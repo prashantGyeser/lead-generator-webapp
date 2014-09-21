@@ -8,7 +8,9 @@ class ImportLeads
     puts "The server being connected to id: #{ENV['PROCESSOR_SERVER_URL']}"
 
     responce =
-      HTTParty.get(ENV['PROCESSOR_SERVER_URL'] + '/api/v1/leads/index')
+      HTTParty.get(ENV['PROCESSOR_SERVER_URL'] + '/api/v1/leads')
+
+    puts "The complete response is: #{responce.inspect}"
 
     responce.each do |lead|
       ParseAndStoreLeads.save_lead(lead)

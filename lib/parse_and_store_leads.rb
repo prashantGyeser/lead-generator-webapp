@@ -15,11 +15,16 @@ class ParseAndStoreLeads
         category = Category.find_by_name(processor_lead["category"])
         lead_attributes[:city_id] = city.id
         lead_attributes[:category_id] = category.id
-        lead_attributes[:processor_datasift_subscription_id] = processor_lead["processor_datasift_subscription_id"].to_i
-        lead_attributes[:friends_count] = processor_lead["friends_count"].to_i
-        lead_attributes[:followers_count] = processor_lead["followers_count"].to_i
+
+        if processor_lead["processor_datasift_subscription_id"].nil?
+        else
+          lead_attributes[:processor_datasift_subscription_id] = processor_lead["processor_datasift_subscription_id"].to_i
+        end
+
         if processor_lead["klout_score"]
           lead_attributes[:klout_score] = processor_lead["klout_score"].to_i
+          lead_attributes[:friends_count] = processor_lead["friends_count"].to_i
+          lead_attributes[:followers_count] = processor_lead["followers_count"].to_i
         end
       else
         user = User.find_by_email(processor_lead["email"])
