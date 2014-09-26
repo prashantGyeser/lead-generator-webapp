@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :dashboard do
+  get 'account/index'
+  end
+
+  namespace :dashboard do
   get 'twitter_accounts/index'
   end
 
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
     post 'leads/send_reply'
     get 'configurations/twitter_accounts'
     get 'configurations/lead_streams'
+    get 'account' => 'account#index'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'
