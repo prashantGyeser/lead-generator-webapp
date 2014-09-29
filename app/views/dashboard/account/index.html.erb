@@ -8,10 +8,50 @@
       <div class="grid-body no-border">
         <h3><span class="semi-bold">Subscription</span> Details</h3>
         <p>
-          A chart showing the number of tweets that came in vs the number of leads you got.
+          Manage your billing or plan details
         </p>
-        <br>
-        This is atest
+
+        <% if @subscription.nil? %>
+          <table class="table no-more-tables">
+            <thead>
+            <tr>
+              <th style="width:10%">Plan Name</th>
+              <th style="width:22%">Description</th>
+              <th style="width:6%">Price</th>
+              <th style="width:10%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="v-align-middle">Solo</td>
+              <td class="v-align-middle"><span class="muted">1 Lead Stream - A combination of 1 city and 1 category</span>
+              </td>
+              <td><span class="muted">$99</span>
+              </td>
+              <td class="v-align-middle">
+                <% solo_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/solo?email=#{current_user.email}") %>
+                <a href="<%= solo_subscription_url %>" class="btn btn-primary btn-xs btn-mini">Select</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="v-align-middle">Agency</td>
+              <td class="v-align-middle"><span class="muted">5 Lead Stream - A combination of 5 city or 5 category</span>
+              </td>
+              <td><span class="muted">$199</span>
+              </td>
+              <td class="v-align-middle">
+                <% agency_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/agency?email=#{current_user.email}") %>
+                <a href="<%= agency_subscription_url %>" class="btn btn-primary btn-xs btn-mini">Select</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        <% else %>
+
+        <% end %>
+
+
+
       </div>
     </div>
   </div>
