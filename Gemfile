@@ -80,6 +80,7 @@ end
 
 group :development do
   #gem 'ruby-debug'
+  gem 'reek'
 end
 
 

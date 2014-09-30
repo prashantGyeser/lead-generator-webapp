@@ -48,6 +48,23 @@
           </table>
         <% else %>
 
+
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <div class="current_subscription">
+                <h1>Solo</h1>
+                <p>1 Lead Stream</p>
+                <p>$99/month</p>
+              </div>
+            </div>
+          </div>
+
+
+          <% if @subscription.plan_code == "solo" %>
+
+          <% else %>
+
+          <% end %>
         <% end %>
 
 
