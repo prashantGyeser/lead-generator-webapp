@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple ">
+
+      <div class="grid-body ">
+
+
+        <table class="table table-hover table-condensed" id="example">
+          <thead>
+          <tr>
+            <th style="width:1%"><div class="checkbox check-default" style="margin-right:auto;margin-left:auto;">
+              <input type="checkbox" value="1" id="checkbox1">
+              <label for="checkbox1"></label>
+            </div></th>
+            <th style="width:10%">Project Name</th>
+            <th style="width:28%" data-hide="phone,tablet">Description</th>
+            <th style="width:10%" data-hide="phone,tablet">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @user_leads.each do |user_lead| %>
+            <% lead = Lead.find(user_lead.lead_id)  %>
+            <tr >
+
+              <% tweet_reply = TweetReply.where(user_id: current_user.id).where(lead_id: lead.id) %>
+
+              <% if tweet_reply.count > 0 %>
+                <td class="v-align-middle">
+                  <i class="fa fa-check-circle" style="font-size: 24px; color: #00bc9a"></i>
+                </td>
+
+              <% else %>
+                <td class="v-align-middle"><div class="checkbox check-default">
+                  <input type="checkbox" value="<%= lead.id %>" id="checkbox<%= lead.id %>" class="tweet_checkbox">
+                  <label for="checkbox<%= lead.id %>"></label>
+                </div></td>
+              <% end %>
+
+
+              <% if lead.klout_score.nil? %>
+                <td class="v-align-middle"><%= lead.screen_name %></td>
+              <% else %>
+                <% if lead.klout_score > 40 %>
+                  <td class="v-align-middle"><%= lead.screen_name %><span class="label label-info" style="margin-left: 10px;">INFLUENCER</span></td>
+                <% else %>
+                  <td class="v-align-middle"><%= lead.screen_name %></td>
+                <% end %>
+              <% end %>
+
+              <td class="v-align-middle"><span class="muted"><%= lead.tweet %></span></td>
+              <td class="v-align-middle"><span class="muted"><%= lead.created_at.strftime("%d %b") %></span></td>
+
+            </tr>
+          <% end %>
+
+
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</div>

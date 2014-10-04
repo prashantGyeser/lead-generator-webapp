@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :dashboard do
+  get 'todays_leads' => 'todays_leads#index'
+  end
+
+  namespace :dashboard do
   get 'account/index'
   end
 

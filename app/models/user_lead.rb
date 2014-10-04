@@ -12,6 +12,8 @@
 #  reply_sent     :boolean
 #
 
+# UserLead.create(lead_stream_id: 1, user_id: 1, lead_id: 37)
+
 class UserLead < ActiveRecord::Base
 
   validates_uniqueness_of :lead_id, scope: :user_id
