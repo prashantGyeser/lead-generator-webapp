@@ -21,6 +21,7 @@
 #  klout_score                        :integer
 #  friends_count                      :integer
 #  followers_count                    :integer
+#  priority                           :string(255)
 #
 
 #Lead.create(screen_name: "achillez", tweet: "Random tweet from you!", tweet_id: "dsjkfdksfhksdhfksd", city_id: 1, category_id: 9, klout_score: 40, friends_count: 200, followers_count: 300 )

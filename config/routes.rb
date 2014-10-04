@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
   get 'todays_leads' => 'todays_leads#index'
+  post 'todays_leads/send_reply'
   end
 
   namespace :dashboard do

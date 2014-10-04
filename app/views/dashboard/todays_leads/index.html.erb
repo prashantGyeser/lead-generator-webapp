@@ -12,9 +12,9 @@
           <% lead_stream = LeadStream.find(lead_stream_id) %>
           <% category = Category.find(lead_stream.category_id) %>
           <% city = City.find(lead_stream.city_id) %>
-          <h3 style="margin-top: 20px;">Leads - <span class="semi-bold"><%= category.capitalized_name %> in <%= city.capitalized_name %></span></h3>
+          <h3 style="margin-top: 20px;"><span class="semi-bold"><%= category.capitalized_name %> in <%= city.capitalized_name %></span></h3>
 
-          <table class="table table-hover table-condensed" id="example">
+          <table class="table table-hover table-condensed" id="leads_<%= lead_stream_id %>">
             <thead>
             <tr>
               <th style="width:1%"><div class="checkbox check-default" style="margin-right:auto;margin-left:auto;">
@@ -74,6 +74,166 @@
   </div>
 
 
+<% end %>
+
+
+<% content_for :footer_form do %>
+  <div class="admin-bar" id="quick-access" style="display:">
+    <div class="admin-bar-inner">
+      <div class="row">
+        <div class="col-md-8">
+
+
+          <% if Token.where(user_id: current_user.id).count > 0 %>
+            <div class="alert alert-info">
+              <button data-dismiss="alert" class="close"></button>
+              Info: Messaging <span id="number_of_people_being_messaged">0</span> people.
+            </div>
+
+
+            <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
+
+              <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
+                <%= f.hidden_field :lead_id , :id => "twitter_user_to_message" %>
+                <%= f.hidden_field :current_path , :value => request.env['PATH_INFO'] %>
+
+                <div class="row">
+                  <div class="col-md-8">
+                    <%= f.text_field :message, :placeholder => "Enter tweet you want to reply with", :class => "form-control", :required => true %>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.collection_select :token_id, Token.where(user_id: current_user.id), :id, :screen_name, {:prompt => 'Select twitter account'}, class: "form-control" %>
+                  </div>
+                </div>
+
+
+              </div>
+              <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
+              <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
+
+            <% end %>
+
+          <% else %>
+            <div class="alert alert-info">
+              <button data-dismiss="alert" class="close"></button>
+              Info: You can start messaging people as soon you integrate with Twitter by going to the <a class="link" href="<%=  dashboard_configurations_twitter_accounts_path %>">Twitter Account Configuration</a> page.
+            </div>
+          <% end %>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<% content_for :todays_leads do %>
+  <script type="text/javascript" charset="utf-8">
+
+    $(document).ready(function() {
+      var responsiveHelper = undefined;
+      var breakpointDefinition = {
+        tablet: 1024,
+        phone : 480
+      };
+
+      <% @user_leads.group_by(&:lead_stream_id).sort.each do |lead_stream_id, leads| %>
+      var tableElement = $('#leads_<%= lead_stream_id %>');
+
+      tableElement.dataTable( {
+        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "oTableTools": {
+          "aButtons": [
+            {
+              "sExtends":    "collection",
+              "sButtonText": "<i class='fa fa-cloud-download'></i>",
+              "aButtons":    [ "csv", "xls", "pdf", "copy"]
+            }
+          ]
+        },
+        "sPaginationType": "bootstrap",
+        "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 0 ] }
+        ],
+        "aaSorting": [[ 1, "asc" ]],
+        "oLanguage": {
+          "sLengthMenu": "_MENU_ ",
+          "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+        },
+        bAutoWidth     : false,
+        fnPreDrawCallback: function () {
+          // Initialize the responsive datatables helper once.
+          if (!responsiveHelper) {
+            responsiveHelper = new ResponsiveDatatablesHelper(tableElement, breakpointDefinition);
+          }
+        },
+        fnRowCallback  : function (nRow) {
+          responsiveHelper.createExpandIcon(nRow);
+        },
+        fnDrawCallback : function (oSettings) {
+          responsiveHelper.respond();
+        }
+      });
+      $('#example th').click(function(e) {
+        $('#example .animate-progress-bar').each(function () {
+          $(this).removeClass('progress-bar');
+          $(this).css('width','0%');
+          $(this).css('width', $(this).attr("data-percentage"));
+          $(this).addClass('progress-bar');
+        });
+      });
+      $('#example_wrapper .dataTables_filter input').addClass("input-medium "); // modify table search input
+      $('#example_wrapper .dataTables_length select').addClass("select2-wrapper span12"); // modify table per page dropdown
+
+
+
+
+
+      $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="reply_<%= lead_stream_id %>">Reply to selected people</button></div>');
+
+      $('#reply_<%= lead_stream_id %>').on( "click",function() {
+        $("#quick-access").css("bottom","0px");
+
+        $('.admin-bar-inner').animate({
+          backgroundColor: "#ffffcc"
+        }, 2000 );
+
+
+        setTimeout(function(){
+          $('.admin-bar-inner').animate({
+            backgroundColor: "#ffffff"
+          }, 2000 );
+        },2000);
+      });
+
+      <% end %>
+
+      // Setting up the selected checkbox and adding it to the list of people to message
+      $('.tweet_checkbox').click(function(){
+
+        if ($(this).prop('checked') == false) {
+          var selected_tweet = $(this).val();
+          removeTweetId(selected_tweet)
+        }
+        else {
+          var selected_tweet = $(this).val();
+          appendTweetId(selected_tweet)
+        }
+      });
+
+      $('#quick-access .btn-cancel').click( function() {
+        $("#quick-access").css("bottom","-215px");
+      });
+      $('#quick-access .btn-add').click( function() {
+        fnClickAddRow();
+        $("#quick-access").css("bottom","-115px");
+      });
+
+
+    });
+
+  </script>
 <% end %>
 
 

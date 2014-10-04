@@ -21,6 +21,7 @@
 #  klout_score                        :integer
 #  friends_count                      :integer
 #  followers_count                    :integer
+#  priority                           :string(255)
 #
 
 require 'rails_helper'
