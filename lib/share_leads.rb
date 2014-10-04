@@ -18,4 +18,6 @@ class ShareLeads
     return lead_date > user_signup_date
   end
 
+
+
 end
