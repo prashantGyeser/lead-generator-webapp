@@ -9,10 +9,10 @@
         <thead>
         <tr>
           <th style="width:1%"><div class="checkbox check-default" style="margin-right:auto;margin-left:auto;">
-            <input type="checkbox" value="1" id="checkbox1">
-            <label for="checkbox1"></label>
+
           </div></th>
-          <th style="width:10%">Screen Name</th>
+          <th style="width:8%">Screen Name</th>
+          <th style="width:2%">Priority</th>
           <th style="width:28%" data-hide="phone,tablet">Tweet</th>
           <th style="width:10%" data-hide="phone,tablet">Date</th>
         </tr>
@@ -38,6 +38,7 @@
             <% end %>
 
 
+
             <% if lead.klout_score.nil? %>
               <td class="v-align-middle"><%= lead.screen_name %></td>
             <% else %>
@@ -47,6 +48,14 @@
                 <td class="v-align-middle"><%= lead.screen_name %></td>
               <% end %>
             <% end %>
+
+            <td>
+              <% if lead.priority == "high" %>
+                <span class="label label-success">HIGH</span>
+              <% else %>
+                <span class="label">LOW</span>
+              <% end %>
+            </td>
 
             <td class="v-align-middle"><span class="muted"><%= lead.tweet %></span></td>
             <td class="v-align-middle"><span class="muted"><%= lead.created_at.strftime("%d %b") %></span></td>
