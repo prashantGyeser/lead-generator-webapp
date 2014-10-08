@@ -23,7 +23,7 @@ class SubscriptionUtils
   end
 
   def trial_days_remaining(user_id)
-
+    user = User.find(user_id)
   end
 
 
