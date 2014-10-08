@@ -1,7 +1,14 @@
+require 'httparty'
+
 class SendLeadStreams
 
   def send_unique_streams
-    
+
+    url = ENV['PROCESSOR_SERVER_URL'] + '/api/v1/lead_streams'
+
+    @result = HTTParty.post(url,
+      :body => SendLeadStreams.get_unique_streams.to_json,
+      :headers => { 'Content-Type' => 'application/json' } )
   end
 
 

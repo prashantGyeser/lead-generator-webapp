@@ -40,5 +40,21 @@ RSpec.describe SendLeadStreams do
   end
 
 
+  it "should send all the lead streams to the processor" do
+
+    city = City.create(name: "New York")
+    city_2 = City.create(name: "London")
+    category = Category.create(name: "asian")
+    FactoryGirl.create(:lead_stream, city_id: city.id, category_id: category.id)
+    FactoryGirl.create(:lead_stream,user_id: 2, city_id: city_2.id, category_id: category.id)
+
+    send_lead_streams = SendLeadStreams.new
+
+    send_lead_streams.send_unique_streams
+
+
+  end
+
+
 
 end
