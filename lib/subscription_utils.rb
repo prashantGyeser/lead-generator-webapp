@@ -22,4 +22,9 @@ class SubscriptionUtils
 
   end
 
+  def trial_days_remaining(user_id)
+    
+  end
+
+
 end
