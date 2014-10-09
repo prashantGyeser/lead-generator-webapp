@@ -75,6 +75,9 @@
 
 
                 </div>
+
+                <div id="characters" style="margin-top: -20px; margin-bottom: 10px;">Maximum characters: <span id="charCount"></span></div>
+
                 <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
                 <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
 
@@ -94,3 +97,12 @@
     </div>
   <% end %>
 <% end  %>
+
+<% content_for :todays_leads do %>
+  <script type="text/javascript" charset="utf-8">
+    var elem = $("#charCount");
+    $("#tweet_reply_message").limiter(120, elem);
+  </script>
+
+<% end %>
+
