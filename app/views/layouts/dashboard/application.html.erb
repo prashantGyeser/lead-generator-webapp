@@ -43,6 +43,14 @@
         <div class="chat-toggler">
           <div class="user-details" style="color: #1b1e24; font-size: 15px;">
             <div class="username">
+              <% if @trial_days_remaining < 0 %>
+              <% else %>
+                <span style="margin-right: 20px; padding: 5px;" class="label label-important">
+                  Trial: <%= @trial_days_remaining %> days remaining
+                </span>
+              <% end %>
+
+
               <span class="bold"><%= current_user.email %> </span>
             </div>
           </div>

@@ -29,6 +29,11 @@ class Dashboard::ApplicationController < ActionController::Base
       render 'dashboard/account/index'
     end
 
+    if !subscription_utils.trial_over?(current_user.id)
+      @trial_days_remaining = subscription_utils.trial_days_remaining(current_user.id)
+    end
+
+
   end
 
 
