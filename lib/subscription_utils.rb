@@ -24,6 +24,8 @@ class SubscriptionUtils
 
   def trial_days_remaining(user_id)
     user = User.find(user_id)
+    sign_up_date = user.created_at
+    return ((sign_up_date.to_date + 7) - Date.today).to_i
   end
 
 
