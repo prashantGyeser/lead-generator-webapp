@@ -48,6 +48,7 @@
               <% subscription_utils = SubscriptionUtils.new %>
               <% trial_days_remaining = subscription_utils.trial_days_remaining(current_user.id) %>
               <% if trial_days_remaining < 0 %>
+
               <% else %>
                 <span style="margin-right: 20px; padding: 5px;" class="label label-important">
                   Trial: <%= trial_days_remaining %> days remaining
@@ -152,6 +153,13 @@
 </div>
 <div class="clearfix"></div>
 <div class="content">
+
+  <% if trial_days_remaining < 0 && !subscription_utils.check_if_subscribed?(current_user.id) %>
+    <div class="alert alert-error">
+      Trial Over: Your trial is over. Please subscribe to continue getting leads.
+    </div>
+  <% end %>
+
   <%= yield %>
 
 
