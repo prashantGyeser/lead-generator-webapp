@@ -19,6 +19,7 @@
 #  user_sent_to_processor :boolean
 #  total_streams          :integer
 #  setup_complete         :boolean
+#  trial_duration         :integer
 #
 
 class User < ActiveRecord::Base
@@ -35,6 +36,7 @@ class User < ActiveRecord::Base
 
   def set_streams
     self.total_streams = 1
+    self.trial_duration = 7
     self.save
   end
 

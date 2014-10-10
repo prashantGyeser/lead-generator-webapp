@@ -14,8 +14,14 @@ class SubscriptionUtils
   def trial_over?(user_id)
     user = User.find(user_id)
 
-    if Date.today > (user.created_at + 7)
-      return true
+    if user.trial_duration.blank?
+      if Date.today > (user.created_at + 7)
+        return true
+      end
+    else
+      if Date.today > (user.created_at + user.trial_duration)
+        return true
+      end
     end
 
     return false
@@ -25,7 +31,15 @@ class SubscriptionUtils
   def trial_days_remaining(user_id)
     user = User.find(user_id)
     sign_up_date = user.created_at
-    return ((sign_up_date.to_date + 7) - Date.today).to_i
+
+    if user.trial_duration.blank?
+      days_remaining = ((sign_up_date.to_date + 7) - Date.today).to_i
+    else
+      days_remaining = ((sign_up_date.to_date + user.trial_duration) - Date.today).to_i
+    end
+
+    return days_remaining
+
   end
 
 

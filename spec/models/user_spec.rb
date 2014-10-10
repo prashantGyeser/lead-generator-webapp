@@ -19,6 +19,7 @@
 #  user_sent_to_processor :boolean
 #  total_streams          :integer
 #  setup_complete         :boolean
+#  trial_duration         :integer
 #
 
 require 'rails_helper'
