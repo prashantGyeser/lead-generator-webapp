@@ -15,11 +15,11 @@ class SubscriptionUtils
     user = User.find(user_id)
 
     if user.trial_duration.blank?
-      if Date.today > (user.created_at + 7)
+      if Date.today > (user.created_at.to_date + 7)
         return true
       end
     else
-      if Date.today > (user.created_at + user.trial_duration)
+      if Date.today > (user.created_at.to_date + user.trial_duration)
         return true
       end
     end
