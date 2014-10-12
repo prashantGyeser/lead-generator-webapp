@@ -10,17 +10,18 @@ class Api::V1::LeadsController < ApplicationController
 
     leads = params["_json"]
 
+    puts "The leads count is: #{leads.inspect}"
 
     if leads.nil?
     else
-      puts "The number of leads coming in is: #{leads.count}"
-
       leads.each do |lead|
         ParseAndStoreLeads.save_lead(lead)
       end
     end
 
-    respond_with({message: "saved"})
+    respond_to do |format|
+      format.json { render json: {message: 'Completed storing'}, status: :ok }
+    end
 
   end
 end
