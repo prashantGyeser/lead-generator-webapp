@@ -18,5 +18,6 @@ class ImportLeads
 
   end
 
+  handle_asynchronously :import_from_processor
 
 end
