@@ -13,7 +13,9 @@ class Api::V1::LeadsController < ApplicationController
       ParseAndStoreLeads.save_lead(lead)
     end
 
-    render json: {message: 'Completed storing'}, status: :ok
+    respond_to do |format|
+      format.json { render json: {message: 'Completed storing'}, status: :ok }
+    end
 
   end
 end
