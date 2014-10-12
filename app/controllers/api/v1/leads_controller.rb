@@ -3,8 +3,6 @@ require 'parse_and_store_leads'
 class Api::V1::LeadsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :batch_create
 
-  respond_to :json
-
 
   def batch_create
 
