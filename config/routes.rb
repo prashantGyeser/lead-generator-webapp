@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1 do
+      post 'leads/batch_create'
+    end
+  end
+
   namespace :dashboard do
   get 'todays_leads' => 'todays_leads#index'
   post 'todays_leads/send_reply'
