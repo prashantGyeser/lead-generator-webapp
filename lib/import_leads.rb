@@ -3,7 +3,7 @@ require 'parse_and_store_leads'
 
 class ImportLeads
 
-  def self.import_from_processor
+  def import_from_processor
 
     puts "The server being connected to id: #{ENV['PROCESSOR_SERVER_URL']}"
 
