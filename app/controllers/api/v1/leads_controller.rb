@@ -14,15 +14,13 @@ class Api::V1::LeadsController < ApplicationController
     if leads.nil?
     else
       puts "The number of leads coming in is: #{leads.count}"
-      
+
       leads.each do |lead|
         ParseAndStoreLeads.save_lead(lead)
       end
     end
 
-    respond_to do |format|
-      format.json { render :json => leads }
-    end
+    respond_with({message: "saved"})
 
   end
 end
