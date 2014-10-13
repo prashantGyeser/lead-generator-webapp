@@ -27,5 +27,14 @@
 require 'rails_helper'
 
 RSpec.describe Lead, :type => :model do
-  it { should validate_uniqueness_of(:tweet_id).scoped_to(:user_id)}
+  it { should validate_uniqueness_of(:tweet).scoped_to(:city_id,:category_id)}
+
+  it "should only store a lead when the text is unique for a stream" do
+    lead = Lead.create(tweet: "This is a test", tweet_id: "drsdfs3w2342423424", city_id: 1, category_id: 1)
+    lead_2 = Lead.create(tweet: "This is a test", tweet_id: "drsdfs3w2342423424", city_id: 1, category_id: 1)
+
+    expect(lead_2.errors.messages[:tweet][0]).to eq "has already been taken"
+
+  end
+
 end
