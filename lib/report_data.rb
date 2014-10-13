@@ -10,7 +10,7 @@ class ReportData
       i = 0
       while i < 7
         #reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).where(date_collected: (i+1).day.ago)
-        reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).by_day(Date.today - i).count
+        reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).by_day(Date.today - i)
 
         if reports.count > 0
           total_tweets_for_day = reports.pluck(:total_tweets_for_day).sum
