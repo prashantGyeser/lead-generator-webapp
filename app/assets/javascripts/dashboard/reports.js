@@ -7,7 +7,7 @@ $(document).ready(function() {
 
         var d2 = gon.leads_count;
         var d1 = gon.tweets_count;
-
+        console.log(d2);
         var plot = $.plotAnimator($("#placeholder"), [
             {  	label: "Label 1",
                 data: d2,
