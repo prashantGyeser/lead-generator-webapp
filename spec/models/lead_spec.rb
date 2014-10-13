@@ -37,4 +37,13 @@ RSpec.describe Lead, :type => :model do
 
   end
 
+  it "should only store a lead when the text is unique for a stream" do
+    lead = Lead.create(tweet: "This is a test", tweet_id: "drsdfs3w2342423424", city_id: 1, category_id: 1)
+    lead_2 = Lead.create(tweet: "This is a test", tweet_id: "drsdfs3w2342423424", city_id: 1, category_id: 2)
+
+    expect(lead_2.id).not_to eq nil
+
+  end
+
+
 end
