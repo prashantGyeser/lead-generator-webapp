@@ -9,7 +9,8 @@ class ReportData
     @lead_streams.each do |lead_stream|
       i = 0
       while i < 7
-        reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).where(date_collected: (i+1).day.ago)
+        #reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).where(date_collected: (i+1).day.ago)
+        reports = Report.where(category_id: lead_stream.category_id).where(city_id: lead_stream.city_id).by_day(Date.today - i).count
 
         if reports.count > 0
           total_tweets_for_day = reports.pluck(:total_tweets_for_day).sum
@@ -38,7 +39,8 @@ class ReportData
     i = 0
 
     while i<7
-      total_user_leads = UserLead.where(user_id: user_id).where(created_at: (i+1).day.ago).count
+      #total_user_leads = UserLead.where(user_id: user_id).where(created_at: (i+1).day.ago).count
+      total_user_leads = UserLead.where(user_id: user_id).by_day(Date.today - i).count
 
       if total_user_leads.nil?
         sum_of_leads_array[i] = 0
