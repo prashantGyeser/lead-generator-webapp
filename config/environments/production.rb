@@ -84,7 +84,7 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   config.assets.precompile += %w( .svg .eot .woff .ttf)
 
-  config.action_mailer.default_url_options = { :host => 'urbanzeak.com' }
+  config.action_mailer.default_url_options = { :host => 'www.urbanzeak.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
