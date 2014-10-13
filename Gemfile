@@ -68,6 +68,9 @@ gem 'gon'
 
 gem 'delayed_job_active_record'
 
+
+gem 'by_star', :git => "git://github.com/radar/by_star"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
