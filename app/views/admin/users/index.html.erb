@@ -6,8 +6,8 @@
         <%= image_tag "avatar_small.jpg", height: 35, width: 35, class: "img-circle" %>
         <span class="bold">{{user.email}}</span>
         <div class="indicators">
-          <span class="label label-warning">TRAIL</span>
-          <div class="danger-indicator img-circle"></div>
+          <span class="label" ng-show="user.subscribed == false">TRAIL</span>
+          <div class="danger-indicator img-circle" ng-show="user.no_leads == true"></div>
         </div>
       </li>
     </ul>
