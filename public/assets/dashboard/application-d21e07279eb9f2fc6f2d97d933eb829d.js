@@ -15081,7 +15081,7 @@ $(document).ready(function() {
 
         var d2 = gon.leads_count;
         var d1 = gon.tweets_count;
-
+        console.log(d2);
         var plot = $.plotAnimator($("#placeholder"), [
             {  	label: "Label 1",
                 data: d2,
@@ -16701,5 +16701,21 @@ $(document).ready(function() {
 
 
 
-
-;
+(function($) {
+    $.fn.extend( {
+        limiter: function(limit, elem) {
+            $(this).on("keyup focus", function() {
+                setCount(this, elem);
+            });
+            function setCount(src, elem) {
+                var chars = src.value.length;
+                if (chars > limit) {
+                    src.value = src.value.substr(0, limit);
+                    chars = limit;
+                }
+                elem.html( limit - chars );
+            }
+            setCount($(this)[0], elem);
+        }
+    });
+})(jQuery);

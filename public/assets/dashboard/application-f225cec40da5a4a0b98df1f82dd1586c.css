@@ -13681,6 +13681,18 @@ th {
   font-weight: 300;
   text-indent: -2px;
 }
+
+/* line 16, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/style.scss */
+.current_subscription {
+  background: #00B38D;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+/* line 22, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/style.scss */
+.current_subscription h1 {
+  color: white;
+}
 @media only screen and (min-width: 1824px) {
   /* line 5, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/dashboard/responsive.scss */
   body {
