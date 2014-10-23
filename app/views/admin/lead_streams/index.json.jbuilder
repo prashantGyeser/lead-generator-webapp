@@ -1,6 +1,6 @@
 
 
-json.lead_streams @lead_streams.each do |lead_stream|
+json.leadStreams @lead_streams.each do |lead_stream|
   json.extract! lead_stream, :id, :user_id
 
   city = City.find(lead_stream.city_id)

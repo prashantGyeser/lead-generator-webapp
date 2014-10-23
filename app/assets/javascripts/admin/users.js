@@ -40,7 +40,7 @@ angular.module('Users', [
 
         $http.get("http://localhost:3000/admin/lead_streams.json")
             .success(function(data){
-                $scope.leadStreams = data.lead_streams;
+                $scope.leadStreams = data.leadStreams;
             });
 
         $scope.selectedUser = null;

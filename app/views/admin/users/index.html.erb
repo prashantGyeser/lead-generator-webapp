@@ -4,6 +4,8 @@
 
   </div>
 
+  
+  
 
   <div class="row">
     <div class="col-md-5 user_list">
@@ -41,7 +43,7 @@
                 <th>Stream Name</th>
                 <th>Leads Today</th>
               </tr>
-              <tr ng-repeat="leadStream in leadStreams | filter:{user_id: selectedUser.id}">
+              <tr ng-repeat="leadStream in leadStreams | filter:{user_id: selectedUser.id}:true">
                 <td>{{leadStream.name}}</td>
                 <td>{{leadStream.leads}}</td>
               </tr>
