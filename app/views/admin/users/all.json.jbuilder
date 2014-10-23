@@ -24,6 +24,7 @@ json.users @users.each do |user|
   json.signup_date Time.parse(user.created_at.to_s).utc.to_i*1000
 
   if subscription_count <= 0
+    json.subscribed false
     if !user.trial_duration.nil?
       days_remaining = user.trial_duration - ((Time.now - user.created_at.to_time)/1.day).to_i
 
