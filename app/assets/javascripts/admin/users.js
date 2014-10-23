@@ -33,12 +33,12 @@ angular.module('Users', [
 //        ];
 
 
-        $http.get("http://www.urbanzeak.com/admin/users/all.json")
+        $http.get("www.urbanzeak.com/admin/users/all.json")
             .success(function(data){
                 $scope.users = data.users;
             });
 
-        $http.get("http://www.urbanzeak.com/admin/lead_streams.json")
+        $http.get("www.urbanzeak.com/admin/lead_streams.json")
             .success(function(data){
                 $scope.leadStreams = data.leadStreams;
             });
