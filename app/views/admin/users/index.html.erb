@@ -1,48 +1,60 @@
-<div class="row" ng-controller="UsersCtrl">
-  <div class="col-md-5 user_list">
-    <h3 style="background: #B6C2C9">Users</h3>
-    <ul>
-      <li ng-repeat="user in users" class="" ng-click="setSelectedUser(user)">
-        <%= image_tag "avatar_small.jpg", height: 35, width: 35, class: "img-circle" %>
-        <span class="bold">{{user.email}}</span>
-        <div class="indicators">
-          <span class="label" ng-show="user.subscribed == false">TRAIL</span>
-          <div class="danger-indicator img-circle" ng-show="user.no_leads == true"></div>
-        </div>
-      </li>
-    </ul>
+<div ng-controller="UsersCtrl">
+
+  <div class="filters">
 
   </div>
-  <div class="col-md-7 user_info">
-    <h3 class="bold">{{selectedUser.email}}</h3>
-    <div class="">
-      <div class="row">
-        <div class="col-md-4">Signed Up On <span class="bold">{{selectedUser.signup_date | date:'dd/MM/yyyy'}}</span></div>
-        <div class="col-md-4" ng-show="selectedUser.subscribed == false">Trail Days Remaining <span class="bold">{{selectedUser.days_remaining}}</span></div>
-        <div class="col-md-4">
-          <span class="label label-success" style="text-transform: uppercase" ng-show="selectedUser.subscribed != false">Subscribed</span>
+
+
+  <div class="row">
+    <div class="col-md-5 user_list">
+      <h3 style="background: #B6C2C9">
+        Users
+        <!--<span style="float: right;"><a href="" class="btn btn-warning btn-cons">No Leads</a></span>-->
+      </h3>
+      <ul>
+        <li ng-repeat="user in users" class="" ng-click="setSelectedUser(user)">
+          <%= image_tag "avatar_small.jpg", height: 35, width: 35, class: "img-circle" %>
+          <span class="bold">{{user.email}}</span>
+          <div class="indicators">
+            <span class="label" ng-show="user.subscribed == false">TRAIL</span>
+            <div class="danger-indicator img-circle" ng-show="user.no_leads == true"></div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <div class="col-md-7 user_info">
+      <h3 class="bold">{{selectedUser.email}}</h3>
+      <div class="">
+        <div class="row">
+          <div class="col-md-4">Signed Up On <span class="bold">{{selectedUser.signup_date | date:'dd/MM/yyyy'}}</span></div>
+          <div class="col-md-4" ng-show="selectedUser.subscribed == false">Trail Days Remaining <span class="bold">{{selectedUser.days_remaining}}</span></div>
+          <div class="col-md-4">
+            <span class="label label-success" style="text-transform: uppercase" ng-show="selectedUser.subscribed != false">Subscribed</span>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-bordered ">
-            <tr>
-              <th>Stream Name</th>
-              <th>Leads Today</th>
-            </tr>
-            <tr ng-repeat="leadStream in leadStreams | filter:{user_id: selectedUser.id}">
-              <td>{{leadStream.name}}</td>
-              <td>{{leadStream.leads}}</td>
-            </tr>
-          </table>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered ">
+              <tr>
+                <th>Stream Name</th>
+                <th>Leads Today</th>
+              </tr>
+              <tr ng-repeat="leadStream in leadStreams | filter:{user_id: selectedUser.id}">
+                <td>{{leadStream.name}}</td>
+                <td>{{leadStream.leads}}</td>
+              </tr>
+            </table>
+          </div>
         </div>
+
+
       </div>
-
-
     </div>
   </div>
 </div>
+
 
 
 
