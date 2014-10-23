@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Users">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta charset="utf-8" />
@@ -27,7 +27,7 @@
       </ul>
       <!-- BEGIN LOGO -->
       <a href="index.html">
-        <%= image_tag "logo_v2.jpg", style: "margin-top: 20px; margin-left: 30px;" %>
+        <%= image_tag "", style: "margin-top: 20px; margin-left: 30px;" %>
         <!--<img src="assets/img/logo.png" class="logo" alt=""  data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>-->
       </a>
 
@@ -140,7 +140,7 @@
 <!-- BEGIN PAGE LEVEL JS -->
 
 
-<%= javascript_include_tag "dashboard/application", 'data-turbolinks-track' => true %>
+<%= javascript_include_tag "admin/application", 'data-turbolinks-track' => true %>
 
 <!-- END PAGE LEVEL PLUGINS -->
 <script>

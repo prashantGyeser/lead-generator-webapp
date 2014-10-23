@@ -19,8 +19,8 @@
  *= require plugins/jquery-datatable/css/jquery.dataTables.min
  *= require plugins/datatables-responsive/css/datatables.responsive.css
  *= require dashboard/animate.min
- *= require dashboard/style
- *= require dashboard/responsive
+ *= require admin/style
+ *= require admin/responsive
  *= require dashboard/custom-icon-set
  *= require admin/users
  */

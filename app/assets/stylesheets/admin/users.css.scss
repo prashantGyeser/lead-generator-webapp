@@ -14,3 +14,29 @@
     }
   }
 }
+
+
+.user_list
+{
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #6f7b8a;
+
+  h3
+  {
+    margin: 0 -15px 10px -15px;
+    padding: 10px;
+    color: white;
+
+  }
+  ul
+  {
+    padding: 0;
+    list-style: none;
+
+    li
+    {
+      padding: 10px 0;
+    }
+  }
+}
