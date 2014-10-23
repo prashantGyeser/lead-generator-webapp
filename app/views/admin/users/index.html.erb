@@ -3,14 +3,51 @@
     <h3 style="background: #B6C2C9">Users</h3>
     <ul>
       <li ng-repeat="user in users">
-        {{user.email}}
+        <%= image_tag "avatar_small.jpg", height: 35, width: 35, class: "img-circle" %>
+        <span class="bold">{{user.email}}</span>
+        <div class="indicators">
+          <span class="label label-warning">TRAIL</span>
+          <div class="danger-indicator img-circle"></div>
+        </div>
       </li>
     </ul>
 
   </div>
-  <div class="col-md-7">
-    <div class="user_info">
-      The additional information comes here
+  <div class="col-md-7 user_info">
+    <h3>prashant@urbanzeak.com</h3>
+    <div class="">
+      <div class="row">
+        <div class="col-md-4">Signed Up On <span class="bold">22/10/2014</span></div>
+        <div class="col-md-4">Trail Duration <span class="bold">10 days</span></div>
+        <div class="col-md-4">
+          <span class="label label-success" style="text-transform: uppercase">Subscribed</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered ">
+            <tr>
+              <th>Stream Name</th>
+              <th>Leads Today</th>
+            </tr>
+            <tr>
+              <td>Indian in Austin</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Indian in Austin</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>Indian in Austin</td>
+              <td>100</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>
