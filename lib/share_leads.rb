@@ -15,7 +15,7 @@ class ShareLeads
   end
 
   def self.lead_created_after_sign_up?(lead_date, user_signup_date)
-    return lead_date > user_signup_date
+    return lead_date >= user_signup_date
   end
 
 
