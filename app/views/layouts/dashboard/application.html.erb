@@ -203,9 +203,7 @@
 
 <script>
   window.intercomSettings = {
-    // TODO: The current logged in user's email address.
-    email: "john.doe@example.com",
-    // TODO: The current logged in user's sign-up date as a Unix timestamp.
+    email: "<%= current_user.email %>",
     created_at: <%= current_user.created_at.to_time.to_i %>,
     app_id: "ddl8jii3"
   };
