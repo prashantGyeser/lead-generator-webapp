@@ -19,5 +19,4 @@ class ShareLeads
   end
 
 
-
 end

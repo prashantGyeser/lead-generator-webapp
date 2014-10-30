@@ -11,10 +11,10 @@
     <div class="col-md-5 user_list">
       <h3 style="background: #B6C2C9">
         Users
-        <!--<span style="float: right;"><a href="" class="btn btn-warning btn-cons">No Leads</a></span>-->
+        <span style="float: right;"><a href="" class="btn btn-warning btn-cons" ng-click="showActiveUsers()">Active Users</a></span>
       </h3>
       <ul>
-        <li ng-repeat="user in users" class="" ng-click="setSelectedUser(user)">
+        <li ng-repeat="user in users" class="" ng-click="setSelectedUser(user)" ng-hide="user.hidden">
           <%= image_tag "avatar_small.jpg", height: 35, width: 35, class: "img-circle" %>
           <span class="bold">{{user.email}}</span>
           <div class="indicators">
