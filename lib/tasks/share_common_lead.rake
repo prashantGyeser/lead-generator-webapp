@@ -6,4 +6,11 @@ namespace :share do
     share_leads = ShareLeads.new
     share_leads.share_datsift_leads
   end
+
+  desc "Share todays datasift leads with all users"
+  task todays_leads: :environment do
+    share_leads = ShareLeads.new
+    share_leads.share_todays_leads
+  end
+
 end
