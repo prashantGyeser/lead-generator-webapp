@@ -12,6 +12,37 @@
     {
       font: "proxima-nova", sans-serif;
       margin-top: 60px;
+
+    }
+
+    h4
+    {
+      font: "proxima-nova", sans-serif;
+      margin-bottom: 40px;
+    }
+
+    a
+    {
+      background: #fff;
+      text-transform: uppercase;
+      padding: 20px 40px;
+      color: #1ABC9C;
+      border-radius: 6px;
+      transition: all 0.3s ease 0s;
+    }
+
+    a:hover
+    {
+      background: #1ABC9C;
+      border: 1px solid #ffffff;
+      color: white;
+      text-decoration: none;
+    }
+
+    img
+    {
+      margin-top: 60px;
+
     }
   }
 }
