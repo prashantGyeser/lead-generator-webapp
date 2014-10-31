@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'food_delivery' => 'food_delivery#index'
+
   get 'eerfzfckilwswwiw/index'
 
   namespace :api, :defaults => {:format => :json} do

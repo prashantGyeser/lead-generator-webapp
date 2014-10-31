@@ -1,0 +1,17 @@
+// Refer to https://github.com/twbs/bootstrap-sass for details on how to use this bootstrap gem
+
+// Color Scheme
+// base_green: 4abc96
+// base_light_blue: dff1ed
+
+
+// Custom variables
+$font-family-sans-serif: "proxima-nova",sans-serif;
+$font-size-base: 16px;
+$navbar-default-bg: #fff;
+$navbar-default-border: none;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "food_delivery";
