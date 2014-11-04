@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'pages/restaurants'
+  get 'restaurants' => 'pages/restaurants'
 
   get 'food_delivery' => 'food_delivery#index'
 
