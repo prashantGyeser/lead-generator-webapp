@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'restaurants' => 'pages#restaurants'
+  get 'agencies' => 'pages#social_media'
 
   get 'food_delivery' => 'food_delivery#index'
 
