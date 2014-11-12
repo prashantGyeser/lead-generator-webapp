@@ -16,4 +16,10 @@ class PagesController < ApplicationController
     render :layout => 'food_delivery'
   end
 
+  def index_b
+    render :layout => 'food_delivery'
+  end
+
+
+
 end

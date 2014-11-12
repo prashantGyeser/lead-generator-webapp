@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'agencies' => 'pages#social_media'
   get 'real_estate' => 'pages#real_estate'
   get '/pages' => 'pages#index'
+  get '/pages_b' => 'pages#index_b'
 
   get 'food_delivery' => 'food_delivery#index'
 
