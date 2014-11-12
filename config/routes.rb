@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'restaurants' => 'pages#restaurants'
   get 'agencies' => 'pages#social_media'
   get 'real_estate' => 'pages#real_estate'
+  get '/pages' => 'pages#index'
 
   get 'food_delivery' => 'food_delivery#index'
 

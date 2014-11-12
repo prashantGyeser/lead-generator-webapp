@@ -12,31 +12,7 @@ class PagesController < ApplicationController
     render :layout => 'food_delivery'
   end
 
-  def large_ecommerce
-    render :layout => 'food_delivery'
-  end
-
-  def mid_ecommerce
-    render :layout => 'food_delivery'
-  end
-
-  def travel
-    render :layout => 'food_delivery'
-  end
-
-  def sports_equipment
-    render :layout => 'food_delivery'
-  end
-
-  def freelancer
-    render :layout => 'food_delivery'
-  end
-
-  def new_restaurant
-    render :layout => 'food_delivery'
-  end
-
-  def social_media
+  def index
     render :layout => 'food_delivery'
   end
 
