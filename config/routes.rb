@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
 
   #get 'home/index'
-  root 'home#index'
+  root 'pages#index'
   get "/about" => "home#about"
   get "/contact" => "home#contact"
 
