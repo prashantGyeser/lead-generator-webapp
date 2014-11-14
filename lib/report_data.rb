@@ -55,7 +55,7 @@ class ReportData
   end
 
   def self.total_leads_for_user_today(user_id)
-    return  UserLead.where(user_id: 1).where("created_at >= ?", Time.zone.now.beginning_of_day).count
+    return  UserLead.where(user_id: user_id).where("created_at >= ?", Time.zone.now.beginning_of_day).count
   end
 
   def self.total_leads_for_user(user_id)
