@@ -11,13 +11,19 @@ class Dashboard::ReportsController < Dashboard::ApplicationController
       #reports = ReportData.last_7_days_reports_for_user(current_user.id)
       #leads = ReportData.lead_count_for_last_7_days(current_user.id)
       #@leads_today = ReportData.total_leads_for_user_today(current_user.id)
+      puts "It is getting to before the lead count for today for a user"
       @leads_today = ReportData.total_leads_for_user_today(current_user.id)
+      puts "It is getting to before the lead count for today for a user 2"
       @total_leads_for_user = ReportData.total_leads_for_user(current_user.id)
+      puts "It is getting to before the lead count for today for a user 3"
       @total_replies_user_sent = ReportData.total_tweet_replies_user_sent(current_user.id)
+      puts "It is getting to before the lead count for today for a user 4"
       @total_replies_user_sent_today = ReportData.total_replies_for_user_today(current_user.id)
+      puts "It is getting to before the lead count for today for a user 5"
       @reach_today = ReportData.reach_today(current_user.id)
+      puts "It is getting to before the lead count for today for a user 6"
       @total_reach = ReportData.total_reach(current_user.id)
-
+      puts "It is getting to before the lead count for today for a user 7"
       total_tweets = []
       total_leads = []
 
