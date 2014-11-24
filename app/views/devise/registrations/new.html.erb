@@ -1,78 +1,49 @@
-<div class="container">
-  <div class="row login-container column-seperation">
-    <div class="col-md-5 col-md-offset-1">
-      <h2>Sign up for Urbanzeak</h2>
-      <p>
-        Urbanzeak is the easiest way to find your customers. Sign up for a 7 day free trial period and start selling.
-        <br/>
-        <%= link_to "Sign in now", new_session_path(resource_name) %> if you already have an account.
-      </p>
-      <br>
-
-    </div>
-    <div class="col-md-5 "> <br>
-
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
-
-          <div class="row">
-            <div class="form-group col-md-10">
-              <%= f.label :email, :class => "form-label" %>
-              <div class="controls">
-                <div class="input-with-icon  right">
-                  <i class=""></i>
-                  <%= f.email_field :email, :class => "form-control", :autofocus => true %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="form-group col-md-10">
-              <%= f.label :password, :class => "form-label" %>
-              <div class="controls">
-                <div class="input-with-icon  right">
-                  <i class=""></i>
-                  <%= f.password_field :password, :class => "form-control" %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-md-10">
-              <%= f.label :password_confirmation, :class => "form-label" %>
-              <div class="controls">
-                <div class="input-with-icon  right">
-                  <i class=""></i>
-                  <%= f.password_field :password_confirmation, :class => "form-control" %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="row">
-            <div class="col-md-10">
-              <div class="sharedLinks" style="margin-bottom: 20px;">
-               By signing up I agree to the <%= link_to "Terms and Conditions", policies_terms_and_conditions_path, :target => "_blank" %>
-                 <%# render "devise/shared/links" %>
-              </div>
-              <%= f.submit "Sign up", :class => 'btn btn-primary btn-cons pull-right' %>
-            </div>
-          </div>
-      <% end %>
-
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag "urbanzeak-logo-webapp.png" %>
+      </div>
     </div>
   </div>
 </div>
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="login">
+        <h1>Start Finding Leads!</h1>
+        <p class="explanation">
+          Put done some sell on why they should sign up, tell them about how there is no commitment and how this is a beta etc etc...
+        </p>
+
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <div class="form-group">
+
+            <%= f.label :email%>
+            <%= f.email_field :email, :class => "form-control", :autofocus => true %>
+          </div>
 
 
+          <div class="form-group">
+            <%= f.label :password, :class => "form-label" %>
+            <%= f.password_field :password, :class => "form-control" %>
+          </div>
 
+          <div class="form-group">
+            <%= f.label :password_confirmation, :class => "form-label" %>
+            <%= f.password_field :password_confirmation, :class => "form-control" %>
+          </div>
+
+          <%= f.submit "Sign up", :class => 'btn btn_primary', :style => "margin-bottom: 20px;" %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

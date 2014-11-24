@@ -1,0 +1,114 @@
+/* COLOR SCHEME */
+/* BASE GREEN: #1ABC9C */
+/* CONTRAST RED: #F6223F */
+/* CONTRAST BLUE: #1F97B9 */
+/* CONTRAST YELLOW: #FFF323 */
+/* LEFT NAV COLOR: #8b939a */
+/* LEFT NAV ACTIVE COLOR: #1f2123 */
+/* HEADER BACKGROUND COLOR: #2e3032 */
+
+
+/* Styles go here */
+body {
+  font-family: "proxima-nova",Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  background: #EDEDED;
+}
+h1,h2,h3,h4,h5,h6
+{
+  font-family: "proxima-nova",Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+a
+{
+  color: #1F97B9;
+}
+a:hover
+{
+  color: #0591b9;
+}
+
+/*BUTTONS*/
+.btn
+{
+    padding: 10px;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.btn_block
+{
+    display: block;
+}
+
+.btn_primary
+{
+    background: #1ABC9C;
+}
+.btn_primary:hover
+{
+    color: white;
+    background: #0cbc99;
+}
+.btn_secondary
+{
+    background: #1F97B9;
+}
+.btn_alert
+{
+    background: #F6223F;
+}
+
+
+
+.explanation
+{
+  
+}
+
+.header
+{
+  background: #1ABC9C;
+  padding: 60px 0; 
+}
+
+
+.login
+{
+  background: white;
+  padding: 20px;
+  margin-top: -84px;
+  border-radius: 6px;
+  
+}
+
+.login h1
+{
+  color: #1ABC9C;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 39px;
+  font-weight: 600;
+}
+
+.login img
+{
+  margin: 0 auto;
+}
+
+.login form
+{
+  margin-top: 30px;
+}
+
+.login form label
+{
+  color: #8b939a;
+  font-weight: 300;
+}
+
+.login form input
+{
+}
