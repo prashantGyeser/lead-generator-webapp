@@ -8,6 +8,7 @@
 #  city_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  city_name   :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

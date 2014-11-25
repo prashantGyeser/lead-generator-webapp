@@ -10,50 +10,5 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js
-//= require plugins/boostrapv3/js/bootstrap.min
-//= require plugins/breakpoints.min
-//= require plugins/jquery-unveil/jquery.unveil.min
-//= require plugins/jquery.cookie.min
-//= require plugins/jquery-block-ui/jqueryblockui.min
-//= require plugins/jquery-slider/jquery.sidr.min
-//= require plugins/jquery-numberAnimate/jquery.animateNumbers.min
-//= require plugins/jquery-slimscroll/jquery.slimscroll.min
-//= require plugins/bootstrap-select2/select2.min.js
-//= require plugins/jquery-datatable/js/jquery.dataTables.min
-//= require plugins/jquery-datatable/extra/js/dataTables.tableTools.min
-//= require plugins/datatables-responsive/js/datatables.responsive.min
-//= require plugins/datatables-responsive/js/lodash.min
-//= require plugins/jquery-flot/jquery.flot.js
-//= require plugins/jquery-flot/jquery.flot.time.min
-//= require plugins/jquery-flot/jquery.flot.selection.min
-//= require plugins/jquery-flot/jquery.flot.animator.min
-//= require plugins/jquery-flot/jquery.flot.orderBars.js
-//= require plugins/introjs/intro
-//= require dashboard/reports
-//= require dashboard/leads
-//= require dashboard/core
-//= require dashboard/demo
-//= require turbolinks
 
-
-(function($) {
-    $.fn.extend( {
-        limiter: function(limit, elem) {
-            $(this).on("keyup focus", function() {
-                setCount(this, elem);
-            });
-            function setCount(src, elem) {
-                var chars = src.value.length;
-                if (chars > limit) {
-                    src.value = src.value.substr(0, limit);
-                    chars = limit;
-                }
-                elem.html( limit - chars );
-            }
-            setCount($(this)[0], elem);
-        }
-    });
-})(jQuery);
+//= require dashboard/jvfloat.min

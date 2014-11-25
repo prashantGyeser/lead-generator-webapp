@@ -1,56 +1,75 @@
-<div class="page-title">
-  <h3>Initial - <span class="semi-bold">Setup</span></h3>
-</div>
+<div class="wizard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-<div class="row">
-  <div class="col-md-12">
-    <% flash.each do |type, message| %>
-      <div class="alert alert-<%= type %> fade in">
-        <!--<button class="close" data-dismiss="alert">×</button>-->
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="grid simple ">
-      <div class="grid-body no-border" style="padding-top: 21px;">
-        <h3>Define  <span class="semi-bold">Streams</span></h3>
-        <p>
-          We use the city and category you select to find people near you that are interested in your food.
-        </p>
-
-        <% @lead_streams.each do |stream| %>
-          <div class="row" style="margin-bottom: 10px;">
-            <% category = Category.find(stream.category_id) %>
-            <% city = City.find(stream.city_id) %>
-            <div class="col-md-5"><%= category.capitalized_name %></div>
-            <div class="col-md-5"><%= city.capitalized_name %></div>
-            <div class="col-md-2"><i class="fa fa-check-circle" style="color: #00bc9a; font-size: 30px; text-align: center"></i></div>
+        <div class="row">
+          <div class="col-md-6 active">
+            <div class="number">
+              1.
+              <span></span>
+            </div>
+            Keyword Setup
           </div>
-        <% end %>
-
-        <% i = 0 %>
-        <% while i < @number_of_available_streams %>
-          <div class="row" style="margin-bottom: 10px;">
-            <%= render 'lead_streams/form' %>
+          <div class="col-md-6">
+            <div class="number">
+              2.
+              <span></span>
+            </div>
+            Connect Twitter
           </div>
-          <% i = i + 1 %>
-        <% end %>
+        </div>
+
 
       </div>
     </div>
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Setup your keywords</h1>
+      <p>
+        Explain what a stream is. Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.
+      </p>
 
-<div class="row">
-  <div class="col-md-12">
 
-    <% if @lead_streams.count > 0 %>
-      <%= link_to "Done", dashboard_initial_setups_set_status_path, class: "btn btn-success btn-cons" %>
-    <% end %>
+      <div class="note">
+        <span style="font-weight:bold;">Note:</span> During the beta you can select upto 3 keywords. After we launch you will be able to select more.
+      </div>
+
+
+      <form role="form">
+
+        <input type="text" class="keywordBox" id="first_keyword" placeholder="First Keyword" autofocus>
+        <input type="text" class="keywordBox" id="second_keyword" placeholder="Second Keyword">
+        <input type="text" class="keywordBox" id="third_keyword" placeholder="Third Keyword">
+
+
+        <div class="city_seperator">
+          And
+        </div>
+
+        <input type="text" class="keywordBox" id="city" placeholder="Enter a City">
+
+
+
+        <button type="submit" class="btn btn_primary">Submit</button>
+      </form>
+
+    </div>
   </div>
 </div>
+
+
+<!-- JAVASCRIPT -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<%= javascript_include_tag "dashboard/application", 'data-turbolinks-track' => true %>
+
+
+
+<script>
+  $('.keywordBox').jvFloat();
+</script>

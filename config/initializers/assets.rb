@@ -9,3 +9,5 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( food_delivery_application.css )
 Rails.application.config.assets.precompile += %w( devise/authentication.css )
+Rails.application.config.assets.precompile += %w( dashboard/setup.css )
+Rails.application.config.assets.precompile += %w( dashboard/jvfloat.css )
