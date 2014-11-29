@@ -10,4 +10,5 @@
 #
 
 class Keyword < ActiveRecord::Base
+  belongs_to :lead_stream
 end

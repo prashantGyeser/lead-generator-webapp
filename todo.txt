@@ -1,1 +1,7 @@
-1. Set the city and category when the user account integrates with twitter
+1. Setup validations in the setup form.
+    Make this live validation so as soon as a field looses focus, they user is told if they have made a mistake or not
+       The user needs to enter atleast one keyword
+       The city is mandatory.
+1 a. Create the styling for the validation errors
+2. AJAX submit
+    Show a spinner to tell the user that the form is being submitted.
