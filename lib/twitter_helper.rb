@@ -6,11 +6,7 @@ class TwitterHelper
 
   def search(search_term, city)
     client = initialize_twitter_client
-
-    client.search("to:justinbieber marry me", result_type: "recent").take(3).each do |tweet|
-      puts tweet.text
-    end
-
+    client.search("to:justinbieber marry me", result_type: "recent").collect
   end
 
   def reply

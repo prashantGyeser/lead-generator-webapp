@@ -8,6 +8,10 @@ RSpec.describe TwitterHelper do
 
     results = twitter_helper.search("test","hello")
 
+
+
+    #expect(results.first.to_h).to eq true
+
   end
 
 
