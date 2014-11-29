@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
-    root 'dashboard#index'
+    root 'users#index'
     get 'dashboard/index'
     get 'leads/add'
     get 'leads/push'
