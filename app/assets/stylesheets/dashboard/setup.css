@@ -104,12 +104,23 @@ p
 
 .keywordBox
 {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
   width: 100%;
   margin-bottom: 20px;
+  padding: 10px;
+}
+
+.keywordBox:active
+{
+  border: 1px solid #1F97B9;
+  outline: none;
+}
+
+.keywordBox:focus
+{
+  border: 1px solid #1F97B9;
+  outline: none;
 }
 
 .wizard
