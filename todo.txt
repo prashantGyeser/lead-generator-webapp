@@ -5,3 +5,4 @@
 1 a. Create the styling for the validation errors
 2. AJAX submit
     Show a spinner to tell the user that the form is being submitted.
+3. Convert a city into a lat long before it is stored
