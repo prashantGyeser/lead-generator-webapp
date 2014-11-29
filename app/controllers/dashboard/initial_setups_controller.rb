@@ -28,7 +28,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
 
   def connect_twitter
-
+    session[:user_id] = current_user.id
   end
 
 
