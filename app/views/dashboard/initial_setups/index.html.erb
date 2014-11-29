@@ -40,23 +40,32 @@
       </div>
 
 
-      <form role="form">
+      <%= form_for @lead_stream, url: {action: "create_lead_stream"}, html: {class: "nifty_form"} do |f| %>
 
-        <input type="text" class="keywordBox" id="first_keyword" placeholder="First Keyword" autofocus>
-        <input type="text" class="keywordBox" id="second_keyword" placeholder="Second Keyword">
-        <input type="text" class="keywordBox" id="third_keyword" placeholder="Third Keyword">
+
+        <%= f.fields_for :keywords do |keywords_form| %>
+
+          <%= keywords_form.text_field :term, class: "keywordBox", placeholder: "Keyword", autofocus: true %>
+
+        <% end %>
+
 
 
         <div class="city_seperator">
           And
         </div>
 
-        <input type="text" class="keywordBox" id="city" placeholder="Enter a City">
+        <%= f.text_field :city_name, class: "keywordBox", placeholder: "Enter a City" %>
+
+        <%= f.submit "Save", :class => "btn btn_primary" %>
+
+
+      <% end %>
 
 
 
-        <button type="submit" class="btn btn_primary">Submit</button>
-      </form>
+
+
 
     </div>
   </div>

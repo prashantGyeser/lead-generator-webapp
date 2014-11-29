@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     get 'configurations/twitter_accounts'
     get 'configurations/lead_streams'
     get 'account' => 'account#index'
+    post '/initial_setups/create_lead_stream' =>'initial_setups#create_lead_stream'
+    get '/initial_setups/connect_twitter' =>'initial_setups#connect_twitter'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'
