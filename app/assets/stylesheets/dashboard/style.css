@@ -193,3 +193,18 @@ a:hover
   margin-top: 20px;
 }
 
+
+
+/* ADMIN STYLES -- START */
+.lead_count_indicator_positive
+{
+  background: #F6223F;
+  padding: 5px;
+  color: white;
+  margin-bottom: 20px;
+}
+.city
+{
+  float: right;
+}
+/* ADMIN STYLES -- END */

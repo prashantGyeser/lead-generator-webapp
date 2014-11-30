@@ -62,6 +62,9 @@ Rails.application.routes.draw do
     get 'users' => 'users#index'
     get 'lead_streams' => 'lead_streams#index'
     get 'users/all' => 'users#all'
+    get 'users/leads/:keyword_id' => 'users#leads'
+    get 'users/lead_streams/:id' => 'users#lead_stream'
+    get 'users/lead_streams/keywords/:id' => 'users#keyword_tweets'
   end
 
 

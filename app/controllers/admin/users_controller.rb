@@ -7,4 +7,12 @@ class Admin::UsersController < Admin::ApplicationController
     @users = User.all
   end
 
+  def lead_stream
+
+  end
+
+  def keyword_tweets
+
+  end
+
 end
