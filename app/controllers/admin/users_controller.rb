@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def keyword_tweets
-    @unprocessed_tweets = UnprocessedTweet.first(50)
+    @unprocessed_tweets = UnprocessedTweet.where(processed: nil).first(50)
   end
 
   def set_unprocessed_tweet_type
