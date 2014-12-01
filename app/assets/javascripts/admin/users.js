@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    function send_data_to_server(unprocessed_tweet_id, is_lead){
+    function send_data_to_server(unprocessed_tweet_id, is_lead, parent_element){
         var unprocessed_tweet_type_data = {unprocessed_tweet_id: unprocessed_tweet_id, is_lead: is_lead}
 
         $.ajax({
@@ -9,7 +9,8 @@ $(document).ready(function(){
             data : unprocessed_tweet_type_data,
             success: function(data)
             {
-                console.log("Success!", data);
+                parent_element.parent().parent().parent().hide(100);
+                return true;
             },
             done: function(data, textStatus, jqXHR)
             {
@@ -18,17 +19,21 @@ $(document).ready(function(){
             },
             fail: function (jqXHR, textStatus, errorThrown)
             {
-                console.log("Fail!", data);
-                console.log("The status is:", textStatus);
+                return false;
             }
         });
     }
 
-
     $('.is_lead').click(function(e){
         unprocessed_tweet_id = $(this).attr('data-id');
         is_lead = $(this).attr('data-is-lead');
-        post_result = send_data_to_server(unprocessed_tweet_id, is_lead);
+
+        var parent_element = $(this).parent();
+        parent_element.children().hide();
+        parent_element.append('<div class="ajax_loader"><img alt="Ajax loader" src="/assets/ajax-loader.gif"></div>');
+
+        post_result = send_data_to_server(unprocessed_tweet_id, is_lead, parent_element);
+
     })
 
 
