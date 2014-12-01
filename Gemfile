@@ -68,6 +68,8 @@ gem 'gon'
 
 gem 'delayed_job_active_record'
 
+gem 'devise_invitable'
+
 
 gem 'by_star', :git => "git://github.com/radar/by_star"
 

@@ -49,5 +49,5 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
 
-
+  config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
 end

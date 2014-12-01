@@ -207,4 +207,10 @@ a:hover
 {
   float: right;
 }
+#invite_user
+{
+  float: right;
+  font-size: 16px;
+
+}
 /* ADMIN STYLES -- END */
