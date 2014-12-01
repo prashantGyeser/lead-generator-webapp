@@ -22,20 +22,20 @@
 #  friends_count                      :integer
 #  followers_count                    :integer
 #  priority                           :string(255)
+#  poster_id                          :string(255)
+#  poster_name                        :string(255)
+#  poster_screen_name                 :string(255)
+#  poster_follower_count              :integer
+#  poster_friends_count               :integer
+#  poster_verified                    :boolean
+#  poster_statuses_count              :integer
+#  tweet_body                         :string(255)
+#  keyword_id                         :integer
+#  poster_profile_image_url           :string(255)
 #
 
-#Lead.create(screen_name: "achillez", tweet: "Random tweet from you!", tweet_id: "dsjkfdksfhksdhfksd", city_id: 1, category_id: 9, klout_score: 40, friends_count: 200, followers_count: 300 )
 
 class Lead < ActiveRecord::Base
 
-  #belongs_to :user
-
-  #validates_uniqueness_of :tweet_id, :scope => [:user_id]
-  validates_uniqueness_of :tweet, :scope => [:city_id, :category_id]
-  validates :tweet, presence: true
-  validates :tweet_id, presence: true
 
 end
-
-# Create dummy records
-#Lead.create(screen_name: Faker::Internet.user_name(Faker::Name.name , %w(. _ -)), tweet: Faker::Lorem.sentence, user_id:1, tweet_id: Faker::Lorem.characters(10))

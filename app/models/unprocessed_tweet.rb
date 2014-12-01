@@ -10,12 +10,28 @@
 #  poster_friends_count     :integer
 #  poster_verified          :boolean
 #  poster_statuses_count    :integer
-#  poster_rpofile_image_url :string(255)
 #  tweet_body               :string(255)
 #  created_at               :datetime
 #  updated_at               :datetime
 #  keyword_id               :integer
+#  poster_profile_image_url :string(255)
+#  processed                :boolean
 #
 
 class UnprocessedTweet < ActiveRecord::Base
+
+  def move_tweet(is_lead)
+
+    unprocessed_lead_to_store_attr = self.attributes
+    unprocessed_lead_to_store_attr.delete('id')
+    unprocessed_lead_to_store_attr.delete('processed')
+
+    if is_lead == 'true'
+      results = Lead.create(unprocessed_lead_to_store_attr)
+    else
+      results = NonLead.create(unprocessed_lead_to_store_attr)
+    end
+
+  end
+
 end

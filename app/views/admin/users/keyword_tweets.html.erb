@@ -4,94 +4,28 @@
 
 <div class="opportunities">
   <ul>
-    <li>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="tweet">
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+
+    <% @unprocessed_tweets.each do |unprocessed_tweet| %>
+      <li>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="tweet">
+              <%= unprocessed_tweet.tweet_body %>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="actions">
+              <a href="#" class="btn btn_primary btn_block is_lead" data-id="<%= unprocessed_tweet.id %>" data-is-lead="true">Lead</a>
+              <a href="#" class="btn btn_alert btn_block is_lead" style="margin-top: 10px;" data-id="<%= unprocessed_tweet.id %>" data-is-lead="false">Not lead</a>
+            </div>
           </div>
         </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Lead</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not lead</a>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="tweet">
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Lead</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not lead</a>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="tweet">
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Lead</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not lead</a>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="tweet">
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Lead</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not lead</a>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="tweet">
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Lead</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not lead</a>
-          </div>
-        </div>
-      </div>
-    </li>
+      </li>
+    <% end %>
 
 
 
 
-    
 
 
 

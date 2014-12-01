@@ -1,38 +1,36 @@
-angular.module('Users', [
+$(document).ready(function(){
 
-])
-.controller('UsersCtrl', function($scope, $http){
+    function send_data_to_server(unprocessed_tweet_id, is_lead){
+        var unprocessed_tweet_type_data = {unprocessed_tweet_id: unprocessed_tweet_id, is_lead: is_lead}
 
-        $http.get("http://www.urbanzeak.com/admin/users/all.json")
-        //$http.get("http://localhost:3000/admin/users/all.json")
-            .success(function(data){
-                $scope.users = data.users;
-                console.log($scope.users);
-            });
-
-        $http.get("http://www.urbanzeak.com/admin/lead_streams.json")
-        //$http.get("http://localhost:3000/admin/lead_streams.json")
-            .success(function(data){
-                $scope.leadStreams = data.leadStreams;
-            });
-
-        $scope.selectedUser = null;
-
-        $scope.setSelectedUser = function(user){
-            $scope.selectedUser = user;
-        };
-
-        $scope.showActiveUsers = function(){
-            angular.forEach($scope.users, function(user){
-                if(user.days_remaining > 0){
-                    user.hidden = false;
-                }
-                else
-                {
-                    user.hidden = true;
-                }
-            });
-        }
+        $.ajax({
+            url : "/admin/users/set_unprocessed_tweet_type",
+            type: "POST",
+            data : unprocessed_tweet_type_data,
+            success: function(data)
+            {
+                console.log("Success!", data);
+            },
+            done: function(data, textStatus, jqXHR)
+            {
+                console.log("Success!", data);
+                console.log("The status is:", textStatus);
+            },
+            fail: function (jqXHR, textStatus, errorThrown)
+            {
+                console.log("Fail!", data);
+                console.log("The status is:", textStatus);
+            }
+        });
+    }
 
 
-    });
+    $('.is_lead').click(function(e){
+        unprocessed_tweet_id = $(this).attr('data-id');
+        is_lead = $(this).attr('data-is-lead');
+        post_result = send_data_to_server(unprocessed_tweet_id, is_lead);
+    })
+
+
+
+});

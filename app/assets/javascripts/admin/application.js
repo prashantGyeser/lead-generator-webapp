@@ -12,5 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require plugins/angularjs/angular.min
 //= require_tree .

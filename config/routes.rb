@@ -65,6 +65,7 @@ Rails.application.routes.draw do
     get 'users/leads/:keyword_id' => 'users#leads'
     get 'users/lead_streams/:id' => 'users#lead_stream'
     get 'users/lead_streams/keywords/:id' => 'users#keyword_tweets'
+    post 'users/set_unprocessed_tweet_type' => 'users#set_unprocessed_tweet_type'
   end
 
 
