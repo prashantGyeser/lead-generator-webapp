@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
 
 
-  devise_for :users, :controllers => { :invitations => 'users/invitations' }
+  devise_for :users
 
   namespace :admin do
     root 'users#index'
