@@ -11,7 +11,7 @@
   <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 
-  <title>Try Urbanzeak</title><!-- Responsive Styles and Valid Styles -->
+  <title>Notification 9 - Responsive Email Template</title><!-- Responsive Styles and Valid Styles -->
 
   <style type="text/css">
 
@@ -95,32 +95,34 @@
   </style>
 </head>
 
-<body yahoo="fix" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body yahoo="fix" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background-color: #ededed">
 
 <!-- ======= main section ======= -->
-<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="2b2e34" style="background-color: #ededed">
+<table border="0" width="100%" cellpadding="0" cellspacing="0" bgcolor="ededed" style="background-color: #ededed">
 
   <tr><td height="90" style="font-size: 90px; line-height: 90px;">&nbsp;</td></tr>
 
   <tr>
+    <!-- ======= logo ======= -->
+    <td align="center" class="section-img" style="padding-bottom: 40px;">
+      <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="99" border="0" style="display: block; width: 99px;" src="https://s3.amazonaws.com/urbanzeak-website-assets/urbanzeak-logo-webapp-green.png" alt="logo" /></a>
+    </td>
+  </tr>
+
+  <tr>
     <td>
-      <table border="0" align="center" width="510" cellpadding="0" cellspacing="0" bgcolor="2fbbc8" class="container590 bodybg_color" style="border-top-left-radius: 4px; border-top-right-radius: 4px;">
+      <table border="0" align="center" width="510" cellpadding="0" cellspacing="0" bgcolor="1ABC9C" class="container590 bodybg_color" style="border-top-left-radius: 4px; border-top-right-radius: 4px;">
 
         <tr><td height="7" style="font-size: 7px; line-height: 7px;">&nbsp;</td></tr>
       </table>
     </td>
   </tr>
 
+
   <tr>
     <td>
       <table border="0" align="center" width="510" cellpadding="0" cellspacing="0" bgcolor="ffffff" class="container590 bodybg_color">
 
-        <tr>
-          <!-- ======= logo ======= -->
-          <td align="center" class="section-img">
-            <a href="" style="display: block; border-style: none !important; border: 0 !important;"><img width="510" border="0" style="display: block; width: 510px;" src="http://themastermail.com/alerta/notif9/img/main-img.png" alt="logo" /></a>
-          </td>
-        </tr>
 
         <tr><td height="35" style="font-size: 35px; line-height: 35px;">&nbsp;</td></tr>
 
@@ -131,7 +133,7 @@
 
             <div style="line-height: 30px;">
 
-              Hello guest !
+              Congratulations!
 
             </div>
           </td>
@@ -149,7 +151,7 @@
                     <!-- ======= section text ======= -->
 
 
-                    <span style="color: #1c2029;">Your payment of 3000$</span> fermentum metus eget, vestibulum felis. Nullam molestie massa nec quam consequat facilisis.
+                    <span style="color: #1c2029;">You have been selected to try Urbanzeak.</span> Click the button below to get started.
 
                   </div>
                 </td>
@@ -163,7 +165,7 @@
         <tr>
           <td align="center">
 
-            <table border="0" align="center" width="220" cellpadding="0" cellspacing="0" bgcolor="2fbbc8" style="border-radius: 50px; box-shadow: 0 1px 2px rgba(0,0,0,.3);" class="cta-button main_color">
+            <table border="0" align="center" width="220" cellpadding="0" cellspacing="0" bgcolor="1ABC9C" style="border-radius: 50px; box-shadow: 0 1px 2px rgba(0,0,0,.3);" class="cta-button main_color">
 
               <tr><td height="13" style="font-size: 13px; line-height: 13px;">&nbsp;</td></tr>
 
@@ -173,7 +175,7 @@
                   <!-- ======= main section button ======= -->
 
                   <div style="line-height: 24px;">
-                    <a href="" style="color: #ffffff; text-decoration: none;">View payment details</a>
+                    <%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token), {style: "color: #ffffff; text-decoration: none;"} %>
                   </div>
                 </td>
 
@@ -187,19 +189,7 @@
 
         <tr><td height="30" style="font-size: 30px; line-height: 30px;">&nbsp;</td></tr>
 
-        <tr>
-          <td align="center" style="color: #737b8c; font-size: 14px; font-family: 'Questrial', sans-serif; line-height: 22px;" class="text_color">
-            <!-- ======= section subtitle ====== -->
 
-            <div style="line-height: 22px;">
-
-
-              <a href="" style="color: #737b8c; text-decoration: none;">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" style="color: #737b8c; text-decoration: none;">Unsubscribe</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" style="color: #737b8c; text-decoration: none;">Contact</a>
-
-
-            </div>
-          </td>
-        </tr>
 
         <tr><td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td></tr>
 
@@ -221,7 +211,7 @@
               <!-- ======= section text ======= -->
 
 
-              © 2014 Mastermail. All Rights Reserved.
+              © 2014 Urbanzeak. All Rights Reserved.
 
             </div>
           </td>
@@ -255,23 +245,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p><%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %></p>
-
-<p><%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %></p>
-
-<p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
-
-<p><%= t("devise.mailer.invitation_instructions.ignore").html_safe %></p>
