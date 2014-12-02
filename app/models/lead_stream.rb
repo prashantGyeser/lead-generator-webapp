@@ -13,6 +13,6 @@
 
 class LeadStream < ActiveRecord::Base
   has_many :keywords
-  accepts_nested_attributes_for :keywords
+  accepts_nested_attributes_for :keywords, allow_destroy: true, :reject_if => proc { |keyword| keyword[:term].blank? }
 end
 
