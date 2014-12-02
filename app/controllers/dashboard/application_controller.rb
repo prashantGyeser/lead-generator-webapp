@@ -27,9 +27,9 @@ class Dashboard::ApplicationController < ActionController::Base
 
   def check_setup
     if SetupStatus.setup_complete?(current_user.id)
-      redirect_to dashboard_root_path
+      #redirect_to dashboard_root_path
     elsif SetupStatus.lead_stream_created?(current_user.id)
-      #redirect_to dashboard_initial_setups_connect_twitter_path
+      redirect_to dashboard_initial_setups_connect_twitter_path
     end
   end
 

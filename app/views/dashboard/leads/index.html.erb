@@ -1,108 +1,173 @@
-<% if @invalid_stream == true  %>
+<div class="page-header">
+  <h1>Opportunities</h1>
+</div>
+<p class="lead">
+  An explanation about this section comes up here. This might be shown only once or it can be shown permanently i.e. people cannot dismiss this section.
+</p>
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="alert alert-error">
-        <button data-dismiss="alert" class="close"></button>
-        Error: <%= flash[:notice] %>
-      </div>
-    </div>
-  </div>
-
-<% else  %>
-  <div class="page-title">
-    <% category = Category.find(@lead_stream.category_id) %>
-    <% city = City.find(@lead_stream.city_id) %>
-    <h3>Leads - <span class="semi-bold"><%= category.capitalized_name %> in <%= city.capitalized_name %></span></h3>
-  </div>
-
-  <% if @user_leads.count > 0  %>
-    <%= render "leads" %>
-  <% else  %>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="grid simple">
-          <div class="grid-body">
-            <h4 class="text-center" style="margin-bottom: 20px;">
-              <%= image_tag "status_available.png", style: "margin-bottom: 10px;" %>
-              <br/>
-              <span class="semi-bold">Setup successful completed!</span>
-            </h4>
-            <p>
-              Thanks for completing the setup! We have begun collecting leads and it will take a few hours to collect and find the best leads for you.
-            </p>
-            <p>
-              Bookmark this page and come back here in 24 hours to start receiving your customer leads
-            </p>
-            <p>
-              We update your leads every 24 hours, so come back every day to see new leads
-              for the second one
-            </p>
+<div class="opportunities">
+  <ul>
+    <li>
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
           </div>
         </div>
       </div>
-    </div>
-  <% end  %>
-
-  <% content_for :footer_form do %>
-    <div class="admin-bar" id="quick-access" style="display:">
-      <div class="admin-bar-inner">
-        <div class="row">
-          <div class="col-md-8">
-
-
-            <% if Token.where(user_id: current_user.id).count > 0 %>
-              <div class="alert alert-info">
-                <button data-dismiss="alert" class="close"></button>
-                Info: Messaging <span id="number_of_people_being_messaged">0</span> people.
-              </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
 
 
-              <%= form_for @tweet_reply, :url => { :action => "send_reply"} do |f| %>
-
-                <div class="form-horizontal" style="width: 100%; margin-bottom: 10px;">
-                  <%= f.hidden_field :lead_id , :id => "twitter_user_to_message" %>
-                  <%= f.hidden_field :current_path , :value => request.env['PATH_INFO'] %>
-
-                  <div class="row">
-                    <div class="col-md-8">
-                      <%= f.text_field :message, :placeholder => "Enter tweet you want to reply with", :class => "form-control", :required => true %>
-                    </div>
-                    <div class="col-md-4">
-                      <%= f.collection_select :token_id, Token.where(user_id: current_user.id), :id, :screen_name, {:prompt => 'Select twitter account'}, class: "form-control" %>
-                    </div>
-                  </div>
-
-
-                </div>
-
-                <div id="characters" style="margin-top: -20px; margin-bottom: 10px;">Maximum characters: <span id="charCount"></span></div>
-
-                <button name="commit" type="submit" value="Send message" class="btn btn-primary btn-cons btn-add" style="margin-left: 0;" type="button">Send message</button>
-                <button class="btn btn-white btn-cons btn-cancel" type="button">Cancel</button>
-
-              <% end %>
-
-            <% else %>
-              <div class="alert alert-info">
-                <button data-dismiss="alert" class="close"></button>
-                Info: You can start messaging people as soon you integrate with Twitter by going to the <a class="link" href="<%=  dashboard_configurations_twitter_accounts_path %>">Twitter Account Configuration</a> page.
-              </div>
-          <% end %>
-
-
+    <li>
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-<% end  %>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
 
-<% content_for :todays_leads do %>
-  <script type="text/javascript" charset="utf-8">
-    var elem = $("#charCount");
-    $("#tweet_reply_message").limiter(120, elem);
-  </script>
 
-<% end %>
+    <li class="read">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+          </div>
+        </div>
+      </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
 
+
+    <li class="read">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+          </div>
+        </div>
+      </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="read">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+          </div>
+        </div>
+      </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
+
+
+    <li class="read">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+            <span class="bold screen_name"><a href="#">@walter_white</a></span>
+            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions">
+            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+          </div>
+        </div>
+      </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="title">Priority</span> <span class="priority priority_high">High</span>
+          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
+        </div>
+      </div>
+    </li>
+
+
+
+  </ul>
+</div>
