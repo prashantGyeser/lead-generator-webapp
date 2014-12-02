@@ -1,12 +1,6 @@
 <div class="page-header">
   <h1>
     Users
-    <span id="invite_user">
-      <a href="#" class="btn btn_secondary">
-        <i class="fa fa-plus" style="margin-right: 5px; "></i>
-        Invite User
-      </a>
-    </span>
   </h1>
 
 </div>
@@ -45,9 +39,10 @@
               <% else %>
                 <% keywords = Keyword.where(lead_stream_id: lead_stream.first.id) %>
 
+                <span class="highlight"><a href="admin/users/lead_streams/<%= lead_stream.first.id %>" style="margin-right: 15px;">View Previous Leads</a></span>
                 <% keywords.each do |keyword| %>
-                <span class="title" style="">Keyword</span> <span class="highlight"><a href="#"><%= keyword.term %></a></span>
-              <% end %>
+                  <span class="title" style="">Keyword</span> <span class="highlight"><a href="#" style="margin-right: 15px;"><%= keyword.term %></a></span>
+                <% end %>
 
 
                 <span class="city"><span class="title">City</span> <span class="highlight"><%= lead_stream.first.city_name %></span></span>
