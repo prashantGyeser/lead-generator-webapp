@@ -1,4 +1,5 @@
-require 'subscription_utils'
+
+require 'setup_status'
 
 class Dashboard::ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
@@ -8,7 +9,8 @@ class Dashboard::ApplicationController < ActionController::Base
   skip_filter :redirect_to_http
   before_action :authenticate_user!
 
-  before_filter :check_subscription
+  #before_filter :check_subscription
+  before_filter :check_setup
 
   layout "dashboard/application"
 
@@ -20,20 +22,15 @@ class Dashboard::ApplicationController < ActionController::Base
   end
 
   def check_subscription
-    user = current_user
 
-    subscription_utils = SubscriptionUtils.new
+  end
 
-    if subscription_utils.trial_over?(current_user.id) && !subscription_utils.check_if_subscribed?(current_user.id)
-      flash[:message] = "Your trial is over. Please select a plan and subscribe"
-      render 'dashboard/account/index'
+  def check_setup
+    if SetupStatus.setup_complete?(current_user.id)
+      redirect_to dashboard_root_path
+    elsif SetupStatus.lead_stream_created?(current_user.id)
+      #redirect_to dashboard_initial_setups_connect_twitter_path
     end
-
-    if !subscription_utils.trial_over?(current_user.id)
-      @trial_days_remaining = subscription_utils.trial_days_remaining(current_user.id)
-    end
-
-
   end
 
 

@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   def set_streams
     self.total_streams = 1
-    self.trial_duration = 7
+    self.trial_duration = 14
     self.save
   end
 
