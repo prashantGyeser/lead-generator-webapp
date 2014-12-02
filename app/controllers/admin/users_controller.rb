@@ -1,9 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   def index
     @users = User.all
-
-    #User.invite!(email: "prashant@urbanzeak.com")
-
   end
 
   def all

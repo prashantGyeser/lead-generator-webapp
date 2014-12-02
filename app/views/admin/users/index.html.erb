@@ -26,108 +26,40 @@
 
 <div class="opportunities">
   <ul>
-    <li>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tweet">
+
+    <% @users.each do |user| %>
+      <li>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tweet">
             <span class="bold screen_name" style="margin-bottom: 10px;">
-              somename@name.com
-              <span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>
+              <%= user.email %>
+              <!--<span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>-->
             </span>
             <span class="opportunity_sub_items">
-              <span class="title" style="">Keyword</span> <span class="highlight"><a href="#">Sushi</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Japanese</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Wasabi</a></span>
-              <span class="city"><span class="title">City</span> <span class="highlight">New York</span></span>
+
+              <% lead_stream = LeadStream.where(user_id: user.id) %>
+
+              <% if lead_stream.count == 0 %>
+                <span class="highlight" style="color: #F6223F">No streams setup</span>
+              <% else %>
+                <% keywords = Keyword.where(lead_stream_id: lead_stream.first.id) %>
+
+                <% keywords.each do |keyword| %>
+                <span class="title" style="">Keyword</span> <span class="highlight"><a href="#"><%= keyword.term %></a></span>
+              <% end %>
+
+
+                <span class="city"><span class="title">City</span> <span class="highlight"><%= lead_stream.first.city_name %></span></span>
+              <% end %>
+
+
             </span>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tweet">
-            <span class="bold screen_name" style="margin-bottom: 10px;">
-              somename@name.com
-              <span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>
-            </span>
-            <span class="opportunity_sub_items">
-              <span class="title" style="">Keyword</span> <span class="highlight"><a href="#">Sushi</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Japanese</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Wasabi</a></span>
-              <span class="city"><span class="title">City</span> <span class="highlight">New York</span></span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-
-
-
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tweet">
-            <span class="bold screen_name" style="margin-bottom: 10px;">
-              somename@name.com
-              <span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>
-            </span>
-            <span class="opportunity_sub_items">
-              <span class="title" style="">Keyword</span> <span class="highlight"><a href="#">Sushi</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Japanese</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Wasabi</a></span>
-              <span class="city"><span class="title">City</span> <span class="highlight">New York</span></span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-
-
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="tweet">
-            <span class="bold screen_name" style="margin-bottom: 10px;">
-              somename@name.com
-              <span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>
-            </span>
-            <span class="opportunity_sub_items">
-              <span class="title" style="">Keyword</span> <span class="highlight"><a href="#">Sushi</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Japanese</a></span>
-              <span class="title" style="margin-left: 20px;">Keyword</span> <span class="highlight"><a href="#">Wasabi</a></span>
-              <span class="city"><span class="title">City</span> <span class="highlight">New York</span></span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </li>
+    <% end %>
 
 
 
