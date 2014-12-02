@@ -70,8 +70,9 @@ gem 'delayed_job_active_record'
 
 gem 'devise_invitable'
 
-
 gem 'by_star', :git => "git://github.com/radar/by_star"
+
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

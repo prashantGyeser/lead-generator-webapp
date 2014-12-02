@@ -105,6 +105,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    geocoder (1.2.6)
     gon (5.2.0)
       actionpack (>= 2.3.0)
       json
@@ -297,6 +298,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  geocoder
   gon
   honeybadger
   httparty

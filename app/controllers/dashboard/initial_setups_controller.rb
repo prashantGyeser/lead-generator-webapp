@@ -12,12 +12,18 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @lead_stream = LeadStream.new(lead_stream_params)
     @lead_stream.user_id = current_user.id
 
+    begin
+      lat_lon = Geocoder.coordinates(params[:city_name])
+      @lead_stream.latitude = lat_lon[0]
+      @lead_stream.longitude = lat_lon[1]
+    rescue
+      puts "Could not find the coordinates of the given city"
+    end
 
     respond_to do |format|
       if @lead_stream.save
         flash[:success] = "Successfully created your stream"
         format.html { redirect_to dashboard_initial_setups_connect_twitter_path }
-        format.json { render :show, status: :created, location: @lead_stream }
       else
         flash[:error] = "Two streams cannot have the same city and category"
         format.html { redirect_to dashboard_root_path }

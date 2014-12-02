@@ -9,6 +9,8 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  city_name   :string(255)
+#  latitude    :float
+#  longitude   :float
 #
 
 class LeadStream < ActiveRecord::Base
