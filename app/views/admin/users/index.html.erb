@@ -12,7 +12,7 @@
     <%# devise_error_messages! %>
 
     <%= f.text_field :email, placeholder: "Email of user to invite" %>
-    <%= f.submit "Invite User", class: "btn btn_secondary", style: "width: inherit;" %>
+    <%= f.submit "Invite User", class: "btn btn_primary", style: "width: inherit;" %>
   <% end %>
 
 </div>
@@ -29,6 +29,12 @@
             <span class="bold screen_name" style="margin-bottom: 10px;">
               <%= user.email %>
               <!--<span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>-->
+              <div class="set_sample_category">
+
+                <%= collection_select(:sample_category_id, 0, SampleCategory.all, :id, :name) %>
+
+                <a href="#" class="btn btn_secondary" style="width: inherit; margin-top: -20px; margin-left: 10px;">Set Sample Data</a>
+              </div>
             </span>
             <span class="opportunity_sub_items">
 

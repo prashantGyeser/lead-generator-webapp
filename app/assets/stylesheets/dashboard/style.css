@@ -241,5 +241,19 @@ a:hover
   border: 1px solid #1F97B9;
   outline: none;
 }
+.set_sample_category
+{
+  margin-top: 10px;
+
+}
+.set_sample_category ul li
+{
+  margin-bottom: 0;
+}
+
+.set_sample_category .selectricWrapper
+{
+  display: inline-block;
+}
 
 /* ADMIN STYLES -- END */
