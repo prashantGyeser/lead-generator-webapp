@@ -2,6 +2,40 @@
   <h1>Lead Stream for <span class="bold"><%= @user.email %></span></h1>
 </div>
 
+<div class="keyword_list">
+  <ul>
+
+    <% @keywords.each do |keyword| %>
+
+      <% if keyword.admin_created.nil? %>
+        <li class="bold"><a href="#"><%= keyword.term %></a></li>
+      <% else %>
+        <li class="bold admin_created"><a href="#"><%= keyword.term %></a></li>
+      <% end %>
+
+
+    <% end %>
+
+
+  </ul>
+</div>
+
+
+<div class="invite_user_form">
+
+  <input type="text" placeholder="Enter keyword" id="keyword_field"/>
+  <button type="submit" id="submit_keyword" data-lead-stream-id="<%= @lead_stream.id %>">Add keyword</button>
+
+  <%# form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+    <%# devise_error_messages! %>
+
+    <%# f.text_field :email, placeholder: "Email of user to invite" %>
+    <%# f.submit "Invite User", class: "btn btn_secondary", style: "width: inherit;" %>
+  <%# end %>
+
+</div>
+
+
 <div class="opportunities">
   <ul>
 
@@ -9,7 +43,7 @@
       <li>
         <div class="row">
           <div class="col-md-1">
-            <img src="<%= lead.poster_profile_image_url %>" alt="" class="img-responsive">
+            <img src="<%# lead.poster_profile_image_url %>" alt="" class="img-responsive">
           </div>
           <div class="col-md-9">
             <div class="tweet">

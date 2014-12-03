@@ -7,6 +7,7 @@
 #  lead_stream_id :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  admin_created  :boolean
 #
 
 require 'rails_helper'

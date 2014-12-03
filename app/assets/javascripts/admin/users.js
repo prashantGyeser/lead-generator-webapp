@@ -34,8 +34,25 @@ $(document).ready(function(){
 
         post_result = send_data_to_server(unprocessed_tweet_id, is_lead, parent_element);
 
-    })
+    });
 
+
+    $('#submit_keyword').click(function(){
+        var new_keyword = $('#keyword_field').val();
+        var lead_stream_id = $(this).data("lead-stream-id");
+
+        if (new_keyword.length === 0) {
+            alert("Please add a keyword. It is blank right now!");
+        }
+        else {
+            data_to_post = {term: new_keyword, lead_stream_id: lead_stream_id};
+            $.post( "/admin/users/lead_streams/keywords", data_to_post ,function( response,status ) {
+                console.log(response);
+                console.log(status);
+            });
+        }
+
+    });
 
 
 });

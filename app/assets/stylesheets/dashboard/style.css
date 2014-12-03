@@ -213,4 +213,19 @@ a:hover
   font-size: 16px;
 
 }
+.keyword_list ul
+{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.keyword_list ul li
+{
+  display: inline;
+  margin-right: 15px;
+}
+.keyword_list ul li.admin_created a
+{
+  color: #F6223F;
+}
 /* ADMIN STYLES -- END */
