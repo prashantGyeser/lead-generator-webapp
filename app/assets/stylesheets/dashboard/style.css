@@ -228,4 +228,18 @@ a:hover
 {
   color: #F6223F;
 }
+.invite_user_form input[type=text]
+{
+  border: 1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
+  /*width: 100%;*/
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.invite_user_form input[type=text]:active
+{
+  border: 1px solid #1F97B9;
+  outline: none;
+}
+
 /* ADMIN STYLES -- END */

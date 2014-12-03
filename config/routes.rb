@@ -68,6 +68,10 @@ Rails.application.routes.draw do
     get 'users/lead_streams/keywords/:id' => 'users#keyword_tweets'
     post 'users/lead_streams/keywords' => 'users#new_keyword'
     post 'users/set_unprocessed_tweet_type' => 'users#set_unprocessed_tweet_type'
+    get 'sample_data/categories'
+    get 'sample_data/categories/:id' => 'sample_data#tweets'
+    post '/sample_category/create' => 'sample_data#create_category'
+    post '/sample_lead/create' => 'sample_data#create_lead'
   end
 
 

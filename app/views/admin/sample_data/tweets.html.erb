@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1>
+    Sample Leads - <%= @sample_category.name %>
+  </h1>
+
+</div>
+
+
+<div class="invite_user_form">
+
+  <form action="" id="new_sample_lead_form">
+
+      <div class="row">
+        <div class="col-md-3">
+          <input type="text" name="" id="sample_screen_name" style="width: 100%;" placeholder="Screen name"/>
+        </div>
+        <div class="col-md-5">
+          <input type="text" name="" id="sample_lead" style="width: 100%;" placeholder="Tweet"/>
+        </div>
+        <div class="col-md-4">
+          <button type="submit" id="submit_sample_lead" class="btn btn_secondary" style="width: inherit;" data-category-id="<%= @category_id %>">Add Lead</button>
+        </div>
+      </div>
+
+  </form>
+
+</div>
+
+
+
+<div class="opportunities">
+  <ul>
+
+    <% @sample_leads.each do |sample_lead| %>
+      <li>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tweet">
+            <span class="bold screen_name" style="margin-bottom: 10px;">
+              <%= sample_lead.screen_name %>
+            </span>
+              <p>
+                <%= sample_lead.tweet %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+
+
+
+  </ul>
+</div>

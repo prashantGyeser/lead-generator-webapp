@@ -49,6 +49,9 @@ $(document).ready(function(){
             $.post( "/admin/users/lead_streams/keywords", data_to_post ,function( response,status ) {
                 console.log(response);
                 console.log(status);
+
+                $('.keyword_list ul').append('<li class="bold admin_created"><a href="//admin/users/lead_streams/keywords/' + response.id + '">' + response.term + '</a></li>')
+
             });
         }
 

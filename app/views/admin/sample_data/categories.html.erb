@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Categories
+  </h1>
+
+</div>
+
+
+<div class="invite_user_form">
+  <input type="text" placeholder="Enter Category" id="category_field"/>
+  <button type="submit" id="submit_category" class="btn btn_secondary" style="width: inherit;">Add Category</button>
+</div>
+
+<div class="opportunities">
+  <ul>
+
+    <% @sample_categories.each do |sample_category| %>
+      <li>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tweet">
+              <span class="bold screen_name"><a href="/admin/sample_data/categories/<%= sample_category.id %>"><%= sample_category.name %></a></span>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+</div>
