@@ -41,7 +41,7 @@
 
                 <span class="highlight"><a href="admin/users/lead_streams/<%= lead_stream.first.id %>" style="margin-right: 15px;">View Previous Leads</a></span>
                 <% keywords.each do |keyword| %>
-                  <span class="title" style="">Keyword</span> <span class="highlight"><a href="#" style="margin-right: 15px;"><%= keyword.term %></a></span>
+                  <span class="title" style="">Keyword</span> <span class="highlight"><a href="/admin/users/lead_streams/keywords/<%= keyword.id %>" style="margin-right: 15px;"><%= keyword.term %></a></span>
                 <% end %>
 
 

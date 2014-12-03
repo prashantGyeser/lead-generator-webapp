@@ -8,11 +8,21 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def lead_stream
+    if !params[:id].nil?
+      lead_stream = LeadStream.find(params[:id])
+      keywords = Keyword.where(lead_stream_id: lead_stream.id)
+      keyword_ids = []
+      keywords.each do |keyword|
+        keyword_ids << keyword.id
+      end
 
+      @leads = Lead.where(keyword_id: keyword_ids)
+      @user = User.find(lead_stream.user_id)
+    end
   end
 
   def keyword_tweets
-    @unprocessed_tweets = UnprocessedTweet.where(processed: nil).first(50)
+    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: params[:id]).where(processed: nil).first(50)
   end
 
   def set_unprocessed_tweet_type
