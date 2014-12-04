@@ -62,7 +62,8 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-        var data_to_post = $(this).parent().serializeArray();
+        var set_sample_category_form = $(this).parent()
+        var data_to_post = set_sample_category_form.serializeArray();
 
         $.post( "/admin/users/set_sample_category", data_to_post ,function( response,status ) {
             console.log(response);
@@ -70,7 +71,7 @@ $(document).ready(function(){
 
             if(status === "success")
             {
-                
+                set_sample_category_form.hide().animate(1000);
             }
             else
             {

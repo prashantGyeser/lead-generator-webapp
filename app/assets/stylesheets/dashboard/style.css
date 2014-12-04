@@ -255,5 +255,14 @@ a:hover
 {
   display: inline-block;
 }
-
+.sample_category_name
+{
+  float: right;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.sample_category_name .title
+{
+  color: #b5c0c9;
+}
 /* ADMIN STYLES -- END */

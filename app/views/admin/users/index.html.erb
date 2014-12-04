@@ -29,18 +29,29 @@
             <span class="bold screen_name" style="margin-bottom: 10px;">
               <%= user.email %>
               <!--<span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>-->
-              <div class="set_sample_category">
 
-                <form action="">
-                  <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name) %>
-                  <input type="hidden" value="<%= user.id %>" name="sample_category[user_id]"/>
-                  <a href="#" class="btn btn_secondary" style="width: inherit; margin-top: -20px; margin-left: 10px;">
-                    Set Sample Data
-                  </a>
-                </form>
+              <% if user.sample_category_id.nil? %>
+                <div class="set_sample_category">
+
+                  <form action="">
+                    <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name) %>
+                    <input type="hidden" value="<%= user.id %>" name="sample_category[user_id]"/>
+                    <a href="#" class="btn btn_secondary" style="width: inherit; margin-top: -20px; margin-left: 10px;">
+                      Set Sample Data
+                    </a>
+                  </form>
 
 
-              </div>
+                </div>
+              <% else %>
+                <% sample_category_name = SampleCategory.find(user.sample_category_id).name %>
+                <span class="sample_category_name">
+                  <span class="title">Sample Category </span>
+                  <%= sample_category_name %>
+                </span>
+              <% end %>
+
+
             </span>
             <span class="opportunity_sub_items">
 
