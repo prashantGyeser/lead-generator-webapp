@@ -47,8 +47,6 @@ class Admin::UsersController < Admin::ApplicationController
 
   def new_keyword
 
-    puts params
-
     keyword = Keyword.new
     keyword.term = params[:term]
     keyword.lead_stream_id = params[:lead_stream_id]
@@ -61,6 +59,28 @@ class Admin::UsersController < Admin::ApplicationController
         format.json { render :json => keyword.errors, status: 500 }
       end
     end
+
+  end
+
+  def set_sample_category
+    sample_category = SampleCategory.find(params[:sample_category]["id"])
+    user = User.find(params[:sample_category]["user_id"])
+
+    puts "Okay irt is past finding the user"
+
+    user.sample_category_id = sample_category.id
+
+    puts "User: #{user.inspect}"
+
+    respond_to do |format|
+      if user.save
+        format.json { render :json => user, status: :created }
+      else
+        puts user.inspect
+        format.json { render :json => user.errors.messages, status: 500 }
+      end
+    end
+
 
   end
 

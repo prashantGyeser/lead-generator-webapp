@@ -31,9 +31,15 @@
               <!--<span style="margin-left: 20px;" class="lead_count_indicator_positive">10</span>-->
               <div class="set_sample_category">
 
-                <%= collection_select(:sample_category_id, 0, SampleCategory.all, :id, :name) %>
+                <form action="">
+                  <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name) %>
+                  <input type="hidden" value="<%= user.id %>" name="sample_category[user_id]"/>
+                  <a href="#" class="btn btn_secondary" style="width: inherit; margin-top: -20px; margin-left: 10px;">
+                    Set Sample Data
+                  </a>
+                </form>
 
-                <a href="#" class="btn btn_secondary" style="width: inherit; margin-top: -20px; margin-left: 10px;">Set Sample Data</a>
+
               </div>
             </span>
             <span class="opportunity_sub_items">

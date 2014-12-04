@@ -58,4 +58,30 @@ $(document).ready(function(){
     });
 
 
+    $('.set_sample_category a').click(function(event){
+
+        event.preventDefault();
+
+        var data_to_post = $(this).parent().serializeArray();
+
+        $.post( "/admin/users/set_sample_category", data_to_post ,function( response,status ) {
+            console.log(response);
+            console.log(status);
+
+            if(status === "success")
+            {
+                
+            }
+            else
+            {
+
+            }
+
+
+        });
+
+    });
+
+
+
 });
