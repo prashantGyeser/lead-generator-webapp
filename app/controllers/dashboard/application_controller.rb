@@ -27,11 +27,9 @@ class Dashboard::ApplicationController < ActionController::Base
 
   def check_setup
 
-    if current_user.setup_complete == true
-      redirect_to dashboard_root_path
-    elsif LeadStream.where(user_id: current_user.id).count <= 0
+    if LeadStream.where(user_id: current_user.id).count <= 0
       redirect_to dashboard_initial_setups_index_path
-    else
+    elsif Token.where(user_id: current_user.id).count <= 0
       redirect_to dashboard_initial_setups_connect_twitter_path
     end
 
