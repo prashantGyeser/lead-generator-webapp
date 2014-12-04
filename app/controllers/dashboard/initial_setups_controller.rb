@@ -2,9 +2,14 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
   layout 'setup/application'
 
+  skip_before_filter :check_setup
+
   def index
     @lead_stream = LeadStream.new
     3.times {@lead_stream.keywords.build}
+
+    puts "The referre is: #{request.inspect}"
+
   end
 
   def create_lead_stream
