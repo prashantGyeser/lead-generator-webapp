@@ -31,34 +31,33 @@ a:hover
 /*BUTTONS*/
 .btn
 {
-    padding: 10px;
-    width: 100%;
-    color: white;
-    text-transform: uppercase;
-    margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
 }
 
 .btn_block
 {
-    display: block;
+  display: block;
 }
 
 .btn_primary
 {
-    background: #1ABC9C;
+  background: #1ABC9C;
 }
 .btn_primary:hover
 {
-    color: white;
-    background: #0cbc99;
+  color: white;
+  background: #0cbc99;
 }
 .btn_secondary
 {
-    background: #1F97B9;
+  background: #1F97B9;
 }
 .btn_alert
 {
-    background: #F6223F;
+  background: #F6223F;
 }
 
 
