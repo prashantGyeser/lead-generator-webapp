@@ -3,10 +3,18 @@ require 'setup_status'
 class Dashboard::LeadsController < Dashboard::ApplicationController
   def index
     if params[:stream_id]
-      puts "This has a lead stream with id: #{params[:stream_id]}"
+      @lead_stream = LeadStream.find(params[:stream_id])
     else
-      puts "No lead stream id set"
+      @lead_stream = LeadStream.where(user_id: current_user.id).first
     end
+
+    keywords = Keyword.where(lead_stream_id: @lead_stream.id)
+    keyword_ids = []
+    keywords.each do |keyword|
+      keyword_ids << keyword.id
+    end
+
+    @leads = Lead.where(keyword_id: keyword_ids)
   end
 
   def send_reply

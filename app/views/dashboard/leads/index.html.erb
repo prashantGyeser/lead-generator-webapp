@@ -7,165 +7,33 @@
 
 <div class="opportunities">
   <ul>
-    <li>
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
+    <% @leads.each do |lead| %>
+      <li>
+        <div class="row">
+          <div class="col-md-1">
+            <img src="<%# lead.poster_profile_image_url %>" alt="" class="img-responsive">
+          </div>
+          <div class="col-md-9">
+            <div class="tweet">
+              <span class="bold screen_name"><a href="#">@<%= lead.screen_name %></a></span>
+              <%= lead.tweet_body %>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="actions">
+              <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
+              <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+            </div>
           </div>
         </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
+        <div class="row opportunity_sub_items">
+          <div class="col-md-10 col-md-offset-1">
+            <span class="title">Priority</span> <span class="priority priority_high">High</span>
+            <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
           </div>
         </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
-
-
-    <li>
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
-          </div>
-        </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
-
-
-    <li class="read">
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
-          </div>
-        </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
-
-
-    <li class="read">
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
-          </div>
-        </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
-
-    <li class="read">
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
-          </div>
-        </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
-
-
-    <li class="read">
-      <div class="row">
-        <div class="col-md-1">
-          <img src="img/profile_fillers/bb.jpg" alt="" class="img-responsive">
-        </div>
-        <div class="col-md-9">
-          <div class="tweet">
-            <span class="bold screen_name"><a href="#">@walter_white</a></span>
-            There are several reasons why one should prefer LaTeX to a WYSIWYG word processor like Microsoft Word: portability, lightness, security are just a few of them (not to mention that LaTeX is free).
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="actions">
-            <a href="#" class="btn btn_primary btn_block" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">Reply</a>
-            <a href="#" class="btn btn_alert btn_block" style="margin-top: 10px;">Not a lead</a>
-          </div>
-        </div>
-      </div>
-      <div class="row opportunity_sub_items">
-        <div class="col-md-10 col-md-offset-1">
-          <span class="title">Priority</span> <span class="priority priority_high">High</span>
-          <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight">24/10/2014</span>
-        </div>
-      </div>
-    </li>
+      </li>
+    <% end %>
 
 
 
