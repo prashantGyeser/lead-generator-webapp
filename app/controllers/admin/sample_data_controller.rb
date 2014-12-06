@@ -40,3 +40,5 @@ class Admin::SampleDataController < Admin::ApplicationController
   end
 
 end
+
+
