@@ -14,7 +14,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       keyword_ids << keyword.id
     end
 
-    @leads = Lead.where(keyword_id: keyword_ids)
+    @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).order('created_at DESC')
   end
 
   def send_reply
@@ -44,6 +44,20 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     flash[:success] = "Message successfully sent"
     redirect_to params[:tweet_reply][:current_path]
 
+  end
+
+  def mark_non_lead
+
+    lead = Lead.find(params[:lead_id])
+    lead.not_lead = true
+
+    respond_to do |format|
+      if lead.save
+        format.json { render :json => lead, status: :created }
+      else
+        format.json { render :json => lead.errors, status: 500 }
+      end
+    end
   end
 
 

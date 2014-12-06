@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     get 'account' => 'account#index'
     post '/initial_setups/create_lead_stream' =>'initial_setups#create_lead_stream'
     get '/initial_setups/connect_twitter' =>'initial_setups#connect_twitter'
+    post 'leads/mark_non_lead'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

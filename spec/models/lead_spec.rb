@@ -32,6 +32,7 @@
 #  tweet_body                         :string(255)
 #  keyword_id                         :integer
 #  poster_profile_image_url           :string(255)
+#  not_lead                           :boolean
 #
 
 require 'rails_helper'
