@@ -69,15 +69,22 @@
     </div>
 
     <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-right sidebar-animate tweet_actions">
-      <i class="fa fa-info-circle"></i>
+      <%= image_tag "reply-to-tweet.png", class: "img-responsive" %>
 
-      <h4 class="bold">Post to Twitter</h4>
+      <h4 class="bold">Replying to @screen_name</h4>
 
-      <p>
-        Before you can post to Twitter you need to connect your Twitter account.
+      <p id="message_container">
+        <span id="message_character_count"></span>
+        <span>
+        characters remaining
+      </span>
       </p>
 
-      <a href="#" class="btn btn_secondary">Connect Twitter</a>
+
+      <form action="" class="reply_form">
+        <textarea name="" id="reply_message" placeholder="Enter reply"></textarea>
+        <button class="btn btn_secondary">Send Reply</button>
+      </form>
 
     </div>
 

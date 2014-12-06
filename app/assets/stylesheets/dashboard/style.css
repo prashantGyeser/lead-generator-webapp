@@ -177,15 +177,19 @@ a:hover
   text-align: center;
 }
 
-.tweet_actions i
+.tweet_actions h4
 {
-  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.tweet_actions img
+{
   text-align: center;
   display: block;
-  margin-top: 50%;
-  margin-bottom: 20px;
   color: #757a7f;
+  margin: 20% auto 20px auto;
 }
+
 
 .tweet_actions .btn
 {
@@ -193,7 +197,25 @@ a:hover
   margin-top: 20px;
 }
 
+.tweet_actions .reply_form
+{
+  width: 100%;
+  color: #333;
+}
 
+.tweet_actions .reply_form textarea
+{
+  width: 100%;
+  padding: 10px;
+  height: 50%;
+  /*margin-top: 10px;*/
+}
+
+.tweet_actions p
+{
+  color: #fff;
+  text-align: left;
+}
 
 /* ADMIN STYLES -- START */
 .lead_count_indicator_positive

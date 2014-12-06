@@ -22,4 +22,25 @@ $(document).ready(function(){
         });
 
     });
+
+    $('#reply_message').simplyCountable({
+        counter:            '#message_character_count',
+        countType:          'characters',
+        maxCount:           120,
+        strictMax:          true,
+        countDirection:     'down',
+        safeClass:          'safe',
+        overClass:          'over',
+        thousandSeparator:  ',',
+        onOverCount:        function(count, countable, counter){},
+        onSafeCount:        function(count, countable, counter){},
+        onMaxCount:         function(count, countable, counter){}
+    });
+
+
+    $('.reply').click(function(event){
+        //event.preventDefault();
+
+    });
+
 });
