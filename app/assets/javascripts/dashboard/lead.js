@@ -47,6 +47,9 @@ $(document).ready(function(){
         $('#lead_being_replied_to').val(lead_id);
         $('#replying_to').text(screen_name);
 
+        $('li').removeClass('replying');
+        $(this).parent().parent().parent().parent().addClass('replying');
+
     });
 
     $('#send_reply_button').click(function(event){
@@ -55,8 +58,9 @@ $(document).ready(function(){
         var lead_id = $('#lead_being_replied_to').val();
 
         $('.sidebar-right').removeClass('sidebar-open');
-        $('#'+lead_id).children().hide();
+        $('#'+lead_id).children().hide(200);
         $('#'+lead_id).children('.reply_sent_status_hidden').removeClass('reply_sent_status_hidden').show();
+        $('li').removeClass('replying', 20000);
 
     });
 
