@@ -48,4 +48,11 @@ $(document).ready(function(){
 
     });
 
+    $('#send_reply_button').click(function(event){
+        event.preventDefault();
+
+        $('.sidebar-right').removeClass('sidebar-open');
+
+    });
+
 });
