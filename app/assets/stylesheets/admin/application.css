@@ -10,17 +10,5 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require plugins/bootstrap-select2/select2.css
- *= require plugins/jquery-slider/css/jquery.sidr.light
- *= require plugins/boostrap-checkbox/css/bootstrap-checkbox
- *= require plugins/boostrapv3/css/bootstrap.min
- *= require plugins/boostrapv3/css/bootstrap-theme.min
- *= require plugins/font-awesome/css/font-awesome
- *= require plugins/jquery-datatable/css/jquery.dataTables.min
- *= require plugins/datatables-responsive/css/datatables.responsive.css
- *= require dashboard/animate.min
- *= require admin/style
- *= require admin/responsive
- *= require dashboard/custom-icon-set
  *= require admin/users
  */
