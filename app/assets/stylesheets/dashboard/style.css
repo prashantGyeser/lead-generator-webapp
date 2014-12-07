@@ -214,7 +214,7 @@ a:hover
 .tweet_actions p
 {
   color: #fff;
-  text-align: left;
+  /*text-align: left;*/
 }
 
 /* ADMIN STYLES -- START */

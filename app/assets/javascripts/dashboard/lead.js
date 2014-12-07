@@ -39,7 +39,12 @@ $(document).ready(function(){
 
 
     $('.reply').click(function(event){
-        //event.preventDefault();
+        event.preventDefault();
+
+        var screen_name = $(this).data('screen-name');
+        var lead_id = $(this).data('lead-id');
+
+        $('#replying_to').text(screen_name);
 
     });
 
