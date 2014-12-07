@@ -44,6 +44,7 @@ $(document).ready(function(){
         var screen_name = $(this).data('screen-name');
         var lead_id = $(this).data('lead-id');
 
+        $('#lead_being_replied_to').val(lead_id);
         $('#replying_to').text(screen_name);
 
     });
@@ -51,7 +52,11 @@ $(document).ready(function(){
     $('#send_reply_button').click(function(event){
         event.preventDefault();
 
+        var lead_id = $('#lead_being_replied_to').val();
+
         $('.sidebar-right').removeClass('sidebar-open');
+        $('#'+lead_id).children().hide();
+        $('#'+lead_id).children('.reply_sent_status_hidden').removeClass('reply_sent_status_hidden').show();
 
     });
 

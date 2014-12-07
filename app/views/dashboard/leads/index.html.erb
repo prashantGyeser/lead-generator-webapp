@@ -20,7 +20,10 @@
             </div>
           </div>
           <div class="col-md-2">
-            <div class="actions">
+            <div class="actions" id="<%= lead.id %>">
+              <div class="reply_sent_status_hidden">
+                <%= image_tag "done-icon.png", class: "img-responsive" %>
+              </div>
               <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
               <a href="#" class="btn btn_alert btn_block not_lead" style="margin-top: 10px;" data-lead-id="<%= lead.id %>">Not a lead</a>
             </div>
