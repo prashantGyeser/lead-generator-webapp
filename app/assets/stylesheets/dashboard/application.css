@@ -13,4 +13,5 @@
  *= require dashboard/style
  *= require dashboard/sidebar
  *= require dashboard/selectric
+ *= require dashboard/keyword
  */
