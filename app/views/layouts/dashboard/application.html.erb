@@ -28,76 +28,100 @@
 </head>
 <body>
 
-<!-- Fixed navbar -->
-<div class="navbar navbar-static navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+<div class="remodal-bg">
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-static navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= image_tag "urbanzeak-logo-webapp.png" %></a>
+
+      </div>
+      <button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= image_tag "urbanzeak-logo-webapp.png" %></a>
-
     </div>
-    <button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
   </div>
-</div>
-<!-- Begin page content -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
-      <ul class="nav navbar-stacked">
-        <li class="active">
-          <a href="<%= dashboard_root_path %>">Leads</a>
-        </li>
-        <li>
-          <a href="#about">Keywords</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-    <div class="main col-md-9 col-md-offset-3">
-      <%= yield %>
+  <!-- Begin page content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
+        <ul class="nav navbar-stacked">
+          <li class="active">
+            <a href="<%= dashboard_root_path %>">Leads</a>
+          </li>
+          <li>
+            <a href="#about">Keywords</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="main col-md-9 col-md-offset-3">
+        <%= yield %>
+
+      </div>
+
+      <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-right sidebar-animate tweet_actions">
+        <%= image_tag "reply-to-tweet.png", class: "img-responsive" %>
+
+        <h4 class="bold">Replying to @<span id="replying_to"></span></h4>
+
+        <p id="message_container">
+          <span id="message_character_count"></span>
+          <span>
+          characters remaining
+        </span>
+        </p>
+
+
+        <form action="" class="reply_form">
+          <input type="hidden" value="" name="lead_id" id="lead_being_replied_to"/>
+          <textarea name="" id="reply_message" placeholder="Enter reply"></textarea>
+          <button class="btn btn_secondary" id="send_reply_button">Send Reply</button>
+        </form>
+
+      </div>
 
     </div>
-
-    <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-right sidebar-animate tweet_actions">
-      <%= image_tag "reply-to-tweet.png", class: "img-responsive" %>
-
-      <h4 class="bold">Replying to @<span id="replying_to"></span></h4>
-
-      <p id="message_container">
-        <span id="message_character_count"></span>
-        <span>
-        characters remaining
-      </span>
-      </p>
-
-
-      <form action="" class="reply_form">
-        <input type="hidden" value="" name="lead_id" id="lead_being_replied_to"/>
-        <textarea name="" id="reply_message" placeholder="Enter reply"></textarea>
-        <button class="btn btn_secondary" id="send_reply_button">Send Reply</button>
-      </form>
-
-    </div>
-
   </div>
+
 </div>
 
+<div class="remodal" data-remodal-id="modal" id="modal">
+  <h1>Remodal</h1>
+  <p>
+    Flat, responsive, lightweight, fast, easy customizable modal window plugin
+    with declarative state notation and hash tracking.
+  </p>
+  <br>
+  <a class="remodal-cancel" href="#">Cancel</a>
+  <a class="remodal-confirm" href="#">OK</a>
+</div>
 
 
 <!-- JAVASCRIPT -->
 <%= javascript_include_tag "dashboard/application" %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+  $(document).ready(function(){
+    var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+    inst.open();
+
+  });
+
+</script>
 
 
 </body>

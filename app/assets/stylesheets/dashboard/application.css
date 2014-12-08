@@ -14,4 +14,5 @@
  *= require dashboard/sidebar
  *= require dashboard/selectric
  *= require dashboard/keyword
+ *= require dashboard/jquery.remodal
  */
