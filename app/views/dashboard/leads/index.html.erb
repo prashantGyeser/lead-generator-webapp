@@ -48,3 +48,20 @@
 
   </ul>
 </div>
+
+
+<% if @new_user  %>
+  <% content_for :join_message do %>
+    <script type="text/javascript" charset="utf-8">
+
+      $(document).ready(function(){
+        var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+        inst.open();
+
+      });
+
+    </script>
+  <% end %>
+
+<% end %>
+

@@ -29,6 +29,7 @@
 #  invited_by_type        :string(255)
 #  invitations_count      :integer          default(0)
 #  sample_category_id     :integer
+#  new_user               :boolean
 #
 
 require 'rails_helper'

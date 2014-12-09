@@ -15,6 +15,13 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     end
 
     @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).order('created_at DESC')
+
+    if current_user.new_user.nil?
+      @new_user = true
+      current_user.new_user = false
+      current_user.save
+    end
+
   end
 
   def send_reply
