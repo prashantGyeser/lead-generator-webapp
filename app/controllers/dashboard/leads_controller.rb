@@ -16,6 +16,18 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
     @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).order('created_at DESC')
 
+    @leads_available = true
+
+    if @leads.count == 0
+      @leads_available = false
+
+      if !current_user.sample_category_id.nil?
+        @sample_leads = SampleLead.where(sample_category_id: current_user.sample_category_id)
+      end
+
+    end
+
+
     if current_user.new_user.nil?
       @new_user = true
       current_user.new_user = false

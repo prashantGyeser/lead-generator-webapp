@@ -7,42 +7,69 @@
 
 <div class="opportunities">
   <ul>
-    <% @leads.each do |lead| %>
-      <li>
-        <div class="row">
-          <div class="col-md-1">
 
-            <% if lead.poster_profile_image_url.nil? %>
-              <%= image_tag "no-profile-pic.png", class: "img-responsive" %>
-            <% else %>
-              <img src="<%= lead.poster_profile_image_url %>" alt="" class="img-responsive">
-            <% end %>
+    <% if @leads_available %>
+      <% @leads.each do |lead| %>
+        <li>
+          <div class="row">
+            <div class="col-md-1">
+
+              <% if lead.poster_profile_image_url.nil? %>
+                <%= image_tag "no-profile-pic.png", class: "img-responsive" %>
+              <% else %>
+                <img src="<%= lead.poster_profile_image_url %>" alt="" class="img-responsive">
+              <% end %>
 
 
-          </div>
-          <div class="col-md-9">
-            <div class="tweet">
-              <span class="bold screen_name"><a href="#">@<%= lead.screen_name %></a></span>
-              <%= lead.tweet_body %>
             </div>
-          </div>
-          <div class="col-md-2">
-            <div class="actions" id="<%= lead.id %>">
-              <div class="reply_sent_status_hidden">
-                <%= image_tag "done-icon.png", class: "img-responsive" %>
+            <div class="col-md-9">
+              <div class="tweet">
+                <span class="bold screen_name"><a href="#">@<%= lead.screen_name %></a></span>
+                <%= lead.tweet_body %>
               </div>
-              <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
-              <a href="#" class="btn btn_alert btn_block not_lead" style="margin-top: 10px;" data-lead-id="<%= lead.id %>">Not a lead</a>
+            </div>
+            <div class="col-md-2">
+              <div class="actions" id="<%= lead.id %>">
+                <div class="reply_sent_status_hidden">
+                  <%= image_tag "done-icon.png", class: "img-responsive" %>
+                </div>
+                <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
+                <a href="#" class="btn btn_alert btn_block not_lead" style="margin-top: 10px;" data-lead-id="<%= lead.id %>">Not a lead</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row opportunity_sub_items">
-          <div class="col-md-10 col-md-offset-1">
-            <span class="title">Posted On</span> <span class="highlight"><%= lead.created_at.strftime('%e %B %Y') %></span>
+          <div class="row opportunity_sub_items">
+            <div class="col-md-10 col-md-offset-1">
+              <span class="title">Posted On</span> <span class="highlight"><%= lead.created_at.strftime('%e %B %Y') %></span>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
+    <% else %>
+
+      <% @sample_leads.each do |sample_lead| %>
+        <li>
+          <div class="row">
+            <div class="col-md-1">
+              <%= image_tag "no-profile-pic.png", class: "img-responsive" %>
+            </div>
+            <div class="col-md-11">
+              <div class="tweet">
+                <span class="bold screen_name"><a href="#">@<%= sample_lead.screen_name %></a></span>
+                <%= sample_lead.tweet %>
+              </div>
+            </div>
+          </div>
+          <div class="row opportunity_sub_items">
+            <div class="col-md-10 col-md-offset-1">
+              <span class="title">Posted On</span> <span class="highlight"><%= sample_lead.created_at.strftime('%e %B %Y') %></span>
+            </div>
+          </div>
+        </li>
+      <% end %>
+
     <% end %>
+
 
 
 

@@ -3,6 +3,7 @@
        The user needs to enter atleast one keyword
        The city is mandatory.
 1 a. Create the styling for the validation errors
-2. AJAX submit
-    Show a spinner to tell the user that the form is being submitted.
-3. Convert a city into a lat long before it is stored
+3. Convert a city into a lat long before it is stored - Done, test
+4. Add a proper message for the initial modal window that is shown when a user first sees their leads page
+
+
