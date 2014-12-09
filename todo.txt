@@ -5,5 +5,5 @@
 1 a. Create the styling for the validation errors
 3. Convert a city into a lat long before it is stored - Done, test
 4. Add a proper message for the initial modal window that is shown when a user first sees their leads page
-
+5. Check if the tweet reply is being sent from the correct Twitter account
 

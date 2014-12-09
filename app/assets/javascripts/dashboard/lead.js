@@ -56,11 +56,30 @@ $(document).ready(function(){
         event.preventDefault();
 
         var lead_id = $('#lead_being_replied_to').val();
+        var reply_message = $('#reply_message').val();
 
-        $('.sidebar-right').removeClass('sidebar-open');
-        $('#'+lead_id).children().hide(200);
-        $('#'+lead_id).children('.reply_sent_status_hidden').removeClass('reply_sent_status_hidden').show();
-        $('li').removeClass('replying', 20000);
+        var data_to_post = {lead_id: lead_id, message: reply_message};
+
+        $.ajax({
+            url : "dashboard/leads/send_reply",
+            type: "POST",
+            data : data_to_post,
+            success: function(data, textStatus, jqXHR)
+            {
+                console.log("Done!");
+                $('.sidebar-right').removeClass('sidebar-open');
+                $('#'+lead_id).children().hide(200);
+                $('#'+lead_id).children('.reply_sent_status_hidden').removeClass('reply_sent_status_hidden').show();
+                $('li').removeClass('replying', 20000);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert("Something went wrong, please try again later.");
+            }
+        });
+
+
+
 
     });
 

@@ -39,9 +39,9 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
   def send_reply
     #@tweet_reply = TweetReply.new(tweet_reply_params)
 
-    #token = Token.where(:user_id => current_user.id).last
+    token = Token.where(:user_id => current_user.id).last
 
-    token = Token.find(params[:tweet_reply][:token_id])
+    #token = Token.find(params[:tweet_reply][:token_id])
 
     # Client initialization
     client = Twitter::REST::Client.new do |config|
@@ -51,17 +51,21 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       config.access_token_secret = token.oauth_secret
     end
 
-    leads_to_message = params[:tweet_reply][:lead_id].split(',')
+    lead = Lead.find(params[:lead_id])
+    message = params[:message]
 
-    leads_to_message.each do |lead_to_message|
-      lead = Lead.find(lead_to_message.to_i)
-      message_to_send = "@#{lead.screen_name} " + params[:tweet_reply][:message]
-      client.update(message_to_send)
-      TweetReply.create(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: params[:tweet_reply][:token_id] )
+    message_to_send = "@#{lead.screen_name} " + message
+    client.update(message_to_send)
+
+    tweet_reply = TweetReply.new(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: token.id )
+
+    respond_to do |format|
+      if tweet_reply.save
+        format.json { render :json => tweet_reply, status: :created }
+      else
+        format.json { render :json => tweet_reply.errors, status: 500 }
+      end
     end
-
-    flash[:success] = "Message successfully sent"
-    redirect_to params[:tweet_reply][:current_path]
 
   end
 
