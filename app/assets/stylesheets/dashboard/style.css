@@ -66,6 +66,21 @@ a:hover
   background: #F6223F;
 }
 
+input[type="text"] {
+  border: 1px solid #ccc;
+  /*margin-bottom: 20px;*/
+  padding: 10px;
+}
+input[type=text]:active
+{
+  border: 1px solid #1F97B9;
+  outline: none;
+}
+input[type=text]:focus
+{
+  border: 1px solid #1F97B9;
+  outline: none;
+}
 
 /* this is only to style the sidebar - you can make the sidebar look any way you want */
 .sidebar {
