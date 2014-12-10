@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $('.keywords .remove_keyword').click(function(event){
+
+    $(document).on('click', '.keywords .remove_keyword', function() {
         event.preventDefault();
 
         var keyword_container = $(this).parent().prev().parent();
@@ -24,12 +25,10 @@ $(document).ready(function(){
                 alert("Something went wrong, please try again later.");
             }
         });
-
-
     });
 
 
-    $('.keywords .add_keyword').click(function(event){
+    $(document).on('click', '.keywords .add_keyword', function() {
         event.preventDefault();
 
         var keyword = $(this).parent().prev().find('input').val();
@@ -62,8 +61,7 @@ $(document).ready(function(){
         else{
             alert("Please add a keyword");
         }
-
-
     });
+
 
 });
