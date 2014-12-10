@@ -8,6 +8,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  admin_created  :boolean
+#  archived       :boolean
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

@@ -9,21 +9,28 @@
 <div class="keywords">
 
   <table>
-    <tr>
-      <td class="bold">Keyword</td>
-      <td><a href="#">Remove</a></td>
-    </tr>
-    <tr>
-      <td class="bold">Keyword</td>
-      <td><a href="#">Remove</a></td>
-    </tr>
-    <tr>
-      <td class="bold">Keyword test to see</td>
-      <td><a href="#">Remove</a></td>
-    </tr>
-    <tr>
 
-    </tr>
+    <% @keywords.each do |keyword| %>
+      <tr>
+        <td class="bold"><%= keyword.term %></td>
+        <td><a href="#" class="remove_keyword" data-id="<%= keyword.id %>">Remove</a></td>
+      </tr>
+    <% end %>
+
+    <% if @keywords.count < 3 %>
+      <% (3 - @keywords.count).times do %>
+        <tr>
+          <td>
+            <input type="text" placeholder="Enter keyword"/>
+          </td>
+          <td>
+            <a href="#" class="btn btn_primary add_keyword">Add Keyword</a>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+
+
   </table>
 
 

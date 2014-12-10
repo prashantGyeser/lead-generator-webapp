@@ -8,6 +8,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  admin_created  :boolean
+#  archived       :boolean
 #
 
 class Keyword < ActiveRecord::Base

@@ -50,6 +50,8 @@ Rails.application.routes.draw do
     get '/initial_setups/connect_twitter' =>'initial_setups#connect_twitter'
     post 'leads/mark_non_lead'
     get 'keyword' => 'keyword#index'
+    post 'keyword/remove'
+    post 'keyword/add'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

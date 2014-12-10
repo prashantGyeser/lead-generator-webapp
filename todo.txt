@@ -4,4 +4,5 @@
 4. Add a proper message for the initial modal window that is shown when a user first sees their leads page
 5. Check if the tweet reply is being sent from the correct Twitter account
 6. Setup the keywords page
+7. Make sure duplicate tweets do not come in for a QC and do not come into the leads part of the application
 
