@@ -1,7 +1,7 @@
 class TwitterHelper
 
-  def search(keyword, city_latitude, city_longitude)
-    client = initialize_twitter_client
+  def search(keyword, city_latitude, city_longitude, user_id)
+    client = initialize_twitter_client(user_id)
     search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
 
     parse_and_store_tweets(search_results, keyword.id)
@@ -13,12 +13,16 @@ class TwitterHelper
   end
 
   private
-  def initialize_twitter_client
+  def initialize_twitter_client(user_id)
+
+    user = User.find(user_id)
+    token = Token.where(user_id: user_id).last
+
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_KEY']
       config.consumer_secret     = ENV['TWITTER_SECRET']
-      config.access_token        = '2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz'
-      config.access_token_secret = '2iIxN9FmebV6cHLNZxugz16z3m9qogJIKhc6ubkgHfWM7'
+      config.access_token        = token.oauth_token
+      config.access_token_secret = token.oauth_secret
     end
   end
 
