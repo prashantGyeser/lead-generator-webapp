@@ -4,14 +4,18 @@ namespace :search do
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
 
-    keywords = Keyword.all
+    keywords = Keyword.where(archived: nil).where("last_searched < ? OR (last_searched IS NULL)", (Time.now - 24.hours))
 
     twitter_helper = TwitterHelper.new
 
     keywords.each do |keyword|
-
+      puts "Searching using term: #{keyword.term}"
       lead_stream = LeadStream.find(keyword.lead_stream_id)
-      twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude)
+      twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
+
+      keyword.last_searched = Time.now
+      keyword.save
+
     end
   end
 

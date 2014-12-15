@@ -9,6 +9,7 @@
 #  updated_at     :datetime
 #  admin_created  :boolean
 #  archived       :boolean
+#  last_searched  :time
 #
 
 class Keyword < ActiveRecord::Base

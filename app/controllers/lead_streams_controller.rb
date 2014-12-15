@@ -26,6 +26,7 @@ class LeadStreamsController < ApplicationController
   def create
     @lead_stream = LeadStream.new(lead_stream_params)
     @lead_stream[:user_id] = current_user.id
+
     respond_to do |format|
       if @lead_stream.save
         flash[:success] = "Successfully created your stream"

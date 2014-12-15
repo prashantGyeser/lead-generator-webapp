@@ -9,6 +9,7 @@
 #  updated_at     :datetime
 #  admin_created  :boolean
 #  archived       :boolean
+#  last_searched  :time
 #
 
 require 'rails_helper'

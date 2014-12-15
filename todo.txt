@@ -6,3 +6,8 @@
 6. Setup the keywords page
 7. Make sure duplicate tweets do not come in for a QC and do not come into the leads part of the application
 
+
+
+
+The city lat long is not being stored when a lead stream is created, check it and see what is happening
+
