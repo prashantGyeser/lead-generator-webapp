@@ -1,9 +1,6 @@
 <div class="page-header">
   <h1>Opportunities</h1>
 </div>
-<p class="lead">
-  An explanation about this section comes up here. This might be shown only once or it can be shown permanently i.e. people cannot dismiss this section.
-</p>
 
 <div class="opportunities">
   <ul>
@@ -24,7 +21,7 @@
             </div>
             <div class="col-md-9">
               <div class="tweet">
-                <span class="bold screen_name"><a href="#">@<%= lead.screen_name %></a></span>
+                <span class="bold screen_name"><a href="http://www.twitter.com/<%= lead.screen_name %>">@<%= lead.screen_name %></a></span>
                 <%= lead.tweet_body %>
               </div>
             </div>

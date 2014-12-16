@@ -22,16 +22,6 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <style>
-    body
-	{
-		color: #ccc;
-	}
-    a
-	{
-		color: #ccc;
-	}
-  </style>
 
 
 
@@ -65,7 +55,7 @@
       <div class="col-xs-7 col-sm-3 col-md-3 sidebar sidebar-left sidebar-animate sidebar-md-show">
         <ul class="nav navbar-stacked">
           <li class="active">
-            <a href="<%= dashboard_root_path %>">Leads</a>
+            <a href="<%= dashboard_root_path %>">Opportunities</a>
           </li>
           <li>
             <a href="<%= dashboard_keyword_path %>">Keywords</a>
