@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-9">
               <div class="tweet">
-                <span class="bold screen_name"><a href="http://www.twitter.com/<%= lead.screen_name %>">@<%= lead.screen_name %></a></span>
+                <span class="bold screen_name"><a href="#">@<%= lead.screen_name %></a></span>
                 <%= lead.tweet_body %>
               </div>
             </div>

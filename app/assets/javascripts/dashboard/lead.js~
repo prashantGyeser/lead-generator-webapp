@@ -39,7 +39,6 @@ $(document).ready(function(){
 
 	$('.sample').click(function(e){
 		e.preventDefault();
-		alert("This is only sample data, as soon as we find opportunities using the keywords you provided, we will send you an email");
 	})
 
 
