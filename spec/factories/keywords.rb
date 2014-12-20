@@ -9,7 +9,7 @@
 #  updated_at     :datetime
 #  admin_created  :boolean
 #  archived       :boolean
-#  last_searched  :time
+#  last_searched  :datetime
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
