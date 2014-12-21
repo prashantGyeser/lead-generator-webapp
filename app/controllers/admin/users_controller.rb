@@ -23,6 +23,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def keyword_tweets
     @unprocessed_tweets = UnprocessedTweet.where(keyword_id: params[:id]).where(processed: nil).first(50)
+    @keyword = Keyword.find(params[:id])
   end
 
   def set_unprocessed_tweet_type
