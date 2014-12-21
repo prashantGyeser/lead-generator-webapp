@@ -21,7 +21,11 @@
             </div>
             <div class="col-md-9">
               <div class="tweet">
-                <span class="bold screen_name"><a href="http://www.twitter.com/<%= lead.screen_name %>">@<%= lead.screen_name %></a></span>
+                <span class="bold screen_name">
+                  <a href="http://www.twitter.com/<%= lead.poster_screen_name %>">
+                    @<%= lead.poster_screen_name %>
+                  </a>
+                </span>
                 <%= lead.tweet_body %>
               </div>
             </div>
@@ -30,7 +34,7 @@
                 <div class="reply_sent_status_hidden">
                   <%= image_tag "done-icon.png", class: "img-responsive" %>
                 </div>
-                <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
+                <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.poster_screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
                 <a href="#" class="btn btn_alert btn_block not_lead" style="margin-top: 10px;" data-lead-id="<%= lead.id %>">Not a lead</a>
               </div>
             </div>
