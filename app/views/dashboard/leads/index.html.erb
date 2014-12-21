@@ -7,7 +7,13 @@
 
     <% if @leads_available %>
       <% @leads.each do |lead| %>
-        <li>
+
+        <% if lead.created_at.to_date == Date.current %>
+          <li>
+        <% else %>
+          <li class="read">
+        <% end %>
+
           <div class="row">
             <div class="col-md-1">
 
