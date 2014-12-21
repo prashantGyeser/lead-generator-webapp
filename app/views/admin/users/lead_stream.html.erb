@@ -7,10 +7,12 @@
 
     <% @keywords.each do |keyword| %>
 
-      <% if keyword.admin_created.nil? %>
-        <li class="bold"><a href="#"><%= keyword.term %></a></li>
-      <% else %>
+      <% if keyword.admin_created %>
         <li class="bold admin_created"><a href="#"><%= keyword.term %></a></li>
+      <% elsif keyword.archived %>
+        <li class="bold"><%= keyword.term %></li>
+      <% else %>
+        <li class="bold"><a href="#"><%= keyword.term %></a></li>
       <% end %>
 
 
