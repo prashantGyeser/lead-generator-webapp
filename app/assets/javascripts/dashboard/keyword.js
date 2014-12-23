@@ -1,4 +1,5 @@
-$(document).ready(function(){
+var ready;
+ready = function() {
 
     $(document).on('click', '.keywords .remove_keyword', function() {
         event.preventDefault();
@@ -63,5 +64,7 @@ $(document).ready(function(){
         }
     });
 
+};
 
-});
+$(document).ready(ready);
+$(document).on('page:load', ready);

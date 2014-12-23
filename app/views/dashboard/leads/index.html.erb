@@ -7,7 +7,13 @@
 
     <% if @leads_available %>
       <% @leads.each do |lead| %>
-        <li>
+
+        <% if lead.created_at.to_date == Date.current %>
+          <li>
+        <% else %>
+          <li class="read">
+        <% end %>
+
           <div class="row">
             <div class="col-md-1">
 
@@ -41,6 +47,10 @@
           </div>
           <div class="row opportunity_sub_items">
             <div class="col-md-10 col-md-offset-1">
+              <% if !(lead.friends_count.nil? || lead.followers_count.nil?) %>
+                <span class="title">Friends</span> <span class="highlight"><%= lead.friends_count %></span>
+                <span class="title">Followers</span> <span class="highlight"><%= lead.followers_count %></span>
+              <% end %>
               <span class="title">Posted On</span> <span class="highlight"><%= lead.created_at.strftime('%e %B %Y') %></span>
             </div>
           </div>
@@ -92,8 +102,8 @@
     <script type="text/javascript" charset="utf-8">
 
       $(document).ready(function(){
-        var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
-        inst.open();
+        //var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+        //inst.open();
 
       });
 
