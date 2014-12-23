@@ -1,4 +1,6 @@
-$(document).ready(function(){
+var ready;
+ready = function() {
+
     $('.not_lead').click(function(event){
         event.preventDefault();
 
@@ -37,10 +39,10 @@ $(document).ready(function(){
         onMaxCount:         function(count, countable, counter){}
     });
 
-	$('.sample').click(function(e){
-		e.preventDefault();
-		alert("This is only sample data, as soon as we find opportunities using the keywords you provided, we will send you an email");
-	})
+    $('.sample').click(function(e){
+        e.preventDefault();
+        alert("This is only sample data, as soon as we find opportunities using the keywords you provided, we will send you an email");
+    })
 
 
     $('.reply').click(function(event){
@@ -88,9 +90,9 @@ $(document).ready(function(){
 
     });
 
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 
-
-
-
-});
