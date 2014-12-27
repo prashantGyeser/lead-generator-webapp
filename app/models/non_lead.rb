@@ -15,6 +15,7 @@
 #  poster_profile_image_url :string(255)
 #  created_at               :datetime
 #  updated_at               :datetime
+#  tweet_id                 :integer
 #
 
 class NonLead < ActiveRecord::Base

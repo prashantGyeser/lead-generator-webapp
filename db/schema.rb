@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220173022) do
+ActiveRecord::Schema.define(version: 20141227064118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20141220173022) do
     t.integer  "times_shown"
     t.date     "date_last_shown"
     t.string   "user_image_url"
-    t.string   "tweet_id"
     t.integer  "user_id"
     t.integer  "lead_stream_id"
     t.integer  "city_id"
@@ -97,6 +96,7 @@ ActiveRecord::Schema.define(version: 20141220173022) do
     t.string   "poster_profile_image_url"
     t.boolean  "not_lead"
     t.boolean  "archived"
+    t.integer  "tweet_id"
   end
 
   create_table "non_leads", force: true do |t|
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20141220173022) do
     t.string   "poster_profile_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tweet_id"
   end
 
   create_table "reports", force: true do |t|
@@ -188,6 +189,7 @@ ActiveRecord::Schema.define(version: 20141220173022) do
     t.integer  "keyword_id"
     t.string   "poster_profile_image_url"
     t.boolean  "processed"
+    t.integer  "tweet_id"
   end
 
   create_table "user_categories", force: true do |t|

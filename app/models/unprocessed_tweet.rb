@@ -16,15 +16,19 @@
 #  keyword_id               :integer
 #  poster_profile_image_url :string(255)
 #  processed                :boolean
+#  tweet_id                 :integer
 #
 
 class UnprocessedTweet < ActiveRecord::Base
+
+  validates_uniqueness_of :tweet_id, scope: :keyword_id
 
   def move_tweet(is_lead)
 
     unprocessed_lead_to_store_attr = self.attributes
     unprocessed_lead_to_store_attr.delete('id')
     unprocessed_lead_to_store_attr.delete('processed')
+
 
     if is_lead == 'true'
       results = Lead.create(unprocessed_lead_to_store_attr)

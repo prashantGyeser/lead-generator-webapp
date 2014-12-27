@@ -16,6 +16,7 @@
 #  keyword_id               :integer
 #  poster_profile_image_url :string(255)
 #  processed                :boolean
+#  tweet_id                 :integer
 #
 
 require 'rails_helper'

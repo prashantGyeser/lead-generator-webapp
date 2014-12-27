@@ -39,6 +39,7 @@ class TwitterHelper
       unprocessed_tweet_hash[:tweet_body] = search_result.text
       unprocessed_tweet_hash[:poster_profile_image_url] = search_result.user.profile_image_url.to_s
       unprocessed_tweet_hash[:keyword_id] = keyword_id
+      unprocessed_tweet_hash[:tweet_id] = search_result.id
 
       unprocessed_tweet = UnprocessedTweet.create(unprocessed_tweet_hash)
 

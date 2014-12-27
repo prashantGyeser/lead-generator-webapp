@@ -12,7 +12,6 @@
 #  times_shown                        :integer
 #  date_last_shown                    :date
 #  user_image_url                     :string(255)
-#  tweet_id                           :string(255)
 #  user_id                            :integer
 #  lead_stream_id                     :integer
 #  city_id                            :integer
@@ -34,6 +33,7 @@
 #  poster_profile_image_url           :string(255)
 #  not_lead                           :boolean
 #  archived                           :boolean
+#  tweet_id                           :integer
 #
 
 require 'rails_helper'

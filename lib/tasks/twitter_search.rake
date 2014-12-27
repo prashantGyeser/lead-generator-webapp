@@ -29,10 +29,10 @@ namespace :search do
       config.access_token_secret = '2iIxN9FmebV6cHLNZxugz16z3m9qogJIKhc6ubkgHfWM7'
     end
 
-    keyword = "Need real estate agent"
+    keyword = "sushi"
 
     client.search( keyword, geocode: "40.7127837,-74.0059413,25mi" ).collect do |tweet|
-      puts tweet.text
+      puts tweet.id
     end
   end
 
