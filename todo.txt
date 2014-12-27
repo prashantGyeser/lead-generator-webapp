@@ -1,13 +1,5 @@
 1. Setup validations across the application
 2. Add front end styling for validation/error notifications
-3. Convert a city into a lat long before it is stored - Not working, need to test this
-4. Add a proper message for the initial modal window that is shown when a user first sees their leads page
-5. Check if the tweet reply is being sent from the correct Twitter account
-6. Setup the keywords page
-7. Make sure duplicate tweets do not come in for a QC and do not come into the leads part of the application
-
-
-
-
-The city lat long is not being stored when a lead stream is created, check it and see what is happening
+3. Check if the tweet reply is being sent from the correct Twitter account and ensure that an error is shown in case the message could not be sent
+4. Add code to make sure that only 5 keywords are searched for in a 15 mins time span
 
