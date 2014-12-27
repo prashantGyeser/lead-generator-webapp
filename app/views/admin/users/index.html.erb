@@ -69,7 +69,7 @@
                     <a href="/admin/users/lead_streams/keywords/<%= keyword.id %>">
                       <%= keyword.term %>
                     </a>
-                    (last searched: <%= keyword.last_searched %>)
+                    (last searched: <%= keyword.last_searched %>, Today's leads: <%= Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>, No. to QC: <%= UnprocessedTweet.where(keyword_id: keyword.id).count %> )
                   </span>
                 <% end %>
 
