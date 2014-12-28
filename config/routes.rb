@@ -92,4 +92,7 @@ Rails.application.routes.draw do
 
   get 'subscriptions/show'
 
+
+
+
 end
