@@ -76,6 +76,8 @@ gem 'geocoder'
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem "letter_opener", :group => :development
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
