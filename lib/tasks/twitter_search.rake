@@ -8,6 +8,8 @@ namespace :search do
 
     twitter_helper = TwitterHelper.new
 
+
+
     keywords.each do |keyword|
       puts "Searching using term: #{keyword.term}"
       lead_stream = LeadStream.find(keyword.lead_stream_id)
@@ -15,6 +17,9 @@ namespace :search do
 
       keyword.last_searched = DateTime.now
       keyword.save
+
+      # Slowing down the calls to adhere to the Twitter API limitations
+      sleep 3.minutes
 
     end
   end
