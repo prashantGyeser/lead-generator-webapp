@@ -14,7 +14,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       keyword_ids << keyword.id
     end
 
-    @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).order('created_at DESC')
+    @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).paginate(page: params[:page], per_page: 30).order('created_at DESC')
 
     @leads_available = true
 

@@ -64,7 +64,13 @@
 
                 <span class="highlight"><a href="admin/users/lead_streams/<%= lead_stream.first.id %>" style="margin-right: 15px;">View Previous Leads</a></span>
                 <% keywords.each do |keyword| %>
-                  <span class="title" style="">Keyword</span> <span class="highlight"><a href="/admin/users/lead_streams/keywords/<%= keyword.id %>" style="margin-right: 15px;"><%= keyword.term %></a></span>
+                  <span class="title" style="">Keyword</span>
+                  <span class="highlight" style="margin-right: 15px;">
+                    <a href="/admin/users/lead_streams/keywords/<%= keyword.id %>">
+                      <%= keyword.term %>
+                    </a>
+                    (last searched: <%= keyword.last_searched %>, Today's leads: <%= Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>, No. to QC: <%= UnprocessedTweet.where(keyword_id: keyword.id).count %> )
+                  </span>
                 <% end %>
 
 

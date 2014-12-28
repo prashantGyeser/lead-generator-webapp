@@ -16,6 +16,7 @@
 #  keyword_id               :integer
 #  poster_profile_image_url :string(255)
 #  processed                :boolean
+#  tweet_id                 :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
