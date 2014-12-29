@@ -33,8 +33,10 @@ class Admin::UsersController < Admin::ApplicationController
 
     respond_to do |format|
       if !results.id.nil?
-        unprocessed_tweet[:processed] = true
-        unprocessed_tweet.save
+        #unprocessed_tweet[:processed] = true
+        #unprocessed_tweet.save
+
+        unprocessed_tweet.destroy
 
         format.json { render :json => results, status: :created }
 
