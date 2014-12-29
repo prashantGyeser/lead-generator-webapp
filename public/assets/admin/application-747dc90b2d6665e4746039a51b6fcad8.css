@@ -1,0 +1,102 @@
+/* line 8, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.users_table ul {
+  list-style: none;
+  padding-left: 0;
+}
+/* line 12, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.users_table ul li {
+  margin-bottom: 10px;
+}
+
+/* line 26, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #6f7b8a;
+}
+/* line 32, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list h3 {
+  margin: 0 -15px 5px -15px;
+  padding: 10px 10px 10px 10px;
+  color: white;
+}
+/* line 39, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul {
+  padding: 0;
+  list-style: none;
+  color: #636b6d;
+}
+/* line 45, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li {
+  margin: 0 -15px;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+  border-right: 5px solid white;
+}
+/* line 52, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li img {
+  margin-right: 10px;
+}
+/* line 56, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li .indicators {
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+/* line 62, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li .indicators .danger-indicator {
+  width: 10px;
+  height: 10px;
+  background: #F35958;
+  border-radius: 5px;
+  display: inline-block;
+}
+/* line 72, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li .indicators .warning-indicator {
+  width: 10px;
+  height: 10px;
+  background: #FDD01C;
+  border-radius: 5px;
+  display: inline-block;
+}
+/* line 82, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li .indicators .label {
+  margin-right: 5px;
+}
+/* line 89, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li.selected {
+  border-right: 5px solid #0AA699;
+}
+/* line 92, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_list ul li:last-child {
+  border-bottom: none;
+}
+
+/* line 99, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_info {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #6f7b8a;
+  padding-bottom: 10px;
+  border-left: none;
+}
+/* line 107, /home/prashant/Documents/lead-generator-webapp/app/assets/stylesheets/admin/users.css.scss */
+.user_info table {
+  margin-top: 20px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+
