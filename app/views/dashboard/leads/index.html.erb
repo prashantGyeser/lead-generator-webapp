@@ -47,9 +47,9 @@
           </div>
           <div class="row opportunity_sub_items">
             <div class="col-md-10 col-md-offset-1">
-              <% if !(lead.friends_count.nil? || lead.followers_count.nil?) %>
-                <span class="title">Friends</span> <span class="highlight"><%= lead.friends_count %></span>
-                <span class="title">Followers</span> <span class="highlight"><%= lead.followers_count %></span>
+              <% if !(lead.poster_friends_count.nil? || lead.poster_follower_count.nil?) %>
+                <span class="title">Friends</span> <span class="highlight"><%= lead.poster_friends_count %></span>
+                <span class="title">Followers</span> <span class="highlight"><%= lead.poster_follower_count %></span>
               <% end %>
               <span class="title">Posted On</span> <span class="highlight"><%= lead.created_at.strftime('%e %B %Y') %></span>
             </div>
