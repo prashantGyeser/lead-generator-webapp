@@ -66,9 +66,16 @@
                 <% keywords.each do |keyword| %>
                   <span class="title" style="">Keyword</span>
                   <span class="highlight" style="margin-right: 15px;">
-                    <a href="/admin/users/lead_streams/keywords/<%= keyword.id %>">
+
+                    <% if keyword.archived == true %>
                       <%= keyword.term %>
-                    </a>
+                    <% else %>
+                      <a href="/admin/users/lead_streams/keywords/<%= keyword.id %>">
+                        <%= keyword.term %>
+                      </a>
+                    <% end %>
+
+
                     (last searched: <%= keyword.last_searched %>, Today's leads: <%= Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>, No. to QC: <%= UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %> )
                   </span>
                 <% end %>
