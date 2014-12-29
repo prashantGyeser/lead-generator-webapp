@@ -33,7 +33,7 @@
 #  poster_profile_image_url           :string(255)
 #  not_lead                           :boolean
 #  archived                           :boolean
-#  tweet_id                           :integer
+#  tweet_id                           :string(255)
 #
 
 require 'rails_helper'

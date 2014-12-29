@@ -16,7 +16,7 @@
 #  keyword_id               :integer
 #  poster_profile_image_url :string(255)
 #  processed                :boolean
-#  tweet_id                 :integer
+#  tweet_id                 :string(255)
 #
 
 class UnprocessedTweet < ActiveRecord::Base
