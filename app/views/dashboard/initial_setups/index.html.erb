@@ -39,6 +39,13 @@
         <span style="font-weight:bold;">Note:</span> During the beta you can select upto 3 keywords. After we launch you will be able to select more.
       </div>
 
+      <% if flash[:error] -%>
+        <div class="error">
+          <%=h flash[:error] %>
+        </div>
+      <% end %>
+
+
 
       <%= form_for @lead_stream, url: {action: "create_lead_stream"}, html: {class: "nifty_form"} do |f| %>
 

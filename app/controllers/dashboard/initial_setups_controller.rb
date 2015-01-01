@@ -23,17 +23,28 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
       @lead_stream.longitude = lat_lon[1]
     rescue
       puts "Could not find the coordinates of the given city"
+      gecoding_error = true
     end
 
+    #gecoding_error = true
+
     respond_to do |format|
-      if @lead_stream.save
-        flash[:success] = "Successfully created your stream"
-        format.html { redirect_to dashboard_initial_setups_connect_twitter_path }
-      else
-        flash[:error] = "Two streams cannot have the same city and category"
+
+      if gecoding_error == true || lat_lon.nil?
+        flash[:error] = "We could not find your city! Did you misspell it?"
         format.html { redirect_to dashboard_root_path }
-        format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
+      else
+        if @lead_stream.save
+          flash[:success] = "Successfully created your stream"
+          format.html { redirect_to dashboard_initial_setups_connect_twitter_path }
+        else
+          flash[:error] = "Two streams cannot have the same city and category"
+          format.html { redirect_to dashboard_root_path }
+          format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
+        end
       end
+
+
     end
 
 
