@@ -35,6 +35,11 @@
             <%= f.password_field :password, :class => "form-control" %>
           </div>
 
+          <div class="form-group">
+            <%= link_to "Forgot password?", new_password_path('user') %>
+          </div>
+
+
           <%= f.submit "Login", :class => "btn btn_block btn_primary" %>
 
         <% end %>
