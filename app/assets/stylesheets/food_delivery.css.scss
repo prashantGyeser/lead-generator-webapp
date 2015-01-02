@@ -52,6 +52,27 @@ body
   }
 }
 
+.login
+{
+  a
+  {
+    background: #fff;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    color: #1ABC9C;
+    border-radius: 6px;
+    transition: all 0.3s ease 0s;
+  }
+
+  a:hover
+  {
+    background: #1ABC9C;
+    border: 1px solid #ffffff;
+    color: white;
+    text-decoration: none;
+  }
+}
+
 .sellStatement
 {
   margin-top: 60px;
