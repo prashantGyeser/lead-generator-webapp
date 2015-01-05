@@ -63,6 +63,13 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       if tweet_reply.save
         format.json { render :json => tweet_reply, status: :created }
       else
+
+        Honeybadger.notify(
+            :error_class   => "Tweet Reply Error",
+            :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence}",
+            :parameters    => params
+        )
+
         format.json { render :json => tweet_reply.errors, status: 500 }
       end
     end
