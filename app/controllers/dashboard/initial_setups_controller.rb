@@ -8,7 +8,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @lead_stream = LeadStream.new
     3.times {@lead_stream.keywords.build}
 
-    puts "The referre is: #{request.inspect}"
+    #puts "The referre is: #{request.inspect}"
 
   end
 
@@ -17,8 +17,10 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @lead_stream = LeadStream.new(lead_stream_params)
     @lead_stream.user_id = current_user.id
 
+    gecoding_error = false
+
     begin
-      lat_lon = Geocoder.coordinates(params[:city_name])
+      lat_lon = Geocoder.coordinates(params[:lead_stream][:city_name])
       @lead_stream.latitude = lat_lon[0]
       @lead_stream.longitude = lat_lon[1]
     rescue
@@ -32,6 +34,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
       if gecoding_error == true || lat_lon.nil?
         flash[:error] = "We could not find your city! Did you misspell it?"
+        #flash[:error] = "The gecode info is: #{gecoding_error} and the lat_lon is: #{lat_lon.inspect}"
         format.html { redirect_to dashboard_root_path }
       else
         if @lead_stream.save
