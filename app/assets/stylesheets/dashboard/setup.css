@@ -75,7 +75,17 @@ p
   background: #F6223F;
 }
 
-
+/*ERROR STYLING -- START*/
+.error
+{
+  border: 1px solid #F6223F;
+  background: #fee6e9;
+  color: #F6223F;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+/*ERROR STYLING -- END*/
 
 
 /* FORM STYLING -- START */

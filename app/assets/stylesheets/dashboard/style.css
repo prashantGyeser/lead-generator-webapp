@@ -82,6 +82,15 @@ input[type=text]:focus
   outline: none;
 }
 
+/*ERROR STYLING -- START*/
+.error
+{
+  border: 1px solid #F6223F;
+  background: #fee6e9;
+}
+/*ERROR STYLING -- END*/
+
+
 /* this is only to style the sidebar - you can make the sidebar look any way you want */
 .sidebar {
   padding: 20px;
