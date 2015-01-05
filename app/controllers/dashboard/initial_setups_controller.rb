@@ -17,6 +17,8 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     @lead_stream = LeadStream.new(lead_stream_params)
     @lead_stream.user_id = current_user.id
 
+    gecoding_error = false
+
     begin
       lat_lon = Geocoder.coordinates(params[:city_name])
       @lead_stream.latitude = lat_lon[0]
