@@ -42,7 +42,7 @@ ready = function() {
     $('.sample').click(function(e){
         e.preventDefault();
         alert("This is only sample data, as soon as we find opportunities using the keywords you provided, we will send you an email");
-    })
+    });
 
 
     $('.reply').click(function(event){
@@ -82,6 +82,7 @@ ready = function() {
             error: function (jqXHR, textStatus, errorThrown)
             {
                 alert("Something went wrong, please try again later.");
+                console.log("The error thrown is:", errorThrown);
             }
         });
 

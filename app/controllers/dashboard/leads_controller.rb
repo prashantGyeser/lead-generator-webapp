@@ -54,7 +54,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     lead = Lead.find(params[:lead_id])
     message = params[:message]
 
-    message_to_send = "@#{lead.screen_name} " + message
+    message_to_send = "@#{lead.poster_screen_name} " + message
     tweet_reply_status = client.update(message_to_send)
 
     tweet_reply = TweetReply.new(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: token.id )
