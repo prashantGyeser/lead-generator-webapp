@@ -66,7 +66,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
         Honeybadger.notify(
             :error_class   => "Tweet Reply Error",
-            :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence}",
+            :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence} and the tweet_reply_status is: #{tweet_reply_status}",
             :parameters    => params
         )
 
