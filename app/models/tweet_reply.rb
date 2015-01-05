@@ -13,5 +13,5 @@
 
 class TweetReply < ActiveRecord::Base
   belongs_to :user
-  validates_length_of :message, :minimum => 10, :maximum => 120, :allow_blank => false
+  validates_length_of :message, :minimum => 10, :maximum => 140, :allow_blank => false
 end
