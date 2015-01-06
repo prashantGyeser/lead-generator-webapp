@@ -9,7 +9,7 @@ class Admin::LeadsController < Admin::ApplicationController
       keyword_ids << keyword.id
     end
 
-    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: keyword_ids)
+    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil)
   end
 
 end

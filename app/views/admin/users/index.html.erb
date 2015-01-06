@@ -31,6 +31,21 @@
 
 
     <% @users.each do |user| %>
+
+      <% lead_stream = LeadStream.where(user_id: user.id).last %>
+
+      <% if !lead_stream.nil? %>
+        <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+        <% keyword_ids = [] %>
+        <% keywords.each do |keyword| %>
+          <% keyword_ids << keyword.id %>
+        <% end %>
+        <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+        <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+      <% end %>
+
+
+
       <tr>
         <td>
           <a href="admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
@@ -38,9 +53,23 @@
             <span class="error_label" style="margin-left: 10px;">No Lead Stream</span>
           <% end %>
         </td>
-        <td>10</td>
         <td>
-          <span class="error_label">0</span>
+          <% if !unprocessed_tweet_count.nil? &&  unprocessed_tweet_count > 0 %>
+            <span><%= unprocessed_tweet_count %></span>
+          <% else %>
+            <% if !unprocessed_tweet_count.nil? %>
+              <span class="error_label"><%= unprocessed_tweet_count %></span>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if !leads_today.nil? && leads_today > 0 %>
+            <span><%= leads_today %></span>
+          <% else %>
+            <% if !leads_today.nil? %>
+              <span class="error_label"><%= leads_today %></span>
+            <% end %>
+          <% end %>
         </td>
         <td class="sample_category" id="<%= user.id %>">
 
