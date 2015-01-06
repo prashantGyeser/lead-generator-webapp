@@ -77,6 +77,7 @@ Rails.application.routes.draw do
     post '/sample_category/create' => 'sample_data#create_category'
     post '/sample_lead/create' => 'sample_data#create_lead'
     post 'users/set_sample_category' => 'users#set_sample_category'
+    get 'leads/qc/:user_id' => "leads#qc"
   end
 
 
