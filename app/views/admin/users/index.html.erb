@@ -19,6 +19,56 @@
 
 
 <div class="opportunities">
+
+  <table>
+
+    <tr>
+      <th>Email</th>
+      <th>Leads to QC</th>
+      <th>Leads sent today</th>
+      <th></th>
+    </tr>
+
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><a href="#"><%= user.email %></a></td>
+        <td>10</td>
+        <td>
+          <span class="error_label">0</span>
+        </td>
+        <td>
+            <a href="#" class="btn btn_secondary" style="width: inherit; background-color: rgba(31,151,185); float: right;">
+              Set Sample Data
+            </a>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <ul>
 
     <% @users.each do |user| %>
@@ -53,6 +103,9 @@
 
 
             </span>
+
+
+
             <span class="opportunity_sub_items">
 
               <% lead_stream = LeadStream.where(user_id: user.id) %>
@@ -86,6 +139,11 @@
 
 
             </span>
+
+
+
+
+
             </div>
           </div>
         </div>
