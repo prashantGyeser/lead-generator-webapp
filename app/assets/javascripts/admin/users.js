@@ -62,7 +62,7 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-        var set_sample_category_form = $(this).parent()
+        var set_sample_category_form = $(this).parent();
         var data_to_post = set_sample_category_form.serializeArray();
 
         $.post( "/admin/users/set_sample_category", data_to_post ,function( response,status ) {
@@ -82,6 +82,16 @@ $(document).ready(function(){
         });
 
     });
+
+
+  $('.sample_category a.set').click(function(e){
+    e.preventDefault();
+
+    
+
+  });
+
+
 
 
 

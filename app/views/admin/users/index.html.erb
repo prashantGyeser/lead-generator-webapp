@@ -32,15 +32,15 @@
 
     <% @users.each do |user| %>
       <tr>
-        <td><a href="#"><%= user.email %></a></td>
+        <td><a href="#" class="bold"><%= user.email %></a></td>
         <td>10</td>
         <td>
           <span class="error_label">0</span>
         </td>
-        <td>
+        <td class="sample_category">
 
           <% if user.sample_category_id.nil? %>
-            <a href="#" class="btn btn_secondary" style="width: inherit; background-color: rgba(31,151,185); float: right;">
+            <a href="#" class="btn btn_secondary set" style="width: inherit; background-color: rgba(31,151,185); float: right;" data-remodal-target="modal">
               Set Sample Data
             </a>
           <% else %>
@@ -63,7 +63,18 @@
 
 
 
+  <div class="remodal" data-remodal-id="modal">
 
+    <form action="">
+      <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name, style: "width: 100%") %>
+      <input type="hidden" value="<%# user.id %>" name="sample_category[user_id]" id="sample_category_user_id"/>
+      <a href="#" class="btn btn_secondary" style="width: inherit">
+        Set Sample Category
+      </a>
+    </form>
+
+    <!--<a class="remodal-confirm" href="#">OK</a>-->
+  </div>
 
 
 
