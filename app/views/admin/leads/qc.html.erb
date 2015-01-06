@@ -5,6 +5,26 @@
 </div>
 
 <div class="opportunities">
+
+  <div class="keywords">
+    <span>Keywords: </span>
+
+    <% @keywords.each do |keyword_id| %>
+      <% keyword = Keyword.find(keyword_id) %>
+
+      <% if keyword.archived == true %>
+        <span style="margin-left: 15px;"><%= keyword.term %></span>
+      <% elsif keyword.admin_created == true %>
+        <span style="margin-left: 15px; color: #1ABC9C"><%= keyword.term %></span>
+      <% else %>
+        <span style="margin-left: 15px;" class="bold"><%= keyword.term %></span>
+      <% end %>
+
+
+    <% end %>
+
+  </div>
+
   <ul>
 
     <% @unprocessed_tweets.each do |unprocessed_tweet| %>
