@@ -48,7 +48,7 @@
 
       <tr>
         <td>
-          <a href="admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
+          <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
           <% if LeadStream.where(user_id: user.id).count == 0 %>
             <span class="error_label" style="margin-left: 10px;">No Lead Stream</span>
           <% end %>
