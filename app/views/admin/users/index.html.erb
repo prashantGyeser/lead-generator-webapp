@@ -38,9 +38,21 @@
           <span class="error_label">0</span>
         </td>
         <td>
+
+          <% if user.sample_category_id.nil? %>
             <a href="#" class="btn btn_secondary" style="width: inherit; background-color: rgba(31,151,185); float: right;">
               Set Sample Data
             </a>
+          <% else %>
+            <% sample_category_name = SampleCategory.find(user.sample_category_id).name %>
+            <span class="sample_category_name">
+              <%= sample_category_name %>
+            </span>
+          <% end %>
+
+
+
+
         </td>
       </tr>
     <% end %>
