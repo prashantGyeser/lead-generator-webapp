@@ -86,12 +86,44 @@ $(document).ready(function(){
 
   $('.sample_category a.set').click(function(e){
     e.preventDefault();
-
-    
-
+    $('#sample_category_user_id').val($(this).data('user-id'));
   });
 
+  $('#store_sample_category').click(function(e){
+    event.preventDefault();
 
+    var set_sample_category_form = $(this).parent();
+    var data_to_post = set_sample_category_form.serializeArray();
+
+    var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+
+
+    $.post( "/admin/users/set_sample_category", data_to_post ,function( response,status ) {
+      console.log(response);
+      console.log(status);
+
+      if(status === "success")
+      {
+        //set_sample_category_form.hide().animate(1000);
+        var user_id = $('#sample_category_user_id').val();
+        td_to_hide = 'td#' + user_id;
+
+        $(td_to_hide).children().hide();
+
+        inst.close();
+      }
+      else
+      {
+        alert("Something went wrong, let me know and I will have a look at it");
+      }
+    });
+
+
+
+
+
+
+  });
 
 
 
