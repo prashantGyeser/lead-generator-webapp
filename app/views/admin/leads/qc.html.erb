@@ -25,6 +25,29 @@
 
   </div>
 
+  <div class="city">
+    <span>City: </span>
+    <span><%= @lead_stream.city_name %></span>
+  </div>
+
+
+  <div class="invite_user_form" style="margin-top: 20px;">
+
+    <input type="text" placeholder="Enter keyword" id="keyword_field"/>
+    <button type="submit" id="submit_keyword" class="btn btn_primary" style="width: inherit" data-lead-stream-id="<%= @lead_stream.id %>">Add keyword</button>
+
+    <%# form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+    <%# devise_error_messages! %>
+
+    <%# f.text_field :email, placeholder: "Email of user to invite" %>
+    <%# f.submit "Invite User", class: "btn btn_secondary", style: "width: inherit;" %>
+    <%# end %>
+
+  </div>
+
+
+
+
   <ul>
 
     <% @unprocessed_tweets.each do |unprocessed_tweet| %>
