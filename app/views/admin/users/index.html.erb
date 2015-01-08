@@ -24,8 +24,9 @@
 
     <tr>
       <th>Email</th>
-      <th>Leads to QC</th>
-      <th>Leads sent today</th>
+      <th>QC</th>
+      <th>Today's Leads</th>
+      <th>Month's Leads</th>
       <th></th>
     </tr>
 
@@ -42,6 +43,7 @@
         <% end %>
         <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
         <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+        <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
       <% end %>
 
 
@@ -71,6 +73,9 @@
             <% end %>
           <% end %>
         </td>
+        <td>
+          <%= leads_this_month %>
+        </td>
         <td class="sample_category" id="<%= user.id %>">
 
           <% if user.sample_category_id.nil? %>
@@ -83,10 +88,6 @@
               <%= sample_category_name %>
             </span>
           <% end %>
-
-
-
-
         </td>
       </tr>
     <% end %>
