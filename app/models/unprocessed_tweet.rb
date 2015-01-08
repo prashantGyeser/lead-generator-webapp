@@ -28,6 +28,8 @@ class UnprocessedTweet < ActiveRecord::Base
     unprocessed_lead_to_store_attr = self.attributes
     unprocessed_lead_to_store_attr.delete('id')
     unprocessed_lead_to_store_attr.delete('processed')
+    unprocessed_lead_to_store_attr.delete('created_at')
+    unprocessed_lead_to_store_attr.delete('updated_at')
 
 
     if is_lead == 'true'
