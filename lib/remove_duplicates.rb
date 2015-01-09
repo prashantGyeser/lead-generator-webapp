@@ -1,6 +1,6 @@
 class RemoveDuplicates
 
-  def remove_duplicate_unprocessed_tweets
+  def unprocessed_tweets
 
     UnprocessedTweet.find_each do |unprocessed_tweet|
 
