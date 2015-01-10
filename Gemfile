@@ -78,6 +78,10 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem "letter_opener", :group => :development
 
+gem 'newrelic_rpm'
+
+gem 'unicorn'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
