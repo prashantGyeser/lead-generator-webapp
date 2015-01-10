@@ -28,6 +28,7 @@
       <th>Today's Leads</th>
       <th>Month's Leads</th>
       <th></th>
+      <th></th>
     </tr>
 
 
@@ -88,6 +89,12 @@
               <%= sample_category_name %>
             </span>
           <% end %>
+        </td>
+        <td>
+          <% if !lead_stream.nil? %>
+            <a href="/admin/users/lead_streams/<%= lead_stream.id %>">View Leads</a>
+          <% end %>
+
         </td>
       </tr>
     <% end %>
