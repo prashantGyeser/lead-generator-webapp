@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229061632) do
+ActiveRecord::Schema.define(version: 20150111140625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20141229061632) do
     t.boolean  "admin_created"
     t.boolean  "archived"
     t.datetime "last_searched"
+    t.integer  "last_result_count"
+    t.integer  "last_duplicate_count"
   end
 
   create_table "lead_streams", force: true do |t|

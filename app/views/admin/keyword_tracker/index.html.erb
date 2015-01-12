@@ -1,0 +1,55 @@
+<div class="page-header">
+  <h1>
+    Keywords
+  </h1>
+
+</div>
+
+<div class="opportunities">
+
+  <table>
+
+    <tr>
+      <th>Keyword</th>
+      <th>Last Results Count</th>
+      <th>Last Duplicate Count</th>
+
+    </tr>
+
+
+    <% @keywords.each do |keyword| %>
+
+
+      <tr>
+        <td>
+          <%= keyword.term %>
+        </td>
+        <td>
+          <%= keyword.last_result_count %>
+        </td>
+        <td>
+          <%= keyword.last_duplicate_count %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+
+
+
+
+  <div class="remodal" data-remodal-id="modal">
+
+    <form action="">
+      <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name, style: "width: 100%") %>
+      <input type="hidden" value="<%# user.id %>" name="sample_category[user_id]" id="sample_category_user_id"/>
+      <a href="#" class="btn btn_secondary" style="width: inherit" id="store_sample_category">
+        Set Sample Category
+      </a>
+    </form>
+
+    <!--<a class="remodal-confirm" href="#">OK</a>-->
+  </div>
+
+</div>
