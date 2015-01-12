@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'restaurants' => 'pages#restaurants'
   get 'agencies' => 'pages#social_media'
   get 'real_estate' => 'pages#real_estate'
@@ -78,6 +79,7 @@ Rails.application.routes.draw do
     post '/sample_lead/create' => 'sample_data#create_lead'
     post 'users/set_sample_category' => 'users#set_sample_category'
     get 'leads/qc/:user_id' => "leads#qc"
+    get 'keyword_tracker/index'
   end
 
 

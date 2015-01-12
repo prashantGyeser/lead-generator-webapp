@@ -4,7 +4,13 @@ class TwitterHelper
     client = initialize_twitter_client(user_id)
     search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
 
-    parse_and_store_tweets(search_results, keyword.id)
+    duplicate_count = parse_and_store_tweets(search_results, keyword.id)
+
+    # Storing search result metrics
+    keyword.last_result_count = search_results.count
+    keyword.last_duplicate_count = duplicate_count
+
+    keyword.save
 
   end
 
@@ -27,6 +33,9 @@ class TwitterHelper
   end
 
   def parse_and_store_tweets(search_results, keyword_id)
+
+    duplicate_count = 0
+
     search_results.each do |search_result|
 
       unprocessed_tweet_hash = {}
@@ -41,9 +50,17 @@ class TwitterHelper
       unprocessed_tweet_hash[:keyword_id] = keyword_id
       unprocessed_tweet_hash[:tweet_id] = search_result.id.to_s
 
-      unprocessed_tweet = UnprocessedTweet.create(unprocessed_tweet_hash)
+      unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
+      if unprocessed_tweet.save
+
+      else
+        duplicate_count = duplicate_count + 1
+      end
     end
+
+    return duplicate_count
+
   end
 
 
