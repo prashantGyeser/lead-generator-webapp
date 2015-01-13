@@ -2,7 +2,12 @@ class TwitterHelper
 
   def search(keyword, city_latitude, city_longitude, user_id)
     client = initialize_twitter_client(user_id)
-    search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
+
+    if !client.nil?
+      search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
+    end
+
+
 
     duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
@@ -24,12 +29,22 @@ class TwitterHelper
     user = User.find(user_id)
     token = Token.where(user_id: user_id).last
 
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_KEY']
-      config.consumer_secret     = ENV['TWITTER_SECRET']
-      config.access_token        = token.oauth_token
-      config.access_token_secret = token.oauth_secret
+    begin
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_KEY']
+        config.consumer_secret     = ENV['TWITTER_SECRET']
+        config.access_token        = token.oauth_token
+        config.access_token_secret = token.oauth_secret
+      end
+    rescue => e
+      Honeybadger.notify(
+          :error_class   => "Twitter Initialization Error",
+          :error_message => "Twitter Initialization Error: #{e.message}",
+          :parameters    => {user_email: user.email, token_id: token.id}
+      )
     end
+
+
   end
 
   def parse_and_store_tweets(search_results, keyword_id)
