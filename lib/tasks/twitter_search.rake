@@ -8,8 +8,6 @@ namespace :search do
 
     twitter_helper = TwitterHelper.new
 
-
-
     keywords.each do |keyword|
       puts "Searching using term: #{keyword.term}"
       lead_stream = LeadStream.find(keyword.lead_stream_id)

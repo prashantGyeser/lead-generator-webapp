@@ -40,7 +40,7 @@ class TwitterHelper
       Honeybadger.notify(
           :error_class   => "Twitter Initialization Error",
           :error_message => "Twitter Initialization Error: #{e.message}",
-          :parameters    => {user_email: user.email, token_id: token.id}
+          :parameters    => {user_email: user.email}
       )
     end
 
