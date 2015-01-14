@@ -364,4 +364,14 @@ input[type=text]:focus
   margin: 20px;
 }
 
+.error_indicator
+{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  /*padding: 2px;*/
+  border-radius: 50%;
+  background:#F6223F;
+}
+
 /* ADMIN STYLES -- END */

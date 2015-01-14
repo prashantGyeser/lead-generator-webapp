@@ -24,6 +24,7 @@
 
     <tr>
       <th>Email</th>
+      <th></th>
       <th>QC</th>
       <th>Today's Leads</th>
       <th>Month's Leads</th>
@@ -52,8 +53,10 @@
       <tr>
         <td>
           <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
+        </td>
+        <td>
           <% if LeadStream.where(user_id: user.id).count == 0 %>
-            <span class="error_label" style="margin-left: 10px;">No Lead Stream</span>
+            <span class="error_indicator"></span>
           <% end %>
         </td>
         <td>
