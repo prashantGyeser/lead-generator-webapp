@@ -11,6 +11,7 @@
 
     <tr>
       <th>Keyword</th>
+      <th>Archived</th>
       <th>Last Results Count</th>
       <th>Last Duplicate Count</th>
 
@@ -23,6 +24,13 @@
       <tr>
         <td>
           <%= keyword.term %>
+        </td>
+        <td>
+          <% if keyword.archived? %>
+            <div class="default_label">
+              Archived
+            </div>
+          <% end %>
         </td>
         <td>
           <%= keyword.last_result_count %>
@@ -38,18 +46,5 @@
 
 
 
-
-  <div class="remodal" data-remodal-id="modal">
-
-    <form action="">
-      <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name, style: "width: 100%") %>
-      <input type="hidden" value="<%# user.id %>" name="sample_category[user_id]" id="sample_category_user_id"/>
-      <a href="#" class="btn btn_secondary" style="width: inherit" id="store_sample_category">
-        Set Sample Category
-      </a>
-    </form>
-
-    <!--<a class="remodal-confirm" href="#">OK</a>-->
-  </div>
 
 </div>

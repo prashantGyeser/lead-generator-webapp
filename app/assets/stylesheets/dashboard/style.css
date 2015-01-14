@@ -358,6 +358,15 @@ input[type=text]:focus
   border-radius: 3px;
   /*font-weight: 700;*/
 }
+.opportunities table td .default_label
+{
+  background: #bababa;
+  padding: 5px;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+  /*font-weight: 700;*/
+}
 .remodal .selectricWrapper
 {
   width: 100%;
