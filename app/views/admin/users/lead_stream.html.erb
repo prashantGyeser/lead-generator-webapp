@@ -49,7 +49,7 @@
           </div>
           <div class="col-md-9">
             <div class="tweet">
-              <span class="bold screen_name"><a href="#"><%= lead.poster_screen_name %></a></span>
+              <span class="bold screen_name"><a href="#"><%= lead.poster_screen_name %></a> - <%= lead.id %> - <%= lead.tweet_id %></span>
               <%= lead.tweet_body %>
             </div>
           </div>
@@ -59,8 +59,7 @@
         </div>
         <div class="row opportunity_sub_items">
           <div class="col-md-10 col-md-offset-1">
-            <!--<span class="title">Priority</span> <span class="priority priority_high">High</span>-->
-            <span class="title" style="margin-left: 20px;">Posted On</span> <span class="highlight"><%= lead.created_at %></span>
+            <span class="title" style="">Posted On</span> <span class="highlight"><%= lead.created_at %></span>
           </div>
         </div>
       </li>
