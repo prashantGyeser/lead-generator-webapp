@@ -82,6 +82,8 @@ gem 'newrelic_rpm'
 
 gem 'unicorn'
 
+gem 'rails_autolink'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
