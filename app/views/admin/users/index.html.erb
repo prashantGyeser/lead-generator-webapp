@@ -26,8 +26,9 @@
       <th>Email</th>
       <th></th>
       <th>QC</th>
-      <th>Today's Leads</th>
-      <th>Month's Leads</th>
+      <th>Todays</th>
+      <th>Months</th>
+      <th>Replies</th>
       <th></th>
       <th></th>
     </tr>
@@ -79,6 +80,9 @@
         </td>
         <td>
           <%= leads_this_month %>
+        </td>
+        <td>
+          <%= TweetReply.where(user_id: user.id).count %>
         </td>
         <td class="sample_category" id="<%= user.id %>">
 
