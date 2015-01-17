@@ -45,8 +45,10 @@
         </button>
         <a class="navbar-brand" href="#"><%= image_tag "urbanzeak-logo-webapp.png" %></a>
 
+
+
       </div>
-      
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, style: "float:right; color: white;margin-top: 10px;") %>
     </div>
   </div>
   <!-- Begin page content -->
