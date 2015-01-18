@@ -14,8 +14,8 @@
 
 FactoryGirl.define do
   factory :sample_lead do
-    sample_category_id 1
-    tweet "MyString"
-    screen_name "MyString"
+    sample_category
+    tweet Faker::Lorem.sentence
+    screen_name Faker::Internet.user_name('Nancy Johnson', %w(. _ -))
   end
 end

@@ -17,8 +17,6 @@
 
 FactoryGirl.define do
   factory :lead_stream do
-    user_id 1
-    category_id 1
-    city_id 1
+    city_name "New York"
   end
 end
