@@ -45,7 +45,7 @@
             <div class="col-md-2">
               <div class="actions" id="<%= lead.id %>">
 
-                <% if (TweetReply.where(lead_id: lead.id).count > 0) %>
+                <% if (TweetReply.where(user_id: current_user.id).where(tweet_id: lead.tweet_id).count > 0) %>
                   <div>
                     <%= image_tag "done-icon.png", class: "img-responsive" %>
                   </div>
