@@ -9,6 +9,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  token_id   :integer
+#  tweet_id   :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
