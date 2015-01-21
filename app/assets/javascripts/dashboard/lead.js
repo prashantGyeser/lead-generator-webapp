@@ -10,7 +10,7 @@ ready = function() {
         var button_clicked = $(this);
 
         $.ajax({
-            url : "dashboard/leads/mark_non_lead",
+            url : "/dashboard/leads/mark_non_lead",
             type: "POST",
             data : data_to_post,
             success: function(data, textStatus, jqXHR)
@@ -68,7 +68,7 @@ ready = function() {
         var data_to_post = {lead_id: lead_id, message: reply_message};
 
         $.ajax({
-            url : "dashboard/leads/send_reply",
+            url : "/dashboard/leads/send_reply",
             type: "POST",
             data : data_to_post,
             success: function(data, textStatus, jqXHR)
