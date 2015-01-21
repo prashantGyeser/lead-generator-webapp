@@ -28,4 +28,19 @@ class RemoveDuplicates
 
   end
 
+
+  def set_tweet_id_for_replies
+    tweet_replies = TweetReply.all
+
+    tweet_replies.each do |tweet_reply|
+      lead = Lead.find(tweet_reply.lead_id)
+
+      tweet_reply.tweet_id = lead.tweet_id
+      tweet_reply.save
+
+    end
+
+  end
+
+
 end
