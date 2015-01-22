@@ -30,6 +30,7 @@
 #  invitations_count      :integer          default(0)
 #  sample_category_id     :integer
 #  new_user               :boolean
+#  admin                  :boolean
 #
 
 FactoryGirl.define do
