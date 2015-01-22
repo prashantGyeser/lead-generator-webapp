@@ -5,8 +5,19 @@ class Admin::ApplicationController < ActionController::Base
 
   #layout "admin/application"
 
+  before_action :check_admin
   before_action :authenticate_user!
 
   layout "admin/application"
+
+  protected
+
+  def check_admin
+    if !current_user.try(:admin?)
+      redirect_to root_path
+    end
+  end
+
+
 
 end
