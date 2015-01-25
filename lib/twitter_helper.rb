@@ -7,8 +7,6 @@ class TwitterHelper
       search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
     end
 
-
-
     duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
     # Storing search result metrics
