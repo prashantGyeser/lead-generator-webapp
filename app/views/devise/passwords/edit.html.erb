@@ -14,11 +14,6 @@
     <div class="col-md-6 col-md-offset-3">
       <div class="login">
         <h1>Set your password</h1>
-        <p class="explanation">
-          Put done some sell on why they should sign up, tell them about how there is no commitment and how this is a beta etc etc...
-        </p>
-
-
 
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
@@ -35,7 +30,7 @@
           </div>
 
 
-          <%= f.submit "Change my password", :class => "btn btn_block btn_primary" %>
+          <%= f.submit "Change my password", :class => "btn btn_block btn_primary", style: "margin-bottom: 20px;" %>
         <% end %>
 
         <%= render "devise/shared/links" %>
