@@ -53,7 +53,14 @@
 
       <tr>
         <td>
-          <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
+
+          <% if user.try(:is_active) %>
+            <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
+          <% else %>
+            <span class="" style="color: #999"><%= user.email %></span>
+          <% end %>
+
+
         </td>
         <td>
           <% if LeadStream.where(user_id: user.id).count == 0 %>
