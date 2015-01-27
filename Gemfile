@@ -84,6 +84,8 @@ gem 'unicorn'
 
 gem 'rails_autolink'
 
+gem 'librato-rails'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
@@ -100,6 +102,8 @@ end
 group :development do
   #gem 'ruby-debug'
   gem 'reek'
+  gem "bullet"
+  gem 'rack-mini-profiler'
 end
 
 
