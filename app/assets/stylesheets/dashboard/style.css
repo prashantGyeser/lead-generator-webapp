@@ -382,5 +382,12 @@ input[type=text]:focus
   border-radius: 50%;
   background:#F6223F;
 }
+.remodal h1
+{
+  text-align: left;
+}
+.keyword_list_modal
+{
 
+}
 /* ADMIN STYLES -- END */

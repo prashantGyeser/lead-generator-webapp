@@ -131,5 +131,11 @@ $(document).ready(function(){
   });
 
 
+  $('#ex1').modal({
+    fadeDuration: 500
+    // fadeDelay: 0.50
+  });
+
+
 
 });
