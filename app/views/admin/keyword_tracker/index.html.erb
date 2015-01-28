@@ -14,7 +14,7 @@
       <th>Archived</th>
       <th>Last Results Count</th>
       <th>Last Duplicate Count</th>
-
+      <th>Last Searched</th>
     </tr>
 
 
@@ -37,6 +37,9 @@
         </td>
         <td>
           <%= keyword.last_duplicate_count %>
+        </td>
+        <td>
+          <%= keyword.last_searched %>
         </td>
       </tr>
     <% end %>
