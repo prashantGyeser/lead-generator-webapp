@@ -388,6 +388,25 @@ input[type=text]:focus
 }
 .keyword_list_modal
 {
+  width: 100%;
+}
+.keyword_list_modal td
+{
+  padding-bottom: 15px;
+}
+.keyword_list_modal td.actions
+{
+  float: right;
+}
 
+.keyword_list_modal td i
+{
+  /*color: #F6223F;*/
+  color: #cbcbcb;
+}
+.keyword_list_modal td i:hover
+{
+  color: #F6223F;
+  cursor: pointer;
 }
 /* ADMIN STYLES -- END */
