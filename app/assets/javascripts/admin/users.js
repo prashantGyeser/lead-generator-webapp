@@ -123,19 +123,14 @@ $(document).ready(function(){
       }
     });
 
-
-
-
-
-
   });
 
 
-  $('#ex1').modal({
-    fadeDuration: 500
-    // fadeDelay: 0.50
-  });
+  $('.not_working').click(function(e){
 
+    var keyword_id = $(this).data("id");
+    // Todo: Send the data to the server and mark the keyword as not working
+  })
 
 
 });
