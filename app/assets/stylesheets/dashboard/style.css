@@ -255,7 +255,17 @@ input[type=text]:focus
 {
   display: none;
 }
+.in_app_message
+{
+  padding: 10px;
+}
 
+.warning
+{
+  background: #fffede;
+  border: 1px solid #fff756;
+  color: #aba400;
+}
 
 
 /* ADMIN STYLES -- START */

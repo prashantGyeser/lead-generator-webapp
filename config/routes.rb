@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'user_guides/keywords'
+
+  get 'user_guides/replies'
+
   get 'restaurants' => 'pages#restaurants'
   get 'agencies' => 'pages#social_media'
   get 'real_estate' => 'pages#real_estate'
@@ -80,6 +84,7 @@ Rails.application.routes.draw do
     post 'users/set_sample_category' => 'users#set_sample_category'
     get 'leads/qc/:user_id' => "leads#qc"
     get 'keyword_tracker/index'
+    post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
   end
 
 

@@ -19,8 +19,8 @@
   {
     td
     {
-      padding-right: 60px;
-      padding-bottom: 20px;
+      //padding-right: 60px;
+      padding: 10px;
       vertical-align: middle;
 
       .remove_keyword
@@ -29,6 +29,11 @@
       }
 
     }
+    .not_working
+    {
+      background: #fffcbc;
+    }
   }
 
 }
+

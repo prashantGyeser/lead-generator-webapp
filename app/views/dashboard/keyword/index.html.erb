@@ -3,12 +3,17 @@
 </div>
 
 
+<div class="in_app_message warning">
+  <span class="bold">Keyword not working:</span> this is a test
+</div>
+
+
 <div class="keywords">
 
   <table>
 
     <% @keywords.each do |keyword| %>
-      <tr>
+      <tr class=<%= keyword.not_working ? "not_working" : "" %>>
         <td class="bold"><%= keyword.term %></td>
         <td><a href="#" class="remove_keyword" data-id="<%= keyword.id %>">Remove</a></td>
       </tr>

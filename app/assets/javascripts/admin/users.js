@@ -130,6 +130,22 @@ $(document).ready(function(){
 
     var keyword_id = $(this).data("id");
     // Todo: Send the data to the server and mark the keyword as not working
+
+    $.post( "/admin/users/set_not_working_keyword", {keyword_id: keyword_id} ,function( response,status ) {
+      console.log(response);
+      console.log(status);
+
+      if(status === "success")
+      {
+        alert("Marked keyword as not working!");
+      }
+      else
+      {
+        alert("Something went wrong, let me know and I will have a look at it");
+      }
+    });
+
+
   })
 
 

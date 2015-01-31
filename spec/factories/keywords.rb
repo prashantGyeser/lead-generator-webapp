@@ -12,6 +12,7 @@
 #  last_searched        :datetime
 #  last_result_count    :integer
 #  last_duplicate_count :integer
+#  not_working          :boolean
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

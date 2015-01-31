@@ -31,6 +31,7 @@
 #  sample_category_id     :integer
 #  new_user               :boolean
 #  admin                  :boolean
+#  is_active              :boolean          default(TRUE)
 #
 
 class User < ActiveRecord::Base
