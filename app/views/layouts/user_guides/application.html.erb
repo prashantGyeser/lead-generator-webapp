@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urbanzeak Dashboard</title>
+
+  <script src="//use.typekit.net/yjy6rjo.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'user_guides/application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+
+  <%= csrf_meta_tag %>
+
+	
+
+</head>
+<body class="<%= @is_all ? "all":"" %>">
+
+<div>
+
+  <!-- Begin page content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 sidebar sidebar-left sidebar-animate sidebar-md-show">
+        <div class="main_heading">
+          <h1 style="color: white">User Guides</h1>
+        </div>
+      </div>
+      <div class="main col-md-6 col-md-offset-6">
+        <%= yield %>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+<%= javascript_include_tag "dashboard/application" %>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<%= yield :join_message %>
+
+
+
+
+
+</body>
+</html>
+

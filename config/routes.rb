@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'user_guides/keywords'
 
   get 'user_guides/replies'
+  get 'user_guides' => "user_guides#all"
 
   get 'restaurants' => 'pages#restaurants'
   get 'agencies' => 'pages#social_media'
