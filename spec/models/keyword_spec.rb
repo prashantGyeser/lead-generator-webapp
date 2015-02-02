@@ -12,6 +12,8 @@
 #  last_searched        :datetime
 #  last_result_count    :integer
 #  last_duplicate_count :integer
+#  not_working          :boolean
+#  last_run             :datetime
 #
 
 require 'rails_helper'
