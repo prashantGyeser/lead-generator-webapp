@@ -7,6 +7,10 @@ class TwitterHelper
       search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
     end
 
+    if keyword.term == 'Iran'
+      puts search_results.inspect
+    end
+
     duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
     # Storing search result metrics
@@ -74,7 +78,7 @@ class TwitterHelper
       rescue => e
         Honeybadger.notify(
             :error_class   => "Tweet parse and store error",
-            :error_message => "Tweet parse and store error: Unable to store tweet",
+            :error_message => "Tweet parse and store error: #{e.message}",
             :parameters    => unprocessed_tweet
         )
       end
