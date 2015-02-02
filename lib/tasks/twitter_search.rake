@@ -10,6 +10,9 @@ namespace :search do
 
     keywords.each do |keyword|
 
+      keyword.last_run = DateTime.now
+      keyword.save
+
       lead_stream = LeadStream.find(keyword.lead_stream_id)
 
       if User.find(lead_stream.user_id).try(:is_active)
