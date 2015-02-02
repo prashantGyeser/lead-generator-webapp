@@ -65,11 +65,22 @@ class TwitterHelper
 
       unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
-      if unprocessed_tweet.save
+      begin
+        if unprocessed_tweet.save
 
-      else
-        duplicate_count = duplicate_count + 1
+        else
+          duplicate_count = duplicate_count + 1
+        end
+      rescue => e
+        Honeybadger.notify(
+            :error_class   => "Tweet parse and store error",
+            :error_message => "Tweet parse and store error: Unable to store tweet",
+            :parameters    => unprocessed_tweet
+        )
       end
+
+
+
     end
 
     return duplicate_count
