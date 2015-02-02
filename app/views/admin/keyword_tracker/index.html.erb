@@ -10,11 +10,13 @@
   <table>
 
     <tr>
+      <th>Id</th>
       <th>Keyword</th>
       <th>Archived</th>
       <th>Last Results Count</th>
       <th>Last Duplicate Count</th>
       <th>Last Searched</th>
+      <th>Last Run</th>
     </tr>
 
 
@@ -22,6 +24,9 @@
 
 
       <tr>
+        <td>
+          <%= keyword.id %>
+        </td>
         <td>
           <%= keyword.term %>
         </td>
@@ -40,6 +45,9 @@
         </td>
         <td>
           <%= keyword.last_searched %>
+        </td>
+        <td>
+          <%= keyword.last_run %>
         </td>
       </tr>
     <% end %>
