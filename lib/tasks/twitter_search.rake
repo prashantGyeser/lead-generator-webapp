@@ -31,6 +31,35 @@ namespace :search do
     end
   end
 
+  task unsearched_keywords: :environment do
+
+    keywords = Keyword.where(archived: nil).where(last_searched: nil)
+
+    twitter_helper = TwitterHelper.new
+
+    keywords.each do |keyword|
+
+      keyword.last_run = DateTime.now
+      keyword.save
+
+      puts "The keyword is: #{keyword.term}"
+
+      lead_stream = LeadStream.find(keyword.lead_stream_id)
+
+      if User.find(lead_stream.user_id).try(:is_active)
+        twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
+
+        keyword.last_searched = DateTime.now
+        keyword.save
+
+        # Slowing down the calls to adhere to the Twitter API limitations
+        sleep 3.minutes
+      end
+
+
+    end
+  end
+
   desc "Manual search"
   task twitter_manually_NY: :environment do
 
