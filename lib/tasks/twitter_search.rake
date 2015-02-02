@@ -1,6 +1,7 @@
 require 'twitter_helper'
 
 namespace :search do
+
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
 
@@ -31,6 +32,7 @@ namespace :search do
     end
   end
 
+  desc "Search every keyword has never been used to search"
   task unsearched_keywords: :environment do
 
     keywords = Keyword.where(archived: nil).where(last_searched: nil)
