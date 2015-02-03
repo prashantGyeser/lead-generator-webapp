@@ -93,7 +93,7 @@ class Admin::UsersController < Admin::ApplicationController
 
     respond_to do |format|
       if keyword.save
-        format.gijson { render :json => keyword, status: :created }
+        format.json { render :json => keyword, status: :created }
       else
         puts keyword.inspect
         format.json { render :json => keyword.errors.messages, status: 500 }

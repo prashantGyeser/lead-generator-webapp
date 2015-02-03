@@ -29,6 +29,8 @@
                 <td>
                   <% if keyword.archived == true %>
                     <%= keyword.term %>
+                  <% elsif keyword.not_working == true %>
+                    <span style="color: #F6223F" class="bold"><%= keyword.term %></span>
                   <% elsif keyword.admin_created == true %>
                     <span style="color: #1ABC9C" class="bold"><%= keyword.term %></span>
                   <% else %>
@@ -41,7 +43,9 @@
                 </td>
 
                 <td class="actions">
-                  <i class="fa fa-exclamation-triangle not_working" data-id="<%= keyword.id %>"></i>
+                  <% if !keyword.not_working == true %>
+                    <i class="fa fa-exclamation-triangle not_working" data-id="<%= keyword.id %>"></i>
+                  <% end %>
                 </td>
 
               </tr>
