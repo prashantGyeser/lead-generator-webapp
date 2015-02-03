@@ -3,9 +3,14 @@
 </div>
 
 
-<div class="in_app_message warning">
-  <span class="bold">Keyword not working:</span> this is a test
-</div>
+
+<% if @not_working_keywords.count > 0 %>
+  <div class="in_app_message warning">
+    <span class="bold">Keyword not working:</span> Change the keywords highlighted below to get better results.
+  </div>
+<% end %>
+
+
 
 
 <div class="keywords">
