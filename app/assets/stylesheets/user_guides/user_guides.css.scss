@@ -1,0 +1,56 @@
+// Place all the styles related to the user_guides controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body
+{
+  font-family: "proxima-nova",Arial,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.all
+{
+  background: #EDEDED;
+}
+
+.sidebar
+{
+  top: 0;
+}
+
+.sidebar-left
+{
+  background: rgba(64,72,83,1);
+
+  .main_heading
+  {
+    margin-top: 40%;
+    color: white;
+    h1
+    {
+      text-align: center;
+      font-weight: 700;
+    }
+    h4
+    {
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+}
+
+.summary_link
+{
+  margin-top: 60px;
+  background: white;
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+}
+
+.guide_content
+{
+  margin-top: 60px;
+}

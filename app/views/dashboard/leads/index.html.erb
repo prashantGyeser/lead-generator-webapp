@@ -10,6 +10,15 @@
 </div>
 
 <div class="opportunities">
+
+  <% if @not_working_keywords.count > 0 %>
+    <div class="in_app_message warning">
+      <span class="bold">Keyword not working:</span> Looks like some of your keywords are not returning results, why don't you
+      <%= link_to "change it", dashboard_keyword_path %>
+    </div>
+  <% end %>
+
+
   <ul>
 
     <% if @leads_available %>

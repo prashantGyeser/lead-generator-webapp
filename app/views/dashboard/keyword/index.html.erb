@@ -3,12 +3,22 @@
 </div>
 
 
+
+<% if @not_working_keywords.count > 0 %>
+  <div class="in_app_message warning">
+    <span class="bold">Keyword not working:</span> Change the keywords highlighted below to get better results.
+  </div>
+<% end %>
+
+
+
+
 <div class="keywords">
 
   <table>
 
     <% @keywords.each do |keyword| %>
-      <tr>
+      <tr class=<%= keyword.not_working ? "not_working" : "" %>>
         <td class="bold"><%= keyword.term %></td>
         <td><a href="#" class="remove_keyword" data-id="<%= keyword.id %>">Remove</a></td>
       </tr>

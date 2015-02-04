@@ -10,8 +10,14 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
     keywords = Keyword.where(lead_stream_id: @lead_stream.id)
     keyword_ids = []
+    @not_working_keywords = []
     keywords.each do |keyword|
       keyword_ids << keyword.id
+
+      if keyword.not_working == true && !(keyword.archived == true)
+        @not_working_keywords << keyword
+      end
+
     end
 
     @leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil).paginate(page: params[:page], per_page: 30).order('created_at DESC')

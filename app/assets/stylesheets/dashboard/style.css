@@ -255,7 +255,17 @@ input[type=text]:focus
 {
   display: none;
 }
+.in_app_message
+{
+  padding: 10px;
+}
 
+.warning
+{
+  background: #fffede;
+  border: 1px solid #fff756;
+  color: #aba400;
+}
 
 
 /* ADMIN STYLES -- START */
@@ -382,5 +392,31 @@ input[type=text]:focus
   border-radius: 50%;
   background:#F6223F;
 }
+.remodal h1
+{
+  text-align: left;
+}
+.keyword_list_modal
+{
+  width: 100%;
+}
+.keyword_list_modal td
+{
+  padding-bottom: 15px;
+}
+.keyword_list_modal td.actions
+{
+  float: right;
+}
 
+.keyword_list_modal td i
+{
+  /*color: #F6223F;*/
+  color: #cbcbcb;
+}
+.keyword_list_modal td i:hover
+{
+  color: #F6223F;
+  cursor: pointer;
+}
 /* ADMIN STYLES -- END */

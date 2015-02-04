@@ -86,4 +86,21 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
 
+  def set_not_working_keyword
+    keyword = Keyword.find(params[:keyword_id])
+
+    keyword.not_working = true
+
+    respond_to do |format|
+      if keyword.save
+        format.json { render :json => keyword, status: :created }
+      else
+        puts keyword.inspect
+        format.json { render :json => keyword.errors.messages, status: 500 }
+      end
+    end
+
+  end
+
+
 end
