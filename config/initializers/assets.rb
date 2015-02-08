@@ -11,3 +11,6 @@ Rails.application.config.assets.precompile += %w( food_delivery_application.css 
 Rails.application.config.assets.precompile += %w( devise/authentication.css )
 Rails.application.config.assets.precompile += %w( dashboard/setup.css )
 Rails.application.config.assets.precompile += %w( dashboard/jvfloat.css )
+Rails.application.config.assets.precompile += %w( plugins/boostrapv3/css/bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( plugins/boostrapv3/css/bootstrap-theme.min.css )
+Rails.application.config.assets.precompile += %w( plugins/jquery-scrollbar/jquery.scrollbar.css )

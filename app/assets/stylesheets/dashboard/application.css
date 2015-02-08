@@ -10,8 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require plugins/pace/pace-theme-flash
+ *= require plugins/boostrapv3/css/bootstrap.min
+ *= require plugins/font-awesome/css/font-awesome
+ *= require plugins/jquery-scrollbar/jquery.scrollbar
+ *= require plugins/bootstrap-select2/select2
  *= require dashboard/style
- *= require dashboard/sidebar
- *= require dashboard/selectric
- *= require dashboard/keyword
+ *= require dashboard/responsive
  */

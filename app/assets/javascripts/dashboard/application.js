@@ -10,6 +10,17 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require plugins/pace/pace.min
+//= require plugins/jquery-1.8.3.min
 //= require jquery_ujs
-//= require_tree .
+//= require plugins/modernizr
+//= require plugins/jquery-ui/jquery-ui-1.10.1.custom.min
+//= require plugins/boostrapv3/js/bootstrap.min
+//= require plugins/jquery-unveil/jquery.unveil.min
+//= require plugins/jquery-scrollbar/jquery.scrollbar.min
+//= require plugins/breakpoints
+//= require plugins/jquery-numberAnimate/jquery.animateNumbers
+//= require dashboard/core
+//= require dashboard/chat
+//= require dashboard/demo
+
