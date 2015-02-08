@@ -1,5 +1,6 @@
 /* COLOR SCHEME */
 /* BASE GREEN: #1ABC9C */
+/* BASE GREEN-RGBA: rgba(26,188,156,.5) */
 /* CONTRAST RED: #F6223F */
 /* CONTRAST BLUE: #1F97B9 */
 /* CONTRAST YELLOW: #FFF323 */
@@ -32,6 +33,11 @@ a
 a:hover
 {
   color: #0591b9;
+}
+
+.brand
+{
+  width: 250px;
 }
 
 /*BUTTONS*/
@@ -100,8 +106,9 @@ input[type=text]:focus
 
 .navbar
 {
-  background: #2e3032;
-  color: white;
+  /*background: rgba(26,188,156,.6);*/
+  background: #393939;
+  color: #a0a0a0;
 }
 
 .sidebar li
@@ -176,9 +183,18 @@ input[type=text]:focus
 }
 .actions
 {
- 
+  float:right;
+  color: white;
+  margin-top: 15px;
 }
-
+.actions a
+{
+  color: white;
+}
+.actions i
+{
+  margin-right: 10px;
+}
 .opportunity_sub_items
 {
   margin-top: 10px;
