@@ -1,3 +1,184 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">Leads</h3>
+</div>
+<!-- END PAGE TITLE -->
+<!-- BEGIN PlACE PAGE CONTENT HERE -->
+
+<!-- ALTERNATIVE 2 -- START -->
+<div class="row tiles-container  m-b-10 hidden-xlg">
+  <div class="col-md-12">
+
+
+    <div class="m-l-10 ">
+      <% @leads.each do |lead| %>
+        <div class="tiles white ">
+        <div class="p-t-20 p-b-15 b-b b-grey">
+          <div class="post overlap-left-10">
+            <div class="user-profile-pic-wrapper">
+              <div class="user-profile-pic-2x white-border">
+                <%= image_tag lead.poster_profile_image_url.nil? ? "no-profile-pic.png":"#{lead.poster_profile_image_url}", height: "45", width: "45" %>
+
+              </div>
+            </div>
+            <div class="info-wrapper small-width inline">
+              <div class="info text-grey ">
+                <p>
+                  <a href="http://www.twitter.com/<%= lead.poster_screen_name %>">@<%= lead.poster_screen_name %></a>
+                </p>
+                <p style="color: #576477">
+                  <%= lead.tweet_body %>
+                </p>
+                <p class="muted  small-text">2 mins ago</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="inline pull-right">
+              <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline">
+                <button class="btn"><i class="fa fa-reply"></i></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <div class="tiles grey p-t-5 p-b-5 ">
+        <p class="text-center"> <a href="javascript:;" class="text-black semi-bold  small-text">Load More</a></p>
+      </div>
+    </div>
+
+
+
+
+
+
+    <% @leads.each do |lead| %>
+
+      <% if lead.created_at.to_date == Date.current %>
+        <li>
+      <% else %>
+        <li class="read">
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-1">
+
+          <% if lead.poster_profile_image_url.nil? %>
+            <%= image_tag "no-profile-pic.png", class: "img-responsive" %>
+          <% else %>
+            <img src="<%= lead.poster_profile_image_url %>" alt="" class="img-responsive">
+          <% end %>
+
+
+        </div>
+        <div class="col-md-9">
+          <div class="tweet">
+                <span class="bold screen_name">
+                  <a href="http://www.twitter.com/<%= lead.poster_screen_name %>">
+                    @<%= lead.poster_screen_name %>
+                  </a>
+                </span>
+            <%= auto_link(lead.tweet_body) %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="actions" id="<%= lead.id %>">
+
+            <% if (TweetReply.where(user_id: current_user.id).where(tweet_id: lead.tweet_id).count > 0) %>
+              <div>
+                <%= image_tag "done-icon.png", class: "img-responsive" %>
+              </div>
+            <% else %>
+              <div class="reply_sent_status_hidden">
+                <%= image_tag "done-icon.png", class: "img-responsive" %>
+              </div>
+              <a href="#" class="btn btn_primary btn_block reply" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right" data-screen-name="<%=  lead.poster_screen_name%>" data-lead-id="<%= lead.id %>">Reply</a>
+              <a href="#" class="btn btn_alert btn_block not_lead" style="margin-top: 10px;" data-lead-id="<%= lead.id %>">Not a lead</a>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="row opportunity_sub_items">
+        <div class="col-md-10 col-md-offset-1">
+          <% if !(lead.poster_friends_count.nil? || lead.poster_follower_count.nil?) %>
+            <span class="title">Friends</span> <span class="highlight"><%= lead.poster_friends_count %></span>
+            <span class="title">Followers</span> <span class="highlight"><%= lead.poster_follower_count %></span>
+          <% end %>
+          <span class="title">Posted On</span> <span class="highlight"><%= lead.created_at.strftime('%e %B %Y') %></span>
+        </div>
+      </div>
+      </li>
+    <% end %>
+
+
+
+
+
+  </div>
+</div>
+<!-- ALTERNATIVE 2 -- END -->
+
+
+
+<!-- END PLACE PAGE CONTENT HERE -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="page-header">
   <h1>
     Leads
