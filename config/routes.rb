@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :dashboard do
+  get 'lead_streams/index'
+  end
+
   get 'user_guides/keywords'
 
   get 'user_guides/replies'
