@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202081012) do
-
+ActiveRecord::Schema.define(version: 20150210204047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,10 +55,7 @@ ActiveRecord::Schema.define(version: 20150202081012) do
     t.integer  "last_result_count"
     t.integer  "last_duplicate_count"
     t.boolean  "not_working"
-<<<<<<< HEAD
     t.datetime "last_run"
-=======
->>>>>>> markNonPErformingKeywords
   end
 
   create_table "lead_streams", force: true do |t|
@@ -172,6 +168,7 @@ ActiveRecord::Schema.define(version: 20150202081012) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "screen_name"
+    t.string   "profile_image_url"
   end
 
   create_table "tweet_replies", force: true do |t|
