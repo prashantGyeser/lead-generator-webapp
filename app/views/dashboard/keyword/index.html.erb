@@ -1,6 +1,8 @@
-<div class="page-header">
-  <h1>Keywords</h1>
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">Keywords</h3>
 </div>
+<!-- END PAGE TITLE -->
 
 
 
@@ -12,33 +14,49 @@
 
 
 
+<!-- BEGIN -->
+<div class="grid simple">
+  <!-- BEGIN BODY -->
+  <div class="grid-body no-border">
+    <div class="row-fluid">
+      <table class="table table-hover" style="margin-top: 50px;">
 
-<div class="keywords">
+        <% @keywords.each do |keyword| %>
+          <tr class=<%= keyword.not_working ? "not_working" : "" %>>
+            <td class="bold"><%= keyword.term %></td>
+            <td><a href="#" class="remove_keyword" data-id="<%= keyword.id %>">Remove</a></td>
+          </tr>
+        <% end %>
 
-  <table>
+        <% if @keywords.count < 3 %>
+          <% (3 - @keywords.count).times do %>
+            <tr>
+              <td colspan="2">
+                <div class="input-group">
+                  <input class="form-control" type="text" placeholder="Enter Keyword">
+                  <span class="input-group-addon primary">
 
-    <% @keywords.each do |keyword| %>
-      <tr class=<%= keyword.not_working ? "not_working" : "" %>>
-        <td class="bold"><%= keyword.term %></td>
-        <td><a href="#" class="remove_keyword" data-id="<%= keyword.id %>">Remove</a></td>
-      </tr>
-    <% end %>
-
-    <% if @keywords.count < 3 %>
-      <% (3 - @keywords.count).times do %>
-        <tr>
-          <td>
-            <input type="text" placeholder="Enter keyword"/>
-          </td>
-          <td>
-            <a href="#" class="btn btn_primary add_keyword">Add Keyword</a>
-          </td>
-        </tr>
-      <% end %>
-    <% end %>
-
-
-  </table>
+                    <a href="#" class="btn">Add Keyword</a>
+                  </span>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
 
 
+
+
+
+
+      </table>
+    </div>
+  </div>
+  <!-- END BODY -->
 </div>
+<!-- END -->
+
+
+
+
+

@@ -11,6 +11,7 @@
 #  city_name   :string(255)
 #  latitude    :float
 #  longitude   :float
+#  name        :string(255)
 #
 
 require 'rails_helper'
