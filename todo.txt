@@ -1,5 +1,1 @@
-1. Setup validations across the application
-2. Add front end styling for validation/error notifications
-3. Check if the tweet reply is being sent from the correct Twitter account and ensure that an error is shown in case the message could not be sent
-4. Add code to make sure that only 5 keywords are searched for in a 15 mins time span
-
+1. Add valiations for creating lead streams

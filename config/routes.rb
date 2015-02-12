@@ -47,8 +47,12 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root 'lead_streams#index'
+    resources :lead_streams
     get 'lead_streams/new'
-    post 'lead_streams/create'
+    post 'lead_streams' => 'lead_streams#create'
+    get 'lead_streams/:id/edit' => "lead_streams#edit"
+    patch 'lead_streams/:id' => "lead_streams#update"
+    put 'lead_streams/:id' => "lead_streams#update"
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'
     post '/initial_setups/add_category' => 'initial_setups#add_category'

@@ -1,4 +1,7 @@
 class Dashboard::LeadStreamsController < Dashboard::ApplicationController
+
+  before_action :set_lead_stream, only: [:edit, :update]
+
   def index
 
     @lead_streams = LeadStream.where(user_id: current_user.id)
@@ -37,10 +40,10 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
       else
         if @lead_stream.save
           flash[:success] = "Successfully created your stream"
-          format.html { redirect_to dashboard_initial_setups_connect_twitter_path }
+          format.html { redirect_to dashboard_root_path }
         else
           flash[:error] = "Two streams cannot have the same city and category"
-          format.html { redirect_to dashboard_root_path }
+          format.html { render :new }
           format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
         end
       end
@@ -49,8 +52,28 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
 
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @lead_stream.update(lead_stream_params)
+        format.html { redirect_to @lead_stream, notice: 'Lead Stream was successfully updated.' }
+        format.json { render :show, status: :ok, location: @test }
+      else
+        format.html { render :edit }
+        format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   private
+
+  def set_lead_stream
+    @lead_stream = LeadStream.find(params[:id])
+  end
+
   def lead_stream_params
     params.require(:lead_stream).permit(:city_name, :name, {keywords_attributes: [:term]})
   end

@@ -1,4 +1,16 @@
-<%= form_for(@lead_stream, url: {action: "create"}) do |f| %>
+<%= form_for([:dashboard, @lead_stream]) do |f| %>
+
+  <% if @lead_stream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lead_stream.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+      <ul>
+        <% @lead_stream.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
   <div class="row">
@@ -33,5 +45,5 @@
 
 
 
-  <%= f.submit "Create", class: "btn btn-primary btn-cons" %>
+  <%= f.submit "Save", class: "btn btn-primary btn-cons" %>
 <% end %>

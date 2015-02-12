@@ -6,10 +6,12 @@
 
 
 <!-- INITIAL SIGN UP MESSAGE -- START -->
+<!--
 <div class="alert alert-success">
   <button class="close" data-dismiss="alert"></button>
   Success:&nbsp;The <a href="#" class="link">page</a> has been added.
 </div>
+-->
 <!-- INITIAL SIGN UP MESSAGE -- END -->
 
 
@@ -25,8 +27,8 @@
           <div class="grid-body">
             <div>
               <h3>
-                <span class="semi-bold"><a href="#">Stream Name</a></span>
-                <a href="#" style="float: right;" class="btn btn-small">Edit Stream</a>
+                <span class="semi-bold"><a href="/dashboard/leads/<%= lead_stream.id %>"><%= lead_stream.name.nil? ? "Leads in #{lead_stream.city_name}":lead_stream.name %></a></span>
+                <a href="/dashboard/lead_streams/<%= lead_stream.id %>/edit" style="float: right;" class="btn btn-small">Edit Stream</a>
               </h3>
 
 
@@ -65,165 +67,4 @@
 <% end %>
 
 
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="grid simple horizontal red">
-      <div class="grid-body">
-        <div>
-          <h3>
-            <span class="semi-bold"><a href="#">Stream Name</a></span>
-            <a href="#" style="float: right;" class="btn btn-small">Edit Keywords</a>
-          </h3>
-
-
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Weeks Leads </div>
-                  <div class="chart-value"> 17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-orders"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Months Leads </div>
-                  <div class="chart-value"> $17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-other"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="grid simple horizontal red">
-      <div class="grid-body">
-        <div>
-          <h3>
-            <span class="semi-bold"><a href="#">Stream Name</a></span>
-            <a href="#" style="float: right;" class="btn btn-small">Edit Keywords</a>
-          </h3>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Weeks Leads </div>
-                  <div class="chart-value"> 17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-orders-2"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Months Leads </div>
-                  <div class="chart-value"> $17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-other-2"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="grid simple horizontal red">
-      <div class="grid-body">
-        <div>
-          <h3>
-            <span class="semi-bold"><a href="#">Stream Name</a></span>
-            <a href="#" style="float: right;" class="btn btn-small">Edit Keywords</a>
-          </h3>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Weeks Leads </div>
-                  <div class="chart-value"> 17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-orders-3"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Months Leads </div>
-                  <div class="chart-value"> $17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-other-3"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="grid simple horizontal red">
-      <div class="grid-body">
-        <div>
-          <h3>
-            <span class="semi-bold"><a href="#">Stream Name</a></span>
-            <a href="#" style="float: right;" class="btn btn-small">Edit Keywords</a>
-          </h3>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Weeks Leads </div>
-                  <div class="chart-value"> 17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-orders-4"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="mini-chart-wrapper">
-                <div class="chart-details-wrapper">
-                  <div class="chartname"> Months Leads </div>
-                  <div class="chart-value"> $17,555 </div>
-                </div>
-                <div class="mini-chart">
-                  <div id="mini-chart-other-4"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
 <!-- END PLACE PAGE CONTENT HERE -->
