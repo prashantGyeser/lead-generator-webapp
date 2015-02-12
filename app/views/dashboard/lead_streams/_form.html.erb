@@ -1,0 +1,44 @@
+<%= form_for(@lead_stream) do |f| %>
+
+
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8">
+      <div class="form-group" style="margin-bottom: 40px;">
+        <%= f.label :name, "Stream Name", class: "form-label" %>
+        <div class="controls">
+          <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+        </div>
+      </div>
+
+      <%= f.fields_for :keywords do |keywords_form| %>
+        <div class="form-group">
+          <%= f.label :term, "Keyword", class: "form-label" %>
+          <div class="controls">
+            <%= keywords_form.text_field :term, class: "form-control", placeholder: "Keyword" %>
+          </div>
+        </div>
+      <% end %>
+
+
+      <div class="form-group" style="margin-top: 40px;">
+        <%= f.label :city, "City", class: "form-label" %>
+        <div class="controls">
+          <%= f.text_field :city_name, class: "form-control", placeholder: "City" %>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <%= f.submit "Create", class: "btn btn-primary btn-cons" %>
+<% end %>

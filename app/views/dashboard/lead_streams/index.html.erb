@@ -1,12 +1,69 @@
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
-  <h3 class="semi-bold">Leads</h3>
+  <h3 class="semi-bold">Streams</h3>
 </div>
 <!-- END PAGE TITLE -->
 
 
+<!-- INITIAL SIGN UP MESSAGE -- START -->
+<div class="alert alert-success">
+  <button class="close" data-dismiss="alert"></button>
+  Success:&nbsp;The <a href="#" class="link">page</a> has been added.
+</div>
+<!-- INITIAL SIGN UP MESSAGE -- END -->
+
 
 <!-- BEGIN PlACE PAGE CONTENT HERE -->
+
+
+
+<% @lead_streams.each_slice(2) do |row| %>
+  <div class="row">
+    <% row.each do |lead_stream| %>
+      <div class="col-md-6">
+        <div class="grid simple">
+          <div class="grid-body">
+            <div>
+              <h3>
+                <span class="semi-bold"><a href="#">Stream Name</a></span>
+                <a href="#" style="float: right;" class="btn btn-small">Edit Stream</a>
+              </h3>
+
+
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mini-chart-wrapper">
+                    <div class="chart-details-wrapper">
+                      <div class="chartname"> Weeks Leads </div>
+                      <div class="chart-value"> 17,555 </div>
+                    </div>
+                    <div class="mini-chart">
+                      <div id="mini-chart-orders"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mini-chart-wrapper">
+                    <div class="chart-details-wrapper">
+                      <div class="chartname"> Months Leads </div>
+                      <div class="chart-value"> $17,555 </div>
+                    </div>
+                    <div class="mini-chart">
+                      <div id="mini-chart-other"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 
 
 <div class="row">
@@ -18,6 +75,8 @@
             <span class="semi-bold"><a href="#">Stream Name</a></span>
             <a href="#" style="float: right;" class="btn btn-small">Edit Keywords</a>
           </h3>
+
+
 
           <div class="row">
             <div class="col-md-6">
