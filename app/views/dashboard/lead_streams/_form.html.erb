@@ -1,8 +1,9 @@
-<%= form_for(@lead_stream) do |f| %>
+<%= form_for(@lead_stream, url: {action: "create"}) do |f| %>
 
 
   <div class="row">
     <div class="col-md-8 col-sm-8 col-xs-8">
+
       <div class="form-group" style="margin-bottom: 40px;">
         <%= f.label :name, "Stream Name", class: "form-label" %>
         <div class="controls">
@@ -21,22 +22,14 @@
 
 
       <div class="form-group" style="margin-top: 40px;">
-        <%= f.label :city, "City", class: "form-label" %>
+        <%= f.label :city_name, "City", class: "form-label" %>
         <div class="controls">
           <%= f.text_field :city_name, class: "form-control", placeholder: "City" %>
         </div>
       </div>
 
-
-
-
-
     </div>
   </div>
-
-
-
-
 
 
 

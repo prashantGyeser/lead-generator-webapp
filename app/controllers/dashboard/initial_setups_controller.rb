@@ -61,7 +61,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
   private
   def lead_stream_params
-    params.require(:lead_stream).permit(:city_name, keywords_attributes: [:term])
+    params.require(:lead_stream).permit(:city_name, :name, keywords_attributes: [:term])
   end
 
 
