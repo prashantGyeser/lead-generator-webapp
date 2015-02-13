@@ -40,7 +40,7 @@
       </ul>
       <!-- END MOBILE HEADER -->
       <!-- BEGIN LOGO -->
-      <a href="#">
+      <a href="<%= dashboard_root_path %>">
         <!--<img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>-->
         <%= image_tag "logo_v3.png", class: "logo" %>
       </a>
@@ -56,7 +56,7 @@
           <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom" data-content="" data-toggle="dropdown" data-original-title="Notifications">
             <div class="user-details">
               <div class="username">
-                <span class="badge badge-important">3</span>&nbsp;John<span class="bold">&nbsp;Smith</span>
+                <span class="badge badge-important">3</span>&nbsp;<span class="bold">&nbsp;John Smith</span>
               </div>
             </div>
             <div class="iconset top-down-arrow"></div>
@@ -127,7 +127,7 @@
     <ul style="margin-top: 30px;">
       <!-- BEGIN SELECTED LINK -->
       <li class="start active">
-        <a href="#">
+        <a href="<%= dashboard_root_path %>">
           <i class="fa fa-exchange"></i>
           <span class="title">Lead Streams</span>
           <span class="selected"></span>
