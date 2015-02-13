@@ -72,7 +72,9 @@ $sidebar-header-color:#22262E;
 $sidebar-header-iconset-background:#1B1E24;
 $sidebar-header-iconset-background-active:#0D0F12;
 //Sidebar top icon image path with Retina Option 
-$sidebar-header-iconset:url($base-img-url+"/icon/top-tray.png") no-repeat;
+//$sidebar-header-iconset:url($base-img-url+"/icon/top-tray.png") no-repeat;
+$sidebar-header-iconset:image-url("icon/top-tray.png") no-repeat;
+
 $sidebar-header-iconset-2x:url($base-img-url+'/icon/top-trayx2.png') no-repeat;
 //Sidebar background Color 
 $sidebar-color:#1B1E24;
