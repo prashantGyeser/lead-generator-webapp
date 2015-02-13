@@ -1,115 +1,37 @@
-<div class="page-title" data-intro='Hello step one!' data-step="1">
-  <h3><span class="semi-bold">Account</span> Details</h3>
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">Account</h3>
 </div>
+<!-- END PAGE TITLE -->
 
+<!-- PAGE CONTENT -- START -->
 <div class="row">
   <div class="col-md-12">
     <div class="grid simple">
-      <div class="grid-body no-border">
-        <h3><span class="semi-bold">Subscription</span> Details</h3>
-        <p>
-          Manage your billing or plan details
-        </p>
-
-        <% if @subscription.nil? %>
-          <!--<table class="table no-more-tables">-->
-            <!--<thead>-->
-            <!--<tr>-->
-              <!--<th style="width:10%">Plan Name</th>-->
-              <!--<th style="width:22%">Description</th>-->
-              <!--<th style="width:6%">Price</th>-->
-              <!--<th style="width:10%"></th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-              <!--<td class="v-align-middle">Solo</td>-->
-              <!--<td class="v-align-middle"><span class="muted">1 Lead Stream - A combination of 1 city and 1 category</span>-->
-              <!--</td>-->
-              <!--<td><span class="muted">$99</span>-->
-              <!--</td>-->
-              <!--<td class="v-align-middle">-->
-                <!--<% solo_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/solo?email=#{current_user.email}") %>-->
-                <!--<a href="<%= solo_subscription_url %>" class="btn btn-primary btn-xs btn-mini">Select</a>-->
-              <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-              <!--<td class="v-align-middle">Agency</td>-->
-              <!--<td class="v-align-middle"><span class="muted">5 Lead Stream - A combination of 5 city or 5 category</span>-->
-              <!--</td>-->
-              <!--<td><span class="muted">$199</span>-->
-              <!--</td>-->
-              <!--<td class="v-align-middle">-->
-                <!--<% agency_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/agency?email=#{current_user.email}") %>-->
-                <!--<a href="<%= agency_subscription_url %>" class="btn btn-primary btn-xs btn-mini">Select</a>-->
-              <!--</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-          <!--</table>-->
-
-
-
-
-          <div class="row text-center" style="margin-top: 20px">
-            <div class="col-md-4 col-md-offset-1">
-              <%= image_tag "solo.png", class: "img-responsive center-block" %>
-              <h4 class="text-center bold">$99 per month</h4>
-              <h4 class="text-center">For single restaurants</h4>
-              <p>
-                You get access to 1 lead stream. Start receiving leads for your restaurant now!
-              </p>
-
-              <% solo_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/solo?email=#{current_user.email}") %>
-              <a href="<%= solo_subscription_url %>" class="btn btn-primary">Subscribe Now</a>
-
-            </div>
-            <div class="col-md-4 col-md-offset-1">
-              <%= image_tag "agency.png", class: "img-responsive center-block" %>
-              <h4 class="text-center bold">$199 per month</h4>
-              <h4 class="text-center">For Agencies</h4>
-              <p>
-                You get access to 3 unique lead streams. Start receiving leads for a group of restaurants now!
-              </p>
-              <% agency_subscription_url = URI.encode("https://urbanzeak.recurly.com/subscribe/agency?email=#{current_user.email}") %>
-              <a href="<%= agency_subscription_url %>" class="btn btn-primary">Subscribe Now</a>
-            </div>
+      <div class="grid-body">
+        <div class="row-fluid">
+          <div>
+            <h3></h3>
+            <table class="table table-striped" style="margin-bottom: 0">
+              <tbody>
+              <tr>
+                <td>Name</td>
+                <td>Prashant A</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>*******</td>
+                <td>
+                  <a href="#" class="btn">Change Password</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-
-
-
-
-
-        <% else %>
-
-
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-              <div class="current_subscription">
-                <% if @subscription.plan_code == "solo" %>
-                  <h1>Solo</h1>
-                  <p>1 Lead Stream</p>
-                  <p>$99/month</p>
-                <% else %>
-                  <h1>Agency</h1>
-                  <p>3 Lead Stream</p>
-                  <p>$199/month</p>
-                <% end %>
-
-              </div>
-            </div>
-
-
-
-          </div>
-
-
-
-        <% end %>
-
-
-
+        </div>
       </div>
     </div>
   </div>
 </div>
-
+<!-- PAGE CONTENT -- END -->
