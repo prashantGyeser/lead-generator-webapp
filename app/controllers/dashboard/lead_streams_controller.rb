@@ -58,8 +58,8 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
   def update
     respond_to do |format|
       if @lead_stream.update(lead_stream_params)
-        format.html { redirect_to @lead_stream, notice: 'Lead Stream was successfully updated.' }
-        format.json { render :show, status: :ok, location: @test }
+        format.html { redirect_to dashboard_root_path, notice: 'Lead Stream was successfully updated.' }
+        format.json { render :index, status: :ok, location: @lead_stream }
       else
         format.html { render :edit }
         format.json { render json: @lead_stream.errors, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
   end
 
   def lead_stream_params
-    params.require(:lead_stream).permit(:city_name, :name, {keywords_attributes: [:term]})
+    params.require(:lead_stream).permit(:city_name, :name, {keywords_attributes: [:term, :id]})
   end
 
 end
