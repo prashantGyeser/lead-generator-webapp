@@ -1,6 +1,13 @@
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
-  <h3 class="semi-bold">Streams</h3>
+  <h3 class="semi-bold" style="width: 100%;">
+    Streams
+    <% new_stream_button = "<span style='float: right;'><a href='#{dashboard_lead_streams_new_path}' class='btn btn-primary'>New Stream</a></span>" %>
+
+    <%= @max_reached ? "":new_stream_button.html_safe %>
+
+  </h3>
+
 </div>
 <!-- END PAGE TITLE -->
 
