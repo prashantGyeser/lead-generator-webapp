@@ -1,4 +1,5 @@
 1. Add valiations for creating lead streams
+2. Add proper error messages for tweet replies
 
 
 

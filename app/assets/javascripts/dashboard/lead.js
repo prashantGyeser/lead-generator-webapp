@@ -24,7 +24,7 @@ ready = function() {
         });
 
     });
-
+    /*
     $('#reply_message').simplyCountable({
         counter:            '#message_character_count',
         countType:          'characters',
@@ -38,7 +38,7 @@ ready = function() {
         onSafeCount:        function(count, countable, counter){},
         onMaxCount:         function(count, countable, counter){}
     });
-
+    */
     $('.sample').click(function(e){
         e.preventDefault();
         alert("This is only sample data, as soon as we find opportunities using the keywords you provided, we will send you an email");
@@ -90,6 +90,51 @@ ready = function() {
 
 
     });
+
+
+  $('.reply_btn').click(function(e){
+    e.preventDefault();
+
+    $(this).hide();
+    $('.message_container').hide();
+
+    var lead_id = $(this).data("id");
+    var div_to_show = $('#' + lead_id);
+    div_to_show.velocity("fadeIn", { duration: 1000 }).show();
+  });
+
+
+  $('.send_message').click(function(e){
+    e.preventDefault();
+
+    var lead_id = $(this).data("id");
+    var reply_message = $('div').find('input[type=text],textarea,select').filter(':visible:first').val();
+    var reply_button = $('div').find('.reply_btn').filter(':hidden:first');
+
+    var data_to_post = {lead_id: lead_id, message: reply_message};
+
+
+
+    $.ajax({
+      url : "/dashboard/leads/send_reply",
+      type: "POST",
+      data : data_to_post,
+      success: function(data, textStatus, jqXHR)
+      {
+        console.log("Done!");
+        reply_button.replaceWith('<i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>').show();
+        $('.message_container').hide();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        alert("Something went wrong, please try again later.");
+        console.log("The error thrown is:", errorThrown);
+      }
+    });
+
+
+
+  })
 
 
 
