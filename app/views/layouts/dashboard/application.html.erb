@@ -151,7 +151,12 @@
 
 <!-- BEGIN SUSBSCRIPTION SIGN UP -->
 <div class="footer-widget subscribe-now">
-  <span class="semi-bold">4 days</span> remaining!
+  <% if remaining_days <= 0 %>
+    <span class="semi-bold">Trail Expired</span>
+  <% else %>
+    <span class="semi-bold"><%= remaining_days %> days</span> remaining!
+  <% end %>
+
   <a href="<%= dashboard_account_plan_path %>" class="btn btn-white">Subscribe now</a>
 </div>
 <!-- END SUSBSCRIPTION SIGN UP -->

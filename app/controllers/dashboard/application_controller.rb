@@ -12,8 +12,14 @@ class Dashboard::ApplicationController < ActionController::Base
   #before_filter :check_subscription
   before_filter :trial_expired?
   before_filter :check_setup
+  helper_method :remaining_days
 
   layout "dashboard/application"
+
+  # find the remaining trial days for this user
+  def remaining_days
+    ((current_user.created_at + 7.days).to_date - Date.today).round
+  end
 
   private
 
@@ -32,11 +38,6 @@ class Dashboard::ApplicationController < ActionController::Base
 
   end
 
-
-  # find the remaining trial days for this user
-  def remaining_days
-    ((current_user.created_at + 7.days).to_date - Date.today).round
-  end
 
   def trial_expired?
     # find current_user who is login. If you are using devise simply current_user will works
