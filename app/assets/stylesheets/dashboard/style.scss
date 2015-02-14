@@ -11,3 +11,82 @@
 // Includes of Modules
 @import "modules";
 
+/*** Pricing table ***/
+
+.pricing-holder{
+  background-color:#fff;
+  border-radius:4px;
+  padding:15px 0;
+  margin: 0 -9px;
+}
+.pricing-holder .title{
+  font-size:24px;
+  padding:15px 20px;
+  color:#000000;
+}
+
+.pricing-holder .price{
+  color:#f35958;
+}
+.pricing-holder .desc{
+  padding:0 20px;
+}
+.pricing-holder .inner{
+  padding:0 10px;
+}
+
+.pricing-holder ul.items{
+  list-style:none;
+  padding-left:0;
+  margin: 0 8px;
+  margin-top:14px;
+  margin-bottom:17px;
+}
+.pricing-holder ul.items li{
+  margin-bottom:5px;
+  padding:13px 10px;
+  border-radius:3px;
+  clear:both;
+}
+.pricing-holder ul.items li.available{
+  background-color:#f2f4f5;
+}
+
+.pricing-holder ul.items li .icon-holder{
+  display:inline-block;
+  vertical-align:top;
+  font-size:18px;
+  padding-left:13px;
+  padding-top:3px;
+}
+
+.pricing-holder ul.items li .desc{
+  display:inline-block;
+  width:80%;
+}
+.pricing-holder ul.items li .checkbox label{
+  padding-left: 2px;
+  margin-bottom: 14px;
+}
+.pricing-holder ul.items li  label{
+  cursor:pointer;
+  margin-bottom: 0;
+  font-size:13px;
+}
+.pricing-holder.highlighted{
+  border:3px solid #0aa699;
+  margin-top: -15px;
+  padding-bottom: 28px;
+  padding-top: 25px;
+}
+
+.pricing-holder .btn-block{
+  margin: 0 8px;
+  width:96%;
+  margin-bottom: 14px;
+}
+
+.feature-item{
+  margin:0 50px;
+  text-align:center;
+}

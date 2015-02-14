@@ -4,4 +4,9 @@ class Dashboard::AccountController < Dashboard::ApplicationController
       @subscription = Subscription.where(user_id: current_user.id).last
     end
   end
+
+  def plan
+
+  end
+
 end

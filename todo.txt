@@ -1,5 +1,7 @@
 1. Add valiations for creating lead streams
 2. Add proper error messages for tweet replies
+3. Setup subscription plans
+4. Enable the change password button in the account page
 
 
 

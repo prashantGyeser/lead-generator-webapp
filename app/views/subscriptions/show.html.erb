@@ -21,7 +21,7 @@
         </div>
         <h4 style="text-align: center; font-weight: bold">Congratulation you successfully signed up!</h4>
         <p style="color: #8b91a0; text-align: center">
-          You'll be charged $59/Month after your 7 day trial.
+          You'll be charged $<%= @subscription.plan_code == 'basic' ? 49:99 %>/Month after your 7 day trial.
         </p>
         <%= link_to "Go to your leads", dashboard_root_path, :style => "text-align: center; font-weight: bold;" %>
 

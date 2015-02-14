@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     get 'configurations/twitter_accounts'
     get 'configurations/lead_streams'
     get 'account' => 'account#index'
+    get 'account/plan' => 'account#plan'
     post '/initial_setups/create_lead_stream' =>'initial_setups#create_lead_stream'
     get '/initial_setups/connect_twitter' =>'initial_setups#connect_twitter'
     post 'leads/mark_non_lead'
