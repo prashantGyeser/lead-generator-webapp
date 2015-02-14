@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :user_cities
   has_many :user_categories
   has_many :leads
+  has_many :lead_streams
 
   after_create :set_streams
 

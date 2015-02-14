@@ -17,5 +17,11 @@
 require 'rails_helper'
 
 RSpec.describe LeadStream, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should not allow a user to create more than the allowed lead streams" do
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:lead_stream, user_id: user.id)
+    expect(FactoryGirl.build(:lead_stream, user_id: user.id)).not_to be_valid
+  end
+
 end

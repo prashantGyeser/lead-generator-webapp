@@ -16,9 +16,20 @@
 
 class LeadStream < ActiveRecord::Base
   has_many :keywords
+  belongs_to :user
   accepts_nested_attributes_for :keywords, allow_destroy: true, :reject_if => proc { |keyword| keyword[:term].blank? }, limit: 3
+  validate :lead_streams_count_within_limit, on: :create
 
   before_save :set_lat_lon
+
+
+
+  def lead_streams_count_within_limit
+    if self.user.lead_streams(:reload).count >= self.user.total_streams # self is optional
+      errors.add(:base, 'Exceeded stream limit')
+    end
+  end
+
 
   def set_lat_lon
     coordinates = Geocoder.coordinates(self.city_name)
