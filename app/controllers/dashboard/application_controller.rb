@@ -10,6 +10,7 @@ class Dashboard::ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   #before_filter :check_subscription
+  before_filter :trial_expired?
   before_filter :check_setup
 
   layout "dashboard/application"
@@ -21,10 +22,6 @@ class Dashboard::ApplicationController < ActionController::Base
     root_path
   end
 
-  def check_subscription
-
-  end
-
   def check_setup
 
     if LeadStream.where(user_id: current_user.id).count <= 0
@@ -33,6 +30,20 @@ class Dashboard::ApplicationController < ActionController::Base
       redirect_to dashboard_initial_setups_connect_twitter_path
     end
 
+  end
+
+
+  # find the remaining trial days for this user
+  def remaining_days
+    ((current_user.created_at + 7.days).to_date - Date.today).round
+  end
+
+  def trial_expired?
+    # find current_user who is login. If you are using devise simply current_user will works
+    # now that you have remaining_days, check whether trial period is already completed
+    if remaining_days <= 0
+      redirect_to dashboard_account_plan_path
+    end
   end
 
 
