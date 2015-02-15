@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211135317) do
+ActiveRecord::Schema.define(version: 20150215061502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,9 +238,9 @@ ActiveRecord::Schema.define(version: 20150211135317) do
     t.datetime "updated_at"
     t.boolean  "authorized_application"
     t.boolean  "user_sent_to_processor"
-    t.integer  "total_streams"
+    t.integer  "total_streams",          default: 1
     t.boolean  "setup_complete"
-    t.integer  "trial_duration"
+    t.integer  "trial_duration",         default: 7
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -250,7 +250,7 @@ ActiveRecord::Schema.define(version: 20150211135317) do
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
     t.integer  "sample_category_id"
-    t.boolean  "new_user"
+    t.boolean  "new_user",               default: true
     t.boolean  "admin"
     t.boolean  "is_active",              default: true
   end

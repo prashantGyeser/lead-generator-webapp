@@ -17,9 +17,9 @@
 #  updated_at             :datetime
 #  authorized_application :boolean
 #  user_sent_to_processor :boolean
-#  total_streams          :integer
+#  total_streams          :integer          default(1)
 #  setup_complete         :boolean
-#  trial_duration         :integer
+#  trial_duration         :integer          default(7)
 #  invitation_token       :string(255)
 #  invitation_created_at  :datetime
 #  invitation_sent_at     :datetime
@@ -29,7 +29,7 @@
 #  invited_by_type        :string(255)
 #  invitations_count      :integer          default(0)
 #  sample_category_id     :integer
-#  new_user               :boolean
+#  new_user               :boolean          default(TRUE)
 #  admin                  :boolean
 #  is_active              :boolean          default(TRUE)
 #
@@ -45,18 +45,8 @@ class User < ActiveRecord::Base
   has_many :leads
   has_many :lead_streams
 
-  after_create :set_streams
-
-  def set_streams
-    self.total_streams = 1
-    self.trial_duration = 7
-    self.save
-  end
-
   def active_for_authentication?
-    #remember to call the super
-    #then put our own check to determine "active" state using
-    #our own "is_active" column
+    # Checking if a user is active
     super and self.is_active?
   end
 

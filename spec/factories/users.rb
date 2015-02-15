@@ -17,9 +17,9 @@
 #  updated_at             :datetime
 #  authorized_application :boolean
 #  user_sent_to_processor :boolean
-#  total_streams          :integer
+#  total_streams          :integer          default(1)
 #  setup_complete         :boolean
-#  trial_duration         :integer
+#  trial_duration         :integer          default(7)
 #  invitation_token       :string(255)
 #  invitation_created_at  :datetime
 #  invitation_sent_at     :datetime
@@ -29,7 +29,7 @@
 #  invited_by_type        :string(255)
 #  invitations_count      :integer          default(0)
 #  sample_category_id     :integer
-#  new_user               :boolean
+#  new_user               :boolean          default(TRUE)
 #  admin                  :boolean
 #  is_active              :boolean          default(TRUE)
 #

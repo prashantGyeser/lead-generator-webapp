@@ -13,12 +13,17 @@
 
 
 <!-- INITIAL SIGN UP MESSAGE -- START -->
-<!--
-<div class="alert alert-success">
-  <button class="close" data-dismiss="alert"></button>
-  Success:&nbsp;The <a href="#" class="link">page</a> has been added.
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="alert alert-block alert-success fade in text-center">
+      <button type="button" class="close" data-dismiss="alert"></button>
+      <h4 class="alert-heading"><i class="icon-warning-sign"></i> Congratulations!</h4>
+      <p>
+        Thanks for signing up for Urbanzeak. It will take a few hours for your leads to begin showing up. We will send you can email as soon as we find your leads.
+      </p>
+    </div>
+  </div>
 </div>
--->
 <!-- INITIAL SIGN UP MESSAGE -- END -->
 
 
@@ -38,34 +43,8 @@
                 <a href="/dashboard/lead_streams/<%= lead_stream.id %>/edit" style="float: right;" class="btn btn-small">Edit Stream</a>
               </h3>
 
-
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="mini-chart-wrapper">
-                    <div class="chart-details-wrapper">
-                      <div class="chartname"> Weeks Leads </div>
-                      <div class="chart-value"> 17,555 </div>
-                    </div>
-                    <div class="mini-chart">
-                      <div id="mini-chart-orders"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mini-chart-wrapper">
-                    <div class="chart-details-wrapper">
-                      <div class="chartname"> Months Leads </div>
-                      <div class="chart-value"> $17,555 </div>
-                    </div>
-                    <div class="mini-chart">
-                      <div id="mini-chart-other"><canvas height="30" width="62" style="display: inline-block; width: 62px; height: 30px; vertical-align: top;"></canvas></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
+
           </div>
         </div>
       </div>
