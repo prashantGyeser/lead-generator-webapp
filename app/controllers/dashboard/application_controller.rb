@@ -13,6 +13,7 @@ class Dashboard::ApplicationController < ActionController::Base
   before_filter :trial_expired?
   before_filter :check_setup
   helper_method :remaining_days
+  helper_method :current_user_name
 
   layout "dashboard/application"
 
@@ -21,12 +22,18 @@ class Dashboard::ApplicationController < ActionController::Base
     ((current_user.created_at + 7.days).to_date - Date.today).round
   end
 
+  def current_user_name
+    token = Token.where(user_id: current_user.id).last
+    return token.name
+  end
+
   private
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
+
 
   def check_setup
 
