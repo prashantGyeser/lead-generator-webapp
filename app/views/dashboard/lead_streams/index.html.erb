@@ -13,17 +13,20 @@
 
 
 <!-- INITIAL SIGN UP MESSAGE -- START -->
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="alert alert-block alert-success fade in text-center">
-      <button type="button" class="close" data-dismiss="alert"></button>
-      <h4 class="alert-heading"><i class="icon-warning-sign"></i> Congratulations!</h4>
-      <p>
-        Thanks for signing up for Urbanzeak. It will take a few hours for your leads to begin showing up. We will send you can email as soon as we find your leads.
-      </p>
+<% if @new_user %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-block alert-success fade in text-center">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <h4 class="alert-heading"><i class="icon-warning-sign"></i> Congratulations!</h4>
+        <p>
+          Thanks for signing up for Urbanzeak. It will take a few hours for your leads to begin showing up. We will send you can email as soon as we find your leads.
+        </p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
+
 <!-- INITIAL SIGN UP MESSAGE -- END -->
 
 

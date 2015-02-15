@@ -7,7 +7,11 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
     @lead_streams = LeadStream.where(user_id: current_user.id)
     @lead_streams.count >= current_user.total_streams ? (@max_reached = true):(@max_reached = false)
 
-    current_user.new_user? ? (@new_user = true):(@new_user = false)
+    if current_user.new_user?
+      @new_user = true
+      current_user.new_user = false
+      current_user.save
+    end
 
   end
 
