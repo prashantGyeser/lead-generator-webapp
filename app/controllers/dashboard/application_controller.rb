@@ -17,6 +17,9 @@ class Dashboard::ApplicationController < ActionController::Base
 
   layout "dashboard/application"
 
+
+
+
   # find the remaining trial days for this user
   def remaining_days
     ((current_user.created_at + 7.days).to_date - Date.today).round

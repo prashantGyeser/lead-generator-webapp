@@ -2,6 +2,11 @@
 2. Add proper error messages for tweet replies
 3. Setup subscription plans
 4. Enable the change password button in the account page
+5. Disable the trail notification on the left nav once a user subscribes
+6. Keywords listed out on the lead stream page along with the number of leads for the day
+7. Pull a users profile pic from twitter for current accounts
+8. Add a logout button
+
 
 
 
