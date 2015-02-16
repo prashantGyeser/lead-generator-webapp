@@ -99,10 +99,11 @@
               <div class="iconset top-settings-dark"></div>
             </a>
             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-options">
-              <li><a href="#">Normal Link</a></li>
-              <li><a href="#">Badge Link&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a></li>
+              <li><a href="<%= dashboard_account_path %>">Your Account</a></li>
               <li class="divider"></li>
-              <li><a href="#"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Separated Link</a></li>
+              <li>
+                <%= link_to('<i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout'.html_safe, destroy_user_session_path, :method => :delete) %>
+              </li>
             </ul>
           </li>
           <!-- END SETTINGS -->
