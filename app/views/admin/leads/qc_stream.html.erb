@@ -1,0 +1,106 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    Users
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+        <div class="opportunities">
+
+          <div class="keywords">
+            <span>Keywords: </span>
+
+            <% @keywords.each do |keyword_id| %>
+              <% keyword = Keyword.find(keyword_id) %>
+
+              <% if keyword.archived == true %>
+                <span style="margin-left: 15px;"><%= keyword.term %></span>
+              <% elsif keyword.admin_created == true %>
+                <span style="margin-left: 15px; color: #1ABC9C"><%= keyword.term %></span>
+              <% else %>
+                <span style="margin-left: 15px;" class="bold"><%= keyword.term %></span>
+              <% end %>
+
+
+            <% end %>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="city">
+            <span>City: </span>
+            <span><%= @lead_stream.city_name %></span>
+          </div>
+
+
+          <div class="invite_user_form" style="margin-top: 20px;">
+
+            <input type="text" placeholder="Enter keyword" id="keyword_field"/>
+            <button type="submit" id="submit_keyword" class="btn btn_primary" style="width: inherit" data-lead-stream-id="<%= @lead_stream.id %>">Add keyword</button>
+
+            <%# form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+            <%# devise_error_messages! %>
+
+            <%# f.text_field :email, placeholder: "Email of user to invite" %>
+            <%# f.submit "Invite User", class: "btn btn_secondary", style: "width: inherit;" %>
+            <%# end %>
+
+          </div>
+
+
+
+
+          <ul>
+
+            <% @unprocessed_tweets.each do |unprocessed_tweet| %>
+              <li>
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="tweet">
+                      <%= unprocessed_tweet.tweet_body %>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="actions">
+                      <a href="#" class="btn btn_primary btn_block is_lead" data-id="<%= unprocessed_tweet.id %>" data-is-lead="true">Lead</a>
+                      <a href="#" class="btn btn_alert btn_block is_lead" style="margin-top: 10px;" data-id="<%= unprocessed_tweet.id %>" data-is-lead="false">Not lead</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+
+
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+

@@ -12,4 +12,17 @@ class Admin::LeadsController < Admin::ApplicationController
     @unprocessed_tweets = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil)
   end
 
+  def qc_stream
+    @lead_stream = LeadStream.find(params[:lead_stream_id])
+
+    @keywords = Keyword.where(lead_stream_id: @lead_stream.id)
+    keyword_ids = []
+    @keywords.each do |keyword|
+      keyword_ids << keyword.id
+    end
+
+    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil)
+
+  end
+
 end
