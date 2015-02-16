@@ -23,17 +23,22 @@
                 <td>Password</td>
                 <td>*******</td>
                 <td>
-                  <a href="#" class="btn">Change Password</a>
-                  <%# link_to "Change your password", edit_user_registration_path, class: btn %>
+                  <!--<a href="#" class="btn">Change Password</a>-->
+                  <%= link_to "Change your password", edit_user_registration_path, class: "btn" %>
                 </td>
               </tr>
+              <% if !@subscription.nil? %>
+                <tr>
+                  <td>Your Plan</td>
+                  <td><%= @subscription.plan_code %></td>
+                  <td></td>
+                </tr>
+              <% end %>
               </tbody>
             </table>
           </div>
 
-          <% if @subscription.nil? %>
-            Subscription something
-          <% end %>
+
 
 
         </div>
