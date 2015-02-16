@@ -7,8 +7,14 @@ class Admin::ApplicationController < ActionController::Base
 
   before_action :check_admin
   before_action :authenticate_user!
-
+  helper_method :current_user_name
   layout "admin/application"
+
+
+  def current_user_name
+    token = Token.where(user_id: current_user.id).last
+    return token.name
+  end
 
   protected
 

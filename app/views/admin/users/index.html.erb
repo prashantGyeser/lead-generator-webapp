@@ -1,135 +1,126 @@
-<div class="page-header">
-  <h1>
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
     Users
-  </h1>
+  </h3>
 
 </div>
+<!-- END PAGE TITLE -->
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
 
-<div class="invite_user_form">
+        <div class="invite_user_form">
 
-  <%= form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
-    <%# devise_error_messages! %>
+          <%= form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+            <%# devise_error_messages! %>
 
-    <%= f.text_field :email, placeholder: "Email of user to invite" %>
-    <%= f.submit "Invite User", class: "btn btn_primary", style: "width: inherit;" %>
-  <% end %>
-
-</div>
-
-
-<div class="opportunities">
-
-  <table>
-
-    <tr>
-      <th>Email</th>
-      <th></th>
-      <th>QC</th>
-      <th>Todays</th>
-      <th>Months</th>
-      <th>Replies</th>
-      <th></th>
-      <th></th>
-    </tr>
-
-
-    <% @users.each do |user| %>
-
-      <% lead_stream = LeadStream.where(user_id: user.id).last %>
-
-      <% if !lead_stream.nil? %>
-        <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
-        <% keyword_ids = [] %>
-        <% keywords.each do |keyword| %>
-          <% keyword_ids << keyword.id %>
-        <% end %>
-        <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
-        <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
-        <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
-      <% end %>
-
-
-
-      <tr>
-        <td>
-
-          <% if user.try(:is_active) %>
-            <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
-          <% else %>
-            <span class="" style="color: #999"><%= user.email %></span>
+            <%= f.text_field :email, placeholder: "Email of user to invite" %>
+            <%= f.submit "Invite User", class: "btn btn_primary", style: "width: inherit;" %>
           <% end %>
 
+        </div>
 
-        </td>
-        <td>
-          <% if LeadStream.where(user_id: user.id).count == 0 %>
-            <span class="error_indicator"></span>
-          <% end %>
-        </td>
-        <td>
-          <% if !unprocessed_tweet_count.nil? &&  unprocessed_tweet_count > 0 %>
-            <span><%= unprocessed_tweet_count %></span>
-          <% else %>
-            <% if !unprocessed_tweet_count.nil? %>
-              <span class="error_label"><%= unprocessed_tweet_count %></span>
+
+        <div class="opportunities">
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Email</th>
+              <th></th>
+              <th>QC</th>
+              <th>Todays</th>
+              <th>Months</th>
+              <th>Replies</th>
+              <th></th>
+            </tr>
+            </thead>
+
+
+
+            <% @users.each do |user| %>
+
+              <% lead_stream = LeadStream.where(user_id: user.id).last %>
+
+              <% if !lead_stream.nil? %>
+                <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+                <% keyword_ids = [] %>
+                <% keywords.each do |keyword| %>
+                  <% keyword_ids << keyword.id %>
+                <% end %>
+                <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+                <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
+              <% end %>
+
+
+
+              <tr>
+                <td>
+
+                  <% if user.try(:is_active) %>
+                    <a href="/admin/leads/qc/<%= user.id %>" class="bold"><%= user.email %></a>
+                  <% else %>
+                    <span class="" style="color: #999"><%= user.email %></span>
+                  <% end %>
+
+
+                </td>
+                <td>
+                  <% if LeadStream.where(user_id: user.id).count == 0 %>
+                    <span class="error_indicator"></span>
+                  <% end %>
+                </td>
+                <td>
+                  <% if !unprocessed_tweet_count.nil? &&  unprocessed_tweet_count > 0 %>
+                    <span><%= unprocessed_tweet_count %></span>
+                  <% else %>
+                    <% if !unprocessed_tweet_count.nil? %>
+                      <span class="error_label"><%= unprocessed_tweet_count %></span>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if !leads_today.nil? && leads_today > 0 %>
+                    <span><%= leads_today %></span>
+                  <% else %>
+                    <% if !leads_today.nil? %>
+                      <span class="error_label"><%= leads_today %></span>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= leads_this_month %>
+                </td>
+                <td>
+                  <%= TweetReply.where(user_id: user.id).count %>
+                </td>
+                <td>
+                  <% if !lead_stream.nil? %>
+                    <a href="/admin/users/lead_streams/<%= lead_stream.id %>">View Leads</a>
+                  <% end %>
+
+                </td>
+              </tr>
             <% end %>
-          <% end %>
-        </td>
-        <td>
-          <% if !leads_today.nil? && leads_today > 0 %>
-            <span><%= leads_today %></span>
-          <% else %>
-            <% if !leads_today.nil? %>
-              <span class="error_label"><%= leads_today %></span>
-            <% end %>
-          <% end %>
-        </td>
-        <td>
-          <%= leads_this_month %>
-        </td>
-        <td>
-          <%= TweetReply.where(user_id: user.id).count %>
-        </td>
-        <td class="sample_category" id="<%= user.id %>">
 
-          <% if user.sample_category_id.nil? %>
-            <a href="#" class="btn btn_secondary set" style="width: inherit; background-color: rgba(31,151,185); float: right;" data-remodal-target="modal" data-user-id="<%= user.id %>">
-              Set Sample Data
-            </a>
-          <% else %>
-            <% sample_category_name = SampleCategory.find(user.sample_category_id).name %>
-            <span class="sample_category_name">
-              <%= sample_category_name %>
-            </span>
-          <% end %>
-        </td>
-        <td>
-          <% if !lead_stream.nil? %>
-            <a href="/admin/users/lead_streams/<%= lead_stream.id %>">View Leads</a>
-          <% end %>
-
-        </td>
-      </tr>
-    <% end %>
-
-  </table>
+          </table>
 
 
+        </div>
 
 
+      </div>
+    </div>
 
-  <div class="remodal" data-remodal-id="modal">
-
-    <form action="">
-      <%= collection_select(:sample_category, :id, SampleCategory.all, :id, :name, style: "width: 100%") %>
-      <input type="hidden" value="<%# user.id %>" name="sample_category[user_id]" id="sample_category_user_id"/>
-      <a href="#" class="btn btn_secondary" style="width: inherit" id="store_sample_category">
-        Set Sample Category
-      </a>
-    </form>
-
-    <!--<a class="remodal-confirm" href="#">OK</a>-->
   </div>
-
 </div>
+
+
+
+
+
