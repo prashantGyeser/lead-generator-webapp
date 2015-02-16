@@ -58,7 +58,14 @@
                 <% keywords.each do |keyword| %>
                   <tr>
                     <td><%= keyword.term %></td>
-                    <td><%= Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %></td>
+                    <% lead_count = Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                    <td>
+                      <% if lead_count > 0 %>
+                        <span class="label label-success"><%= lead_count %></span>
+                      <% else %>
+                        <span class="label label-important"><%= lead_count %></span>
+                      <% end %>
+                    </td>
                   </tr>
                 <% end %>
 

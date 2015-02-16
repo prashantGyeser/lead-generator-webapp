@@ -25,6 +25,27 @@ class TwitterHelper
 
   end
 
+  def get_profile_info
+
+    tokens = Token.where(name: nil)
+
+    tokens.each do |token|
+      client = initialize_twitter_with_token(token)
+      user_info = client.user
+      if !user_info.nil?
+        token[:profile_image_url] = user_info.profile_image_uri(size = :normal).to_s
+        token[:name] = user_info.name
+
+        token.save
+      end
+
+      sleep 3.minutes
+
+    end
+
+  end
+
+
   private
   def initialize_twitter_client(user_id)
 
@@ -45,8 +66,22 @@ class TwitterHelper
           :parameters    => {user_email: user.email}
       )
     end
+  end
 
-
+  def initialize_twitter_with_token(token)
+    begin
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_KEY']
+        config.consumer_secret     = ENV['TWITTER_SECRET']
+        config.access_token        = token.oauth_token
+        config.access_token_secret = token.oauth_secret
+      end
+    rescue => e
+      Honeybadger.notify(
+          :error_class   => "Twitter Initialization Error",
+          :error_message => "Twitter Initialization Error: #{e.message}"
+      )
+    end
   end
 
   def parse_and_store_tweets(search_results, keyword_id)
