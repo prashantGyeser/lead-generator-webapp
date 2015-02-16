@@ -46,6 +46,24 @@
                 <a href="/dashboard/lead_streams/<%= lead_stream.id %>/edit" style="float: right;" class="btn btn-small">Edit Stream</a>
               </h3>
 
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Leads Today</th>
+                </tr>
+                </thead>
+
+                <% keywords.each do |keyword| %>
+                  <tr>
+                    <td><%= keyword.term %></td>
+                    <td><%= Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %></td>
+                  </tr>
+                <% end %>
+
+              </table>
+
             </div>
 
           </div>
