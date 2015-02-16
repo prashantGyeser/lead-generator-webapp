@@ -45,6 +45,30 @@ Rails.application.routes.draw do
 
   resources :lead_streams
 
+  namespace :admin do
+    root 'users#index'
+    get 'dashboard/index'
+    get 'leads/add'
+    get 'leads/push'
+    get 'users' => 'users#index'
+    get 'lead_streams' => 'lead_streams#index'
+    get 'users/all' => 'users#all'
+    get 'users/leads/:keyword_id' => 'users#leads'
+    get 'users/lead_streams/:id' => 'users#lead_stream'
+    get 'users/lead_streams/keywords/:id' => 'users#keyword_tweets'
+    post 'users/lead_streams/keywords' => 'users#new_keyword'
+    post 'users/set_unprocessed_tweet_type' => 'users#set_unprocessed_tweet_type'
+    get 'sample_data/categories'
+    get 'sample_data/categories/:id' => 'sample_data#tweets'
+    post '/sample_category/create' => 'sample_data#create_category'
+    post '/sample_lead/create' => 'sample_data#create_lead'
+    post 'users/set_sample_category' => 'users#set_sample_category'
+    get 'leads/qc/:user_id' => "leads#qc"
+    get 'keyword_tracker/index'
+    post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
+  end
+
+
   namespace :dashboard do
     root 'lead_streams#index'
     resources :lead_streams
@@ -76,28 +100,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  namespace :admin do
-    root 'users#index'
-    get 'dashboard/index'
-    get 'leads/add'
-    get 'leads/push'
-    get 'users' => 'users#index'
-    get 'lead_streams' => 'lead_streams#index'
-    get 'users/all' => 'users#all'
-    get 'users/leads/:keyword_id' => 'users#leads'
-    get 'users/lead_streams/:id' => 'users#lead_stream'
-    get 'users/lead_streams/keywords/:id' => 'users#keyword_tweets'
-    post 'users/lead_streams/keywords' => 'users#new_keyword'
-    post 'users/set_unprocessed_tweet_type' => 'users#set_unprocessed_tweet_type'
-    get 'sample_data/categories'
-    get 'sample_data/categories/:id' => 'sample_data#tweets'
-    post '/sample_category/create' => 'sample_data#create_category'
-    post '/sample_lead/create' => 'sample_data#create_lead'
-    post 'users/set_sample_category' => 'users#set_sample_category'
-    get 'leads/qc/:user_id' => "leads#qc"
-    get 'keyword_tracker/index'
-    post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
-  end
+
 
 
 
