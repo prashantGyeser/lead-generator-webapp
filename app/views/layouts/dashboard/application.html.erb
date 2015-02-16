@@ -151,15 +151,19 @@
 </div>
 
 <!-- BEGIN SUSBSCRIPTION SIGN UP -->
-<div class="footer-widget subscribe-now">
-  <% if remaining_days <= 0 %>
-    <span class="semi-bold">Trail Expired</span>
-  <% else %>
-    <span class="semi-bold"><%= remaining_days %> days</span> remaining!
-  <% end %>
+<% if not_subscribed? %>
+  <div class="footer-widget subscribe-now">
+    <% if remaining_days <= 0 %>
+      <span class="semi-bold">Trail Expired</span>
+    <% else %>
+      <span class="semi-bold"><%= remaining_days %> days</span> remaining!
+    <% end %>
 
-  <a href="<%= dashboard_account_plan_path %>" class="btn btn-white">Subscribe now</a>
-</div>
+    <a href="<%= dashboard_account_plan_path %>" class="btn btn-white">Subscribe now</a>
+  </div>
+<% end %>
+
+
 <!-- END SUSBSCRIPTION SIGN UP -->
 
 <!-- BEGIN SCROLL UP HOVER -->

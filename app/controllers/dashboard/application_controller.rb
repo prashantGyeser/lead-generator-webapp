@@ -14,6 +14,7 @@ class Dashboard::ApplicationController < ActionController::Base
   before_filter :check_setup
   helper_method :remaining_days
   helper_method :current_user_name
+  helper_method :not_subscribed?
 
   layout "dashboard/application"
 
@@ -28,6 +29,12 @@ class Dashboard::ApplicationController < ActionController::Base
   def current_user_name
     token = Token.where(user_id: current_user.id).last
     return token.name
+  end
+
+  def not_subscribed?
+    if (Subscription.where(user_id: current_user.id).count) <= 0
+      return true
+    end
   end
 
   private
