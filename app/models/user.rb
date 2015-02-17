@@ -32,6 +32,7 @@
 #  new_user               :boolean          default(TRUE)
 #  admin                  :boolean
 #  is_active              :boolean          default(TRUE)
+#  subscribed             :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

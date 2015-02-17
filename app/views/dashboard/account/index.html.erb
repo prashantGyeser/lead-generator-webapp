@@ -30,7 +30,7 @@
               <% if !@subscription.nil? %>
                 <tr>
                   <td>Your Plan</td>
-                  <td><%= @subscription.plan_code %></td>
+                  <td><%= @subscription.plan_code.nil? ? "Trial":@subscription.plan_code %></td>
                   <td></td>
                 </tr>
               <% end %>
