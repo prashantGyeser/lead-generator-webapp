@@ -74,12 +74,6 @@ Rails.application.routes.draw do
     post 'keyword/add'
   end
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-
-
-  devise_for :users
-
-
   namespace :admin do
     root 'users#index'
     get 'dashboard/index'
@@ -103,6 +97,14 @@ Rails.application.routes.draw do
     get 'keyword_tracker/index'
     post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
   end
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+
+
+  devise_for :users
+
+
+
 
 
 
