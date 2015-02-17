@@ -39,7 +39,10 @@ class Admin::UsersController < Admin::ApplicationController
         format.json { render :json => results, status: :created }
 
       else
-        puts "not created"
+        unprocessed_tweet[:processed] = true
+        unprocessed_tweet.save
+
+        format.json { render :json => results, status: :created }
       end
     end
 

@@ -27,16 +27,12 @@
 
         <div class="opportunities">
 
+          <span>Column Order: (Tweets To QC)  (Todays Leads)  (Months Leads)   </span>
+
           <table class="table">
             <thead>
             <tr>
               <th>Email</th>
-              <th></th>
-              <th>QC</th>
-              <th>Todays</th>
-              <th>Months</th>
-              <th>Replies</th>
-              <th></th>
             </tr>
             </thead>
 
@@ -57,10 +53,22 @@
                     <table>
 
                       <% lead_streams.each do |lead_stream| %>
+
+                        <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+                        <% keyword_ids = [] %>
+                        <% keywords.each do |keyword| %>
+                          <% keyword_ids << keyword.id %>
+                        <% end %>
+                        <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+                        <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                        <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
+
+
                         <tr>
                           <td><a href="/admin/leads/qc_stream/<%= lead_stream.id %>" class="bold"><%= lead_stream.name.nil? ? lead_stream[:city_name]:lead_stream[:name] %></a></td>
-                          <td>Test</td>
-                          <td>Test</td>
+                          <td><%= unprocessed_tweet_count %></td>
+                          <td><%= leads_today %></td>
+                          <td><%= leads_this_month %></td>
                         </tr>
                       <% end %>
 
@@ -79,20 +87,7 @@
                     <span class="error_indicator"></span>
                   <% end %>
                 </td>
-                <td>
 
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-                </td>
-                <td>
-
-                </td>
               </tr>
             <% end %>
 
