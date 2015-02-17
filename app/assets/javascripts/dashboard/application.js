@@ -18,6 +18,7 @@
 //= require plugins/boostrapv3/js/bootstrap.min
 //= require plugins/jquery-unveil/jquery.unveil.min
 //= require plugins/jquery-scrollbar/jquery.scrollbar.min
+//= require plugins/velocity/velocity.min
 //= require plugins/breakpoints
 //= require dashboard/core
 //= require dashboard/chat
