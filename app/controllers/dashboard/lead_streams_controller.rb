@@ -76,7 +76,7 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
 
   def get_keywords
 
-    keywords = Keyword.where(lead_stream_id: params[:id])
+    keywords = Keyword.where(lead_stream_id: params[:id]).where(admin_created: nil).where(archived: nil)
 
     respond_to do |format|
       if keywords

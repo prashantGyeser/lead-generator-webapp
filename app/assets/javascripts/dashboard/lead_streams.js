@@ -3,7 +3,7 @@ ready = function() {
 
   function get_keywords(lead_stream_id)
   {
-    var modal_body = $(".modal-body")
+    var modal_body = $(".modal-body");
     var keywords;
 
     var jqxhr = $.get( "/dashboard/lead_streams/get_keywords/" + lead_stream_id , function(data, status) {
@@ -27,9 +27,8 @@ ready = function() {
         console.log(keywords);
         keywords.forEach( function (keyword){
           console.log(keyword.term);
-          table.append('<tr><td>'+ keyword.term +'</td><td><a href="#" class="text-error" data-id="' + keyword.id + '">Delete</a></td></tr>')
+          table.append('<tr><td>'+ keyword.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + keyword.id + '">Delete</a></td></tr>')
         });
-
       }
     });
 
@@ -39,6 +38,22 @@ ready = function() {
 
   function delete_keyword(keyword_id)
   {
+
+    var data_to_post = {keyword_id: keyword_id};
+
+    $.ajax({
+      url : "/dashboard/keyword/remove",
+      type: "POST",
+      data : data_to_post,
+      success: function(data, textStatus, jqXHR)
+      {
+        return true;
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        return false;
+      }
+    });
 
   }
 
@@ -67,7 +82,28 @@ ready = function() {
     // Todo: Allow a user to modify the lead stream
 
 
-  })
+  });
+
+
+  $(document).on( "click", "a.delete-keyword", function(e){
+    e.preventDefault();
+
+    var keyword_id = $(this).data("id");
+    var parent_row = $(this).parent().parent();
+
+    //parent_row.hide();
+
+    if(delete_keyword(keyword_id) == true){
+      parent_row.hide();
+    }
+    else{
+      alert("not okay");
+    }
+
+
+  });
+
+
 
 };
 

@@ -47,7 +47,7 @@
                 <button class="btn btn-small edit-stream" data-toggle="modal" data-target="#myModal" style="float: right;" data-id="<%=  lead_stream.id%>">Edit Stream</button>
               </h3>
 
-              <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where(archived: nil) %>
               <table class="table table-striped">
                 <thead>
                 <tr>
