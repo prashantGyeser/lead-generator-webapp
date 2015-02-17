@@ -1,7 +1,10 @@
 var ready;
 ready = function() {
   var modal_body = $(".modal-body");
+
   var new_keyword_form = '<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword" id="keyword_term"><span class="input-group-addon primary" style="padding: 0"><button class="btn btn-primary add_keyword">Add Keyword</button></span></div></div></div>';
+
+  var keyword_counter = $('#keyword_count');
 
   function get_keywords(lead_stream_id)
   {
@@ -20,6 +23,9 @@ ready = function() {
       if (jQuery.isEmptyObject(keywords)){
         modal_body.empty();
         modal_body.append('<div class="alert"><button class="close" data-dismiss="alert"></button>Info:&nbsp;Looks like you have not set any keywords yet! </div>');
+
+        modal_body.append('<table class="table table-striped" id="keyword_table"></table>');
+        modal_body.append(new_keyword_form);
       }
       else{
         modal_body.empty();
@@ -29,7 +35,7 @@ ready = function() {
 
         keywords.forEach( function (keyword){
           console.log(keyword.term);
-          table.append('<tr><td>'+ keyword.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + keyword.id + '">Delete</a></td></tr>')
+          table.append('<tr><td>'+ keyword.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + keyword.id + '">Delete</a></td></tr>');
         });
 
         if(keywords.length < 3){
@@ -37,6 +43,9 @@ ready = function() {
         }
 
       }
+
+      keyword_counter.val(keywords.length);
+
     });
 
   }
@@ -59,7 +68,8 @@ ready = function() {
         else{
           modal_body.append(new_keyword_form);
         }
-
+        var keyword_count = keyword_counter.val();
+        keyword_counter.val(keyword_count - 1);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -86,6 +96,20 @@ ready = function() {
       success: function(data, textStatus, jqXHR)
       {
         console.log(data.term);
+
+        $('#keyword_table').append('<tr><td>'+ data.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + data.id + '">Delete</a></td></tr>');
+
+        var keyword_count = keyword_counter.val();
+        keyword_counter.val(parseInt(keyword_count) + 1);
+        if(keyword_counter.val() >= 3){
+          $('#new-keyword-form').remove();
+
+        }
+        else
+        {
+          var keyword_count = keyword_counter.val();
+          keyword_counter.val(parseInt(keyword_count) + 1);
+        }
 
       },
       error: function (jqXHR, textStatus, errorThrown)
@@ -134,13 +158,9 @@ ready = function() {
 
   $(document).on( "click", "button.add_keyword", function(e){
     e.preventDefault();
-    lead_stream_edit_id
-
     add_keyword($('#lead_stream_edit_id').val(), $('#keyword_term').val() );
 
   });
-
-
 
 
 
