@@ -8,7 +8,7 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  admin_created        :boolean
-#  archived             :boolean
+#  archived             :boolean          default(FALSE)
 #  last_searched        :datetime
 #  last_result_count    :integer
 #  last_duplicate_count :integer

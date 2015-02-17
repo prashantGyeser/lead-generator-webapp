@@ -29,7 +29,7 @@ class Dashboard::KeywordController < Dashboard::ApplicationController
 
   def add
 
-    lead_stream = LeadStream.find_by_user_id(current_user.id);
+    lead_stream = LeadStream.find(params[:lead_stream_id])
     keyword = Keyword.new(term: params[:term], lead_stream_id: lead_stream.id)
 
     respond_to do |format|

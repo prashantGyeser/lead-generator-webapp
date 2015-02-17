@@ -1,6 +1,7 @@
 var ready;
 ready = function() {
   var modal_body = $(".modal-body");
+  var new_keyword_form = '<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword" id="keyword_term"><span class="input-group-addon primary" style="padding: 0"><button class="btn btn-primary add_keyword">Add Keyword</button></span></div></div></div>';
 
   function get_keywords(lead_stream_id)
   {
@@ -32,13 +33,11 @@ ready = function() {
         });
 
         if(keywords.length < 3){
-          modal_body.append('<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword"><span class="input-group-addon primary">Add Keyword</span></div></div></div>');
+          modal_body.append(new_keyword_form);
         }
 
       }
     });
-
-
 
   }
 
@@ -58,9 +57,8 @@ ready = function() {
         if ( $( "#new-keyword-form" ).length ) {
         }
         else{
-          modal_body.append('<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword"><span class="input-group-addon primary">Add Keyword</span></div></div></div>');
+          modal_body.append(new_keyword_form);
         }
-
 
       },
       error: function (jqXHR, textStatus, errorThrown)
@@ -77,6 +75,27 @@ ready = function() {
   function add_keyword(lead_stream_id, term)
   {
 
+    var data_to_post = {lead_stream_id: lead_stream_id, term: term};
+
+    console.log("It is getting here with data to post: ", data_to_post);
+
+    $.ajax({
+      url : "/dashboard/keyword/add",
+      type: "POST",
+      data : data_to_post,
+      success: function(data, textStatus, jqXHR)
+      {
+        console.log(data.term);
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        alert("Something went wrong, please try again later.");
+      }
+    });
+
+
+
   }
 
 
@@ -85,7 +104,10 @@ ready = function() {
 
     var lead_stream_id = $(this).data("id");
 
-    // Todo: Set the value of the lead stream being edited
+    // Set the value of the lead stream being edited
+    $('#lead_stream_edit_id').val(lead_stream_id);
+
+
     // Getting the keywords for the selected lead stream
     var keywords = get_keywords(lead_stream_id);
     console.log(keywords);
@@ -101,19 +123,24 @@ ready = function() {
 
   });
 
-
   $(document).on( "click", "a.delete-keyword", function(e){
     e.preventDefault();
-
     var keyword_id = $(this).data("id");
     var parent_row = $(this).parent().parent();
-
     //parent_row.hide();
-
     delete_keyword(keyword_id, parent_row)
 
+  });
+
+  $(document).on( "click", "button.add_keyword", function(e){
+    e.preventDefault();
+    lead_stream_edit_id
+
+    add_keyword($('#lead_stream_edit_id').val(), $('#keyword_term').val() );
 
   });
+
+
 
 
 
