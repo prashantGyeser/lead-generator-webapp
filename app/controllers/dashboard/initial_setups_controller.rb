@@ -3,6 +3,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   layout 'setup/application'
 
   skip_before_filter :check_setup
+  skip_before_filter :trial_expired?
 
   def index
     @lead_stream = LeadStream.new
