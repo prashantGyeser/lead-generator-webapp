@@ -19,9 +19,6 @@
 //= require plugins/jquery-unveil/jquery.unveil.min
 //= require plugins/jquery-scrollbar/jquery.scrollbar.min
 //= require plugins/breakpoints
-//= require plugins/jquery-numberAnimate/jquery.animateNumbers
-//= require plugins/jquery-sparkline/jquery-sparkline.js
-//= require plugins/velocity/velocity.min
 //= require dashboard/core
 //= require dashboard/chat
 //= require dashboard/demo
