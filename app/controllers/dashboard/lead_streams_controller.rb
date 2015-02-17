@@ -74,6 +74,20 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
     end
   end
 
+  def get_keywords
+
+    keywords = Keyword.where(lead_stream_id: params[:id])
+
+    respond_to do |format|
+      if keywords
+        format.json { render json: keywords }
+      else
+        format.json { render json: "Could not find keywords for the selected stream" }
+      end
+    end
+
+  end
+
 
   private
 

@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     get 'lead_streams/:id/edit' => "lead_streams#edit"
     patch 'lead_streams/:id' => "lead_streams#update"
     put 'lead_streams/:id' => "lead_streams#update"
+    get 'lead_streams/get_keywords/:id' => "lead_streams#get_keywords"
     get 'initial_setups/index'
     post '/initial_setups/add_city' => 'initial_setups#add_city'
     post '/initial_setups/add_category' => 'initial_setups#add_category'
