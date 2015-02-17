@@ -47,7 +47,7 @@
                 <button class="btn btn-small edit-stream" data-toggle="modal" data-target="#myModal" style="float: right;" data-id="<%=  lead_stream.id%>">Edit Stream</button>
               </h3>
 
-              <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where(archived: nil) %>
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where.not(archived: true) %>
               <table class="table table-striped">
                 <thead>
                 <tr>
@@ -99,10 +99,12 @@
           <tr><td>Keyword</td><td>Delete</td></tr>
           <tr><td>Keyword</td><td>Delete</td></tr>
         </table>
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
     <!-- /.modal-content -->

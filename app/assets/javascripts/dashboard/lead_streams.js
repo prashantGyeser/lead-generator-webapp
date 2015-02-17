@@ -1,5 +1,6 @@
 var ready;
 ready = function() {
+  var modal_body = $(".modal-body");
 
   function get_keywords(lead_stream_id)
   {
@@ -24,11 +25,16 @@ ready = function() {
         modal_body.append('<table class="table table-striped" id="keyword_table"></table>');
 
         var table = $('#keyword_table');
-        console.log(keywords);
+
         keywords.forEach( function (keyword){
           console.log(keyword.term);
           table.append('<tr><td>'+ keyword.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + keyword.id + '">Delete</a></td></tr>')
         });
+
+        if(keywords.length < 3){
+          modal_body.append('<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword"><span class="input-group-addon primary">Add Keyword</span></div></div></div>');
+        }
+
       }
     });
 
@@ -36,24 +42,35 @@ ready = function() {
 
   }
 
-  function delete_keyword(keyword_id)
+  function delete_keyword(keyword_id, parent_row)
   {
 
     var data_to_post = {keyword_id: keyword_id};
-
+    var status;
     $.ajax({
       url : "/dashboard/keyword/remove",
       type: "POST",
       data : data_to_post,
       success: function(data, textStatus, jqXHR)
       {
-        return true;
+        parent_row.hide();
+
+        if ( $( "#new-keyword-form" ).length ) {
+        }
+        else{
+          modal_body.append('<div class="row form-row" id="new-keyword-form"><div class="col-md-12"><div class="input-group"><input class="form-control" type="text" placeholder="New Keyword"><span class="input-group-addon primary">Add Keyword</span></div></div></div>');
+        }
+
+
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
-        return false;
+        console.log("This is an error", errorThrown, textStatus);
+        status = false;
       }
     });
+
+    return status
 
   }
 
@@ -93,12 +110,7 @@ ready = function() {
 
     //parent_row.hide();
 
-    if(delete_keyword(keyword_id) == true){
-      parent_row.hide();
-    }
-    else{
-      alert("not okay");
-    }
+    delete_keyword(keyword_id, parent_row)
 
 
   });
