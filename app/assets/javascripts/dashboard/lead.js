@@ -114,7 +114,7 @@ ready = function() {
     var data_to_post = {lead_id: lead_id, message: reply_message};
 
 
-
+    
     $.ajax({
       url : "/dashboard/leads/send_reply",
       type: "POST",
