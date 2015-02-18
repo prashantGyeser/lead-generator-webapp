@@ -59,7 +59,7 @@ class Dashboard::ApplicationController < ActionController::Base
   def trial_expired?
     # find current_user who is login. If you are using devise simply current_user will works
     # now that you have remaining_days, check whether trial period is already completed
-    if remaining_days <= 0
+    if remaining_days <= 0 && not_subscribed?
       redirect_to dashboard_account_plan_path
     end
   end
