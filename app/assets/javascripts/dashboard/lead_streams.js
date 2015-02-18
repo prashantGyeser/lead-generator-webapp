@@ -55,6 +55,8 @@ ready = function() {
 
     var data_to_post = {keyword_id: keyword_id};
     var status;
+    var row_to_remove = '#keyword_' + keyword_id;
+
     $.ajax({
       url : "/dashboard/keyword/remove",
       type: "POST",
@@ -70,6 +72,9 @@ ready = function() {
         }
         var keyword_count = keyword_counter.val();
         keyword_counter.val(keyword_count - 1);
+
+        $(row_to_remove).remove();
+
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -87,23 +92,24 @@ ready = function() {
 
     var data_to_post = {lead_stream_id: lead_stream_id, term: term};
 
-    console.log("It is getting here with data to post: ", data_to_post);
-
     $.ajax({
       url : "/dashboard/keyword/add",
       type: "POST",
       data : data_to_post,
       success: function(data, textStatus, jqXHR)
       {
-        console.log(data.term);
+
 
         $('#keyword_table').append('<tr><td>'+ data.term +'</td><td><a href="#" class="text-error delete-keyword" data-id="' + data.id + '">Delete</a></td></tr>');
+
+        var list_to_add_to = '#' + lead_stream_id;
+
+        $(list_to_add_to).append('<tr id="keyword_' + data.id + '"><td>' + data.term + '</td><td><span class="label label-important">0</span></td></tr>');
 
         var keyword_count = keyword_counter.val();
         keyword_counter.val(parseInt(keyword_count) + 1);
         if(keyword_counter.val() >= 3){
           $('#new-keyword-form').remove();
-
         }
         else
         {
@@ -135,14 +141,6 @@ ready = function() {
     // Getting the keywords for the selected lead stream
     var keywords = get_keywords(lead_stream_id);
     console.log(keywords);
-
-    // Todo: Get the keywords for the paticular lead stream
-
-    // Todo: Allow a user to delete a keyword
-
-    // Todo: Allow a user to add a new keyword for a lead stream
-
-    // Todo: Allow a user to modify the lead stream
 
 
   });

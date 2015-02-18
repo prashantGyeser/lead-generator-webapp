@@ -48,7 +48,7 @@
               </h3>
 
               <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where.not(archived: true) %>
-              <table class="table table-striped">
+              <table class="table table-striped" id="<%= lead_stream.id %>">
                 <thead>
                 <tr>
                   <th>Keyword</th>
@@ -57,7 +57,7 @@
                 </thead>
 
                 <% keywords.each do |keyword| %>
-                  <tr>
+                  <tr id="keyword_<%= keyword.id %>">
                     <td><%= keyword.term %></td>
                     <% lead_count = Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
                     <td>
