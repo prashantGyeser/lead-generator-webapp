@@ -41,8 +41,12 @@
           <tbody>
 
           <% @users.each do |user| %>
+
             <tr>
-              <td colspan="4" class="bold"><%= user.email %></td>
+              <td colspan="4" class="bold">
+                <%= user.email %>
+                <%= user.active? ? ("<span class='label label-success'>Active</span>".html_safe):("<span class='label'>Inactive</span>".html_safe) %>
+              </td>
               <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
 
@@ -64,7 +68,13 @@
 
                   <table>
                     <% keywords.each do |keyword| %>
-                      <tr><td style="border: none" class="bold"><a href="#"><%= keyword.term %></a></td></tr>
+                      <tr>
+                        <td style="border: none" class="bold">
+                          <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
+                          <% tweets_to_qc = UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %>
+                          <span class="badge <%= tweets_to_qc < 5 ? "badge-important":"badge-success" %>"><%= tweets_to_qc %></span>
+                        </td>
+                      </tr>
                     <% end %>
 
                   </table>

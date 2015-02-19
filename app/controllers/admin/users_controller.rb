@@ -3,6 +3,18 @@ class Admin::UsersController < Admin::ApplicationController
     @users = User.all.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
+  def active
+    @users = User.where('created_at < ?', (Date.today - yhis.trial_duration))
+  end
+
+  def deactive
+
+  end
+
+  def no_leads
+
+  end
+
   def all
     @users = User.all
   end
