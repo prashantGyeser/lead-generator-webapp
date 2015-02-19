@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     super and self.is_active?
   end
 
+  def remaining_days_in_trial
+
+  end
+
   def active?
     trial_remaining_days = ((self.created_at + (self.trial_duration).days).to_date - Date.today).round
 
