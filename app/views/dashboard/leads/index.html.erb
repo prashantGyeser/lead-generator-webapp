@@ -41,7 +41,13 @@
                     <p style="color: #576477">
                       <%= lead.tweet_body %>
                     </p>
-                    <p class="muted  small-text"><%= lead.created_at.pretty %></p>
+                    <p class="muted  small-text">
+                      <%= lead.created_at.pretty %>
+                      |
+                      Followers: <%= lead.poster_follower_count %>
+                      |
+                      Friends: <%= lead.poster_friends_count %>
+                    </p>
                   </div>
                   <div class="clearfix"></div>
                 </div>
