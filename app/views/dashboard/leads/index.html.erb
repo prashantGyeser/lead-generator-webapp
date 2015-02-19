@@ -53,7 +53,13 @@
                 </div>
                 <div class="inline pull-right">
                   <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline">
-                    <button class="btn reply_btn" data-id="<%= lead.id %>"><i class="fa fa-reply"></i></button>
+                    <% tweet_replies = TweetReply.where(tweet_id: lead.tweet_id).count %>
+                    <% if tweet_replies > 0 %>
+                      <i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>
+                    <% else %>
+                      <button class="btn reply_btn" data-id="<%= lead.id %>"><i class="fa fa-reply"></i></button>
+                    <% end %>
+
                   </div>
                 </div>
                 <div class="clearfix"></div>
