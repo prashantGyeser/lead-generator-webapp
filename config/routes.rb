@@ -80,8 +80,9 @@ Rails.application.routes.draw do
     get 'dashboard/index'
     get 'leads/add'
     get 'leads/push'
+    get 'leads/:lead_stream_id' => "leads#index"
     get 'users' => 'users#index'
-    get 'lead_streams' => 'lead_streams#index'
+    get 'lead_streams/:user_id' => 'lead_streams#index'
     get 'users/all' => 'users#all'
     get 'users/leads/:keyword_id' => 'users#leads'
     get 'users/lead_streams/:id' => 'users#lead_stream'
