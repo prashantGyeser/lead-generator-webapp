@@ -5,7 +5,7 @@ namespace :search do
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
 
-    keywords = Keyword.where(archived: nil).where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 24.hours))
+    keywords = Keyword.where(archived: false).where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 24.hours))
 
     puts "Total number of keywords = #{keywords.count}"
 
@@ -37,7 +37,7 @@ namespace :search do
   desc "Search every keyword has never been used to search"
   task unsearched_keywords: :environment do
 
-    keywords = Keyword.where(archived: nil).where(last_searched: nil)
+    keywords = Keyword.where(archived: false).where(last_searched: nil)
 
     twitter_helper = TwitterHelper.new
 
