@@ -28,7 +28,7 @@
 
 
 
-        <table class="table table-hover table-condensed m-t-30" id="example">
+        <table class="table table-condensed m-t-30" id="example">
           <thead>
           <tr>
             <th style="width:11%">Lead Stream</th>
@@ -42,24 +42,36 @@
 
           <% @users.each do |user| %>
             <tr>
-              <td colspan="5" class="bold"><%= user.email %></td>
+              <td colspan="4" class="bold"><%= user.email %></td>
+              <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
 
             <% LeadStream.where(user_id: user.id).each do |lead_stream| %>
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+
+              <% keyword_ids = [] %>
+              <% keywords.each do |keyword| %>
+              <% keyword_ids << keyword.id %>
+              <% end %>
+
+              <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+              <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+              <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
+
               <tr>
                 <td style="border-top: none;">
                   <span class=""><%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %></span>
+
                   <table>
-                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
-                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
-                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
-                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
+                    <% keywords.each do |keyword| %>
+                      <tr><td style="border: none" class="bold"><a href="#"><%= keyword.term %></a></td></tr>
+                    <% end %>
+
                   </table>
                 </td>
-                <td style="border-top: none;">QC Tweets</td>
-                <td style="border-top: none;">leads today</td>
-                <td style="border-top: none;">month</td>
-                <td style="border-top: none;">replies</td>
+                <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
+                <td style="border-top: none;"><%= leads_today %></td>
+                <td style="border-top: none;"><%= leads_this_month %></td>
 
               </tr>
             <% end %>
