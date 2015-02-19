@@ -51,4 +51,22 @@ class User < ActiveRecord::Base
     super and self.is_active?
   end
 
+  def active?
+    trial_remaining_days = ((self.created_at + (self.trial_duration).days).to_date - Date.today).round
+
+    subscribed = false
+    if (Subscription.where(user_id: self.id).count) <= 0
+      subscribed=false
+    else
+      subscribed=true
+    end
+
+    # find current_user who is login. If you are using devise simply current_user will works
+    # now that you have remaining_days, check whether trial period is already completed
+    if trial_remaining_days <= 0 && !subscribed
+      return false
+    end
+    return true
+  end
+
 end

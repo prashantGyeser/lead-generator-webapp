@@ -1,104 +1,15 @@
 <div class="page-header">
   <h1>
     Unchecked Tweets
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn_primary" data-toggle="modal" data-target="#myModal" style="width: inherit; float: right;">
-      View Keywords
-    </button>
   </h1>
 
 
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Keywords</h4>
-        </div>
-        <div class="modal-body">
-          <!-- Keyword list -- start -->
-
-          <table class="keyword_list_modal">
-            <% @keywords.each do |keyword_id| %>
-              <tr>
-                <% keyword = Keyword.find(keyword_id) %>
-                <td>
-                  <% if keyword.archived == true %>
-                    <%= keyword.term %>
-                  <% elsif keyword.not_working == true %>
-                    <span style="color: #F6223F" class="bold"><%= keyword.term %></span>
-                  <% elsif keyword.admin_created == true %>
-                    <span style="color: #1ABC9C" class="bold"><%= keyword.term %></span>
-                  <% else %>
-                    <span class="bold"><%= keyword.term %></span>
-                  <% end %>
-                </td>
-
-                <td>
-                  <%= keyword.last_result_count %>
-                </td>
-
-                <td class="actions">
-                  <% if !keyword.not_working == true %>
-                    <i class="fa fa-exclamation-triangle not_working" data-id="<%= keyword.id %>"></i>
-                  <% end %>
-                </td>
-
-              </tr>
-            <% end %>
-          </table>
-
-
-
-          <!-- Keyword list -- end -->
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
 </div>
 
 <div class="opportunities">
-
-  <div class="keywords">
-    <span>Keywords: </span>
-
-    <% @keywords.each do |keyword_id| %>
-      <% keyword = Keyword.find(keyword_id) %>
-
-      <% if keyword.archived == true %>
-        <span style="margin-left: 15px;"><%= keyword.term %></span>
-      <% elsif keyword.admin_created == true %>
-        <span style="margin-left: 15px; color: #1ABC9C"><%= keyword.term %></span>
-      <% else %>
-        <span style="margin-left: 15px;" class="bold"><%= keyword.term %></span>
-      <% end %>
-
-
-    <% end %>
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-  <div class="city">
-    <span>City: </span>
-    <span><%= @lead_stream.city_name %></span>
-  </div>
 
 
   <div class="invite_user_form" style="margin-top: 20px;">

@@ -25,77 +25,77 @@
         </div>
 
 
-        <div class="opportunities">
 
-          <span>Column Order: (Tweets To QC)  (Todays Leads)  (Months Leads)   </span>
 
-          <table class="table">
-            <thead>
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:11%">Lead Stream</th>
+            <th style="width:10%" data-hide="phone,tablet">Tweets Remaining</th>
+            <th style="width:10%">Todays Leads</th>
+            <th style="width:6%" data-hide="phone,tablet">Months Leads</th>
+            <th style="width:12%" data-hide="phone,tablet">Replies</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @users.each do |user| %>
+
             <tr>
-              <th>Email</th>
+              <td colspan="4" class="bold">
+                <%= user.email %>
+                <%= user.active? ? ("<span class='label label-success'>Active</span>".html_safe):("<span class='label'>Inactive</span>".html_safe) %>
+              </td>
+              <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
-            </thead>
 
+            <% LeadStream.where(user_id: user.id).each do |lead_stream| %>
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
 
+              <% keyword_ids = [] %>
+              <% keywords.each do |keyword| %>
+              <% keyword_ids << keyword.id %>
+              <% end %>
 
-            <% @users.each do |user| %>
-
-              <% lead_streams = LeadStream.where(user_id: user.id) %>
-
-
+              <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+              <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+              <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
 
               <tr>
-                <td>
+                <td style="border-top: none;">
+                  <span class=""><%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %></span>
 
-                  <% if user.try(:is_active) %>
-                    <%= user.email %>
+                  <table>
+                    <% keywords.each do |keyword| %>
+                      <tr>
+                        <td style="border: none" class="bold">
+                          <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
+                          <% tweets_to_qc = UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %>
+                          <span class="badge <%= tweets_to_qc < 5 ? "badge-important":"badge-success" %>"><%= tweets_to_qc %></span>
+                        </td>
+                      </tr>
+                    <% end %>
 
-                    <table>
-
-                      <% lead_streams.each do |lead_stream| %>
-
-                        <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
-                        <% keyword_ids = [] %>
-                        <% keywords.each do |keyword| %>
-                          <% keyword_ids << keyword.id %>
-                        <% end %>
-                        <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
-                        <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
-                        <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
-
-
-                        <tr>
-                          <td><a href="/admin/leads/qc_stream/<%= lead_stream.id %>" class="bold"><%= lead_stream.name.nil? ? lead_stream[:city_name]:lead_stream[:name] %></a></td>
-                          <td><%= unprocessed_tweet_count %></td>
-                          <td><%= leads_today %></td>
-                          <td><%= leads_this_month %></td>
-                        </tr>
-                      <% end %>
-
-
-
-                    </table>
-
-                  <% else %>
-                    <span class="" style="color: #999"><%= user.email %></span>
-                  <% end %>
-
-
+                  </table>
                 </td>
-                <td>
-                  <% if LeadStream.where(user_id: user.id).count == 0 %>
-                    <span class="error_indicator"></span>
-                  <% end %>
-                </td>
+                <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
+                <td style="border-top: none;"><%= leads_today %></td>
+                <td style="border-top: none;"><%= leads_this_month %></td>
 
               </tr>
             <% end %>
 
-          </table>
 
-          <%= will_paginate %>
+          <% end %>
 
-        </div>
+
+
+
+
+          </tbody>
+        </table>
+
 
 
       </div>
