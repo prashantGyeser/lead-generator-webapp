@@ -6,6 +6,12 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       @lead_stream = LeadStream.find(params[:stream_id])
     else
       @lead_stream = LeadStream.where(user_id: current_user.id).first
+
+      Honeybadger.notify(
+          :error_class   => "No Lead Stream Params",
+          :error_message => "No Lead Stream Params: Current user email: #{current_user.email}",
+          :parameters    => params
+      )
     end
 
     keywords = Keyword.where(lead_stream_id: @lead_stream.id)
