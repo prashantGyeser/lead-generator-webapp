@@ -8,6 +8,10 @@
 8. Add a logout button - done
 9. Admin section
 
+Marketing todos
+
+Puts the number of p[eople on the waiting list on the homepage
+
 
 PUSH TO PROD AND DO
 
