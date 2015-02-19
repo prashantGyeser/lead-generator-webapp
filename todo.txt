@@ -31,3 +31,6 @@ $99 - Discount $59 - 3 streams
 
 
 RAILS_ENV=production bundle exec rake assets:precompile
+
+
+t br  
