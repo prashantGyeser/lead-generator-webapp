@@ -1,43 +1,63 @@
+<!-- BEGIN PAGE TITLE -->
 <div class="page-title">
-  <h3><span class="semi-bold">Lead Streams</span></h3>
+  <h3 class="semi-bold" style="width: 100%;">
+    Admin - Lead Streams for <%= @user.email %>
+  </h3>
+
 </div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="grid simple ">
-
-      <div class="grid-body ">
-
-        <table class="table table-hover table-condensed users_table" id="example">
-          <thead>
-          <tr>
-            <th style="width:3%">Id</th>
-            <th style="width:8%">User</th>
-            <th style="width:8%">Date Created</th>
-            <th style="width:30%" data-hide="phone,tablet">Category and City</th>
-          </tr>
-          </thead>
-          <tbody>
-
-          <% @lead_streams.each do |lead_stream| %>
-            <tr >
-              <td class="v-align-middle"><%= lead_stream.id %></td>
-              <% if User.where(id: lead_stream.user_id).count == 0 %>
-                <td class="v-align-middle">User does not exist</td>
-              <% else %>
-                <td class="v-align-middle"><%= User.find(lead_stream.user_id).email %></td>
-              <% end %>
+<!-- END PAGE TITLE -->
 
 
-              <td class="v-align-middle"><%= human_date(lead_stream.created_at) %></td>
-              <td class="v-align-middle"><%= Category.find(lead_stream.category_id).name %> in <%= City.find(lead_stream.city_id).name %> </td>
-            </tr>
-          <% end %>
+<!-- BEGIN PlACE PAGE CONTENT HERE -->
 
-          </tbody>
-        </table>
 
+
+<% @lead_streams.each_slice(2) do |row| %>
+  <div class="row">
+    <% row.each do |lead_stream| %>
+      <div class="col-md-6">
+        <div class="grid simple">
+          <div class="grid-body">
+            <div>
+              <h3>
+                <span class="semi-bold"><a href="/admin/leads/<%= lead_stream.id %>"><%= lead_stream.name.nil? ? "Leads in #{lead_stream.city_name}":lead_stream.name %></a></span>
+
+              </h3>
+
+              <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where.not(archived: true) %>
+              <table class="table table-striped" id="<%= lead_stream.id %>">
+                <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Leads Today</th>
+                </tr>
+                </thead>
+
+                <% keywords.each do |keyword| %>
+                  <tr id="keyword_<%= keyword.id %>">
+                    <td><%= keyword.term %></td>
+                    <% lead_count = Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                    <td>
+                      <% if lead_count > 0 %>
+                        <span class="label label-success"><%= lead_count %></span>
+                      <% else %>
+                        <span class="label label-important"><%= lead_count %></span>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+
+              </table>
+
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+<% end %>
+
+
+
+<!-- END PLACE PAGE CONTENT HERE -->

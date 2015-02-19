@@ -1,0 +1,105 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">Leads</h3>
+</div>
+<!-- END PAGE TITLE -->
+<!-- BEGIN PlACE PAGE CONTENT HERE -->
+<% if @leads_available == false %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-block fade in text-center">
+        <button type="button" class="close" data-dismiss="alert"></button>
+        <h4 class="alert-heading"><i class="icon-warning-sign"></i> No Leads Yet!</h4>
+        <p>
+          Looks like we haven't found any leads for this stream yet. We will send you an email as soon as we do.
+        </p>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row tiles-container  m-b-10 hidden-xlg">
+    <div class="col-md-12">
+
+
+      <div class="m-l-10 ">
+        <% @leads.each do |lead| %>
+          <div class="tiles white ">
+            <div class="p-t-20 p-b-15 b-b b-grey">
+
+              <div class="post overlap-left-10">
+                <div class="user-profile-pic-wrapper">
+                  <div class="user-profile-pic-2x white-border">
+                    <%= image_tag lead.poster_profile_image_url.nil? ? "no-profile-pic.png":"#{lead.poster_profile_image_url}", height: "45", width: "45" %>
+
+                  </div>
+                </div>
+                <div class="info-wrapper small-width inline">
+                  <div class="info text-grey ">
+                    <p>
+                      <a href="http://www.twitter.com/<%= lead.poster_screen_name %>">@<%= lead.poster_screen_name %></a>
+                    </p>
+                    <p style="color: #576477">
+                      <%= lead.tweet_body %>
+                    </p>
+                    <p class="muted  small-text">
+                      <%= lead.created_at.pretty %>
+                      |
+                      Followers: <%= lead.poster_follower_count %>
+                      |
+                      Friends: <%= lead.poster_friends_count %>
+                    </p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="inline pull-right">
+                  <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline">
+                    <% tweet_replies = TweetReply.where(tweet_id: lead.tweet_id).count %>
+                    <% if tweet_replies > 0 %>
+                      <i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>
+                    <% else %>
+                      <button class="btn reply_btn" data-id="<%= lead.id %>"><i class="fa fa-reply"></i></button>
+                    <% end %>
+
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+
+
+
+
+
+              <div class="post overlap-left-10 m-t-20 message_container"  style="display: none" id="<%= lead.id %>">
+                <div class="info-wrapper small-width inline" style="margin-left: 65px;">
+                  <div class="info text-grey ">
+                    <input placeholder="You can put anything here" class="form-control" type="text">
+                    <a href="#" class="btn btn-primary m-t-20 send_message" data-id="<%= lead.id %>">Send Message</a>
+                    <a href="#" class="btn m-t-20 m-l-10">Cancel</a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+
+            </div>
+          </div>
+        <% end %>
+        <div class="tiles white p-t-5 p-b-5 ">
+          <div id="infinite-scrolling" style="float: right;">
+            <%= will_paginate %>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+<% end %>
+
+<!-- END PLACE PAGE CONTENT HERE -->
+
