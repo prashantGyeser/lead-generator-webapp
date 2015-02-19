@@ -38,4 +38,5 @@
 
 class Lead < ActiveRecord::Base
   validates_uniqueness_of :tweet_id, scope: :keyword_id
+  belongs_to :keyword
 end

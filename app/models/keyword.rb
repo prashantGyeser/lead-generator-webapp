@@ -18,4 +18,7 @@
 
 class Keyword < ActiveRecord::Base
   belongs_to :lead_stream
+  has_many :unprocessed_tweets, dependent: :destroy
+  has_many :leads, dependent: :destroy
+  has_many :non_leads, dependent: :destroy
 end

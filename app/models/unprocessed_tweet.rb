@@ -23,6 +23,8 @@ class UnprocessedTweet < ActiveRecord::Base
 
   validates_uniqueness_of :tweet_id, scope: :keyword_id
 
+  belongs_to :keyword
+
   def move_tweet(is_lead)
 
     unprocessed_lead_to_store_attr = self.attributes
