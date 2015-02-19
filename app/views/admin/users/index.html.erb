@@ -25,7 +25,58 @@
         </div>
 
 
-        <div class="opportunities">
+
+
+
+        <table class="table table-hover table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:11%">Lead Stream</th>
+            <th style="width:10%" data-hide="phone,tablet">Tweets Remaining</th>
+            <th style="width:10%">Todays Leads</th>
+            <th style="width:6%" data-hide="phone,tablet">Months Leads</th>
+            <th style="width:12%" data-hide="phone,tablet">Replies</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @users.each do |user| %>
+            <tr>
+              <td colspan="5" class="bold"><%= user.email %></td>
+            </tr>
+
+            <% LeadStream.where(user_id: user.id).each do |lead_stream| %>
+              <tr>
+                <td style="border-top: none;">
+                  <span class=""><%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %></span>
+                  <table>
+                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
+                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
+                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
+                    <tr><td style="border: none" class="bold"><a href="#">Term</a></td></tr>
+                  </table>
+                </td>
+                <td style="border-top: none;">QC Tweets</td>
+                <td style="border-top: none;">leads today</td>
+                <td style="border-top: none;">month</td>
+                <td style="border-top: none;">replies</td>
+
+              </tr>
+            <% end %>
+
+
+          <% end %>
+
+
+
+
+
+          </tbody>
+        </table>
+
+
+
+        <div class="opportunities m-t-100">
 
           <span>Column Order: (Tweets To QC)  (Todays Leads)  (Months Leads)   </span>
 
