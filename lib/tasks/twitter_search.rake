@@ -7,6 +7,8 @@ namespace :search do
 
     keywords = Keyword.where(archived: nil).where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 24.hours))
 
+    puts "Total number of keywords = #{keywords.count}"
+
     twitter_helper = TwitterHelper.new
 
     keywords.each do |keyword|
