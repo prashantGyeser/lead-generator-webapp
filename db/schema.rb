@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220104557) do
+ActiveRecord::Schema.define(version: 20150220132059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,12 +174,12 @@ ActiveRecord::Schema.define(version: 20150220104557) do
 
   create_table "training_data_exports", force: true do |t|
     t.string   "tweet_id"
-    t.string   "type"
     t.string   "keyword_term"
     t.string   "category"
     t.string   "tweet_body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "training_data_type"
   end
 
   create_table "tweet_replies", force: true do |t|

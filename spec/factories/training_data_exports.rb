@@ -2,14 +2,14 @@
 #
 # Table name: training_data_exports
 #
-#  id           :integer          not null, primary key
-#  tweet_id     :string(255)
-#  type         :string(255)
-#  keyword_term :string(255)
-#  category     :string(255)
-#  tweet_body   :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id                 :integer          not null, primary key
+#  tweet_id           :string(255)
+#  keyword_term       :string(255)
+#  category           :string(255)
+#  tweet_body         :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  training_data_type :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
