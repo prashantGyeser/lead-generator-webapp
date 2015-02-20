@@ -24,10 +24,6 @@
 
         </div>
 
-
-
-
-
         <table class="table table-condensed m-t-30" id="example">
           <thead>
           <tr>
@@ -44,8 +40,10 @@
 
             <tr>
               <td colspan="4" class="bold">
-                <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a> <%= user.email %>
+                <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
+                <%= user.email %>
                 <%= user.active? ? ("<span class='label label-success'>Active</span>".html_safe):("<span class='label'>Inactive</span>".html_safe) %>
+                <span class="label"><%= ((user.created_at + (user.trial_duration).days).to_date - Date.today).round %> days remaining</span>
               </td>
               <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
