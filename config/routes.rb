@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+  get 'export/leads'
+  end
+
   namespace :dashboard do
   get 'lead_streams/index'
   end
