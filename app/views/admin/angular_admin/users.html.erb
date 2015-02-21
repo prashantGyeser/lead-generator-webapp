@@ -25,7 +25,7 @@
               <th style="width:11%">Email</th>
               <th style="width:10%">Status</th>
               <th style="width:10%">Type</th>
-              <th style="width:10%">Has Leads Today</th>
+              <th style="width:10%">Days Remaining</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +41,9 @@
                 <span ng-if="user.subscribed" class="label label-success">Subscribed</span>
                 <span ng-if="user.on_trial" class="label">Trial</span>
               </td>
-              <td>Not Implemented</td>
+              <td>
+                <span ng-if="user.on_trial">{{ user.trial_remaining }}</span>
+              </td>
             </tr>
 
 
