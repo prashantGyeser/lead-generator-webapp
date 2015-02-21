@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require plugins/boostrapv3/js/bootstrap.min
 //= require plugins/bootstrap-select2/select2.js
 //= require plugins/jquery-datatable/js/jquery.dataTables.js
 //= require plugins/jquery-datatable/extra/js/dataTables.tableTools.min

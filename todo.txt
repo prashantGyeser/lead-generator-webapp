@@ -12,6 +12,8 @@ Marketing todos
 
 Puts the number of p[eople on the waiting list on the homepage
 
+Change the twitter search so that it does not search for keywords where people have run out of their trial
+
 
 PUSH TO PROD AND DO
 
