@@ -24,10 +24,6 @@
 
         </div>
 
-
-
-
-
         <table class="table table-condensed m-t-30" id="example">
           <thead>
           <tr>
@@ -44,8 +40,10 @@
 
             <tr>
               <td colspan="4" class="bold">
-                <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a> <%= user.email %>
+                <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
+                <%= user.email %>
                 <%= user.active? ? ("<span class='label label-success'>Active</span>".html_safe):("<span class='label'>Inactive</span>".html_safe) %>
+                <span class="label"><%= ((user.created_at + (user.trial_duration).days).to_date - Date.today).round %> days remaining</span>
               </td>
               <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
@@ -84,6 +82,8 @@
                 <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
                 <td style="border-top: none;"><%= leads_today %></td>
                 <td style="border-top: none;"><%= leads_this_month %></td>
+                <td style="border-top: none;"><button class="btn" data-id="<%= lead_stream.id %>" data-toggle="modal" data-target="#myModal">Add Keyword</button></td>
+
 
               </tr>
             <% end %>
@@ -111,3 +111,33 @@
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <br>
+        <i class="fa fa-credit-card fa-7x"></i>
+        <h4 id="myModalLabel" class="semi-bold">Add Keyword</h4>
+        <br>
+      </div>
+      <div class="modal-body">
+        <div class="row form-row">
+          <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" placeholder="Keyword">
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

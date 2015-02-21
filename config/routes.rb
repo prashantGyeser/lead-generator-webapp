@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+
+  end
+
+  namespace :admin do
+  get 'angular_admin/keywords'
+  end
+
+  namespace :admin do
   get 'export/leads'
   end
 
@@ -102,6 +110,9 @@ Rails.application.routes.draw do
     get 'leads/qc_stream/:lead_stream_id' => "leads#qc_stream"
     get 'keyword_tracker/index'
     post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
+    get 'angular_admin/users'
+    get 'angular_admin/all_users'
+
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

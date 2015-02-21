@@ -16,7 +16,6 @@
 //= require plugins/modernizr
 //= require plugins/jquery-ui/jquery-ui-1.10.1.custom.min
 //= require plugins/boostrapv3/js/bootstrap.min
-//= require plugins/jquery-unveil/jquery.unveil.min
 //= require plugins/jquery-scrollbar/jquery.scrollbar.min
 //= require plugins/velocity/velocity.min
 //= require plugins/breakpoints
