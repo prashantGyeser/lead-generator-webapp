@@ -18,4 +18,5 @@
 //= require plugins/jquery-datatable/extra/js/dataTables.tableTools.min
 //= require plugins/datatables-responsive/js/datatables.responsive.js
 //= require plugins/datatables-responsive/js/lodash.min
+//= require plugins/angularjs/angular.min
 //= require_tree .
