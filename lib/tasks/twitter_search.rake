@@ -25,7 +25,7 @@ namespace :search do
 
       days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
 
-      if ((Subscription.where(user_id: current_user.id).count) <= 0) && (days_remaining > 0)
+      if ((Subscription.where(user_id: user.id).count) > 0) || (days_remaining > 0)
         user_active = true
       end
 
