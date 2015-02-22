@@ -48,29 +48,42 @@
               </h3>
 
               <% keywords = Keyword.where(lead_stream_id: lead_stream.id).where(admin_created: nil).where.not(archived: true) %>
-              <table class="table table-striped" id="<%= lead_stream.id %>">
-                <thead>
-                <tr>
-                  <th>Keyword</th>
-                  <th>Leads Today</th>
-                </tr>
-                </thead>
 
-                <% keywords.each do |keyword| %>
-                  <tr id="keyword_<%= keyword.id %>">
-                    <td><%= keyword.term %></td>
-                    <% lead_count = Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
-                    <td>
-                      <% if lead_count > 0 %>
-                        <span class="label label-success"><%= lead_count %></span>
-                      <% else %>
-                        <span class="label label-important"><%= lead_count %></span>
-                      <% end %>
-                    </td>
+              <% if keywords.empty? %>
+
+                <div class="alert m-t-20">
+                  Looks like there are not leads yet. We will send you an email as soon as we find your first lead
+                </div>
+
+              <% else %>
+                <table class="table table-striped" id="<%= lead_stream.id %>">
+                  <thead>
+                  <tr>
+                    <th>Keyword</th>
+                    <th>Leads Today</th>
                   </tr>
-                <% end %>
+                  </thead>
 
-              </table>
+                  <% keywords.each do |keyword| %>
+                    <tr id="keyword_<%= keyword.id %>">
+                      <td><%= keyword.term %></td>
+                      <% lead_count = Lead.where(keyword_id: keyword.id).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                      <td>
+                        <% if lead_count > 0 %>
+                          <span class="label label-success"><%= lead_count %></span>
+                        <% else %>
+                          <span class="label label-important"><%= lead_count %></span>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+
+                </table>
+
+                <a href="/dashboard/leads/<%= lead_stream.id %>" class="btn btn-primary btn-small">View All Leads Now</a>
+              <% end %>
+
+
 
             </div>
 
