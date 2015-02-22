@@ -1,5 +1,5 @@
-
 require 'setup_status'
+require 'subscription_helper'
 
 class Dashboard::ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
@@ -20,10 +20,10 @@ class Dashboard::ApplicationController < ActionController::Base
 
 
 
-
   # find the remaining trial days for this user
   def remaining_days
-    ((current_user.created_at + (current_user.trial_duration).days).to_date - Date.today).round
+    subscription_helper = SubscriptionHelper.new
+    subscription_helper.remaining_days(current_user)
   end
 
   def current_user_name
@@ -32,10 +32,11 @@ class Dashboard::ApplicationController < ActionController::Base
   end
 
   def not_subscribed?
-    if (Subscription.where(user_id: current_user.id).count) <= 0
-      return true
-    end
+    subscription_helper = SubscriptionHelper.new
+    !subscription_helper.is_subscribed?(current_user)
   end
+
+
 
   private
 
@@ -59,9 +60,20 @@ class Dashboard::ApplicationController < ActionController::Base
   def trial_expired?
     # find current_user who is login. If you are using devise simply current_user will works
     # now that you have remaining_days, check whether trial period is already completed
-    if remaining_days <= 0 && not_subscribed?
-      redirect_to dashboard_account_plan_path
+    # if remaining_days <= 0 && not_subscribed?
+    #   redirect_to dashboard_account_plan_path
+    # else
+    #   super
+    # end
+
+    subscription_helper = SubscriptionHelper.new
+    if !subscription_helper.is_subscribed?(current_user)
+      if !subscription_helper.trial_active?(current_user)
+        redirect_to dashboard_account_plan_path
+      end
+
     end
+
   end
 
 
