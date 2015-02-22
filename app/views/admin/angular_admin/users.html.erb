@@ -19,6 +19,11 @@
 
           <input placeholder="Search by email" type="text" value="" ng-model="query">
 
+          <div class="checkbox check-success" style="display: inline-block">
+            <input id="checkbox2" value="1" checked="" type="checkbox" ng-model="showActive">
+            <label for="checkbox2">Active Users {{showActive}}</label>
+          </div>
+
           <table class="table table-condensed m-t-30" id="example">
             <thead>
             <tr>
@@ -31,7 +36,7 @@
             <tbody>
 
 
-            <tr ng-repeat="user in users | filter: query">
+            <tr ng-repeat="user in users | filter: query | filter:{active:showActive}">
               <td>{{ user.email }}</td>
               <td>
                 <span ng-if="user.active" class="label label-info">Active</span>

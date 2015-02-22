@@ -14,6 +14,8 @@ myApp.factory('Server', ['$http', function ($http) {
 
 myApp.controller('UserCtrl', ['$scope', 'Server', '$http', function ($scope, Server, $http) {
 
+  $scope.showActive = '';
+
   var users_url = '/admin/angular_admin/all_users.json';
 
   $http.get(users_url ).then(function(resp) {
