@@ -40,5 +40,6 @@ FactoryGirl.define do
     email Faker::Internet.email
     password "testtest"
     password_confirmation "testtest"
+    trial_duration = 7
   end
 end
