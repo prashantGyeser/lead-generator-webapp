@@ -1,3 +1,5 @@
+require 'subscription_helper'
+
 class Admin::AngularAdminController < Admin::ApplicationController
   def users
   end
@@ -7,6 +9,8 @@ class Admin::AngularAdminController < Admin::ApplicationController
 
   def all_users
 
+    subsciption_helper = SubscriptionHelper.new
+
     users = User.all
 
     users_to_return = []
@@ -15,14 +19,14 @@ class Admin::AngularAdminController < Admin::ApplicationController
 
       user_to_return = {}
 
-      days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
-      subscriptions = Subscription.where(user_id: user.id).count
+      days_remaining = subsciption_helper.remaining_days(user)
+      is_subscribed = subsciption_helper.is_subscribed?(user)
 
-      if days_remaining > 0 && subscriptions <= 0
+      if days_remaining > 0 && !is_subscribed
         user_to_return[:trial_remaining] = days_remaining
         user_to_return[:active] = true
         user_to_return[:on_trial] = true
-      elsif subscriptions > 0
+      elsif is_subscribed
         user_to_return[:subscribed] = true
         user_to_return[:active] = true
       else
