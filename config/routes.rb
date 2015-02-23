@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'verified_accounts/index'
+
   namespace :admin do
 
   end
