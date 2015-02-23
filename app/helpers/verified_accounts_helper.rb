@@ -1,0 +1,2 @@
+module VerifiedAccountsHelper
+end

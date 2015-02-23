@@ -1,7 +1,11 @@
 class SubscriptionHelper
 
   def remaining_days(user)
-    ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+    if user.invitation_accepted_at.nil?
+      ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+    else
+      ((user.invitation_accepted_at + (user.trial_duration).days).to_date - Date.today).round
+    end
   end
 
   def trial_active?(user)
