@@ -2,8 +2,6 @@ class ParseAndStoreLeads
 
   def self.save_lead(processor_lead)
 
-    puts "the unprocessed lead is: #{processor_lead.inspect}"
-
     begin
       lead_attributes = {}
       lead_attributes[:screen_name] = processor_lead["tweet_poster_screen_name"]

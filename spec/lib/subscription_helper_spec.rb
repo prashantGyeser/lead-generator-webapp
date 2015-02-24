@@ -6,13 +6,13 @@ RSpec.describe SubscriptionHelper do
   it "should return the number of days a user has remaining on trial" do
     user = FactoryGirl.create(:user)
     subscription_helper = SubscriptionHelper.new
-    expect(subscription_helper.remaining_days(user)).to eq 8
+    expect(subscription_helper.remaining_days(user)).to eq 7
   end
 
   it "should return a negative number in case trial is over" do
     user = FactoryGirl.create(:user, trial_duration: -20)
     subscription_helper = SubscriptionHelper.new
-    expect(subscription_helper.remaining_days(user)).to eq -19
+    expect(subscription_helper.remaining_days(user)).to eq -20
   end
 
   it "should return true if trial days still remain" do
