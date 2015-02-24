@@ -4,9 +4,9 @@ require 'rails_helper'
 RSpec.describe TwitterHelper do
 
   it "should return a list of the search results" do
-    twitter_helper = TwitterHelper.new
+    #twitter_helper = TwitterHelper.new
 
-    results = twitter_helper.search("test","hello")
+    #results = twitter_helper.search("test","hello")
 
 
 
