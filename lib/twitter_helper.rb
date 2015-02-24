@@ -52,20 +52,24 @@ class TwitterHelper
     user = User.find(user_id)
     token = Token.where(user_id: user_id).last
 
-    begin
-      client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV['TWITTER_KEY']
-        config.consumer_secret     = ENV['TWITTER_SECRET']
-        config.access_token        = token.oauth_token
-        config.access_token_secret = token.oauth_secret
+    if !token.nil?
+      begin
+        client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = ENV['TWITTER_KEY']
+          config.consumer_secret     = ENV['TWITTER_SECRET']
+          config.access_token        = token.oauth_token
+          config.access_token_secret = token.oauth_secret
+        end
+      rescue => e
+        Honeybadger.notify(
+            :error_class   => "Twitter Initialization Error",
+            :error_message => "Twitter Initialization Error: #{e.message}",
+            :parameters    => {user_email: user.email}
+        )
       end
-    rescue => e
-      Honeybadger.notify(
-          :error_class   => "Twitter Initialization Error",
-          :error_message => "Twitter Initialization Error: #{e.message}",
-          :parameters    => {user_email: user.email}
-      )
     end
+
+
   end
 
   def initialize_twitter_with_token(token)
