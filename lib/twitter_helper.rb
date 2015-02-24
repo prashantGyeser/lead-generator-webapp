@@ -4,14 +4,25 @@ class TwitterHelper
     client = initialize_twitter_client(user_id)
 
     if !client.nil?
-      search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
-      duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
-      # Storing search result metrics
-      keyword.last_result_count = search_results.count
-      keyword.last_duplicate_count = duplicate_count
+      begin
+        search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
+        duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
-      keyword.save
+        # Storing search result metrics
+        keyword.last_result_count = search_results.count
+        keyword.last_duplicate_count = duplicate_count
+
+        keyword.save
+      rescue => e
+        Honeybadger.notify(
+            :error_class   => "Twitter Search Error",
+            :error_message => "Twitter Search Error: #{e.message}",
+            :parameters    => {user_email: user.email}
+        )
+      end
+
+
     end
 
 
