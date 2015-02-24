@@ -34,7 +34,7 @@ feature 'User on trial logs in' do
     expect(page).to have_content "7 days remaining"
   end
 
-  scenario 'after trial expires', js: true do
+  scenario 'after trial expires' do
 
     user = FactoryGirl.create(:user, email: Faker::Internet.email)
     login_as user, :scope => :user
@@ -46,12 +46,11 @@ feature 'User on trial logs in' do
     lead_stream = FactoryGirl.create(:lead_stream, user_id: user.id)
     token = FactoryGirl.create(:token, user_id: user.id)
 
-    puts "Invite accepted on: #{user.invitation_accepted_at}"
-
     visit  dashboard_root_path
     expect(page).to have_content "Trail Expired"
   end
 
 
+  #, js: true
 
 end
