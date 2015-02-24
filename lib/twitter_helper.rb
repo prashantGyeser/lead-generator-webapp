@@ -3,6 +3,8 @@ class TwitterHelper
   def search(keyword, city_latitude, city_longitude, user_id)
     client = initialize_twitter_client(user_id)
 
+    user = User.find(user_id)
+
     if !client.nil?
 
       begin
