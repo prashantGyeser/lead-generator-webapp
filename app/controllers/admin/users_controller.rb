@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def active
-    @users = User.where('created_at < ?', (Date.today - yhis.trial_duration))
+    #@users = User.where('created_at < ?', (Date.today - this.trial_duration))
   end
 
   def deactive
