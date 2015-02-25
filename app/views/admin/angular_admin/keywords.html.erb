@@ -5,13 +5,13 @@
   <!-- BEGIN PAGE TITLE -->
   <div class="page-title">
     <h3 class="semi-bold">
-      Users
+      Keywords
     </h3>
 
   </div>
   <!-- END PAGE TITLE -->
 
-  <div class="row" ng-controller="UserCtrl">
+  <div class="row" ng-controller="KeywordCtrl">
     <div class="col-md-12">
       <div class="grid simple">
         <div class="grid-body">
@@ -19,41 +19,31 @@
 
           <input placeholder="Search by email" type="text" value="" ng-model="query">
 
-          <div class="checkbox check-success" style="display: inline-block">
-            <input id="checkbox2" value="1" checked="" type="checkbox" ng-model="showActive">
-            <label for="checkbox2">Active Users {{showActive}}</label>
-          </div>
 
           <table class="table table-condensed m-t-30" id="example">
             <thead>
             <tr>
               <th style="width:11%">Email</th>
-              <th style="width:10%">Status</th>
-              <th style="width:10%">Type</th>
-              <th style="width:10%">Days Remaining</th>
+              <th style="width:10%">City</th>
+              <th style="width:10%">Term</th>
+              <th style="width:10%">Last Run</th>
+              <th style="width:10%">Last Searched</th>
+              <th style="width:5%">Active</th>
             </tr>
             </thead>
             <tbody>
 
 
-            <tr ng-repeat="user in users | filter: query | filter:{active:showActive}">
-              <td>{{ user.email }}</td>
+            <tr ng-repeat="keyword in keywords | filter: query" >
+              <td> {{ keyword.email }} </td>
+              <td> {{ keyword.city }} </td>
+              <td> {{ keyword.term }} </td>
+              <td> {{ keyword.last_run }} </td>
+              <td> {{ keyword.last_searched }} </td>
               <td>
-                <span ng-if="user.active" class="label label-info">Active</span>
-                <span ng-if="user.in_active" class="label">In Active</span>
-              </td>
-              <td>
-                <span ng-if="user.subscribed" class="label label-success">Subscribed</span>
-                <span ng-if="user.on_trial" class="label">Trial</span>
-              </td>
-              <td>
-                <span ng-if="user.on_trial">{{ user.trial_remaining }}</span>
+                <span ng-if="keyword.is_active" class="label label-info">Active</span>
               </td>
             </tr>
-
-
-
-
             </tbody>
           </table>
 

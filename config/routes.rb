@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-  get 'angular_admin/keywords'
+
   end
 
   namespace :admin do
@@ -114,7 +114,8 @@ Rails.application.routes.draw do
     post 'users/set_not_working_keyword' => 'users#set_not_working_keyword'
     get 'angular_admin/users'
     get 'angular_admin/all_users'
-
+    get 'angular_admin/keywords'
+    get 'angular_admin/all_keywords'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

@@ -29,3 +29,20 @@ myApp.controller('UserCtrl', ['$scope', 'Server', '$http', function ($scope, Ser
 }]);
 
 
+myApp.controller('KeywordCtrl', ['$scope', 'Server', '$http', function ($scope, Server, $http) {
+
+  $scope.showActive = '';
+
+  var keywords_url = '/admin/angular_admin/all_keywords.json';
+
+  $http.get(keywords_url).then(function(resp) {
+    console.log('Success', resp);
+    $scope.keywords = resp.data;
+  }, function(err) {
+    console.error('ERR', err);
+    // err.status will contain the status code
+  })
+
+}]);
+
+
