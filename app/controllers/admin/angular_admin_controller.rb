@@ -1,5 +1,5 @@
 require 'subscription_helper'
-#include ActionView::Helpers::DateHelper
+include ActionView::Helpers::DateHelper
 
 class Admin::AngularAdminController < Admin::ApplicationController
 
