@@ -1,3 +1,5 @@
+
+
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
   <h3 class="semi-bold">
@@ -42,8 +44,29 @@
               <td colspan="4" class="bold">
                 <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
                 <%= user.email %>
-                <%= user.active? ? ("<span class='label label-success'>Active</span>".html_safe):("<span class='label'>Inactive</span>".html_safe) %>
-                <span class="label"><%= ((user.created_at + (user.trial_duration).days).to_date - Date.today).round %> days remaining</span>
+                <% if @subscription_helper.trial_active?(user) || @subscription_helper.is_subscribed?(user) %>
+                  <span class='label label-success'>Active</span>
+                <% else %>
+                  <span class='label'>Inactive</span>
+                <% end %>
+
+                <% remaining_days = @subscription_helper.remaining_days(user)  %>
+                <% if remaining_days > 0 %>
+                  <span class="label label-info">
+                    <%= remaining_days %> days remaining
+                  </span>
+                <% end %>
+
+                <% token = Token.where(user_id: user.id) %>
+
+                <% if token.count <= 0 %>
+                  <span class="label label-warning" style="margin-left: 5px;">
+                    Twitter not Integrated
+                  </span>
+                <% end %>
+
+
+
               </td>
               <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
