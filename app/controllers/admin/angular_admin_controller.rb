@@ -45,4 +45,14 @@ class Admin::AngularAdminController < Admin::ApplicationController
 
   end
 
+
+  def all_keywords
+
+    keywords = Keyword.all
+
+
+
+  end
+
+
 end

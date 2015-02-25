@@ -60,7 +60,18 @@ namespace :search do
 
       lead_stream = LeadStream.find(keyword.lead_stream_id)
 
-      if User.find(lead_stream.user_id).try(:is_active)
+      user_active = false
+      user = User.find(lead_stream.user_id)
+
+      days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+
+      if ((Subscription.where(user_id: user.id).count) > 0) || (days_remaining > 0)
+        user_active = true
+      end
+
+
+
+      if user_active
         twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
 
         keyword.last_searched = DateTime.now
