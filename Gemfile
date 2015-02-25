@@ -88,6 +88,8 @@ gem 'librato-rails'
 
 gem "hublot", "~> 0.0.6"
 
+gem "dotiw"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"

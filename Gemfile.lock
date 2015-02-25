@@ -96,6 +96,9 @@ GEM
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
     diff-lcs (1.2.5)
+    dotiw (2.0)
+      actionpack (>= 3)
+      i18n
     equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.2.1)
@@ -339,6 +342,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   devise_invitable
+  dotiw
   factory_girl_rails
   faker
   figaro

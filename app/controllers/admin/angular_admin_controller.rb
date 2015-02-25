@@ -1,6 +1,10 @@
 require 'subscription_helper'
+#include ActionView::Helpers::DateHelper
 
 class Admin::AngularAdminController < Admin::ApplicationController
+
+
+
   def users
   end
 
@@ -46,6 +50,8 @@ class Admin::AngularAdminController < Admin::ApplicationController
   end
 
 
+
+
   def all_keywords
 
     keywords = Keyword.all
@@ -68,6 +74,16 @@ class Admin::AngularAdminController < Admin::ApplicationController
       else
         keyword_to_return[:is_active] = false
       end
+
+      if !keyword.last_run.nil?
+        keyword_to_return[:human_last_run] = time_ago_in_words(keyword.last_run.to_date)
+      end
+
+      if !keyword.last_searched.nil?
+        keyword_to_return[:human_last_searched] = time_ago_in_words(keyword.last_searched)
+      end
+
+
 
       keywords_to_return << keyword_to_return.merge(keyword.attributes)
 
