@@ -32,4 +32,10 @@ namespace :report do
     puts "The total active keywords are: #{total_keywords}"
 
   end
+
+  desc "Set priority based on the words present"
+  task no_search_in_last_day: :environment do
+
+  end
+
 end

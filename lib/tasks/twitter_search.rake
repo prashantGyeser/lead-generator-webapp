@@ -60,7 +60,18 @@ namespace :search do
 
       lead_stream = LeadStream.find(keyword.lead_stream_id)
 
-      if User.find(lead_stream.user_id).try(:is_active)
+      user_active = false
+      user = User.find(lead_stream.user_id)
+
+      days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+
+      if ((Subscription.where(user_id: user.id).count) > 0) || (days_remaining > 0)
+        user_active = true
+      end
+
+
+
+      if user_active
         twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
 
         keyword.last_searched = DateTime.now
@@ -73,6 +84,51 @@ namespace :search do
 
     end
   end
+
+  desc "Search every keyword has not been searched for in the last 2 days"
+  task unsearched_in_48_hours: :environment do
+
+    keywords = Keyword.where(archived: false).where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 48.hours))
+
+    puts "Total number of keywords = #{keywords.count}"
+
+    twitter_helper = TwitterHelper.new
+
+    keywords.each do |keyword|
+
+      keyword.last_run = DateTime.now
+      keyword.save
+
+      puts "The keyword is: #{keyword.term}"
+
+      lead_stream = LeadStream.find(keyword.lead_stream_id)
+
+      user_active = false
+      user = User.find(lead_stream.user_id)
+
+      days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+
+      if ((Subscription.where(user_id: user.id).count) > 0) || (days_remaining > 0)
+        user_active = true
+      end
+
+
+      if user_active
+        twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
+
+        keyword.last_searched = DateTime.now
+        keyword.save
+
+        # Slowing down the calls to adhere to the Twitter API limitations
+        sleep 3.minutes
+      end
+
+
+    end
+
+  end
+
+
 
   desc "Manual search"
   task twitter_manually_NY: :environment do
