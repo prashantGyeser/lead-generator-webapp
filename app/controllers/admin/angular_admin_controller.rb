@@ -24,9 +24,10 @@ class Admin::AngularAdminController < Admin::ApplicationController
       user_to_return = {}
 
       days_remaining = subsciption_helper.remaining_days(user)
+      trial_active = subsciption_helper.trial_active?(user)
       is_subscribed = subsciption_helper.is_subscribed?(user)
 
-      if days_remaining > 0 && !is_subscribed
+      if trial_active && !is_subscribed
         user_to_return[:trial_remaining] = days_remaining
         user_to_return[:active] = true
         user_to_return[:on_trial] = true
@@ -34,7 +35,7 @@ class Admin::AngularAdminController < Admin::ApplicationController
         user_to_return[:subscribed] = true
         user_to_return[:active] = true
       else
-        user_to_return[:in_active] = true
+        user_to_return[:active] = false
       end
 
       users_to_return << user_to_return.merge(user.attributes)
