@@ -19,6 +19,12 @@
 
           <input placeholder="Search by email" type="text" value="" ng-model="query">
 
+          <div class="checkbox check-success" style="display: inline-block">
+            <input id="checkbox2" value="1" checked="" type="checkbox" ng-model="showActive">
+            <label for="checkbox2">Active Keywords {{showActive}}</label>
+          </div>
+
+
 
           <table class="table table-condensed m-t-30" id="example">
             <thead>
@@ -34,7 +40,7 @@
             <tbody>
 
 
-            <tr ng-repeat="keyword in keywords | filter: query" >
+            <tr ng-repeat="keyword in keywords | filter: query | filter:{is_active:showActive}" >
               <td> {{ keyword.email }} </td>
               <td> {{ keyword.city }} </td>
               <td> {{ keyword.term }} </td>
