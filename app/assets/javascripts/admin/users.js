@@ -62,4 +62,37 @@ $(document).ready(function(){
 
   });
 
+
+  $('.open_add_keyword_modal').click(function(){
+    $('#lead_stream_id').val($(this).data("lead-stream-id"));
+  });
+
+
+  $('#save_keyword').click(function(){
+
+    var new_keyword = $('#new_keyword').val();
+    var lead_stream_id = $('#lead_stream_id').val();
+
+    if (new_keyword.length === 0) {
+      alert("Please add a keyword. It is blank right now!");
+    }
+    else {
+      data_to_post = {term: new_keyword, lead_stream_id: lead_stream_id};
+      $.post( "/admin/users/lead_streams/keywords", data_to_post ,function( response,status ) {
+        console.log(response);
+        console.log(status);
+
+        //$('.keyword_list ul').append('<li class="bold admin_created"><a href="//admin/users/lead_streams/keywords/' + response.id + '">' + response.term + '</a></li>')
+
+        $('.keywords').append('<span style="margin-left: 15px; color: #1ABC9C">' + response.term + '</span>')
+
+
+
+
+      });
+    }
+
+  })
+
+
 });
