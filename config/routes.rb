@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+  get 'reports/unprocessed_tweets'
+  end
+
   get 'verified_accounts/index'
 
   namespace :admin do
