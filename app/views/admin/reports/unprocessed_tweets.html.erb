@@ -16,7 +16,23 @@
         <div class="grid-body">
           <h3></h3>
 
-          <%= @unprocessed_tweets.inspect %>
+          <table class="table">
+            <tbody>
+
+            <tr>
+              <% @unprocessed_tweets_by_day_for_fortnight.each do |day, unprocessed_tweets| %>
+                <td>
+                  <%= day %>
+                  =
+                  <%= unprocessed_tweets.count %>
+                </td>
+              <% end %>
+            </tr>
+
+            </tbody>
+          </table>
+
+
 
         </div>
       </div>
