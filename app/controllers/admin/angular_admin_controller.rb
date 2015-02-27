@@ -38,6 +38,13 @@ class Admin::AngularAdminController < Admin::ApplicationController
         user_to_return[:active] = false
       end
 
+      # Tweets and leads information
+      keyword_ids = []
+
+      user.lead_streams.map { |l| keyword_ids + l.keyword_ids }
+
+      user_to_return[:new_tweets_today] = UnprocessedTweet.where(keyword_id: keyword_ids.flatten).today.count
+
       users_to_return << user_to_return.merge(user.attributes)
 
     end
