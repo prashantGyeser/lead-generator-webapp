@@ -545,7 +545,7 @@ $(document).ready(function () {
         }, 700);
         return false;
     });
-    $("img").unveil();
+    //$("img").unveil();
 });
 $(window).resize(function () {
    
