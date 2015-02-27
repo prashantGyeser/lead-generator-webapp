@@ -45,6 +45,16 @@ class Admin::AngularAdminController < Admin::ApplicationController
 
       user_to_return[:new_tweets_today] = UnprocessedTweet.where(keyword_id: keyword_ids.flatten).today.count
 
+      # Checking setup status
+      lead_stream_count = LeadStream.where(user_id: user.id).count
+      token_count = Token.where(user_id: user.id).count
+
+      if (lead_stream_count > 0) && (token_count > 0)
+        user_to_return[:setup_incomplete] = false
+      else
+        user_to_return[:setup_incomplete] = true
+      end
+
       users_to_return << user_to_return.merge(user.attributes)
 
     end
