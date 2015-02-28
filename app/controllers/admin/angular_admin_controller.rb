@@ -49,10 +49,12 @@ class Admin::AngularAdminController < Admin::ApplicationController
       lead_stream_count = LeadStream.where(user_id: user.id).count
       token_count = Token.where(user_id: user.id).count
 
-      if (lead_stream_count > 0) && (token_count > 0)
-        user_to_return[:setup_incomplete] = false
-      else
-        user_to_return[:setup_incomplete] = true
+      if lead_stream_count <= 0
+        user_to_return[:lead_stream_setup_incomplete] = true
+      end
+
+      if token_count <= 0
+        user_to_return[:token_setup_incomplete] = true
       end
 
       users_to_return << user_to_return.merge(user.attributes)

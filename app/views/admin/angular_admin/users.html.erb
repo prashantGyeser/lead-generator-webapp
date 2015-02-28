@@ -40,7 +40,8 @@
             <tr ng-repeat="user in users | filter: query | filter:{active:showActive}">
               <td>
                 {{ user.email }}
-                <span class="badge badge-important" ng-if="user.setup_incomplete">N</span>
+                <span class="badge badge-warning" ng-if="user.lead_stream_setup_incomplete">S</span>
+                <span class="badge badge-important" ng-if="user.token_setup_incomplete">T</span>
               </td>
               <td>
                 <span ng-if="user.active" class="label label-info">Active</span>
