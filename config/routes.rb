@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
+  get 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
 
   namespace :admin do
   get 'reports/unprocessed_tweets'
