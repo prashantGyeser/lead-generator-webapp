@@ -97,9 +97,9 @@
                           <% if keyword.admin_created%>
                             <a href="/admin/leads/qc/<%= keyword.id %>" class="text-success"><%= keyword.term %></a>
                           <%elsif keyword.archived%>
-                            <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
-                          <%else%>
                             <%= keyword.term %>
+                          <%else%>
+                            <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
                           <%end%>
 
 
