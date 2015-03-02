@@ -1,4 +1,5 @@
 require 'twitter_helper'
+require 'subscription_helper'
 
 namespace :search do
 
@@ -20,17 +21,15 @@ namespace :search do
 
       lead_stream = LeadStream.find(keyword.lead_stream_id)
 
-      user_active = false
       user = User.find(lead_stream.user_id)
 
-      days_remaining = ((user.created_at + (user.trial_duration).days).to_date - Date.today).round
+      subscription_helper = SubscriptionHelper.new
 
-      if ((Subscription.where(user_id: user.id).count) > 0) || (days_remaining > 0)
-        user_active = true
-      end
+      trial_active = subscription_helper.trial_active?(user)
+      is_subscribed = subscription_helper.is_subscribed?(user)
 
 
-      if user_active
+      if trial_active || is_subscribed
         twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
 
         keyword.last_searched = DateTime.now
