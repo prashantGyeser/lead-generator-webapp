@@ -5,7 +5,7 @@ class SiteEmailsController < ApplicationController
     puts "The email is: #{params[:email]}"
 
     # If the body contains the survey_name parameter...
-    if params["data"].present?
+    if params["type"] == "subscribe"
       # Create a new Email object based on the received parameters...
       site_email = SiteEmail.new(email: params["data"]["email"])
       site_email.save!
