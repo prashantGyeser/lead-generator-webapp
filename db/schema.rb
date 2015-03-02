@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220132059) do
+ActiveRecord::Schema.define(version: 20150301122256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,21 @@ ActiveRecord::Schema.define(version: 20150220132059) do
     t.string   "tweet_id"
   end
 
+  create_table "reportable_cache", force: true do |t|
+    t.string   "model_class_name", limit: 100,               null: false
+    t.string   "report_name",      limit: 100,               null: false
+    t.string   "grouping",         limit: 10,                null: false
+    t.string   "aggregation",      limit: 10,                null: false
+    t.string   "conditions",       limit: 100,               null: false
+    t.float    "value",                        default: 0.0, null: false
+    t.datetime "reporting_period",                           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reportable_cache", ["model_class_name", "report_name", "grouping", "aggregation", "conditions", "reporting_period"], name: "name_model_grouping_aggregation_period", unique: true, using: :btree
+  add_index "reportable_cache", ["model_class_name", "report_name", "grouping", "aggregation", "conditions"], name: "name_model_grouping_agregation", using: :btree
+
   create_table "reports", force: true do |t|
     t.integer  "total_tweets_for_day"
     t.integer  "city_id"
@@ -139,6 +154,13 @@ ActiveRecord::Schema.define(version: 20150220132059) do
     t.integer  "sample_category_id"
     t.string   "tweet"
     t.string   "screen_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "site_emails", force: true do |t|
+    t.string   "email"
+    t.boolean  "notification_sent", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
