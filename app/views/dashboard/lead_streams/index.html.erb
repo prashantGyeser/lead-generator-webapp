@@ -83,7 +83,8 @@
                         <span class="bold"><%= tweet_count %></span>
                       </td>
                       <td>
-                        <%= ((tweet_count * 5)/60)/60 %> Hours
+                        <% time_saved = (((tweet_count.to_f * 5)/60)/60).round %>
+                        <%= time_saved %> <%= time_saved > 1 ? "Hours":"Hour" %>
                       </td>
                     </tr>
                   <% end %>
