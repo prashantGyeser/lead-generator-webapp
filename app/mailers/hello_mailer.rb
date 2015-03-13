@@ -1,5 +1,5 @@
 class HelloMailer < ActionMailer::Base
-  default from: "Akhilesh Kumar <akhilesh@urbanzeak.com>"
+  default from: "Prashant <prashant@urbanzeak.com>"
 
   def on_email_left(email)
 
