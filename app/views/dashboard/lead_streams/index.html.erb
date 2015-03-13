@@ -61,6 +61,8 @@
                   <tr>
                     <th>Keyword</th>
                     <th>Leads Today</th>
+                    <th>Tweets Processed</th>
+                    <th>Time Saved</th>
                   </tr>
                   </thead>
 
@@ -74,6 +76,14 @@
                         <% else %>
                           <span class="label label-important"><%= lead_count %></span>
                         <% end %>
+                      </td>
+
+                      <% tweet_count = UnprocessedTweet.where(keyword_id: keyword.id).count %>
+                      <td>
+                        <span class="bold"><%= tweet_count %></span>
+                      </td>
+                      <td>
+                        <%= ((tweet_count * 5)/60)/60 %> Hours
                       </td>
                     </tr>
                   <% end %>
