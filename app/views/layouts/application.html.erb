@@ -69,13 +69,18 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <%= javascript_include_tag "application.js", "data-turbolinks-track" => true %>
 
-  <!--CRAZYEGG TRACKING CODE --START -->
-  <script type="text/javascript">
-    setTimeout(function(){var a=document.createElement("script");
-      var b=document.getElementsByTagName("script")[0];
-      a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0030/7620.js?"+Math.floor(new Date().getTime()/3600000);
-      a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-  </script>
-  <!--CRAZYEGG TRACKING CODE --END -->
+  <% if Rails.env.production? %>
+    <!--CRAZYEGG TRACKING CODE --START -->
+    <script type="text/javascript">
+      setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0030/7620.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+    <!--CRAZYEGG TRACKING CODE --END -->
+  <%end%>
+
+
+
 </body>
 </html>
