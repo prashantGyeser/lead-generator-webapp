@@ -325,6 +325,13 @@ img.logo{
   margin:35px 0 0 0!important;
 }
 
+
+#mc-embedded-subscribe-form
+{
+  padding:0!important;
+  margin:35px 0 0 0!important;
+}
+
 #email_newsletter {
   width:70%;
   max-width:300px;
@@ -340,7 +347,43 @@ img.logo{
   margin:0 -4px 0 0;
 }
 
+#mce-EMAIL{
+  width:70%;
+  max-width:300px;
+  height:50px;
+  padding:0 10px;
+  border: 2px solid #fff;
+  background-color: #fff;
+  -moz-border-radius:5px 0 0 5px;
+  -webkit-border-radius:5px 0 0 5px;
+  border-radius:5px 0 0 5px;
+  color:#454545;
+  font-size:14px;
+  margin:0 -4px 0 0;
+}
+
 #submit-button-newsletter {
+  width:30%;
+  max-width: 120px;
+  height:54px;
+  line-height:54px;
+  background-color:#03d7ab;
+  border: none;
+  color:#fff;
+  margin:0 0 0 0;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:0 5px 5px 0;
+  font-size:14px;
+  font-weight:400;
+  vertical-align: top;
+  transition: background-color .25s ease-in-out;
+  -moz-transition: background-color .25s ease-in-out;
+  -webkit-transition: background-color .25s ease-in-out;
+}
+
+#mc-embedded-subscribe
+{
   width:30%;
   max-width: 120px;
   height:54px;
