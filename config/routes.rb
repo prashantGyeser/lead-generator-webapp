@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # This is the route to get an email notification to mandrill from mailchimp
   post 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
   get 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
 
@@ -8,14 +9,6 @@ Rails.application.routes.draw do
   end
 
   get 'verified_accounts/index'
-
-  namespace :admin do
-
-  end
-
-  namespace :admin do
-
-  end
 
   namespace :admin do
   get 'export/leads'

@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    render :layout => 'food_delivery'
+
   end
 
   def index_b
