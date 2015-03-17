@@ -547,3 +547,30 @@ span.nospam{
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
+
+/* ========================================================== */
+/* 				  	     08. MODAL STYLES                     */
+/* ========================================================== */
+
+#modal_content
+{
+  padding: 30px;
+  text-align: center;
+
+  i{
+    font-size: 60px;
+    color: #03d7ab;
+    margin-bottom: 10px;
+  }
+
+  h4{
+    text-align: center;
+  }
+
+  p{
+    color: #333;
+    font-size: 16px;
+  }
+
+}

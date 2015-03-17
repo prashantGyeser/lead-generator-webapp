@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js
+//= require plugins/jquery-modal/jquery.modal.min
 //= require turbolinks
-//= require_tree .
