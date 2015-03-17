@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-  <title>Prestige - Startup Landing Page Template</title>
+  <title>No more Twitter dumps</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="lib/images/favicon.png">
   <meta name="description" content="">
@@ -13,20 +13,17 @@
   <!-- 1140px Grid styles for IE -->
   <!--[if lte IE 9]><link rel="stylesheet" href="lib/css/ie.css" type="text/css" media="screen" /><![endif]-->
 
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="lib/css/style.css">
-  <link rel="stylesheet" href="lib/css/fonts.css">
-  <!-- end CSS -->
-
   <!-- begin Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Roboto:100,400,500,300italic,700,900,400italic,300,500italic' rel='stylesheet' type='text/css'>
   <!-- end Google Fonts -->
 
-  <script src="lib/js/jquery-1.11.1.min.js"></script>
-  <script src="lib/js/jquery-migrate-1.2.1.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"/>
 
 
   <%= stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tag %>
 
 </head>
 
@@ -81,11 +78,17 @@
                 <div id="mce-responses" class="clear">
                   <div class="response" id="mce-error-response" style="display:none"></div>
                   <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;"><input type="text" name="b_589eee1b7d24dfc49b60166d9_6f1f4082ae" tabindex="-1" value=""></div>
               </div>
             </form>
           </div>
+
+
+
+
+
           <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='MMERGE1';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
           <!--End mc_embed_signup-->
 
@@ -111,60 +114,24 @@
 </div>
 <!--! end of #container -->
 
-<!-- scripts concatenated and minified via ant build script-->
-<script src="lib/js/modernizr-2.6.1.min.js"></script>
-<script src="lib/js/conditional.js"></script>
-<script src="lib/js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
-<script src="lib/js/plugins.js"></script>
-<script src="lib/js/jquery.inview.js"></script>
-<script src="lib/js/retina.js"></script>
-<script src="lib/js/bp-script.js"></script>
 
-<!-- begin jquery.sticky script-->
-<script type="text/javascript" src="lib/js/jquery.sticky.js"></script>
-<script>
-  $(window).load(function(){
-    $("#header_wrapper").sticky({ topSpacing: 0 });
-  });
-</script>
-<!-- end jquery.sticky script-->
+<!--MODAL WINDOW HTML -- START-->
+<div class="modal" id="modal_content">
 
-<!-- begin scrollTo script-->
-<script src="lib/js/jquery.scrollTo-min.js"></script>
-<script type="text/javascript">
-  (function($){
-    $(document).ready(function() {
-      /* This code is executed after the DOM has been completely loaded */
+  <i class="fa fa-check-circle-o"></i>
 
-      $("#nav li a, a.scrool").click(function(e){
+  <h4>Congratulations!</h4>
+  
+  <p>
+    Do you want to start finding leads faster? Share us on Twitter and we will send you an invite in the next 24 hours!
+  </p>
 
-        var full_url = this.href;
-        var parts = full_url.split("#");
-        var trgt = parts[1];
-        var target_offset = $("#"+trgt).offset();
-        var target_top = target_offset.top;
+  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Find leads on Twitter now!" data-size="large" target="_blank">Share on Twitter</a>
 
-        $('html,body').animate({scrollTop:target_top -70}, 1000);
-        return false;
+</div>
+<!--MODAL WINDOW HTML -- END-->
 
-      });
 
-    });
-  })(jQuery);
-</script>
-<!-- end menu scrollTo script-->
-
-<!-- begin menu color script-->
-<script src="lib/js/jquery.nav.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#nav').onePageNav({
-      filter: ':not(.external)',
-      scrollThreshold: 0.25
-    });
-  });
-</script>
-<!-- end menu color script-->
 
 <!--begin shrink header script -->
 <script>
@@ -186,61 +153,77 @@
 </script>
 <!--end shrink header script -->
 
-<!--begin fitvids script -->
-<script src="lib/js/jquery.fitvids.js"></script>
-<script>
-  // Basic FitVids Test
-  $("#container").fitVids();
-</script>
-<!--end fitvids script -->
+<!--start on successful mailchimp submit-->
+<script type="text/javascript" charset="utf-8">
+  $('document').ready(function(e){
+    $('#mc-embedded-subscribe').click(function(){
+      var email = $('#mce-EMAIL').val();
+      $('#email_entered').val(email);
 
-<!-- begin owl.carousel script-->
-<script src="lib/js/owl.carousel.js"></script>
-<script>
-  $(document).ready(function($) {
-    $("#owl-example").owlCarousel();
-  });
-  $("body").data("page", "frontpage");
-</script>
-<!-- end owl.carousel script-->
 
-<!-- begin bxslider script-->
-<script src="lib/js/jquery.bxslider.min.js"></script>
-<script>
-  $('.bxslider').bxSlider({
-    auto: true,
-    pause: 5000,
-    autoControls: false
+
+
+    });
+  })
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  //Listen for form submit
+  $('#mc-embedded-subscribe-form').submit(function (e) {
+    $('#modal_content').modal({
+      fadeDuration: 1000,
+      fadeDelay: 0.50
+    });
   });
 </script>
-<!-- end bxslider script-->
 
-<!-- begin slider script-->
-<script src="lib/js/responsiveslides.min.js"></script>
-<script>
-  // You can also use "$(window).load(function() {"
-  $(function () {
+<!--end on successful mailchimp submit-->
 
-    // Slideshow 4
-    $("#slider4, #slider3").responsiveSlides({
-      auto: true,
-      pager: true,
-      nav: true,
-      pause: true,
-      speed: 500,
-      timeout: 5000,
-      namespace: "callbacks",
-      before: function () {
-        $('.events').append("<li>before event fired.</li>");
-      },
-      after: function () {
-        $('.events').append("<li>after event fired.</li>");
-      }
+<input type="hidden" name="email_entered" id="email_entered"/>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+  if (d.getElementById(id)) return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<script type="text/javascript" charset="utf-8">
+  twttr.ready(function(twttr) {
+    twttr.events.bind('tweet', function(event) {
+      // Sending data to the server once a user has shared a post with their network
+      var email = $('#email_entered').val();
+
+
+      // Posting the email to the server to be stored
+      $.ajax({
+        url: "/beta_signups",
+        type: "POST",
+        data: {beta_signup: {
+          email: "test2@test.com"}},
+        success: function(resp){
+          console.log("Congratulations you should get an invite in the next 24 hours!");
+        }
+      });
+
+
     });
 
   });
 </script>
-<!-- end slider script-->
+
+
 
 </body>
 </html>

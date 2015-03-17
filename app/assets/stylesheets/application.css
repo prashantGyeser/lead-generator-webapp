@@ -12,4 +12,5 @@
  *
  *= require pages
  *= require fonts
+ *= require plugins/jquery-modal/jquery.modal
  */

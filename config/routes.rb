@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post 'beta_signups' => 'beta_signups#create'
+
   # This is the route to get an email notification to mandrill from mailchimp
   post 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
   get 'site_emails/bbsde21mqcrj95ji19si' => 'site_emails#create'
