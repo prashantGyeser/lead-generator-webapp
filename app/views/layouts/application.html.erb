@@ -166,21 +166,16 @@
 <script type="text/javascript" charset="utf-8">
   //Listen for form submit
   $('#mc-embedded-subscribe-form').submit(function (e) {
-
+    $('#modal_content').modal({
+      fadeDuration: 1000,
+      fadeDelay: 0.50
+    });
   });
 </script>
 
 <!--end on successful mailchimp submit-->
 
 <input type="hidden" name="email_entered" id="email_entered"/>
-
-
-<script type="text/javascript" charset="utf-8">
-  $('#modal_content').modal({
-    fadeDuration: 1000,
-    fadeDelay: 0.50
-  });
-</script>
 
 
 <script>window.twttr = (function(d, s, id) {
@@ -208,6 +203,15 @@
 
 
       // Posting the email to the server to be stored
+      $.ajax({
+        url: "/beta_signups",
+        type: "POST",
+        data: {beta_signup: {
+          email: "test2@test.com"}},
+        success: function(resp){
+          console.log("Congratulations you should get an invite in the next 24 hours!");
+        }
+      });
 
 
     });
@@ -216,18 +220,6 @@
 </script>
 
 
-<script type="text/javascript" charset="utf-8">
-  // Posting the email to the server to be stored
-  $.ajax({
-        url: "/beta_signups",
-        type: "POST",
-        data: {beta_signup: {
-          email: "test2@test.com"}},
-      success: function(resp){
-        alert('k cool');
-      }
-  });
-</script>
 
 </body>
 </html>
