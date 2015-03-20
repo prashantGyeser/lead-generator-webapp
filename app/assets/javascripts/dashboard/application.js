@@ -34,20 +34,9 @@ $(document).ready(function(e){
     focusInvalid: false,
     ignore: "",
     rules: {
-      form1Amount: {
-        minlength: 2,
-        required: true
-      },
-      form1CardHolderName: {
-        minlength: 2,
-        required: true
-      },
-      form1CardNumber: {
+      websiteUrl: {
         required: true,
-        creditcard: true
-      },
-      cardType:{
-        required: true
+        url: true
       }
     },
 
@@ -76,6 +65,8 @@ $(document).ready(function(e){
     },
 
     submitHandler: function (form) {
+
+      $('#1').hide(500);
 
     }
   });
