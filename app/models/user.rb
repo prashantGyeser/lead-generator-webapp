@@ -35,6 +35,8 @@
 #  subscribed             :boolean          default(FALSE)
 #
 
+require 'notification_helper'
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -46,9 +48,41 @@ class User < ActiveRecord::Base
   has_many :leads
   has_many :lead_streams
 
+  after_create :generic_email_domain_check
+
   def active_for_authentication?
     # Checking if a user is active
     super and self.is_active?
+  end
+
+
+  # Checking if the user is using gmail, yahoo or any other common domain and not their business email
+  def generic_email_domain_check
+
+    notification_helper = NotificationHelper.new
+
+    if is_generic_email?
+      notification_helper.set_generic_email(self.id)
+    end
+
+
+  end
+
+  def is_generic_email?
+
+    generic_email_domains = ['gmail', 'yahoo', 'outlook']
+
+    generic_email_domains.each do |generic_domain|
+      if email_domain.include? generic_domain
+        return true
+      end
+    end
+
+    return false
+  end
+
+  def email_domain
+    self.email.split('@').last
   end
 
 

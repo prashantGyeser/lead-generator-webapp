@@ -51,4 +51,30 @@ RSpec.describe User, :type => :model do
     expect(FactoryGirl.create(:user).new_user).to eq true
   end
 
+  it "should return the domain of the users email" do
+    user = FactoryGirl.create(:user, email: 'test@test.com')
+    expect(user.email_domain).to eq "test.com"
+  end
+
+  it "should return the domain of the users email even in special cases" do
+    user = FactoryGirl.create(:user, email: 'test-test@test.com.co')
+    expect(user.email_domain).to eq "test.com.co"
+  end
+
+  it "should return true if a generic domain is used" do
+    user = FactoryGirl.create(:user, email: 'test@yahoo.com')
+    expect(user.is_generic_email?).to eq true
+  end
+
+  it "should return false if a nongeneric domain is used" do
+    user = FactoryGirl.create(:user, email: 'test@urbanzeak.com')
+    expect(user.is_generic_email?).to eq false
+  end
+
+  it "should create a new generic email domain notification if a user is using gmail or other free providers" do
+    user = FactoryGirl.create(:user, email: 'test@gmail.com')
+    user.generic_email_domain_check
+    expect(Notification.last.user_id == user.id).to eq true
+  end
+
 end
