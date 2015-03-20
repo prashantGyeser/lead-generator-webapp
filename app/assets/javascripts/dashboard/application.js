@@ -18,6 +18,7 @@
 //= require plugins/boostrapv3/js/bootstrap.min
 //= require plugins/jquery-scrollbar/jquery.scrollbar.min
 //= require plugins/velocity/velocity.min
+//= require plugins/jquery-validation/js/jquery.validate.min
 //= require plugins/breakpoints
 //= require dashboard/core
 //= require dashboard/chat
@@ -25,3 +26,58 @@
 //= require dashboard/lead_streams
 //= require dashboard/lead
 
+
+$(document).ready(function(e){
+
+  //Traditional form validation sample
+  $('#form_traditional_validation').validate({
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+      form1Amount: {
+        minlength: 2,
+        required: true
+      },
+      form1CardHolderName: {
+        minlength: 2,
+        required: true
+      },
+      form1CardNumber: {
+        required: true,
+        creditcard: true
+      },
+      cardType:{
+        required: true
+      }
+    },
+
+    invalidHandler: function (event, validator) {
+      //display error alert on form submit
+    },
+
+    errorPlacement: function (label, element) { // render error placement for each input type
+      $('<span class="error"></span>').insertAfter(element).append(label)
+      var parent = $(element).parent('.input-with-icon');
+      parent.removeClass('success-control').addClass('error-control');
+    },
+
+    highlight: function (element) { // hightlight error inputs
+      var parent = $(element).parent();
+      parent.removeClass('success-control').addClass('error-control');
+    },
+
+    unhighlight: function (element) { // revert the change done by hightlight
+
+    },
+
+    success: function (label, element) {
+      var parent = $(element).parent('.input-with-icon');
+      parent.removeClass('error-control').addClass('success-control');
+    },
+
+    submitHandler: function (form) {
+
+    }
+  });
+
+});
