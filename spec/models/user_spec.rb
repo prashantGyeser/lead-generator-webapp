@@ -33,6 +33,7 @@
 #  admin                  :boolean
 #  is_active              :boolean          default(TRUE)
 #  subscribed             :boolean          default(FALSE)
+#  website                :string(255)
 #
 
 require 'rails_helper'

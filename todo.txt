@@ -35,4 +35,7 @@ $99 - Discount $59 - 3 streams
 RAILS_ENV=production bundle exec rake assets:precompile
 
 
-t br  
+
+1. Set the actual notification id for the notification to be hidden
+2. Show the actual notifications that are stored
+

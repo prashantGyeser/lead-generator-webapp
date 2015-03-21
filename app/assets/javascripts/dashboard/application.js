@@ -29,8 +29,16 @@
 
 $(document).ready(function(e){
 
+  $("body").on('click', 'a.set_website', function () {
+    $('#notification_id').val($(this).data("notification-id"));
+  });
+
+
+
   //Traditional form validation sample
-  $('#form_traditional_validation').validate({
+  $('#form_traditional_validation').submit(function(e) {
+    e.preventDefault();
+  }).validate({
     focusInvalid: false,
     ignore: "",
     rules: {
@@ -65,10 +73,34 @@ $(document).ready(function(e){
     },
 
     submitHandler: function (form) {
+      //$('#1').hide(500);
 
-      $('#1').hide(500);
+      var website = $('#websiteUrl').val();
+
+      var data_to_submit = { website: website };
+
+      $.ajax({
+        url : "/dashboard/notifications/set_user_website",
+        type: "POST",
+        data : data_to_submit,
+        success: function(data, textStatus, jqXHR)
+        {
+          alert("success");
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+          alert("error");
+        }
+      });
+
+
+      return false; // required to block normal submit when using ajax
+
+
 
     }
   });
+
+
 
 });

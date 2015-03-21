@@ -59,7 +59,7 @@
           <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom" data-content="" data-toggle="dropdown" data-original-title="Notifications">
             <div class="user-details">
               <div class="username">
-                <span class="badge badge-important">3</span>
+                <span class="badge badge-important" id="">3</span>
                 &nbsp;<span class="bold">&nbsp;<%= current_user_name %></span>
               </div>
             </div>
@@ -69,12 +69,12 @@
           <div id="notification-list" style="display:none">
             <div style="width:300px">
               <div class="notification-messages info" id="1">
-                <div class="message-wrapper" style="width: 100%; height: auto">
+                <div class="message-wrapper" style="width: 100%; height: auto" >
                   <div class="heading"> Website not found! </div>
                   <div class="description" style="font-size: 14px;">
                     We could not determine your website from your email
                     <br/>
-                    <a href="" class="btn btn-small" style="font-size: 12px; margin-top: 5px;" data-toggle="modal" data-target="#notifications_modal">Set Website</a>
+                    <a href="" class="btn btn-small set_website" style="font-size: 12px; margin-top: 5px;" data-toggle="modal" data-target="#notifications_modal" data-notification-id="1">Set Website</a>
                   </div>
                 </div>
                 <div class="clearfix"></div>
@@ -307,7 +307,7 @@
         <p class="no-margin">We use your website information to find out your business category to find appropriate leads for you and to determine  additional keywords as required</p>
         <br>
       </div>
-      <form id="form_traditional_validation" action="#">
+      <form id="form_traditional_validation" action="">
       <div class="modal-body">
 
 
@@ -362,6 +362,9 @@
 
 <% end %>
 
+
+
+<input type="hidden" value="" name="notification_id" id="notification_id"/>
 
 
 

@@ -88,6 +88,8 @@ Rails.application.routes.draw do
     get 'keyword' => 'keyword#index'
     post 'keyword/remove'
     post 'keyword/add'
+    post 'notifications/create'
+    post 'notifications/set_user_website'
   end
 
   namespace :admin do

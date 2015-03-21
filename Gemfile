@@ -90,6 +90,8 @@ gem "hublot", "~> 0.0.6"
 
 gem "dotiw"
 
+gem "awesome_print", require:"ap"
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
@@ -108,6 +110,7 @@ group :development do
   gem 'reek'
   gem "bullet"
   gem 'rack-mini-profiler'
+  gem 'quiet_assets'
 end
 
 
