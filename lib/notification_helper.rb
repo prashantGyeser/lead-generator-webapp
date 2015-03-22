@@ -2,9 +2,7 @@ class NotificationHelper
 
   def set_generic_email(user_id)
 
-    message = %"We could not determine your website address, we use your website to determine your industry and to generate additional keywords in case your current keywords get too few results. <a>Set your site address</a>"
-
-    notification = Notification.new(message: message, user_id: user_id)
+    notification = Notification.new(notification_type: "no_website", user_id: user_id)
 
     if notification.save
       return true
