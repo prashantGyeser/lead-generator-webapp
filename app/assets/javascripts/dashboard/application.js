@@ -29,6 +29,38 @@
 
 $(document).ready(function(e){
 
+  /*****************************************************************************************************************/
+  /* Functions */
+  /*****************************************************************************************************************/
+  function remove_notification(notification_id) {
+    //This function assumes the highest level element in the notification message in the ui
+    // is associated with the server notification id
+
+    // Archive the notification on the server
+
+    var data_to_submit = {notification_id: notification_id};
+
+    $.ajax({
+      url : "/dashboard/notifications/archive",
+      type: "POST",
+      data : data_to_submit,
+      success: function(data, textStatus, jqXHR)
+      {
+        alert("success");
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        alert("error");
+      }
+    });
+
+    // Hiding the notification
+    //$('#'+notification_id).hide(500)
+  }
+
+
+
+
   $("body").on('click', 'a.set_website', function () {
     $('#notification_id').val($(this).data("notification-id"));
   });
@@ -73,8 +105,11 @@ $(document).ready(function(e){
     },
 
     submitHandler: function (form) {
-      //$('#1').hide(500);
 
+      remove_notification('1');
+
+
+      /*
       var website = $('#websiteUrl').val();
 
       var data_to_submit = { website: website };
@@ -95,7 +130,7 @@ $(document).ready(function(e){
 
 
       return false; // required to block normal submit when using ajax
-
+      */
 
 
     }

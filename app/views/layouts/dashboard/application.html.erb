@@ -66,8 +66,18 @@
             <div class="iconset top-down-arrow"></div>
           </a>
 
+
           <div id="notification-list" style="display:none">
             <div style="width:300px">
+
+              <% current_user_notifications.each do |notification| %>
+
+                <%= render partial: 'layouts/dashboard/notification', locals: {notification: notification} %>
+
+              <% end %>
+
+
+
               <div class="notification-messages info" id="1">
                 <div class="message-wrapper" style="width: 100%; height: auto" >
                   <div class="heading"> Website not found! </div>

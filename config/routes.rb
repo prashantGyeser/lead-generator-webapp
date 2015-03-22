@@ -90,6 +90,7 @@ Rails.application.routes.draw do
     post 'keyword/add'
     post 'notifications/create'
     post 'notifications/set_user_website'
+    post 'notifications/archive'
   end
 
   namespace :admin do

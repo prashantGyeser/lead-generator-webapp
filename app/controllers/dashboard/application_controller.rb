@@ -15,9 +15,13 @@ class Dashboard::ApplicationController < ActionController::Base
   helper_method :remaining_days
   helper_method :current_user_name
   helper_method :not_subscribed?
+  helper_method :current_user_notifications
 
   layout "dashboard/application"
 
+  def current_user_notifications
+    Notification.where(user_id: current_user.id)
+  end
 
 
   # find the remaining trial days for this user
