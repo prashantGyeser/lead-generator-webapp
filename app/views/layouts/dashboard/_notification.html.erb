@@ -1,5 +1,4 @@
-
-<div class="notification-messages info" id="1">
+<div class="notification-messages info" id="<%= notification.id %>">
   <div class="message-wrapper" style="width: 100%; height: auto" >
 
     <% if notification.notification_type == 'no_website' %>
@@ -7,7 +6,7 @@
       <div class="description" style="font-size: 14px;">
         We could not determine your website from your email
         <br/>
-        <a href="" class="btn btn-small set_website" style="font-size: 12px; margin-top: 5px;" data-toggle="modal" data-target="#notifications_modal" data-notification-id="1">Set Website</a>
+        <a href="" class="btn btn-small set_website" style="font-size: 12px; margin-top: 5px;" data-toggle="modal" data-target="#notifications_modal" data-notification-id="<%= notification.id %>">Set Website</a>
       </div>
     <% elsif notification.notification_type == 'keyword_not_working' %>
       <div class="heading"> Keyword not working </div>

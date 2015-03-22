@@ -40,23 +40,44 @@ $(document).ready(function(e){
 
     var data_to_submit = {notification_id: notification_id};
 
-    $.ajax({
+    var responce;
+
+    request = $.ajax({
       url : "/dashboard/notifications/archive",
       type: "POST",
       data : data_to_submit,
       success: function(data, textStatus, jqXHR)
       {
-        alert("success");
+        // Hiding the notification
+        $('#'+notification_id).hide(500);
+        responce = true;
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
         alert("error");
+        responce = false
       }
     });
 
-    // Hiding the notification
-    //$('#'+notification_id).hide(500)
+    request.done(function(data){
+      set_no_website_status(responce)
+    });
+
+
   }
+
+  function set_no_website_status(result){
+    if (result == true){
+      $('#form_traditional_validation').hide(500);
+      $('#set_website_modal').append('<div class="modal-body"><div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success:&nbsp;Added your website. </div></div>')
+    }
+    else{
+
+    }
+
+
+  }
+
 
 
 
@@ -106,10 +127,8 @@ $(document).ready(function(e){
 
     submitHandler: function (form) {
 
-      remove_notification('1');
+      var notification_id = $('#notification_id').val();
 
-
-      /*
       var website = $('#websiteUrl').val();
 
       var data_to_submit = { website: website };
@@ -120,17 +139,17 @@ $(document).ready(function(e){
         data : data_to_submit,
         success: function(data, textStatus, jqXHR)
         {
-          alert("success");
+          remove_notification(notification_id);
+          // Todo: Either close the modal or show a success message in the modal
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-          alert("error");
+          // Todo: Show an error notification
         }
       });
 
 
       return false; // required to block normal submit when using ajax
-      */
 
 
     }

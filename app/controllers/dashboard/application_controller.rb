@@ -20,7 +20,7 @@ class Dashboard::ApplicationController < ActionController::Base
   layout "dashboard/application"
 
   def current_user_notifications
-    Notification.where(user_id: current_user.id)
+    Notification.where(user_id: current_user.id).where(archived: false)
   end
 
 
