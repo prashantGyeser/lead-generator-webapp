@@ -59,7 +59,12 @@
           <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom" data-content="" data-toggle="dropdown" data-original-title="Notifications">
             <div class="user-details">
               <div class="username">
-                <span class="badge badge-important" id="">3</span>
+
+                <% notification_count = current_user_notifications.count %>
+                <% if notification_count > 0 %>
+                  <span class="badge badge-important" id="">3</span>
+                <% end %>
+
                 &nbsp;<span class="bold">&nbsp;<%= current_user_name %></span>
               </div>
             </div>
@@ -76,37 +81,6 @@
 
               <% end %>
 
-
-
-              <div class="notification-messages info" id="1">
-                <div class="message-wrapper" style="width: 100%; height: auto" >
-                  <div class="heading"> Website not found! </div>
-                  <div class="description" style="font-size: 14px;">
-                    We could not determine your website from your email
-                    <br/>
-                    <a href="" class="btn btn-small set_website" style="font-size: 12px; margin-top: 5px;" data-toggle="modal" data-target="#notifications_modal" data-notification-id="1">Set Website</a>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="notification-messages danger">
-                <div class="iconholder"> <i class="icon-warning-sign"></i> </div>
-                <div class="message-wrapper">
-                  <div class="heading"> Server load limited </div>
-                  <div class="description"> Database server has reached its daily capicity </div>
-                  <div class="date pull-left"> 2 mins ago </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="notification-messages success">
-                <div class="user-profile"> <img src="assets/img/profiles/h.jpg"  alt="" data-src="assets/img/profiles/h.jpg" data-src-retina="assets/img/profiles/h2x.jpg" width="35" height="35"> </div>
-                <div class="message-wrapper">
-                  <div class="heading"> You haveve got 150 messages </div>
-                  <div class="description"> 150 newly unread messages in your inbox </div>
-                  <div class="date pull-left"> An hour ago </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
             </div>
           </div>
 
