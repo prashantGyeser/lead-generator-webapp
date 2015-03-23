@@ -11,7 +11,7 @@
 
 class SiteEmail < ActiveRecord::Base
 
-  after_create :send_hello_email
+  #after_create :send_hello_email
 
   def send_hello_email
     HelloMailer.on_email_left(self.email).deliver
