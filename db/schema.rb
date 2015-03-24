@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322114317) do
+ActiveRecord::Schema.define(version: 20150324035631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -324,12 +324,12 @@ ActiveRecord::Schema.define(version: 20150322114317) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: ""
+    t.string   "email",                        default: "",    null: false
+    t.string   "encrypted_password",           default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -338,9 +338,9 @@ ActiveRecord::Schema.define(version: 20150322114317) do
     t.datetime "updated_at"
     t.boolean  "authorized_application"
     t.boolean  "user_sent_to_processor"
-    t.integer  "total_streams",          default: 1
+    t.integer  "total_streams",                default: 1
     t.boolean  "setup_complete"
-    t.integer  "trial_duration",         default: 7
+    t.integer  "trial_duration",               default: 7
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -348,13 +348,15 @@ ActiveRecord::Schema.define(version: 20150322114317) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",      default: 0
+    t.integer  "invitations_count",            default: 0
     t.integer  "sample_category_id"
-    t.boolean  "new_user",               default: true
+    t.boolean  "new_user",                     default: true
     t.boolean  "admin"
-    t.boolean  "is_active",              default: true
-    t.boolean  "subscribed",             default: false
+    t.boolean  "is_active",                    default: true
+    t.boolean  "subscribed",                   default: false
     t.string   "website"
+    t.boolean  "founder_welcome_sent",         default: false
+    t.boolean  "trial_over_notification_sent", default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
