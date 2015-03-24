@@ -24,6 +24,10 @@ class NotificationHelper
 
   end
 
+  def trial_over
+
+  end
+
 
 
 

@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
       self.founder_welcome_sent = true
 
       if self.save
-        LifecycleMailer.welcome_email(self.email).deliver
+        LifecycleMailer.welcome_email(self.email, self.trial_duration).deliver
         LifecycleMailer.founder_welcome(self.email).deliver
       else
 
