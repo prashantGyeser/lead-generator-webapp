@@ -16,8 +16,13 @@ class LifecycleMailer < ActionMailer::Base
 
   end
 
-  def trial_getting_over
+  def trial_ending(email)
+    @email = email
 
+    mail :to => email, :subject => "Trial Over!", from: "Urbanzeak <notifications@urbanzeak.com>"
+
+    headers['X-MC-Track'] = "opens"
+    headers['X-MC-Tags'] = "Trial Over"
   end
 
   def invitation_not_accepted
