@@ -25,8 +25,15 @@ class LifecycleMailer < ActionMailer::Base
   end
 
   # This is sent as soon as a user accepts an invite
-  def welcome_email(email)
+  def welcome_email(email, trial_duration)
 
+    @trial_duration = trial_duration
+    @email = email
+
+    mail :to => email, :subject => "Welcome to Urbanzeak!", from: "Urbanzeak <notifications@urbanzeak.com>"
+
+    headers['X-MC-Track'] = "opens"
+    headers['X-MC-Tags'] = "Welcome Email"
   end
 
 

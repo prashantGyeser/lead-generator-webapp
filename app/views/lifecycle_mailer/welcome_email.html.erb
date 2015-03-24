@@ -106,7 +106,7 @@
 <!-- Start Background Image -->
 <table width="394" border="0" cellpadding="0" cellspacing="0" align="center" class="full" style="-webkit-border-top-left-radius: 5px; -moz-border-top-left-radius: 5px; border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px; -moz-border-top-right-radius: 5px; border-top-right-radius: 5px;" object="drag-module-small">
   <tr>
-    <td width="394" height="110" style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-image: url('images/header_bg.jpg'); -webkit-background-size: cover; background-size: cover; background-color: rgb(42, 42, 44); background-position: center center; background-repeat: no-repeat;" bgcolor="#2a2a2c"id="BGheaderChange">
+    <td width="394" height="110" style="border-top-left-radius: 5px; border-top-right-radius: 5px; background-image: url('https://s3.amazonaws.com/uz-notification-email-assets/header_bg.jpg'); -webkit-background-size: cover; background-size: cover; background-color: rgb(42, 42, 44); background-position: center center; background-repeat: no-repeat;" bgcolor="#2a2a2c"id="BGheaderChange">
 
       <!--[if gte mso 9]>
       <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:394px;height:100px;">
@@ -123,7 +123,7 @@
           <tr>
             <!-- Avatar Image -->
             <td width="394" valign="middle" style="text-align: center;" class="avatar112" >
-              <a href="#"><img src="images/logo.png" alt="" width="112" height="auto" style="width: 112px; height: auto;" class="hover" border="0" ></a>
+              <a href="#"><img src="https://s3.amazonaws.com/uz-notification-email-assets/logo.png" alt="" width="112" height="auto" style="width: 112px; height: auto;" class="hover" border="0" ></a>
             </td>
           </tr>
           <tr>
@@ -187,7 +187,7 @@
       <table width="320" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
         <tr>
           <td valign="middle" width="320" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: rgb(151, 151, 151); line-height: 24px;"class="fullCenter" >
-            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Your 14(TODO: Put the actual number of days a user has) day trial starts today. Here is some important information about your new account. You should save this email for later reference. <!--[if !mso]><!--></span><!--<![endif]-->
+            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Your <%= @trial_duration %> day trial starts today. Here is some important information about your new account. You should save this email for later reference. <!--[if !mso]><!--></span><!--<![endif]-->
           </td>
         </tr>
       </table>
@@ -280,7 +280,7 @@
       <table width="320" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
         <tr>
           <td valign="middle" width="320" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: rgb(151, 151, 151); line-height: 24px;"class="fullCenter" >
-            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->prashant@urbanzeak.com (TODO: Change to the live user account) <!--[if !mso]><!--></span><!--<![endif]-->
+            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--><%= @email %> <!--[if !mso]><!--></span><!--<![endif]-->
           </td>
         </tr>
       </table>
@@ -324,7 +324,7 @@
       <table width="320" border="0" cellpadding="0" cellspacing="0" align="center" style="text-align: center; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
         <tr>
           <td valign="middle" width="320" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: rgb(151, 151, 151); line-height: 24px;"class="fullCenter" >
-            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--> <a href="#"  style="color: rgb(113, 164, 46); text-decoration: none;">Account Settings</a> (TODO: Set the actual upgrade subscription path) <!--[if !mso]><!--></span><!--<![endif]-->
+            <!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]--> <a href="http://www.urbanzeak.com/dashboard/account"  style="color: rgb(113, 164, 46); text-decoration: none;">Account Settings</a>  <!--[if !mso]><!--></span><!--<![endif]-->
           </td>
         </tr>
       </table>

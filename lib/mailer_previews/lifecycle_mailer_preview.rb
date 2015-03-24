@@ -4,4 +4,8 @@ class LifecyclePreview < ActionMailer::Preview
     LifecycleMailer.founder_welcome('prashant@gyeser.com')
   end
 
+  def welcome_email
+    LifecycleMailer.welcome_email('prashant@gyeser.com', 7)
+  end
+
 end
