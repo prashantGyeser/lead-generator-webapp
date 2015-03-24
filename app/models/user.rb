@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   after_create :generic_email_domain_check
 
-  #after_update :send_emails
+  after_update :send_emails
 
 
 
