@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
 
   after_create :generic_email_domain_check
 
-  after_update :send_founder_email
+  after_update :send_emails
 
 
 
@@ -93,13 +93,14 @@ class User < ActiveRecord::Base
   end
 
 
-  def send_founder_email
+  def send_emails
 
     if !self.invitation_accepted_at.nil? && ((founder_welcome_sent == false) || founder_welcome_sent.nil? )
 
       self.founder_welcome_sent = true
 
       if self.save
+        LifecycleMailer.welcome_email(self.email).deliver
         LifecycleMailer.founder_welcome(self.email).deliver
       else
 
