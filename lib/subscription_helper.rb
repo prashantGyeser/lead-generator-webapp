@@ -24,4 +24,13 @@ class SubscriptionHelper
     end
   end
 
+  def invite_accepted?(user)
+    if (user.invitation_accepted_at.nil?)
+      return false
+    else
+      return true
+    end
+  end
+
+
 end
