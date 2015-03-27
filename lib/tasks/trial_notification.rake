@@ -10,9 +10,8 @@ namespace :trial do
     users = User.where.not(trial_over_notification_sent: true)
 
     users.each do |user|
-      if !subscription_helper.trial_active?(user)
-        if !subscription_helper.is_subscribed?(user)
-
+      if (!subscription_helper.trial_active?(user)) && (!subscription_helper.is_subscribed?(user)) && subscription_helper.invite_accepted?(user)
+        
           user.trial_over_notification_sent = true
           if user.save
             LifecycleMailer.trial_ending(user.email).deliver
@@ -20,7 +19,7 @@ namespace :trial do
             # TODO: Handle the errors that occur
           end
 
-        end
+
       end
     end
 
