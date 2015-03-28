@@ -157,7 +157,7 @@ $(document).ready(function() {
         var data_to_submit = {email: $('#signup-email').val()};
 
         $.ajax({
-          url : "/dashboard/notifications/set_user_website",
+          url : "/website_email",
           type: "POST",
           data : data_to_submit,
           success: function(data, textStatus, jqXHR)

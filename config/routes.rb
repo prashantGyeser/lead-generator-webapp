@@ -143,6 +143,8 @@ Rails.application.routes.draw do
 
   get 'subscriptions/show'
 
+  post 'website_email' => 'website_email#create'
+
 
 
 
