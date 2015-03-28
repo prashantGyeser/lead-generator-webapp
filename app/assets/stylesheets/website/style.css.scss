@@ -188,16 +188,22 @@ ul {
 /*   Notifications
 /*------------------------------------------*/
 .signup-success,.signup-failed,.lm-success,.lm-failed,.sm-success,.sm-failed,.fast-failed,.fast-success,.subscription-success,.subscription-failed,.mc-success,.mc-failed{
-    display: none;
-    margin-top: 5px;
+  display: none;
+  margin-top: 5px;
+//  color: #c0392b;
 }
 
 .lm-success,.sm-success{
     color:#27ae60;
 }
 
-.signup-success,.signup-failed,.fast-success,.fast-failed,.subscription-success,.subscription-failed,.mc-success,.mc-failed {
+.signup-success,.fast-success,.fast-failed,.subscription-success,.subscription-failed,.mc-success,.mc-failed {
     color:#ffffff;
+}
+
+.signup-failed
+{
+  color: #c0392b;
 }
 
 .lm-failed,.sm-failed{
@@ -1168,7 +1174,7 @@ p {
 }
 
 .signup-divider .form-group,.fast-reg .form-group{
-    width:25%;
+    width:55%;
     display: inline-block;
     margin-right: 15px;
     margin-bottom: 0;

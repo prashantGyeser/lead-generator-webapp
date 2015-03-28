@@ -15,5 +15,6 @@
 //= require website/bootstrap.min
 //= require website/jquery.easing.1.3.min
 //= require website/modernizr.custom.min
+//= require plugins/jquery-validation/js/jquery.validate.min
 //= require website/plugins.min
 //= require website/custom

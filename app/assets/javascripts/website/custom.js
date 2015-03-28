@@ -132,10 +132,78 @@ $(document).ready(function() {
 
 "use strict";
 
-
 /* =====================================
-    PARALLAX STELLAR WITH MOBILE FIXES                    
-======================================== */
+ EMAIL SUBMIT
+ ======================================== */
+  $(function() {
+    $('#signup-divider').submit(function(e) {
+      e.preventDefault();
+    }).validate({
+      rules: {
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        email: {
+          required: "No email! Cannot signup!"
+        }
+      },
+      errorElement : 'div',
+      errorLabelContainer: '#errorTxt',
+      submitHandler: function(form) {
+
+        var data_to_submit = {email: $('#signup-email').val()};
+
+        $.ajax({
+          url : "/dashboard/notifications/set_user_website",
+          type: "POST",
+          data : data_to_submit,
+          success: function(data, textStatus, jqXHR)
+          {
+            $('#submit-error').fadeOut();
+            $('#submit-success').fadeIn();
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+            $('#submit-error').fadeIn();
+          }
+        });
+
+
+
+
+          /*
+
+        $(form).ajaxSubmit({
+          type:"POST",
+          data: $(form).serialize(),
+          url:"/dashboard/notifications/set_user_website",
+          success: function() {
+            $('#contact :input').attr('disabled', 'disabled');
+            $('#contact').fadeTo( "slow", 0.15, function() {
+              $(this).find(':input').attr('disabled', 'disabled');
+              $(this).find('label').css('cursor','default');
+              $('#success').fadeIn();
+            });
+          },
+          error: function() {
+
+          }
+        });
+        */
+        return false;
+
+      }
+    });
+  });
+
+
+
+  /* =====================================
+      PARALLAX STELLAR WITH MOBILE FIXES
+  ======================================== */
 if (Modernizr.touch && ($('.header').attr('data-stellar-background-ratio') !== undefined)) {
     $('.header').css('background-attachment', 'scroll');
     $('.header').removeAttr('data-stellar-background-ratio');
@@ -192,15 +260,6 @@ $("#owl-carousel-shots-phone").owlCarousel({
     VENOBOX - LIGHTBOX FOR GALLERY AND VIDEOS
 ============================================= */
 $('.venobox').venobox();
-
-/* ===================================================================
-    TWEETIE -  TWITTER FEED PLUGIN THAT WORKS WITH NEW Twitter 1.1 API
-==================================================================== */
-$('.tweet').twittie({
-    apiPath : 'assets/js/plugins/twitter/api/tweet.php',
-    count: 2,
-    template: '{{tweet}} - <span class="date">{{date}}</span>'
-});
 
 
 /* =================================
@@ -348,7 +407,9 @@ $("#signup-modal").submit(function(e) {
 /* ================================================
    SIGNUP-DIVIDER VALIDATION. WITHOUT CONFIRM PSW. 
 =================================================== */
+  /*
 $("#signup-divider").submit(function(e) {
+
     e.preventDefault();
     var data = {
         email: $("#signup-email").val(),
@@ -372,7 +433,7 @@ $("#signup-divider").submit(function(e) {
 
     return false;
 });
-
+*/
 /* ===================================================
    FAST-REGISTRATION VALIDATION. WITHOUT CONFIRM PSW. 
 ====================================================== */
@@ -401,123 +462,6 @@ $("#fast-reg").submit(function(e) {
     return false;
 });
 
-/* =======================================================================
-   DOUGHNUT CHART
-========================================================================== */
-var isdonut = 0;
-        
-$('.start-charts').waypoint(function(direction){
-    if (isdonut == 1){}
-        else {
-            var doughnutData = [
-                {
-                    value: 50,
-                    color:"#C0392B",
-                    highlight: "#EA402F",
-                    label: "Beautiful Design"
-                },
-                {
-                    value: 25,
-                    color: "#323A45",
-                    highlight: "#4C5B70",
-                    label: "Responsive Layout"
-                },
-                {
-                    value: 15,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Persuasive Call to Action"
-                },
-                {
-                    value: 5,
-                    color: "#27AE60",
-                    highlight: "#29C36A",
-                    label: "Social Proof"
-                }
-
-            ];
-
-            var doughnut2Data = [
-                {
-                    value: 827,
-                    color:"#C0392B",
-                    highlight: "#EA402F",
-                    label: "Cups of Coffee"
-                },
-                {
-                    value: 1775,
-                    color: "#323A45",
-                    highlight: "#4C5B70",
-                    label: "Code Hours"
-                },
-                {
-                    value: 580,
-                    color: "#2980B9",
-                    highlight: "#2F97DC",
-                    label: "Design Hours"
-                },
-                {
-                    value: 540,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Songs Listened"
-                }
-            ];
-
-            
-            
-            var ctx = document.getElementById("chart-area").getContext("2d");
-            window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : false});
-
-            var ctx = document.getElementById("chart2-area").getContext("2d");
-            window.myDoughnut = new Chart(ctx).Doughnut(doughnut2Data, {responsive : false});
-
-            isdonut = 1;
-        }
-});
-
-/* =======================================================================
-   LINE CHART
-========================================================================== */
-var isline = 0;
-        
-$('.start-line').waypoint(function(direction){
-    if (isline == 1){}
-        else {
-
-            var lineChartData = {
-                labels : ["January","February","March","April","May","June","July"],
-                datasets : [
-                    {
-                        label: "My First dataset",
-                        fillColor : "rgba(192,57,43,0.2)",
-                        strokeColor : "rgba(192,57,43,1)",
-                        pointColor : "rgba(192,57,43,1)",
-                        pointStrokeColor : "#fff",
-                        pointHighlightFill : "#fff",
-                        pointHighlightStroke : "rgba(192,57,43,1)",
-                        data : [10,20,20,15,25,37,32]
-                    },
-                    {
-                        label: "My Second dataset",
-                        fillColor : "rgba(50,58,69,0.2)",
-                        strokeColor : "rgba(50,58,69,1)",
-                        pointColor : "rgba(50,58,69,1)",
-                        pointStrokeColor : "#fff",
-                        pointHighlightFill : "#fff",
-                        pointHighlightStroke : "rgba(50,58,69,1)",
-                        data : [20,23,33,57,74,81,96]
-                    }
-                ]
-
-            };
-
-            var ctx = document.getElementById("line-canvas").getContext("2d");
-            window.myLine = new Chart(ctx).Line(lineChartData, {responsive: true});
-
-            isline = 1;
-        }
-});
 
 /* =======================================================================
    SIGNUP-DIVIDER ANIMATED POLYGON BACKGROUND
