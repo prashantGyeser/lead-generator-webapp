@@ -1,155 +1,634 @@
-<div class="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <%= image_tag "logo_v3.png", class: 'img-responsive' %>
-      </div>
-      <div class="col-md-6 login">
-        <!--<a href="#footer" style="float: right;">Login</a>-->
-        <%= link_to('Login', new_user_session_path, style: "float: right;")  %>
-      </div>
+<div class="main-wrapper">
+
+<!-- =========================
+     PRELOADER
+============================== -->
+<div class="preloader">
+  <div class="loader-container">
+    <div class="text-logo">
+      <%= image_tag "logo_white.png" %>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="primarySell">
-          <h1>
-            Find your customers on Twitter
-          </h1>
-          <h4>
-            Start engaging people that really matter to your business
-          </h4>
-          <a href="#footer">Stay Informed</a>
-
-
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <%= image_tag "banner-screenshot.jpg", class: "img-responsive" %>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-<div class="benefits" style="margin-top: 60px;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="row feature">
-          <div class="col-md-6">
-            <h3>We make your Twitter marketing efforts more efficient</h3>
-            <p>
-              Did you know that most of your tweets are seen only by a fraction of your followers. Wouldn't it be awesome if you could send personalized tweets to people who have shown an interest/need for your product?
-            </p>
-            <p>
-              Urbanzeak is a unique platform that analyzes every tweet posted, understands the language used, extracts relevant meaning and finds people who have an interest/need for your product.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <%= image_tag "targeted.png", class: "img-responsive" %>
-          </div>
-        </div>
-
-
-
-
-        <div class="row feature">
-          <div class="col-md-6">
-            <h3>We extract meaning from tweets across twitter</h3>
-            <p>
-              Our language analysis algorithm can tell the difference between whether people really have a need for your product or whether they are posting random content.
-            </p>
-            <p>
-              We go beyond traditional keyword based search filtering and ensure we analyze relevant social signals that indicates the need/interest depicted in tweets.
-            </p>
-          </div>
-          <div class="col-md-6">
-            <%= image_tag "meaning.png", class: "img-responsive" %>
-          </div>
-        </div>
-
-        <div class="row feature">
-          <div class="col-md-6">
-            <h3>You can now start engaging people that matter</h3>
-            <p>
-              Your dashboard is continuously updated with tweets from people near you that have shown a need/interest for your product.
-            </p>
-            <p>
-              Start replying to these tweets to show your business can deliver!
-            </p>
-          </div>
-          <div class="col-md-6">
-            <%= image_tag "engaging.png", class: "img-responsive" %>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-      </div>
-    </div>
-
+    <div class="signal"></div>
   </div>
 </div>
 
 
+<!-- =========================
+     HEADER
+============================== -->
+<header class="header" id="top" data-stellar-background-ratio="0.5">
+  <!-- Background Overlay -->
+  <div class="overlay">
 
-<div id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-
-
-        <h3 class="text-center">Sign up today to be notified when we launch the app!</h3>
-
-        <h4 class="text-center"><span style="font-weight: bold">228 People</span> waiting for an invite right now!</h4>
-
+    <!-- =========================================
+         Navigation
+    ========================================== -->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <!-- Begin MailChimp Signup Form -->
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+          <div class="col-md-12">
+            <!-- Navbar-Header -->
+            <div class="navbar-header">
 
-            <div id="mc_embed_signup">
-              <form action="//urbanzeak.us8.list-manage.com/subscribe/post?u=589eee1b7d24dfc49b60166d9&amp;id=6f1f4082ae" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-                  <div class="mc-field-group">
-                    <label for="mce-EMAIL">Business Email
-                    </label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your business email address" style="border-color: white;">
-                  </div>
-                  <div class="mc-field-group">
-                    <label for="mce-MMERGE1">Business
-                    </label>
-                    <input type="text" value="" name="MMERGE1" class="required" id="mce-MMERGE1" style="border-color: white;" placeholder="What's your business?">
-                  </div>
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                  <div style="position: absolute; left: -5000px;"><input type="text" name="b_589eee1b7d24dfc49b60166d9_6f1f4082ae" tabindex="-1" value=""></div>
-                  <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="background: white; color: #1ABC9C"></div>
-                </div>
-              </form>
+              <!-- Mobile Menu -->
+              <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <i class="icon icon_menu"></i>
+              </button>
+
+              <!-- Text-Logo -->
+              <a href="#top" class="navbar-brand scrollto" title="Urbanzeak">
+                <span class="text-logo"><%= image_tag "logo_white.png" %></span>
+              </a>
+
+              <!-- Image-Logo: Remove this comments and the section above Text-Logo if you want to add an Image-Logo (recommended sizes -> max-height:50, max-width:200)
+
+              <a href="#top" class="navbar-brand img-logo scrollto" title="SmartMvp">
+                  <img src="assets/images/logo.png" alt="Logo">
+              </a>
+              -->
+
+            </div><!-- /End Navbar-Header -->
+
+            <!-- Navbar-Collapse -->
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <!-- Menu Items -->
+                <li><a href="#about" title="" class="scrollto">About</a></li>
+                <li><a href="#features" title="" class="scrollto">Features</a></li>
+                <li><a href="#pricing" title="" class="scrollto">Pricing</a></li>
+                <li><a href="#testimonials" title="" class="scrollto">Testimonials</a></li>
+                <li><a href="#team" title="" class="scrollto">Team</a></li>
+                <li><a href="#mobile-download" title="" class="scrollto">Mobile</a></li>
+                <!-- Login and Signup Modal on click -->
+                <li><a class="btn btn-nav" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Login</a></li>
+                <li><a class="btn btn-nav btn-color" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Sign Up</a></li>
+              </ul>
+            </div><!-- /End Navbar-Collapse -->
+          </div><!-- /End Col -->
+        </div><!-- /End Row -->
+      </div><!-- /End Container -->
+    </nav><!-- /End Sticky Navigation -->
+
+
+    <!-- =========================================
+         Login/Signup Bootstrap Modal
+    ==========================================  -->
+    <div class="modal fade login" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal-Header -->
+          <div class="modal-header">
+            <!-- Close Button -->
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <i class="icon icon_close_alt2"></i>
+            </button>
+            <!-- Modal-Header Title-->
+            <h4 class="modal-title">Sign in to <span>Smartmvp</span></h4>
+            <p class="modal-subtitle">Enter your email and password</p>
+          </div><!-- /End Modal-Header -->
+
+          <!-- Modal-Body Content -->
+          <div class="modal-body">
+            <div class="box">
+              <div class="content">
+                <!-- Login Form -->
+                <div class="loginBox">
+                  <form id="login-modal" role="form">
+                    <!-- Success/Alert Notification -->
+                    <p class="lm-success"><i class="icon icon_check_alt2"></i> <strong>Congratulation! Login modal validation is working. Implement your code.</strong></p>
+                    <p class="lm-failed"><i class="icon icon_close_alt2"></i><strong> Something went wrong! Insert correct value.</strong></p>
+                    <!-- Input Fields -->
+                    <input id="lm-email" class="form-control input-lg" type="text" placeholder="Email" name="lm-email" required>
+                    <input id="lm-password" class="form-control input-lg" type="password" placeholder="Password" name="lm-password" required>
+                    <!-- Login Button -->
+                    <button class="btn btn-color">Login</button>
+                  </form>
+                </div><!-- /End Login Form -->
+              </div>
+            </div><!-- /End Login Form Box -->
+            <div class="box">
+              <!-- Signup Form -->
+              <div class="content registerBox" style="display:none;">
+                <form id="signup-modal" role="form">
+                  <!-- Success/Alert Notification -->
+                  <p class="sm-success"><i class="icon icon_check_alt2"></i> <strong>Congratulation! Signup modal validation is working. Implement your code.</strong></p>
+                  <p class="sm-failed"><i class="icon icon_close_alt2"></i><strong> Something went wrong! Insert correct value.</strong></p>
+                  <!-- Input Fields -->
+                  <input id="sm-email" class="form-control input-lg" type="text" placeholder="Email" name="sm-email" required>
+                  <input id="sm-password" class="form-control input-lg" type="password" placeholder="Password" name="sm-password">
+                  <input id="sm-confirm" class="form-control input-lg" type="password" placeholder="Repeat Password" name="sm-confirm">
+                  <!-- Signup Button -->
+                  <button class="btn btn-color">Create Account</button>
+                </form>
+
+              </div><!-- /End Signup Form -->
+            </div><!-- /End Signup Form Box -->
+          </div><!-- /End Modal-Body -->
+
+          <!-- Modal-Footer -->
+          <div class="modal-footer">
+            <!-- Login-Footer. Redirect to Signup-Modal-->
+            <div class="forgot login-footer">
+                                    <span>Don't have an account?
+                                         <a href="javascript: showRegisterForm();">Sign up.</a>
+                                    </span>
             </div>
-            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='MMERGE1';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-            <!--End mc_embed_signup-->
-          </div>
+            <!-- Signup-Footer. Redirect to Login-Modal -->
+            <div class="forgot register-footer" style="display:none">
+              <span>Already have an account?</span>
+              <a href="javascript: showLoginForm();">Login</a>
+            </div>
+          </div><!-- /End Modal-Footer -->
+
+        </div><!-- /End Modal Content -->
+      </div><!-- /End Modal Dialog -->
+    </div><!-- /End Modal -->
+
+
+    <!-- =========================================
+         Hero-Section
+    ========================================== -->
+    <div class="container vmiddle">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="hero-section">
+
+            <!-- Welcome - Hero Message -->
+            <h1 class="text-white">AI Powered Twitter Marketing</h1>
+            <p class="text-white">Automatically mine conversations on Twitter to find your customers</p>
+
+            <!-- Learn More & Video Buttons -->
+            <div class="btn-box">
+              <a href="#about" class="btn btn-ghost scrollto">Learn More</a>
+              <!-- Video Lightbox on Click -->
+              <a href="http://youtu.be/SZEflIVnhH8" data-type="youtube" class="btn btn-color venobox"><i class="icon arrow_triangle-right_alt"></i>Play video</a>
+            </div>
+
+          </div><!-- /End Intro-Section -->
+        </div><!-- /End Col -->
+      </div><!-- /End Row -->
+    </div><!-- /End Container Hero-Section -->
+
+
+  </div><!-- /End Background Overlay -->
+</header>
+<!-- =========================
+     /END HEADER
+============================== -->
+
+
+<!-- =================================
+     SECTION ABOUT - INTRO FEATURES
+====================================== -->
+<section class="intro-features" id="about">
+  <div class="container">
+    <!-- Padding -->
+    <div class="wrapper-lg">
+      <div class="row">
+        <!-- Section Header Title -->
+        <div class="col-xs-12">
+          <h2>Power your twitter outreach with the magic of AI</h2>
         </div>
+      </div>
+    </div><!-- /End Wrapper -->
+  </div><!-- /End Container -->
+</section>
+<!-- =============================
+     /END INTRO FEATURES
+============================== -->
+
+
+<!-- ==================================================
+     SECTION 2 COLS - IMAGE RIGHT AND TEXT WITH CALL TO ACTION
+======================================================= -->
+<section class="img-with-action light-bg">
+  <div class="container wrapper-lg">
+    <div class="row">
+      <div class="col-lg-5 col-md-5">
+        <!-- Text Col -->
+        <h3 style="line-height: 1.4em">
+          Find your customers instantly without ever searching for them
+        </h3>
+        <p>
+          Imagine you open your dashboard and find your perfect leads always! People who are looking for your product right now. Or people who have bought from your competitors. With all the conversations right there in your dashboard, ready for you to jump into.
+        </p>
+        <p style="margin-top: 15px;">
+          That is what Urbanzeak does for you! It reads through tweets. Understanding each one  to find the perfect match for you. Eliminating spam. Eliminating sales pitches. Eliminating those mundane conversations.
+        </p>
+        <!-- Call To Action Buttons -->
+        <div class="btn-box">
+          <a href="#features" class="btn btn-grey scrollto">Learn More</a>
+          <a href="#canvas-bg" class="btn btn-color scrollto"><i class="icon arrow_carrot-2dwnn_alt"></i>Try it for Free</a>
+        </div>
+        <!-- Div Required for Correct Charts Animation -->
+        <div class="start-charts"></div>
+      </div>
+    </div><!-- /End Row-->
+  </div><!-- /End Container-->
+  <!-- Image Col -->
+  <div class="hidden-sm hidden-xs col-md-6 img-col-bg img-right"></div>
+</section>
+<!-- =============================
+     /END SECTION
+============================== -->
 
 
 
+<!-- ==================================================
+    FEATURES SECTION
+======================================================= -->
+<section class="tab-features color-bg" id="features">
+  <div class="container">
+    <div class="features-title">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-white">Explore Features</h2>
+          <p class="large text-white">All the features you need to find your perfect customers</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- Features Tab -->
+      <div class="tabs features tab-container">
+        <ul class="etabs">
+          <!-- Feature Icon -->
+          <li class="tab">
+            <a href="#tab-feature-1">
+              <div class="icon-sm">
+                <i class="icon icon-layers"></i>
+              </div>
+              <h5 class="text-white">Unified Dashboard</h5>
+            </a>
+          </li>
+          <!-- Feature Icon -->
+          <li class="tab">
+            <a href="#tab-feature-2">
+              <div class="icon-sm">
+                <i class="icon icon-pictures"></i>
+              </div>
+              <h5 class="text-white">Engage</h5>
+            </a>
+          </li>
+          <!-- Feature Icon -->
+          <li class="tab">
+            <a href="#tab-feature-3">
+              <div class="icon-sm">
+                <i class="icon icon-grid"></i>
+              </div>
+              <h5 class="text-white">Track</h5>
+            </a>
+          </li>
+
+        </ul><!-- /End Etabs -->
+
+        <div class="panel-container">
+
+          <div class="tab-content" id="tab-feature-1">
+            <div class="container">
+              <div class="row">
+                <!-- Feature Description 2cols Text-Left with Buttons -->
+                <div class="col-md-5 col-sm-6">
+                  <h4>Urbanzeak’s AI starts mining customers and shows it on your dashboard</h4>
+                  <p>
+                    Urbanzeak combines powerful natural language filters with your keywords, analyzes thousands of tweets, eliminates spam/noise and identifies people on Twitter who have shown an interest  to identify people on Twitter who would be interested in your products or services.
+                  </p>
+                  <p>
+                    Urbanzeak lists all your customers in a clean, simple and interactive dashboard.
+                  </p>
+                </div>
+                <!-- Image-right -->
+                <div class="col-md-7 col-sm-6 hidden-xs wow fadeInRight" data-wow-duration="2s">
+                  <%= image_tag "dashboard-ipad.png" %>
+                </div>
+              </div>
+            </div>
+          </div><!-- /End Tab-content -->
+
+          <div class="tab-content" id="tab-feature-2">
+            <div class="container">
+              <div class="row">
+                <!-- Feature Description 2cols Text-Right with Icons -->
+                <div class="col-xs-12 col-sm-6 col-sm-push-6 col-lg-7 col-lg-push-5">
+                  <h4>Start engaging your target customer</h4>
+                  <p>
+                    Visit your personalized dashboard. Find your customers listed there and start engaging your customers immediately by “Reply” or “Follow” buttons.
+                  </p>
+
+
+                </div>
+                <!-- Image-Left -->
+                <div class="col-xs-12 col-sm-6 col-sm-pull-6 col-lg-5 col-lg-pull-7 hidden-xs wow fadeInLeft" data-wow-duration="2s">
+                  <img src="assets/images/features/feature2.png" class="img-device" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- / End Tab-content -->
+
+          <div class="tab-content" id="tab-feature-3">
+            <div class="container">
+              <div class="row">
+                <!-- Feature Description 2cols Text-Left -->
+                <div class="col-md-5 col-sm-6">
+                  <h4>SmartMvp is a fully responsive landing page template with awesome features and interactive elements.</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius non velit optio veniam reprehenderit quod! Maiores asperiores dolorem doloremque tempore reiciendis voluptatem expedita, tempora, deserunt ducimus impedit animi quis eum, itaque laudantium ea perferendis nisi.</p>
+                </div>
+                <!-- Image-Right -->
+                <div class="col-md-7 col-sm-6 hidden-xs wow fadeInRight" data-wow-duration="2s">
+                  <img src="assets/images/features/feature3.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- /End Tab-content -->
+
+
+
+
+        </div><!-- / End Panel-Container -->
+      </div><!-- / End Tabs -->
+    </div><!-- /End Col -->
+  </div><!-- /End Row -->
+</section>
+<!-- =============================
+     /END FEATURES TAB
+============================== -->
+
+<!-- ==================================================
+    KEY BENEFITS SECTION
+======================================================= -->
+<section class="charts light-bg" id="charts">
+  <div class="container">
+    <div class="wrapper-lg">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Urbanzeak helps you</h2>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <!--                                <p class="large"></p>    -->
+              <ul class="benefits_list large">
+                <li>Grow your followers</li>
+                <li>Drive more traffic to your website</li>
+                <li>Reach more people with your message</li>
+                <li>Only talk to people interested in your product</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div><!-- /End Wrapper -->
+  </div><!-- /End Container -->
+</section>
+<!-- =============================
+     /END KEY BENEFITS SECTION
+============================== -->
+
+
+
+<!-- ==================================================
+    SIGNUP DIVIDER
+======================================================= -->
+<section id="canvas-bg" class="dark-bg signup-divider">
+  <div class="container">
+    <div class="wrapper-lg">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-white">Start your free, no-risk, 30 day trial!</h2>
+          <p class="large text-white">No credit card required. Upgrade, downgrade, or cancel anytime.</p>
+          <!-- Handwritten text with arrow -->
+          <p class="signup-handwritten text-white">Why wait? Start now! <br>No credit card needed</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Signup Form -->
+        <form id="signup-divider" role="form">
+          <!-- Notification -->
+          <p class="signup-success"><i class="icon icon_check_alt2"></i> <strong>Congratulation! Welcome to 30 day Free Trial. Check your email address.</strong></p>
+          <p class="signup-failed"><i class="icon icon_close_alt2"></i><strong> Something went wrong! Insert correct value.</strong></p>
+
+          <!-- Input fields -->
+          <div class="form-group">
+            <input type="email" name="signup-email" id="signup-email" class="form-control input-lg" placeholder="Enter your Email-Address" required>
+          </div>
+          <div class="form-group">
+            <input type="password" size="25" name="signup-password" id="signup-password" class="form-control input-lg" placeholder="Enter your Password" required>
+          </div>
+          <!-- Signup Button -->
+          <button class="btn btn-color">Join Today <i class="icon arrow_right"></i></button>
+        </form>
+      </div><!-- /End Row -->
+    </div><!-- /End Wrapper -->
+  </div><!-- /End Container -->
+</section>
+<!-- =============================
+     /END SIGNUP SECTION
+============================== -->
+
+
+
+
+<!-- ==================================================
+    TESTIMONIALS SECTION
+======================================================= -->
+<%# render 'testimonials' %>
+<!-- =============================
+     /END TESTIMONIALS SECTION
+============================== -->
+
+
+
+
+
+
+<!-- ==================================================
+    NEWSLETTER AND SOCIAL DIVIDER
+======================================================= -->
+<section class="newsletter color-bg" id="newsletter">
+  <div class="container">
+    <div class="wrapper-sm">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- =========================
+              Social Icons
+          ============================== -->
+          <div class="table">
+            <div class="table-row">
+              <div class="table-cell follow">
+                <h5 class="table-title">Follow Us</h5>
+              </div>
+              <div class="table-cell">
+                <ul class="social-list">
+                  <li>
+                    <a href="#">
+                      <i class="icon icon-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="icon icon-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="icon icon-googleplus"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="icon icon-linkedin"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div><!-- /End Table-Cell -->
+            </div><!-- /End Table-Row -->
+          </div><!-- /End Table -->
+        </div><!-- /End Col -->
+
+        <div class="col-md-6">
+          <!-- =========================
+              MAILCHIMP SUBSCRIPTION FORM
+          ============================== -->
+          <form class="mailchimp-subscribe" role="form">
+            <div class="table">
+              <div class="table-row">
+                <div class="table-cell getnewsletter">
+                  <h5 class="table-title">Get the Newsletter</h5>
+                </div>
+                <div class="table-cell">
+                  <div class="input-group text-white">
+                    <!-- Input Form -->
+                    <input type="email" id="subscriber-email" name="email" placeholder="Your email address" class="form-control">
+                    <!-- Submit Button -->
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-white">Subscribe</button>
+                                                </span>
+                  </div><!-- /End Input Group -->
+                </div><!-- /End Table-Cell -->
+              </div><!-- /End Table-Row -->
+            </div><!-- /End Table -->
+            <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
+              <!-- Notifications -->
+              <p class="mc-success"></p>
+              <p class="mc-failed"></p>
+            </div>
+          </form><!-- /End Mailchimp Subscribe Form -->
+
+          <!-- =========================
+              LOCAL SUBSCRIPTION FORM
+          ============================== -->
+          <!-- ALTERNATE USE: SAVE YOUR SUBSCRIBE LIST IN .TXT
+
+          <form id="subscribe" role="form">
+              <div class="table">
+                  <div class="table-row">
+                      <div class="table-cell getnewsletter">
+                          <h5 class="table-title">Get the Newsletter</h5>
+                      </div>
+                  </div>
+                  <div class="table-cell">
+                      <div class="input-group">
+                          <input type="email" id="s-email" name="email" placeholder="Your email address" class="form-control">
+                          <span class="input-group-btn">
+                              <button class="btn btn-color">Submit</button>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
+                  <p class="subscription-success"><i class="icon icon_check_alt2"></i> You are successfully subscribed for our newsletter.</p>
+                  <p class="subscription-failed"><i class="icon icon_close_alt2"></i> Something went wrong!</p>
+              </div>
+          </form>
+          -->
+
+        </div><!-- /End Col -->
+      </div><!-- /End Row -->
+    </div><!-- End Wrapper -->
+  </div><!-- /End Container -->
+</section>
+<!-- =============================
+     /END NEWSLETTER SECTION
+============================== -->
+
+
+<!-- ==================================================
+    FOOTER
+======================================================= -->
+<footer class="footer dark-bg" id="footer">
+  <div class="container">
+    <div class="wrapper-lg">
+      <div class="row">
+        <!-- Footer Left Col -->
+        <div class="col-md-5">
+          <!-- Logo -->
+          <a href="#top" class="scrollto" title="SmartMvp">
+            <span class="text-logo">Urbanzeak</span>
+          </a>
+          <p class="footer-hero"><strong>600.000</strong> users registered since January.<br>
+            We've created the product that will help your startup get better marketing results.</p>
+          <p class="footer-cta">What are you waiting for?
+            <a href="#top" class="btn btn-color">Purchase this Design</a>
+          </p>
+        </div>
+        <!-- Footer Contact Col -->
+        <div class="col-md-3">
+          <h5 class="text-white">Our Contact</h5>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="icon icon_mail"></i>
+            </div>
+            <div class="contact-content">
+              <a href="mailto:hi@themedept.com">hi@themedept.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="icon icon_phone"></i>
+            </div>
+            <div class="contact-content">
+              1-647-994-4641
+            </div>
+          </div>
+        </div>
+        <!-- Footer Right Col: Twitter Feed -->
+        <div class="col-md-4">
+          <h5 class="text-white">Recent Tweets</h5>
+          <div class="tweet"></div>
+        </div>
+
+        <!-- Footer Menu and Copy -->
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="footer-nav">
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">Help</a>
+              </li>
+              <li>
+                <a href="#">Terms</a>
+              </li>
+              <li>
+                <a href="#">Privacy</a>
+              </li>
+            </ul>
+            <p class="footer-copy">&copy; 2015 - Urbanzeak </p>
+          </div>
+        </div>
+
+      </div><!-- End Row -->
+    </div><!-- /End Wrapper -->
+  </div><!-- /End Container -->
+</footer>
+
+</div><!-- /End Main Wrapper -->
