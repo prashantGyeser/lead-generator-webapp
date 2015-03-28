@@ -404,7 +404,7 @@
 <!-- ==================================================
     TESTIMONIALS SECTION
 ======================================================= -->
-<%# render 'testimonials' %>
+<%= render 'testimonials' %>
 <!-- =============================
      /END TESTIMONIALS SECTION
 ============================== -->
@@ -433,23 +433,8 @@
               <div class="table-cell">
                 <ul class="social-list">
                   <li>
-                    <a href="#">
-                      <i class="icon icon-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
+                    <a href="http://twitter.com/urbanzeak">
                       <i class="icon icon-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="icon icon-googleplus"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="icon icon-linkedin"></i>
                     </a>
                   </li>
                 </ul>
@@ -462,58 +447,23 @@
           <!-- =========================
               MAILCHIMP SUBSCRIPTION FORM
           ============================== -->
-          <form class="mailchimp-subscribe" role="form">
+          <form class="mailchimp-subscribe" role="form" style="padding-top: 10px;">
             <div class="table">
               <div class="table-row">
                 <div class="table-cell getnewsletter">
-                  <h5 class="table-title">Get the Newsletter</h5>
+                  <h5 class="table-title">Talk to Us</h5>
                 </div>
                 <div class="table-cell">
                   <div class="input-group text-white">
-                    <!-- Input Form -->
-                    <input type="email" id="subscriber-email" name="email" placeholder="Your email address" class="form-control">
-                    <!-- Submit Button -->
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-white">Subscribe</button>
-                                                </span>
+                    hello@urbanzeak.com
                   </div><!-- /End Input Group -->
                 </div><!-- /End Table-Cell -->
               </div><!-- /End Table-Row -->
             </div><!-- /End Table -->
-            <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
-              <!-- Notifications -->
-              <p class="mc-success"></p>
-              <p class="mc-failed"></p>
-            </div>
+
           </form><!-- /End Mailchimp Subscribe Form -->
 
-          <!-- =========================
-              LOCAL SUBSCRIPTION FORM
-          ============================== -->
-          <!-- ALTERNATE USE: SAVE YOUR SUBSCRIBE LIST IN .TXT
 
-          <form id="subscribe" role="form">
-              <div class="table">
-                  <div class="table-row">
-                      <div class="table-cell getnewsletter">
-                          <h5 class="table-title">Get the Newsletter</h5>
-                      </div>
-                  </div>
-                  <div class="table-cell">
-                      <div class="input-group">
-                          <input type="email" id="s-email" name="email" placeholder="Your email address" class="form-control">
-                          <span class="input-group-btn">
-                              <button class="btn btn-color">Submit</button>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
-                  <p class="subscription-success"><i class="icon icon_check_alt2"></i> You are successfully subscribed for our newsletter.</p>
-                  <p class="subscription-failed"><i class="icon icon_close_alt2"></i> Something went wrong!</p>
-              </div>
-          </form>
-          -->
 
         </div><!-- /End Col -->
       </div><!-- /End Row -->
@@ -530,58 +480,15 @@
 ======================================================= -->
 <footer class="footer dark-bg" id="footer">
   <div class="container">
-    <div class="wrapper-lg">
-      <div class="row">
-        <!-- Footer Left Col -->
-        <div class="col-md-5">
-          <!-- Logo -->
-          <a href="#top" class="scrollto" title="SmartMvp">
-            <span class="text-logo">Urbanzeak</span>
-          </a>
-          <p class="footer-hero"><strong>600.000</strong> users registered since January.<br>
-            We've created the product that will help your startup get better marketing results.</p>
-          <p class="footer-cta">What are you waiting for?
-            <a href="#top" class="btn btn-color">Purchase this Design</a>
-          </p>
-        </div>
-        <!-- Footer Contact Col -->
-        <div class="col-md-3">
-          <h5 class="text-white">Our Contact</h5>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="icon icon_mail"></i>
-            </div>
-            <div class="contact-content">
-              <a href="mailto:hi@themedept.com">hi@themedept.com</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="icon icon_phone"></i>
-            </div>
-            <div class="contact-content">
-              1-647-994-4641
-            </div>
-          </div>
-        </div>
-        <!-- Footer Right Col: Twitter Feed -->
-        <div class="col-md-4">
-          <h5 class="text-white">Recent Tweets</h5>
-          <div class="tweet"></div>
-        </div>
+    <div class="wrapper-lg" style="padding: 0 0 20px 0">
+
 
         <!-- Footer Menu and Copy -->
         <div class="row">
           <div class="col-md-12">
-            <ul class="footer-nav">
-              <li>
-                <a href="#">About</a>
-              </li>
+            <ul class="footer-nav" style="margin-top: 20px;">
               <li>
                 <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Help</a>
               </li>
               <li>
                 <a href="#">Terms</a>
@@ -592,9 +499,7 @@
             </ul>
             <p class="footer-copy">&copy; 2015 - Urbanzeak </p>
           </div>
-        </div>
-
-      </div><!-- End Row -->
+        </div><!-- End Row -->
     </div><!-- /End Wrapper -->
   </div><!-- /End Container -->
 </footer>
