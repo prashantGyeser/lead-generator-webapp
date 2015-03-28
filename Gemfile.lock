@@ -130,6 +130,8 @@ GEM
       rails (> 3.0.0)
     human_date (0.0.3)
     i18n (0.6.9)
+    informant-rails (0.8.0)
+      rails (>= 3.0.0, < 4.3.0)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -336,6 +338,7 @@ DEPENDENCIES
   honeybadger
   hublot (~> 0.0.6)
   human_date
+  informant-rails
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener

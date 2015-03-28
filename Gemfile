@@ -92,6 +92,8 @@ gem "dotiw"
 
 gem "awesome_print", require:"ap"
 
+gem 'informant-rails'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
