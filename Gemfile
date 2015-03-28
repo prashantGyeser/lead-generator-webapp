@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 
 gem 'pg'
 
-gem 'aws-sdk', '~> 1.0'
+#gem 'aws-sdk', '~> 1.0'
 
 gem 'devise'
 
@@ -56,9 +56,9 @@ gem 'omniauth-twitter'
 gem "figaro"
 
 # Message queue
-gem 'iron_mq'
+#gem 'iron_mq'
 
-gem 'httparty'
+#gem 'httparty'
 
 gem 'twitter'
 
