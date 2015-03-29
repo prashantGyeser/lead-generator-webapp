@@ -7,6 +7,17 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
     @lead_streams = LeadStream.where(user_id: current_user.id)
     @lead_streams.count >= current_user.total_streams ? (@max_reached = true):(@max_reached = false)
 
+
+    keywords = Keyword.where(lead_stream_id: @lead_streams.last.id)
+    keyword_ids = []
+    keywords.each do |keyword|
+      keyword_ids << keyword.id
+    end
+
+    @unprocessed_count = UnprocessedTweet.where(keyword_id: keyword_ids).count
+    @lead_count = Lead.where(keyword_id: keyword_ids).count
+    @reply_count = TweetReply.where(user_id: current_user.id).count
+
     if current_user.new_user?
       @new_user = true
       current_user.new_user = false
