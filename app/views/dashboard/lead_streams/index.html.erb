@@ -1,3 +1,72 @@
+<div class="row">
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles green m-b-10">
+      <div class="tiles-body text-center">
+        <div class="tiles-title text-black text-center">OVERALL TWEETS PROCESSED </div>
+
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-count animate-number semi-bold" data-value="<%= @unprocessed_count %>" data-animation-duration="700" style="font-size: 30px;">
+              <%= @unprocessed_count %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles blue m-b-10">
+      <div class="tiles-body text-center">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">TOTAL LEADS </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-count animate-number semi-bold" data-value="<%= @lead_count %>" data-animation-duration="700" style="font-size: 30px;">
+              <%= @lead_count %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-vlg-3 col-sm-6">
+    <div class="tiles purple m-b-10 text-center">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">TOTAL REPLIES SENT</div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-count animate-number semi-bold" data-value="<%= @reply_count %>" data-animation-duration="700" style="font-size: 30px;"><%= @reply_count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-vlg-3 visible-xlg visible-sm col-sm-6">
+    <div class="tiles red m-b-10">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">OVERALL SALES </div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-count animate-number semi-bold" data-value="1547" data-animation-duration="700">1,547</span>
+          </div>
+        </div>
+        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+          <div style="width: 64.8%;" class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%"></div>
+        </div>
+        <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
   <h3 class="semi-bold" style="width: 100%;">

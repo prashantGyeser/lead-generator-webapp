@@ -10,6 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require fonts
- *= require plugins/jquery-modal/jquery.modal
+ *= require website/bootstrap.min
+ *= require website/icons.min
+ *= require website/plugins.min
+ *= require website/style
+ *= require website/responsive
+ *= require website/green
  */
