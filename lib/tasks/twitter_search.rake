@@ -146,5 +146,35 @@ namespace :search do
     end
   end
 
+  # Enter the command line using rake task[argument]
+  desc "Search every keyword has not been searched for in the last 2 days"
+  task :search_for_user, [:email] => [:environment] do |t, args|
+
+    user = User.find_by_email(args[:email])
+
+    if user.nil?
+      puts "Check the email entered. Could not find an account with email #{args[:email]}"
+    else
+      lead_streams = LeadStream.where(user_id: user.id)
+
+      lead_streams.each do |lead_stream|
+
+        keywords = Keyword.where(lead_stream_id: lead_stream.id).where(archived: false)
+
+        twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
+
+        keyword.last_searched = DateTime.now
+        keyword.save
+
+        # Slowing down the calls to adhere to the Twitter API limitations
+        sleep 3.minutes
+      end
+
+    end
+
+
+  end
+
+
 
 end
