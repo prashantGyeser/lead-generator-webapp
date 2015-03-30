@@ -165,11 +165,13 @@ namespace :search do
 
       lead_streams.each do |lead_stream|
 
-        puts "Search for keyword: #{keyword.term}"
+
 
         keywords = Keyword.where(lead_stream_id: lead_stream.id).where(archived: false)
 
         keywords.each do |keyword|
+
+          puts "Search for keyword: #{keyword.term}"
           twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
 
           keyword.last_searched = DateTime.now
