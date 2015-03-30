@@ -152,12 +152,20 @@ namespace :search do
 
     user = User.find_by_email(args[:email])
 
+    twitter_helper = TwitterHelper.new
+
+    puts "Search for user: #{user.email}"
+
     if user.nil?
       puts "Check the email entered. Could not find an account with email #{args[:email]}"
     else
       lead_streams = LeadStream.where(user_id: user.id)
 
+      puts "Number of lead stream: #{lead_streams.count}"
+
       lead_streams.each do |lead_stream|
+
+        puts "Search for keyword: #{keyword.term}"
 
         keywords = Keyword.where(lead_stream_id: lead_stream.id).where(archived: false)
 
