@@ -169,13 +169,17 @@ namespace :search do
 
         keywords = Keyword.where(lead_stream_id: lead_stream.id).where(archived: false)
 
-        twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
+        keywords.each do |keyword|
+          twitter_helper.search(keyword, lead_stream.latitude, lead_stream.longitude, lead_stream.user_id)
 
-        keyword.last_searched = DateTime.now
-        keyword.save
+          keyword.last_searched = DateTime.now
+          keyword.save
 
-        # Slowing down the calls to adhere to the Twitter API limitations
-        sleep 3.minutes
+          # Slowing down the calls to adhere to the Twitter API limitations
+          sleep 3.minutes
+        end
+
+
       end
 
     end
