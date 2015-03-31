@@ -120,6 +120,8 @@ Rails.application.routes.draw do
     get 'angular_admin/all_users'
     get 'angular_admin/keywords'
     get 'angular_admin/all_keywords'
+    get 'emails_left/index'
+    post 'emails_left/create_lead_stream'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'

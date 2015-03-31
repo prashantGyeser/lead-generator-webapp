@@ -1,0 +1,50 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    People that left their email
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="row" ng-controller="UserCtrl">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:21%">Email</th>
+            <th style="width:10%">Status</th>
+            <th style="width:20%">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @emails_left.each do |email_left| %>
+            <tr>
+              <td>
+                <%= email_left.email %>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="#" class="btn btn-primary btn-small" data-toggle="modal" data-target="#new_stream_modal">Create Stream</a>
+              </td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<%= render 'new_stream_modal' %>
