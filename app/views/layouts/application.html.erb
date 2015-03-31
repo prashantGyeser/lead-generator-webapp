@@ -28,6 +28,11 @@
   <script src="assets/js/plugins/respond.min.js"></script>
   <![endif]-->
 
+  <% if Rails.env.production? %>
+    <%= render "tracking_codes" %>
+  <% end %>
+
+
   <%= csrf_meta_tag %>
 
 </head>
@@ -43,6 +48,10 @@
 
 <%= javascript_include_tag "website/application" %>
 
+
+<% if Rails.env.production? %>
+  <%= render 'page_bottom_tracking_codes' %>
+<% end %>
 
 </body>
 </html>
