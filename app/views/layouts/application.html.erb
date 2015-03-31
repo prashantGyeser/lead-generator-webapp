@@ -29,7 +29,7 @@
   <![endif]-->
 
   <% if Rails.env.production? %>
-    <%= render "tracking_codes" %>
+    <%= render "layouts/tracking_codes" %>
   <% end %>
 
 
@@ -50,7 +50,7 @@
 
 
 <% if Rails.env.production? %>
-  <%= render 'page_bottom_tracking_codes' %>
+  <%= render 'layouts/page_bottom_tracking_codes' %>
 <% end %>
 
 </body>
