@@ -27,8 +27,10 @@ class LeadStream < ActiveRecord::Base
 
 
   def lead_streams_count_within_limit
-    if self.user.lead_streams(:reload).count >= self.user.total_streams # self is optional
-      errors.add(:base, 'Exceeded stream limit')
+    if !self.user.nil?
+      if self.user.lead_streams(:reload).count >= self.user.total_streams # self is optional
+        errors.add(:base, 'Exceeded stream limit')
+      end
     end
   end
 

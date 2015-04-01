@@ -17,21 +17,38 @@
           <thead>
           <tr>
             <th style="width:21%">Email</th>
+            <th style="width:10%">City</th>
             <th style="width:10%">Status</th>
-            <th style="width:20%">Actions</th>
+            <th style="width:10%">Actions</th>
           </tr>
           </thead>
           <tbody>
 
           <% @emails_left.each do |email_left| %>
+
+            <%  User.find_by_email(email_left.email) ? (user_active=true):(user_active=false) %>
+            <% lead_stream = LeadStream.where(email_left_id: email_left.id) %>
+
             <tr>
               <td>
                 <%= email_left.email %>
               </td>
+              <td><%= email_left.city %></td>
               <td>
+
+                <% if lead_stream.count > 0 %>
+                  <span class="label">Lead Stream Created</span>
+                <% else %>
+                <% end %>
               </td>
               <td>
-                <a href="#" class="btn btn-primary btn-small" data-toggle="modal" data-target="#new_stream_modal">Create Stream</a>
+
+                <% if lead_stream.count > 0 %>
+                  <%# Todo: Add a link to the page where they can QC it  %>
+                  <a href="#" class="btn btn-info btn-small">QC Tweets</a>
+                <% else %>
+                  <a href="#" class="btn btn-primary btn-small new_stream" data-toggle="modal" data-target="#new_stream_modal" data-email-left-id="<%= email_left.id %>">Create Stream</a>
+                <% end %>
               </td>
             </tr>
           <% end %>
