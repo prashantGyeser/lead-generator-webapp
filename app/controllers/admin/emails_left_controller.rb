@@ -24,4 +24,8 @@ class Admin::EmailsLeftController < Admin::ApplicationController
 
   end
 
+
+  
+
+
 end
