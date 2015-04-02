@@ -40,5 +40,18 @@ RSpec.describe SubscriptionHelper do
     expect(subscription_helper.is_subscribed?(user)).to eq false
   end
 
+  it "should return true if the trial status is active" do
+    user = FactoryGirl.create(:user)
+    subscription_helper = SubscriptionHelper.new
+    expect(subscription_helper.is_active?(user)).to eq true
+  end
+
+  it "should return false if the trial status is inactive" do
+    user = FactoryGirl.create(:user, trial_duration: -20)
+    subscription_helper = SubscriptionHelper.new
+    expect(subscription_helper.is_active?(user)).to eq false
+  end
+
+
 
 end

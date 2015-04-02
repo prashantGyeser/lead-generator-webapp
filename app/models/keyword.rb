@@ -17,8 +17,23 @@
 #
 
 class Keyword < ActiveRecord::Base
+
+  scope :active, -> { where(archived: false) }
+  scope :no_search_in_24_hrs_or_never_searched,->  { where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 24.hours)) }
+
+
   belongs_to :lead_stream
   has_many :unprocessed_tweets, dependent: :destroy
   has_many :leads, dependent: :destroy
   has_many :non_leads, dependent: :destroy
+
+  def set_last_run
+    self.last_run = DateTime.now
+    self.save
+  end
+
+  def set_last_searched
+    self.last_searched = DateTime.now
+    self.save
+  end
 end

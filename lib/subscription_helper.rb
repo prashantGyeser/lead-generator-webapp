@@ -32,5 +32,12 @@ class SubscriptionHelper
     end
   end
 
+  def is_active?(user)
+    if trial_active?(user) || is_subscribed?(user)
+      return true
+    end
+    return false
+  end
+
 
 end
