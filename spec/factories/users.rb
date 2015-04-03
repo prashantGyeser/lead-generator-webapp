@@ -36,6 +36,7 @@
 #  website                      :string(255)
 #  founder_welcome_sent         :boolean          default(FALSE)
 #  trial_over_notification_sent :boolean          default(FALSE)
+#  global                       :boolean
 #
 
 FactoryGirl.define do

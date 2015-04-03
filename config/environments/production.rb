@@ -93,4 +93,6 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
 
+  config.middleware.use Rack::Deflater
+
 end
