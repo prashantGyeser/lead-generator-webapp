@@ -2,21 +2,23 @@
 #
 # Table name: lead_streams
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  category_id :integer
-#  city_id     :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  city_name   :string(255)
-#  latitude    :float
-#  longitude   :float
-#  name        :string(255)
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  category_id   :integer
+#  city_id       :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  city_name     :string(255)
+#  latitude      :float
+#  longitude     :float
+#  name          :string(255)
+#  email_left_id :integer
 #
 
 class LeadStream < ActiveRecord::Base
   has_many :keywords, dependent: :destroy
   belongs_to :user
+  belongs_to :email_left
   accepts_nested_attributes_for :keywords, allow_destroy: true, :reject_if => proc { |keyword| keyword[:term].blank? }
   validate :lead_streams_count_within_limit, on: :create
 
@@ -25,8 +27,10 @@ class LeadStream < ActiveRecord::Base
 
 
   def lead_streams_count_within_limit
-    if self.user.lead_streams(:reload).count >= self.user.total_streams # self is optional
-      errors.add(:base, 'Exceeded stream limit')
+    if !self.user.nil?
+      if self.user.lead_streams(:reload).count >= self.user.total_streams # self is optional
+        errors.add(:base, 'Exceeded stream limit')
+      end
     end
   end
 

@@ -2,16 +2,17 @@
 #
 # Table name: lead_streams
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  category_id :integer
-#  city_id     :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  city_name   :string(255)
-#  latitude    :float
-#  longitude   :float
-#  name        :string(255)
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  category_id   :integer
+#  city_id       :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  city_name     :string(255)
+#  latitude      :float
+#  longitude     :float
+#  name          :string(255)
+#  email_left_id :integer
 #
 
 require 'rails_helper'

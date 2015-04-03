@@ -6,6 +6,7 @@
 #  email      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  city       :string(255)
 #
 
 class EmailLeft < ActiveRecord::Base

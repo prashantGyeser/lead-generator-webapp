@@ -1,3 +1,5 @@
+require 'subscription_helper'
+
 class TwitterHelper
 
   def search(keyword, city_latitude, city_longitude, user_id)
@@ -35,6 +37,29 @@ class TwitterHelper
 
   end
 
+  def active_keyword_search
+    active_keywords.each do |keyword|
+      keyword.set_last_run
+
+      user_and_stream = user_and_lead_stream(keyword)
+      subscription_helper = SubscriptionHelper.new
+
+      if subscription_helper.is_active?(user_and_stream[:user])
+        search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id])
+      end
+
+      keyword.set_last_searched
+
+      # Slowing down the calls to adhere to the Twitter API limitations
+      sleep 3.minutes
+
+    end
+  end
+
+  def active_keywords
+    Keyword.active.no_search_in_24_hrs_or_never_searched
+  end
+
   def get_profile_info
 
     tokens = Token.where(name: nil)
@@ -57,6 +82,13 @@ class TwitterHelper
 
 
   private
+
+  def user_and_lead_stream(keyword)
+    lead_stream = LeadStream.find(keyword.lead_stream_id)
+    user = User.find(lead_stream.user_id)
+    return {user: user, lead_stream: lead_stream}
+  end
+
   def initialize_twitter_client(user_id)
 
     user = User.find(user_id)

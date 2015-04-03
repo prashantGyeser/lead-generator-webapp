@@ -1,0 +1,69 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    People that left their email
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="row" ng-controller="UserCtrl">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:15%">Email</th>
+            <th style="width:11%">City</th>
+            <th style="width:10%">Date Left</th>
+            <th style="width:5%">Status</th>
+            <th style="width:10%">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @emails_left.each do |email_left| %>
+
+            <%  User.find_by_email(email_left.email) ? (user_active=true):(user_active=false) %>
+            <% lead_stream = LeadStream.where(email_left_id: email_left.id) %>
+
+            <tr>
+              <td>
+                <%= email_left.email %>
+              </td>
+              <td><%= email_left.city %></td>
+              <td><%= email_left.created_at.strftime("%d-%m-%Y") %></td>
+              <td>
+
+                <% if lead_stream.count > 0 %>
+                  <span class="label">Lead Stream Created</span>
+                <% else %>
+                <% end %>
+              </td>
+              <td>
+
+                <% if lead_stream.count > 0 %>
+                  <%# Todo: Add a link to the page where they can QC it  %>
+                  <a href="#" class="btn btn-info btn-small">QC Tweets</a>
+                <% else %>
+                  <a href="#" class="btn btn-primary btn-small new_stream" data-toggle="modal" data-target="#new_stream_modal" data-email-left-id="<%= email_left.id %>">Create Stream</a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<%= render 'new_stream_modal' %>
