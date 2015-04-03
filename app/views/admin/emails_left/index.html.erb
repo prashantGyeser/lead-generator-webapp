@@ -16,9 +16,10 @@
         <table class="table table-condensed m-t-30" id="example">
           <thead>
           <tr>
-            <th style="width:21%">Email</th>
-            <th style="width:10%">City</th>
-            <th style="width:10%">Status</th>
+            <th style="width:15%">Email</th>
+            <th style="width:11%">City</th>
+            <th style="width:10%">Date Left</th>
+            <th style="width:5%">Status</th>
             <th style="width:10%">Actions</th>
           </tr>
           </thead>
@@ -34,6 +35,7 @@
                 <%= email_left.email %>
               </td>
               <td><%= email_left.city %></td>
+              <td><%= email_left.created_at.strftime("%d-%m-%Y") %></td>
               <td>
 
                 <% if lead_stream.count > 0 %>
