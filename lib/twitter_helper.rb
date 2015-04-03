@@ -45,6 +45,9 @@ class TwitterHelper
 
   def active_keyword_search
     active_keywords.each do |keyword|
+
+      puts keyword.term
+
       keyword.set_last_run
 
       user_and_stream = user_and_lead_stream(keyword)

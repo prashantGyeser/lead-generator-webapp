@@ -4,6 +4,12 @@ require 'subscription_helper'
 namespace :search do
 
   desc "Search every keyword that has not been used to search in the last 24 hours"
+  task twitter_class: :environment do
+    twitter_helper = TwitterHelper.new
+    twitter_helper.active_keyword_search
+  end
+
+  desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
 
     keywords = Keyword.where(archived: false).where("last_searched < ? OR (last_searched IS NULL)", (DateTime.now - 24.hours))
