@@ -2,7 +2,7 @@ require 'subscription_helper'
 
 class TwitterHelper
 
-  def search(keyword, city_latitude, city_longitude, user_id)
+  def search(keyword, city_latitude, city_longitude, user_id, global)
     client = initialize_twitter_client(user_id)
 
     user = User.find(user_id)
@@ -10,7 +10,13 @@ class TwitterHelper
     if !client.nil?
 
       begin
-        search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
+
+        if global == true
+          search_results = client.search( keyword.term ).collect
+        else
+          search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
+        end
+
         duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
         # Storing search result metrics
@@ -45,7 +51,13 @@ class TwitterHelper
       subscription_helper = SubscriptionHelper.new
 
       if subscription_helper.is_active?(user_and_stream[:user])
-        search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id])
+
+        if user_and_stream[:user][:global]
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true)
+        else
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false)
+        end
+
       end
 
       keyword.set_last_searched
