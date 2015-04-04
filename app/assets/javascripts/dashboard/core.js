@@ -464,7 +464,7 @@ $(document).ready(function () {
             $(this).closest('table').find('tr').removeClass('row_selected');
         }
     });
-    	
+
 
     //***********************************BEGIN Tiles Controller Options *****************************		
 
