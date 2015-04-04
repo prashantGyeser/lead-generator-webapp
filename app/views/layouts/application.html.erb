@@ -42,11 +42,54 @@
 <%= yield %>
 
 
+
+
+
+
 <!-- =========================
      SCRIPTS
 ============================== -->
 
 <%= javascript_include_tag "website/application" %>
+
+
+<script>window.twttr = (function (d, s, id) {
+  var t, js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src= "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+}(document, "script", "twitter-wjs"));</script>
+
+
+
+<script type="text/javascript" charset="utf-8">
+  twttr.ready(function(twttr) {
+    twttr.events.bind('tweet', function(event) {
+      //add ur post tweet stuff here
+      // Sending data to the server once a user has shared a post with their network
+      var email = $('#email_entered').val();
+// Posting the email to the server to be stored
+      $.ajax({
+        url: "/beta_signups",
+        type: "POST",
+        data: {beta_signup: {
+          email: email}},
+        success: function(resp){
+          console.log("Congratulations you should get an invite in the next 24 hours!");
+
+          $('#shareModal .modal-body .box').hide(500);
+          $('#shareModal .modal-body').append('<p style="font-weight: bold">Thanks for sharing! You will get an invite in the next 24 hours!</p>');
+
+
+        }
+      });
+
+    });
+  });
+
+</script>
 
 
 <% if Rails.env.production? %>

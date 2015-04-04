@@ -41,9 +41,7 @@ function showLoginForm(){
         $('.register-footer').fadeOut('fast',function(){
             $('.login-footer').fadeIn('fast');
         });
-        
-        $('.modal-title').html('Sign in to <span>SmartMvp</span>');
-        $('.modal-subtitle').html('Enter your email and password');
+
     });
     $('.error').removeClass('alert alert-danger').html('');
 }
@@ -52,7 +50,7 @@ function showLoginForm(){
 function openLoginModal(){
     "use strict";
     showLoginForm();
-    $('#loginModal').modal('show');
+    $('#shareModal').modal('show');
 }
 
 
@@ -164,6 +162,14 @@ $(document).ready(function() {
           {
             $('#submit-error').fadeOut();
             $('#submit-success').fadeIn();
+
+
+            console.log(data.email);
+
+            $('#email_entered').val(data.email);
+            openLoginModal();
+
+
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
@@ -514,5 +520,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 });
 
 
-
+/* ===========================================================
+ TWITTER SHARE CODE
+ ============================================================== */
 
