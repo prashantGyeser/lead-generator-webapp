@@ -61,12 +61,14 @@ class TwitterHelper
           search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false)
         end
 
+        keyword.set_last_searched
+
+        # Slowing down the calls to adhere to the Twitter API limitations
+        sleep 3.minutes
+
       end
 
-      keyword.set_last_searched
 
-      # Slowing down the calls to adhere to the Twitter API limitations
-      sleep 3.minutes
 
     end
   end
