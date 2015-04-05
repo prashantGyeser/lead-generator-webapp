@@ -65,13 +65,4 @@ RSpec.configure do |config|
 
 
 
-  # Taking a screenshot on a capybara error
-  config.after do |example|
-    if example.metadata[:type] == :feature and example.exception.present?
-      save_and_open_page
-    end
-  end
-
-
-
 end

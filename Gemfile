@@ -103,8 +103,8 @@ group :development, :test do
   gem 'faker'
   #gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
 group :development do
@@ -118,10 +118,10 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara-screenshot'
 end
 
 group :production do
   gem 'rails_12factor'
 end
 
-gem 'capybara-screenshot', :group => :test

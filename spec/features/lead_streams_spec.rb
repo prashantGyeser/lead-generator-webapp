@@ -31,6 +31,9 @@ feature 'User visits their lead stream dashboard' do
     visit  dashboard_root_path
     click_button "Edit Keywords"
 
+    expect(page).to have_selector('div.modal-body', text: /#{@keyword.term}/i)
+    expect(page).to have_content "Delete"
+
   end
 
 
