@@ -4,7 +4,6 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
-require 'capybara-screenshot/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -63,6 +62,16 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+
+
+  # Taking a screenshot on a capybara error
+  config.after do |example|
+    if example.metadata[:type] == :feature and example.exception.present?
+      save_and_open_page
+    end
+  end
+
 
 
 end

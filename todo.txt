@@ -39,3 +39,10 @@ RAILS_ENV=production bundle exec rake assets:precompile
 1. Set the actual notification id for the notification to be hidden
 2. Show the actual notifications that are stored
 
+
+
+Create a change log to show what all has changed with the app
+
+git log --oneline --decorate --color
+
+Pipe the above command into a changelog.md file
