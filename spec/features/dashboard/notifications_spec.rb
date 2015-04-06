@@ -14,6 +14,11 @@ feature 'User receives a notification' do
   scenario 'when their website cannot be extracted from their email', js: true do
 
     visit  dashboard_root_path
+
+    #sleep 350000
+
+    expect(find("#notification_counter")).to have_content 1
+
     click_link "my-task-list"
     expect(page).to have_content "We could not determine your website from your email"
 
@@ -22,12 +27,13 @@ feature 'User receives a notification' do
     within("#form_traditional_validation") do
 
       fill_in("websiteUrl", with: 'http://www.yahoo.com')
-      #find(".modal-footer .btn-primary", :visible => true).click
       click_button("Save Website")
 
     end
 
     expect(page).to have_content "Success: Added your website."
+
+    expect(find("#notification_counter")).to have_content 0
 
 
   end
