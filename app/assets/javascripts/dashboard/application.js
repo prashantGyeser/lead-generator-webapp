@@ -50,6 +50,9 @@ $(document).ready(function(e){
       {
         // Hiding the notification
         $('#'+notification_id).hide(500);
+        var notification_count = parseInt($('#notification_counter').text());
+        $('#notification_counter').text((notification_count - 1))
+
         responce = true;
       },
       error: function (jqXHR, textStatus, errorThrown)

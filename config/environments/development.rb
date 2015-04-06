@@ -54,3 +54,5 @@ Rails.application.configure do
   #config.action_mailer.delivery_method = :letter_opener
 
 end
+
+ActionMailer::Base.delivery_method = :smtp

@@ -6,4 +6,3 @@ ActionMailer::Base.smtp_settings = {
     :domain =>         'heroku.com',
     :authentication => :plain
 }
-ActionMailer::Base.delivery_method = :smtp

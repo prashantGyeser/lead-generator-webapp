@@ -30,6 +30,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
     @leads_available = true
 
+
     if @leads.count == 0
       @leads_available = false
 
