@@ -31,7 +31,7 @@ feature 'User on trial logs in' do
     token = FactoryGirl.create(:token, user_id: user.id)
 
     visit  dashboard_root_path
-    expect(page).to have_content "8 days remaining"
+    expect(page).to have_content "7 days remaining"
   end
 
   scenario 'after trial expires' do
