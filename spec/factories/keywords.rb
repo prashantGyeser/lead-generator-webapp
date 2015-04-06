@@ -21,6 +21,5 @@
 FactoryGirl.define do
   factory :keyword do
     term "MyString"
-    lead_stream_id 1
   end
 end

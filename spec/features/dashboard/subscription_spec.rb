@@ -22,7 +22,7 @@ feature 'User on trial logs in' do
     expect(page).to have_content "Connect your Twitter account"
   end
 
-  scenario 'with trial active after setting up the first lead stream'do
+  scenario 'with trial active after setting up the first lead stream' do
 
     user = FactoryGirl.create(:user, email: Faker::Internet.email)
     login_as user, :scope => :user
@@ -31,7 +31,7 @@ feature 'User on trial logs in' do
     token = FactoryGirl.create(:token, user_id: user.id)
 
     visit  dashboard_root_path
-    expect(page).to have_content "7 days remaining"
+    expect(page).to have_content "8 days remaining"
   end
 
   scenario 'after trial expires' do

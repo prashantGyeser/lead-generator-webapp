@@ -96,3 +96,5 @@ Rails.application.configure do
   config.middleware.use Rack::Deflater
 
 end
+
+ActionMailer::Base.delivery_method = :smtp
