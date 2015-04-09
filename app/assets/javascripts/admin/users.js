@@ -25,14 +25,16 @@ $(document).ready(function(){
   }
 
   $('.is_lead').click(function(e){
-      unprocessed_tweet_id = $(this).attr('data-id');
-      is_lead = $(this).attr('data-is-lead');
+    unprocessed_tweet_id = $(this).attr('data-id');
+    is_lead = $(this).attr('data-is-lead');
 
-      var parent_element = $(this).parent();
-      parent_element.children().hide();
-      parent_element.append('<div class="ajax_loader"><img alt="Ajax loader" src="/assets/ajax-loader.gif"></div>');
+    var parent_element = $(this).parent();
+    parent_element.children().hide();
+    parent_element.append('<div class="ajax_loader"><img alt="Ajax loader" src="/assets/ajax-loader.gif"></div>');
 
-      post_result = send_data_to_server(unprocessed_tweet_id, is_lead, parent_element);
+    post_result = send_data_to_server(unprocessed_tweet_id, is_lead, parent_element);
+
+    return false;
 
   });
 
