@@ -4,11 +4,60 @@
   <!-- BEGIN PAGE TITLE -->
   <div class="page-title">
     <h3 class="semi-bold">
-      Unprocessed Tweets
+      Reports
     </h3>
 
   </div>
   <!-- END PAGE TITLE -->
+
+
+  <!-- BEGIN KEY STATS  -->
+  <div class="row" style="margin-bottom: 20px;">
+    <div class="col-md-4 col-vlg-4 col-sm-6">
+      <div class="tiles green m-b-10">
+        <div class="tiles-body text-center">
+          <div class="tiles-title text-black text-center">TRAIL INVITE CONVERSIONS</div>
+          <div class="widget-stats text-center">
+            <div class="wrapper transparent last text-center">
+              <span class="item-count animate-number semi-bold" style="font-size: 30px;" data-value="2415" data-animation-duration="700">
+                <% user_count = User.count %>
+                <% user_invite_accepted_count = User.where.not(invitation_accepted_at: nil).count %>
+
+                <%= ((user_invite_accepted_count.to_f/user_count) * 100).round %> %
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-vlg-4 col-sm-6">
+      <div class="tiles blue m-b-10">
+        <div class="tiles-body text-center">
+          <div class="tiles-title text-black text-center"></div>
+          <div class="widget-stats text-center">
+            <div class="wrapper transparent last text-center">
+              <span class="item-count animate-number semi-bold" style="font-size: 30px;" data-value="2415" data-animation-duration="700"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-vlg-4 col-sm-6">
+      <div class="tiles purple m-b-10">
+        <div class="tiles-body text-center">
+          <div class="tiles-title text-black text-center"></div>
+          <div class="widget-stats text-center">
+            <div class="wrapper transparent last text-center">
+              <span class="item-count animate-number semi-bold" style="font-size: 30px;" data-value="2415" data-animation-duration="700"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END KEY STATS  -->
+
 
   <div class="row" ng-controller="UserCtrl">
     <div class="col-md-12">

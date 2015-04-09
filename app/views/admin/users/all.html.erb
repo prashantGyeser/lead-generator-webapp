@@ -1,0 +1,180 @@
+
+
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    Users
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+        <div class="invite_user_form">
+
+          <%= form_for User.new, :url => user_invitation_path, :html => {:method => :post} do |f| %>
+            <%# devise_error_messages! %>
+
+            <%= f.text_field :email, placeholder: "Email of user to invite" %>
+            <%= f.submit "Invite User", class: "btn btn_primary", style: "width: inherit;" %>
+          <% end %>
+
+        </div>
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:11%">Lead Stream</th>
+            <th style="width:10%" data-hide="phone,tablet">Tweets Remaining</th>
+            <th style="width:10%">Todays Leads</th>
+            <th style="width:6%" data-hide="phone,tablet">Months Leads</th>
+            <th style="width:12%" data-hide="phone,tablet">Replies</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @users.each do |user| %>
+
+              <tr>
+                <td colspan="4" class="bold">
+                  <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
+                  <%= user.email %>
+                  <% if @subscription_helper.trial_active?(user) || @subscription_helper.is_subscribed?(user) %>
+                    <span class='label label-success'>Active</span>
+                  <% else %>
+                    <span class='label'>Inactive</span>
+                  <% end %>
+
+                  <% remaining_days = @subscription_helper.remaining_days(user)  %>
+                  <% if remaining_days > 0 %>
+                  <span class="label label-info">
+                    <%= remaining_days %> days remaining
+                  </span>
+                  <% end %>
+
+                  <% token = Token.where(user_id: user.id) %>
+
+                  <% if token.count <= 0 %>
+                  <span class="label label-warning" style="margin-left: 5px;">
+                    Twitter not Integrated
+                  </span>
+                  <% end %>
+
+
+
+                </td>
+                <td><%= TweetReply.where(user_id: current_user.id).count %></td>
+              </tr>
+
+              <% LeadStream.where(user_id: user.id).each do |lead_stream| %>
+                <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+
+                <% keyword_ids = [] %>
+                <% keywords.each do |keyword| %>
+                  <% keyword_ids << keyword.id %>
+                <% end %>
+
+                <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+                <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
+
+                <tr>
+                  <td style="border-top: none;">
+                  <span class="">
+                    <%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %>
+                    <span class="label">City: <%= lead_stream.city_name %></span>
+                  </span>
+
+                    <table>
+                      <% keywords.each do |keyword| %>
+                        <tr>
+                          <td style="border: none" class="bold">
+                            <% if keyword.admin_created%>
+                              <a href="/admin/leads/qc/<%= keyword.id %>" class="text-success"><%= keyword.term %></a>
+                            <%elsif keyword.archived%>
+                              <%= keyword.term %>
+                            <%else%>
+                              <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
+                            <%end%>
+
+
+                            <% tweets_to_qc = UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %>
+                            <span class="badge <%= tweets_to_qc < 5 ? "badge-important":"badge-success" %>"><%= tweets_to_qc %></span>
+                          </td>
+                        </tr>
+                      <% end %>
+
+                    </table>
+                  </td>
+                  <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
+                  <td style="border-top: none;"><%= leads_today %></td>
+                  <td style="border-top: none;"><%= leads_this_month %></td>
+                  <td style="border-top: none;"><button class="btn open_add_keyword_modal" data-lead-stream-id="<%= lead_stream.id %>" data-toggle="modal" data-target="#myModal">Add Keyword</button></td>
+
+
+                </tr>
+
+
+            <% end %>
+
+
+          <% end %>
+
+
+
+
+
+          </tbody>
+        </table>
+
+        <%= will_paginate %>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <br>
+        <i class="fa fa-credit-card fa-7x"></i>
+        <h4 id="myModalLabel" class="semi-bold">Add Keyword</h4>
+        <br>
+      </div>
+      <div class="modal-body">
+        <div class="row form-row">
+          <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" placeholder="Keyword" id="new_keyword">
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save_keyword">Save Keywords</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+<input type="hidden" name="lead_stream_id" id="lead_stream_id"/>

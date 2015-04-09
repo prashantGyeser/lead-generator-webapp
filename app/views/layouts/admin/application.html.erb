@@ -132,7 +132,16 @@
       <li class="start active">
         <a href="<%= admin_root_path %>">
           <i class="fa fa-exchange"></i>
-          <span class="title">Admin Home</span>
+          <span class="title">Active Users</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+      <!-- END SELECTED LINK -->
+      <!-- BEGIN SELECTED LINK -->
+      <li class="start">
+        <a href="<%= admin_users_all_path %>">
+          <i class="fa fa-users"></i>
+          <span class="title">All Users</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -141,22 +150,30 @@
       <li class="">
         <a href="<%= admin_angular_admin_users_path %>">
           <i class="fa fa-user"></i>
-          <span class="title">Users</span>
+          <span class="title">Angular Users</span>
         </a>
       </li>
       <!-- END BADGE LINK -->
       <!-- BEGIN BADGE LINK -->
       <li class="">
         <a href="<%= admin_angular_admin_keywords_path %>">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-cogs"></i>
           <span class="title">Keywords</span>
         </a>
       </li>
       <!-- END BADGE LINK -->
       <!-- BEGIN BADGE LINK -->
       <li class="">
+        <a href="<%= admin_emails_left_index_path %>">
+          <i class="fa fa-envelope-o"></i>
+          <span class="title">Emails Left</span>
+        </a>
+      </li>
+      <!-- END BADGE LINK -->
+      <!-- BEGIN BADGE LINK -->
+      <li class="">
         <a href="<%= admin_reports_unprocessed_tweets_path %>">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-line-chart"></i>
           <span class="title">Reports</span>
         </a>
       </li>

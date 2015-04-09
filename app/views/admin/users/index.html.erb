@@ -3,7 +3,7 @@
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
   <h3 class="semi-bold">
-    Users
+    Active Users
   </h3>
 
 </div>
@@ -39,6 +39,9 @@
           <tbody>
 
           <% @users.each do |user| %>
+
+            <% if @subscription_helper.is_active?(user) %>
+
 
             <tr>
               <td colspan="4" class="bold">
@@ -118,6 +121,8 @@
 
 
               </tr>
+
+              <% end %>
             <% end %>
 
 

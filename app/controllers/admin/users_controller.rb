@@ -1,3 +1,5 @@
+require 'subscription_helper'
+
 class Admin::UsersController < Admin::ApplicationController
   def index
     @users = User.all.paginate(page: params[:page], per_page: 10).order('created_at DESC')
@@ -17,7 +19,8 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def all
-    @users = User.all
+    @users = User.all.paginate(page: params[:page], per_page: 10).order('created_at DESC')
+    @subscription_helper = SubscriptionHelper.new
   end
 
   def lead_stream
