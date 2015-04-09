@@ -10,5 +10,5 @@
 #
 
 class SiteEmail < ActiveRecord::Base
-  validates_uniqueness_of :email
+  #validates_uniqueness_of :email
 end
