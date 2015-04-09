@@ -15,8 +15,9 @@
             <table class="table table-striped" style="margin-bottom: 0">
               <tbody>
               <tr>
+                <% token = Token.where(user_id: current_user.id).last %>
                 <td>Name</td>
-                <td>Prashant A</td>
+                <td><%= token.name %></td>
                 <td></td>
               </tr>
               <tr>
