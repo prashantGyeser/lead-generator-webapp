@@ -154,6 +154,8 @@ $(document).ready(function() {
 
         var data_to_submit = {email: $('#signup-email').val()};
 
+        $("#join_now").attr('disabled','disabled');
+
         $.ajax({
           url : "/website_email",
           type: "POST",
@@ -174,6 +176,8 @@ $(document).ready(function() {
           error: function (jqXHR, textStatus, errorThrown)
           {
             $('#submit-error').fadeIn();
+            $("#join_now").removeAttr('disabled');
+            $('#error_reason').text($.parseJSON(jqXHR.responseText)[0]);
           }
         });
 
@@ -524,3 +528,9 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
  TWITTER SHARE CODE
  ============================================================== */
 
+
+
+/* =================================
+ DISABLING JOIN NOW BUTTON AFTER SUBMIT
+ =================================== */
+$('')

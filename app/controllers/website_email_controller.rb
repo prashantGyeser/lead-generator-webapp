@@ -8,7 +8,7 @@ class WebsiteEmailController < ApplicationController
       if email_left.save
         format.json { render :json => email_left, status: :created }
       else
-        format.json { render :json => email_left.errors, status: 500 }
+        format.json { render :json => email_left.errors.full_messages, status: 500 }
       end
     end
   end
