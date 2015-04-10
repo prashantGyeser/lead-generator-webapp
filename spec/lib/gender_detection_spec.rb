@@ -22,6 +22,7 @@ RSpec.describe GenderDetection do
 
   it "should detect the gender given a valid first name" do
     expect(@gender_detection.gender("Bob")).to eq :male
+    expect(@gender_detection.gender("Nancy Drew")).to eq :female
   end
 
 

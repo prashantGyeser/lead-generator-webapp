@@ -10,7 +10,14 @@ class GenderDetection
     full_name.split(" ")[0]
   end
 
-  def gender(first_name)
+  def gender(full_name)
+
+    if has_whitespace?(full_name)
+      first_name = first_name(full_name)
+    else
+      first_name = full_name
+    end
+
     gender_detector = GenderDetector.new(:case_sensitive => false)
     gender_detector.get_gender(first_name)
   end
