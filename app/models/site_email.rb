@@ -13,10 +13,4 @@ class SiteEmail < ActiveRecord::Base
 
   validates_uniqueness_of :email
 
-  after_create :send_invite
-
-  def send_invite
-    User.invite!(:email => self.email)
-  end
-
 end
