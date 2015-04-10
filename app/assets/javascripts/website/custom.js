@@ -176,6 +176,8 @@ $(document).ready(function() {
           error: function (jqXHR, textStatus, errorThrown)
           {
             $('#submit-error').fadeIn();
+            $("#join_now").removeAttr('disabled');
+            $('#error_reason').text($.parseJSON(jqXHR.responseText)[0]);
           }
         });
 

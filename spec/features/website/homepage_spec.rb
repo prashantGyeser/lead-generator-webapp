@@ -16,7 +16,23 @@ feature 'User visits the homepage' do
 
   end
 
-  scenario 'leaves an email address twice'
+  scenario 'leaves an email address twice', js: true do
+
+    email_left = EmailLeft.create(email: 'test@test.com')
+
+    visit  root_path
+
+    within '#signup-divider' do
+      fill_in "signup-email", with: email_left.email
+      click_button "Join Today"
+    end
+
+    expect(page).to have_button('Join Today', disabled: false)
+    expect(page).to have_content 'Something went wrong!'
+    expect(page).to have_content 'Email has already been taken'
+
+
+  end
 
 
 
