@@ -154,6 +154,8 @@ $(document).ready(function() {
 
         var data_to_submit = {email: $('#signup-email').val()};
 
+        $("#join_now").attr('disabled','disabled');
+
         $.ajax({
           url : "/website_email",
           type: "POST",
@@ -524,3 +526,9 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
  TWITTER SHARE CODE
  ============================================================== */
 
+
+
+/* =================================
+ DISABLING JOIN NOW BUTTON AFTER SUBMIT
+ =================================== */
+$('')
