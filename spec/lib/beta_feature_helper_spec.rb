@@ -17,14 +17,4 @@ RSpec.describe BetaFeatureHelper do
 
   end
 
-  it "should set the gender attribute as indeterminate if there is no poster name" do
-
-    FactoryGirl.create(:lead)
-
-    @beta_feature_helper.set_gender_for_leads
-
-    expect(Lead.last.gender).to eq "indeterminate"
-
-  end
-
 end

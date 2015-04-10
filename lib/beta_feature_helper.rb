@@ -8,8 +8,10 @@ class BetaFeatureHelper
 
     gender_detection = GenderDetection.new
 
+    puts "It is in the gender generator"
 
-    Lead.find_each do |lead|
+    Lead.where.not(poster_name: nil).where(gender: nil).find_each do |lead|
+      puts "Lead being run: #{lead.id}"
       if !lead.poster_name.nil?
         lead.gender = gender_detection.gender(lead.poster_name)
         puts lead.gender
