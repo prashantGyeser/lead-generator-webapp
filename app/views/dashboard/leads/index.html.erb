@@ -49,7 +49,16 @@
                       Friends: <%= lead.poster_friends_count %>
                       <% if @gender_beta_active %>
                       |
-                      Gender: <%= lead.gender %>
+                      Gender: <%# lead.gender %>
+                        <% if lead.gender == 'female' %>
+                          <i class="fa fa-venus" style="color: #D10D7C; font-weight: bold; font-size: 1.2em"></i>
+                        <% elsif lead.gender == 'male' %>
+                          <i class="fa fa-mars-stroke" style="color: #1764AE; font-weight: bold; font-size: 1.2em"></i>
+                        <% else %>
+                          Unknown
+                        <% end %>
+
+
                       <% end %>
                     </p>
                   </div>
