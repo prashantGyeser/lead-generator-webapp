@@ -37,6 +37,7 @@
 #  founder_welcome_sent         :boolean          default(FALSE)
 #  trial_over_notification_sent :boolean          default(FALSE)
 #  global                       :boolean
+#  active_beta_feature          :string(255)
 #
 
 require 'rails_helper'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403063548) do
+ActiveRecord::Schema.define(version: 20150410105209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150403063548) do
     t.boolean  "not_lead"
     t.boolean  "archived"
     t.string   "tweet_id"
+    t.string   "gender"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -366,6 +367,7 @@ ActiveRecord::Schema.define(version: 20150403063548) do
     t.boolean  "founder_welcome_sent",         default: false
     t.boolean  "trial_over_notification_sent", default: false
     t.boolean  "global"
+    t.string   "active_beta_feature"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

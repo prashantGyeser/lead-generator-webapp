@@ -34,6 +34,7 @@
 #  not_lead                           :boolean
 #  archived                           :boolean
 #  tweet_id                           :string(255)
+#  gender                             :string(255)
 #
 
 class Lead < ActiveRecord::Base
