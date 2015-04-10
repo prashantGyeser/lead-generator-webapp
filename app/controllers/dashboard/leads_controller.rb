@@ -47,6 +47,10 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       current_user.save
     end
 
+    if current_user.active_beta_feature == 'gender'
+      @gender_beta_active = true
+    end
+
   end
 
   def send_reply

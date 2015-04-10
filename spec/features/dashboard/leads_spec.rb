@@ -40,7 +40,30 @@ feature 'User visits their leads page' do
 
     expect(page).to have_content "Send Message"
 
+  end
 
+
+  scenario 'and has the gender beta feature enabled', js: true do
+
+    @user.active_beta_feature = 'gender'
+    @user.save
+
+    lead = FactoryGirl.create(:lead, keyword_id: @keyword.id, gender: 'male')
+
+    visit "/dashboard/leads/#{@lead_stream.id}"
+
+    expect(page).to have_content "male"
+
+  end
+
+
+  scenario 'and does not have the gender beta feature enabled' do
+
+    lead = FactoryGirl.create(:lead, keyword_id: @keyword.id, gender: 'male')
+
+    visit "/dashboard/leads/#{@lead_stream.id}"
+
+    expect(page).not_to have_content "male"
 
   end
 
