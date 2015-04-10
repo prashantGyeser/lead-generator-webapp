@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User visits the homepage' do
 
-  scenario 'and leaves a valid emails address', js: true do
+  scenario 'and leaves a valid email address', js: true do
     visit  root_path
 
     within '#signup-divider' do
@@ -33,6 +33,10 @@ feature 'User visits the homepage' do
 
 
   end
+
+  scenario 'and leaves a valid email he should be invited immediately' # Todo: Start testing mailers
+
+
 
 
 
