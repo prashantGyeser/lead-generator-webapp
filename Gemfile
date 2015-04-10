@@ -94,6 +94,8 @@ gem "awesome_print", require:"ap"
 
 gem 'informant-rails'
 
+gem 'gender_detector'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
