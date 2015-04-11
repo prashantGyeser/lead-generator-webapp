@@ -56,7 +56,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { render text: Lead.to_csv(csv_leads) }
+      format.csv { send_data Lead.to_csv(csv_leads) }
     end
 
   end

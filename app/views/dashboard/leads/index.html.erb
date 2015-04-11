@@ -1,6 +1,12 @@
 <!-- BEGIN PAGE TITLE -->
 <div class="page-title">
-  <h3 class="semi-bold">Leads</h3>
+  <h3 class="semi-bold" style="width: 100%;">
+    Leads
+    <% if @leads_available != false %>
+      <a href="/dashboard/leads/<%= @lead_stream.id %>.csv" class="btn btn-success btn-cons" style="float: right;">Export All Leads To CSV</a>
+    <% end %>
+
+  </h3>
 </div>
 <!-- END PAGE TITLE -->
 <!-- BEGIN PlACE PAGE CONTENT HERE -->
