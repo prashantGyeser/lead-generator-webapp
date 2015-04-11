@@ -51,7 +51,7 @@ feature 'User visits their leads page' do
 
     click_link "Export All Leads To CSV"
 
-    expect(page.response_headers['Content-Type']).to eq "application/octet-stream"
+    expect(page.response_headers['Content-Type']).to eq "text/csv; charset=utf-8; header=present"
 
 
   end
