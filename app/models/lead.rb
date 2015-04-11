@@ -40,4 +40,15 @@
 class Lead < ActiveRecord::Base
   validates_uniqueness_of :tweet_id, scope: :keyword_id
   belongs_to :keyword
+
+  def self.to_csv(all_user_leads)
+    CSV.generate do |csv|
+      csv << ['Username', 'Tweet', 'Created On(mm-dd--yyyy)']
+      all_user_leads.each do |lead|
+        csv << [lead.poster_screen_name, lead.tweet_body, lead.created_at.strftime('%m-%d-%Y')]
+      end
+    end
+  end
+
+
 end

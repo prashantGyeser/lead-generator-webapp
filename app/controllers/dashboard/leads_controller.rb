@@ -51,6 +51,14 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       @gender_beta_active = true
     end
 
+    # Todo: Fix this. Added this so that paginate does not affect the csv exports
+    csv_leads = Lead.where(keyword_id: keyword_ids).where(not_lead: nil)
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: Lead.to_csv(csv_leads) }
+    end
+
   end
 
   def send_reply
