@@ -43,29 +43,4 @@ feature 'User visits their leads page' do
   end
 
 
-  scenario 'and has the gender beta feature enabled' do
-
-    @user.active_beta_feature = 'gender'
-    @user.save
-
-    lead = FactoryGirl.create(:lead, keyword_id: @keyword.id, gender: 'female')
-
-    visit "/dashboard/leads/#{@lead_stream.id}"
-
-    expect(page).to have_css('i.fa-venus')
-
-
-  end
-
-
-  scenario 'and does not have the gender beta feature enabled' do
-
-    lead = FactoryGirl.create(:lead, keyword_id: @keyword.id, gender: 'male')
-
-    visit "/dashboard/leads/#{@lead_stream.id}"
-
-    expect(page).not_to have_css('i.fa-mars-stroke')
-
-  end
-
 end

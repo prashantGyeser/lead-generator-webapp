@@ -2,7 +2,7 @@
 <div class="page-title">
   <h3 class="semi-bold" style="width: 100%;">
     Leads
-    <% if @leads_available != false %>
+    <% if @leads_available != false && current_user.active_beta_feature == "export" %>
       <a href="/dashboard/leads/<%= @lead_stream.id %>.csv" class="btn btn-success btn-cons" style="float: right;">Export All Leads To CSV</a>
     <% end %>
 
