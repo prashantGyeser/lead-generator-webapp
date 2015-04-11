@@ -56,7 +56,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data Lead.to_csv(csv_leads) }
+      format.csv { send_data Lead.to_csv(csv_leads), :type => 'text/csv; charset=utf-8; header=present', :disposition => "attachment; filename=all-leads-#{Time.now.getutc}.csv", :filename => "all-leads-#{Time.now.getutc}.csv" }
     end
 
   end
