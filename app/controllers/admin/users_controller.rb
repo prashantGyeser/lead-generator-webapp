@@ -6,7 +6,7 @@ class Admin::UsersController < Admin::ApplicationController
     @subscription_helper = SubscriptionHelper.new
 
     # Including the leads streams and keywords for the user in the query
-    @users = User.where(on_trial_or_subscribed: true).includes(:lead_streams)
+    @users = User.where(on_trial_or_subscribed: true).order('created_at DESC').includes(:lead_streams)
   end
 
   def active
