@@ -60,6 +60,32 @@ class TwitterHelper
 
   end
 
+  def all_active_keyword_no_delay(admin_search)
+    Keyword.active.find_each do |keyword|
+      puts keyword.term
+
+      keyword.set_last_run
+
+      user_and_stream = user_and_lead_stream(keyword)
+      subscription_helper = SubscriptionHelper.new
+
+      if subscription_helper.is_active?(user_and_stream[:user])
+
+        if user_and_stream[:user][:global]
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true, admin_search)
+        else
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false, admin_search)
+        end
+
+        keyword.set_last_searched
+
+        # Slowing down the calls to adhere to the Twitter API limitations
+        sleep 3.minutes
+
+      end
+    end
+  end
+
   def active_keyword_search(admin_search)
     active_keywords.each do |keyword|
 
