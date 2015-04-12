@@ -115,6 +115,11 @@ group :development do
   gem "bullet"
   gem 'rack-mini-profiler'
   gem 'quiet_assets'
+
+  # Performance improvement tools
+  gem 'traceroute'
+  gem 'rails_best_practices'
+
 end
 
 

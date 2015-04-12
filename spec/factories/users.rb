@@ -38,6 +38,7 @@
 #  trial_over_notification_sent :boolean          default(FALSE)
 #  global                       :boolean
 #  active_beta_feature          :string(255)
+#  on_trial_or_subscribed       :boolean          default(TRUE)
 #
 
 FactoryGirl.define do

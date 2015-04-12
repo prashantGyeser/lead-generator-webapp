@@ -43,7 +43,7 @@
             <% if @subscription_helper.is_active?(user) %>
 
 
-            <tr>
+              <tr>
               <td colspan="4" class="bold">
                 <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
                 <%= user.email %>
@@ -74,13 +74,13 @@
               <td><%= TweetReply.where(user_id: current_user.id).count %></td>
             </tr>
 
-            <% LeadStream.where(user_id: user.id).each do |lead_stream| %>
+              <% user.lead_streams.each do |lead_stream| %>
+
+
+
               <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
 
-              <% keyword_ids = [] %>
-              <% keywords.each do |keyword| %>
-              <% keyword_ids << keyword.id %>
-              <% end %>
+              <% keyword_ids = lead_stream.keywords.pluck(:id) %>
 
               <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
               <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
@@ -123,6 +123,10 @@
               </tr>
 
               <% end %>
+
+            <% else %>
+              <% user.on_trial_or_subscribed = false %>
+              <% user.save %>
             <% end %>
 
 

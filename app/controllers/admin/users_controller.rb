@@ -2,8 +2,11 @@ require 'subscription_helper'
 
 class Admin::UsersController < Admin::ApplicationController
   def index
-    @users = User.all.order('created_at DESC')
+    #@users = User.active
     @subscription_helper = SubscriptionHelper.new
+
+    # Including the leads streams and keywords for the user in the query
+    @users = User.where(on_trial_or_subscribed: true).includes(:lead_streams)
   end
 
   def active

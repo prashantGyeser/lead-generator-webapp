@@ -38,9 +38,11 @@
 #  trial_over_notification_sent :boolean          default(FALSE)
 #  global                       :boolean
 #  active_beta_feature          :string(255)
+#  on_trial_or_subscribed       :boolean          default(TRUE)
 #
 
 require 'notification_helper'
+require 'subscription_helper'
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -56,6 +58,21 @@ class User < ActiveRecord::Base
   after_create :generic_email_domain_check
 
   after_update :send_emails
+
+  def self.active
+    subscription_helper = SubscriptionHelper.new
+
+    users = []
+
+    User.find_each do |user|
+      if subscription_helper.is_active?(user)
+        users << user
+      end
+    end
+
+    return users
+
+  end
 
 
 

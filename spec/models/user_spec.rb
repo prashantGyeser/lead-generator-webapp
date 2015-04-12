@@ -38,6 +38,7 @@
 #  trial_over_notification_sent :boolean          default(FALSE)
 #  global                       :boolean
 #  active_beta_feature          :string(255)
+#  on_trial_or_subscribed       :boolean          default(TRUE)
 #
 
 require 'rails_helper'
@@ -81,5 +82,12 @@ RSpec.describe User, :type => :model do
     user.generic_email_domain_check
     expect(Notification.last.user_id == user.id).to eq true
   end
+
+  it "should return only the active users" do
+    FactoryGirl.create(:user)
+    FactoryGirl.create(:user, email: "test@urbanzeak.com", trial_duration: -20)
+    expect(User.active.count).to eq 1
+  end
+
 
 end
