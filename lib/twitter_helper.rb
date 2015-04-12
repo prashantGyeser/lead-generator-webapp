@@ -2,20 +2,36 @@ require 'subscription_helper'
 
 class TwitterHelper
 
-  def search(keyword, city_latitude, city_longitude, user_id, global)
-    client = initialize_twitter_client(user_id)
+  def search(keyword, city_latitude, city_longitude, user_id, global, admin_search)
+
+    if admin_search
+      client = initialize_with_admin_token
+    else
+      client = initialize_twitter_client(user_id)
+    end
+
+
+    puts "Client initialized"
 
     user = User.find(user_id)
 
     if !client.nil?
+
+      puts "Client not nil"
 
       begin
 
         if global == true
           search_results = client.search( keyword.term ).collect
         else
+          puts "Non global search"
+
           search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
         end
+
+        puts "Out of the search if loop"
+
+        puts "search results are: #{search_results.inspect}"
 
         duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
@@ -24,6 +40,7 @@ class TwitterHelper
         keyword.last_duplicate_count = duplicate_count
 
         keyword.save
+
       rescue => e
         Honeybadger.notify(
             :error_class   => "Twitter Search Error",
@@ -43,7 +60,7 @@ class TwitterHelper
 
   end
 
-  def active_keyword_search
+  def active_keyword_search(admin_search)
     active_keywords.each do |keyword|
 
       puts keyword.term
@@ -53,12 +70,14 @@ class TwitterHelper
       user_and_stream = user_and_lead_stream(keyword)
       subscription_helper = SubscriptionHelper.new
 
+
       if subscription_helper.is_active?(user_and_stream[:user])
 
+
         if user_and_stream[:user][:global]
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true, admin_search)
         else
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false, admin_search)
         end
 
         keyword.set_last_searched
@@ -73,7 +92,7 @@ class TwitterHelper
     end
   end
 
-  def single_keyword_search(keyword_id)
+  def single_keyword_search(keyword_id, admin_search)
 
     keyword = Keyword.find(keyword_id)
 
@@ -85,9 +104,9 @@ class TwitterHelper
     subscription_helper = SubscriptionHelper.new
 
     if user_and_stream[:user][:global]
-      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true)
+      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true, admin_search)
     else
-      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false)
+      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false, admin_search)
     end
 
       keyword.set_last_searched
@@ -171,10 +190,27 @@ class TwitterHelper
     end
   end
 
+  def initialize_with_admin_token
+    begin
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV['TWITTER_KEY']
+        config.consumer_secret     = ENV['TWITTER_SECRET']
+        config.access_token        = ENV['TWITTER_ADMIN_ACCESS_TOKEN']
+        config.access_token_secret = ENV['TWITTER_ADMIN_TOKEN_SECRET']
+      end
+    rescue => e
+      Honeybadger.notify(
+          :error_class   => "Twitter Initialization Error",
+          :error_message => "Twitter Initialization Error: #{e.message}"
+      )
+    end
+  end
+
   def parse_and_store_tweets(search_results, keyword_id)
 
     duplicate_count = 0
 
+    puts "In the parse function"
 
     if search_results.count == 0
       Honeybadger.notify(
