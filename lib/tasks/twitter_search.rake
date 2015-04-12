@@ -9,6 +9,12 @@ namespace :search do
     twitter_helper.active_keyword_search
   end
 
+  desc "Search a single keyword even if it has been already searched in the last 24 hours"
+  task :single_keyword, [:keyword_id] => [:environment] do |t, args|
+    twitter_helper = TwitterHelper.new
+    twitter_helper.single_keyword_search(args[:keyword_id])
+  end
+
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
 

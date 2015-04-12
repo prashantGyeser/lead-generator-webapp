@@ -73,6 +73,30 @@ class TwitterHelper
     end
   end
 
+  def single_keyword_search(keyword_id)
+
+    keyword = Keyword.find(keyword_id)
+
+    puts keyword.term
+
+    keyword.set_last_run
+
+    user_and_stream = user_and_lead_stream(keyword)
+    subscription_helper = SubscriptionHelper.new
+
+    if user_and_stream[:user][:global]
+      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true)
+    else
+      search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false)
+    end
+
+      keyword.set_last_searched
+
+      # Slowing down the calls to adhere to the Twitter API limitations
+      sleep 3.minutes
+
+  end
+
   def active_keywords
     Keyword.active.no_search_in_24_hrs_or_never_searched
   end
