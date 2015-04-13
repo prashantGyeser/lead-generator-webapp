@@ -88,6 +88,8 @@ class Admin::AngularAdminController < Admin::ApplicationController
 
       keyword_to_return[:email] = user.email
       keyword_to_return[:city] = lead_stream.city_name
+      keyword_to_return[:last_result_count] = lead_stream.last_result_count
+      keyword_to_return[:last_duplicate_count ] = lead_stream.last_duplicate_count
 
       if (subscription_helper.trial_active?(user) || subscription_helper.is_subscribed?(user)) && (keyword.archived == false)
         keyword_to_return[:is_active] = true
