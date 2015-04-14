@@ -17,21 +17,13 @@ class TwitterHelper
 
     if !client.nil?
 
-      puts "Client not nil"
-
       begin
 
         if global == true
           search_results = client.search( keyword.term ).collect
         else
-          puts "Non global search"
-
           search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
         end
-
-        puts "Out of the search if loop"
-
-        puts "search results are: #{search_results.inspect}"
 
         duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
