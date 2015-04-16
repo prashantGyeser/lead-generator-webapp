@@ -13,6 +13,7 @@
 #  longitude     :float
 #  name          :string(255)
 #  email_left_id :integer
+#  search_type   :string(255)
 #
 
 class LeadStream < ActiveRecord::Base

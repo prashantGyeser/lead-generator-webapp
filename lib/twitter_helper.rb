@@ -2,7 +2,9 @@ require 'subscription_helper'
 
 class TwitterHelper
 
-  def search(keyword, city_latitude, city_longitude, user_id, global, admin_search)
+  # search_type can be one of three things right now
+  # "city", "country", "global"
+  def search(keyword, city_latitude, city_longitude, user_id, search_type, admin_search)
 
     if admin_search
       client = initialize_with_admin_token
@@ -10,8 +12,6 @@ class TwitterHelper
       client = initialize_twitter_client(user_id)
     end
 
-
-    puts "Client initialized"
 
     user = User.find(user_id)
 
@@ -64,9 +64,9 @@ class TwitterHelper
       if subscription_helper.is_active?(user_and_stream[:user])
 
         if user_and_stream[:user][:global]
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true, admin_search)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], "global", admin_search)
         else
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false, admin_search)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], "city", admin_search)
         end
 
         keyword.set_last_searched
@@ -93,12 +93,17 @@ class TwitterHelper
 
 
         if user_and_stream[:user][:global]
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], true, admin_search)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], "global", admin_search)
+        elsif  user_and_stream[:lead_stream].search_type == "country"
+
+
         else
-          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], false, admin_search)
+          search(keyword, user_and_stream[:lead_stream][:latitude], user_and_stream[:lead_stream][:longitude], user_and_stream[:lead_stream][:user_id], "city", admin_search)
         end
 
         keyword.set_last_searched
+
+        puts "Going to sleep"
 
         # Slowing down the calls to adhere to the Twitter API limitations
         sleep 3.minutes
@@ -227,8 +232,6 @@ class TwitterHelper
   def parse_and_store_tweets(search_results, keyword_id)
 
     duplicate_count = 0
-
-    puts "In the parse function"
 
     if search_results.count == 0
       Honeybadger.notify(
