@@ -10,28 +10,18 @@ class TwitterHelper
       client = initialize_twitter_client(user_id)
     end
 
-
-    puts "Client initialized"
-
     user = User.find(user_id)
 
     if !client.nil?
 
-      puts "Client not nil"
 
       begin
 
         if global == true
           search_results = client.search( keyword.term ).collect
         else
-          puts "Non global search"
-
           search_results = client.search( keyword.term, geocode: "#{city_latitude},#{city_longitude},25mi" ).collect
         end
-
-        puts "Out of the search if loop"
-
-        puts "search results are: #{search_results.inspect}"
 
         duplicate_count = parse_and_store_tweets(search_results, keyword.id)
 
@@ -41,6 +31,8 @@ class TwitterHelper
 
         keyword.save
 
+      rescue Twitter::Error::TooManyRequests => error
+        puts "Hitting the rate limit: #{error.inspect}"
       rescue => e
         Honeybadger.notify(
             :error_class   => "Twitter Search Error",
