@@ -6,8 +6,8 @@ require 'socialmedia/parse_search_results'
 class SocialmediaSearch
 
 
-  def twitter_geocode_search(token, keyword, lat_lon_hash, radius)
-    client = Client.initialize_twitter(token.oauth_token, token.oauth_secret)
+  def twitter_geocode_search(oauth_token, oauth_secret, keyword, lat_lon_hash, radius)
+    client = Client.initialize_twitter(oauth_token, oauth_secret)
 
     search = Search.new
     parse_and_store_results = ParseSearchResults.new
@@ -22,11 +22,26 @@ class SocialmediaSearch
     stats.set_search_stats(total_results, duplicate_count, keyword )
   end
 
-  def
+  def search_active_keywords
+
+    active_keywords.each do |keyword|
+
+    end
+
+  end
 
 
+
+  private
   def active_keywords
     Keyword.active.no_search_in_24_hrs_or_never_searched
+  end
+
+  def user_token_lead_stream(keyword)
+    lead_stream = LeadStream.find(keyword.lead_stream_id)
+    user = User.find(lead_stream.user_id)
+    token = Token.where(user_id: user.id).last
+    return {user: user, token: token, lead_stream: lead_stream}
   end
 
 end
