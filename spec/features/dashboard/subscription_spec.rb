@@ -1,14 +1,29 @@
 require 'rails_helper'
 include Warden::Test::Helpers
+require 'rake'
+load File.join(Rails.root, 'Rakefile')
 
 feature 'User on trial logs in' do
 
-  scenario 'for the first time'do
+  scenario 'for the first time' do
+
     user = FactoryGirl.create(:user)
     login_as user, :scope => :user
 
+    Rake::Task['setup:countries'].invoke
     visit  dashboard_root_path
     expect(page).to have_content "1. Keyword Setup"
+
+    fill_in('lead_stream_name', :with => 'Some lead stream name')
+    fill_in('lead_stream_keywords_attributes_0_term', :with => 'sushi')
+    select('United States', :from => 'lead_stream_country_id')
+
+    click_button "Save"
+
+    expect(page).to have_content "Connect your Twitter account"
+
+    expect(LeadStream.last.country_id).to eq Country.find_by_name("United States").id
+
   end
 
   scenario 'with trial active after setting up the first lead stream' do

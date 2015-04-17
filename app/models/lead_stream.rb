@@ -25,7 +25,7 @@ class LeadStream < ActiveRecord::Base
   accepts_nested_attributes_for :keywords, allow_destroy: true, :reject_if => proc { |keyword| keyword[:term].blank? }
   validate :lead_streams_count_within_limit, on: :create
 
-  before_save :set_lat_lon
+  #before_save :set_lat_lon
 
 
 
