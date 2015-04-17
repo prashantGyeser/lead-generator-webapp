@@ -1,6 +1,6 @@
 class ParseSearchResults
 
-  def twitter(search_results)
+  def twitter(search_results, keyword_id)
     duplicate_count = 0
 
     search_results.each do |search_result|

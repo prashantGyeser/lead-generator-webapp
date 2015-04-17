@@ -2,6 +2,7 @@ require 'socialmedia/client'
 require 'socialmedia/search'
 require 'socialmedia/search_stats'
 require 'socialmedia/parse_search_results'
+require 'subscription_helper'
 
 class SocialmediaSearch
 
@@ -17,15 +18,56 @@ class SocialmediaSearch
 
     total_results = search_results.count
 
-    duplicate_count = parse_and_store_results.twitter(search_results)
+    puts "Returned #{total_results} search results"
+
+    duplicate_count = parse_and_store_results.twitter(search_results, keyword.id)
 
     stats.set_search_stats(total_results, duplicate_count, keyword )
   end
 
+
+
   def search_active_keywords
 
-    active_keywords.each do |keyword|
+    puts "Function called"
 
+    subscription_helper = SubscriptionHelper.new
+
+    User.find_each do |user|
+      if subscription_helper.is_active?(user)
+        lead_streams = user.lead_streams
+        token = Token.where(user_id: user.id).last
+
+        if token
+          lead_streams.each do |lead_stream|
+            keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
+
+            if lead_stream.search_type == "country"
+
+              puts "In the country search"
+
+              country = Country.find(lead_stream.country_id)
+              country_subdivisions = country.country_subdivisions
+
+              country_subdivisions.each do |country_subdivision|
+
+                latitude_longitude_hash = {latitude: country_subdivision.latitude, longitude: country_subdivision.longitude}
+
+                keywords.each do |keyword|
+
+                  puts "searching for term:#{keyword.term}"
+
+                  twitter_geocode_search(token.oauth_token, token.oauth_secret, keyword, latitude_longitude_hash, country_subdivision.radius)
+                end
+              end
+
+            end
+
+          end
+        end
+
+
+      end
     end
 
   end

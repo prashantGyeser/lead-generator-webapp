@@ -16,7 +16,7 @@ class Search
 
 
   def twitter_geocode(term, lat_lon_hash, radius, client)
-
+    puts "it is getting to the geocode search"
     begin
       client.search( term, geocode: "#{lat_lon_hash[:latitude]},#{lat_lon_hash[:longitude]},#{radius}km" ).collect
     rescue => e

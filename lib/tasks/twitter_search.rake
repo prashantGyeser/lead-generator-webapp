@@ -1,5 +1,6 @@
 require 'twitter_helper'
 require 'subscription_helper'
+require 'socialmedia_search'
 
 namespace :search do
 
@@ -32,6 +33,15 @@ namespace :search do
     twitter_helper = TwitterHelper.new
     twitter_helper.all_active_keyword_no_delay(true)
   end
+
+  desc "Search based on country"
+  task country_search: :environment do
+    socialmedia_search = SocialmediaSearch.new
+    socialmedia_search.search_active_keywords
+  end
+
+
+
 
 
   desc "Search every keyword that has not been used to search in the last 24 hours"
