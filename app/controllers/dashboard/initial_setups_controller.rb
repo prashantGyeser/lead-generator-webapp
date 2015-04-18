@@ -17,6 +17,7 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
     @lead_stream = LeadStream.new(lead_stream_params)
     @lead_stream.user_id = current_user.id
+    @lead_stream.search_type = "country"
 
     respond_to do |format|
 
