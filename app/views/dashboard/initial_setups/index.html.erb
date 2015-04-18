@@ -44,14 +44,14 @@
 
 
         <p style="font-style: italic">
-          Enter a simple name to remember your lead stream by
+          Enter a simple name to remember your lead stream by.
         </p>
 
         <%= f.text_field :name, class: "keywordBox", placeholder: "Name your stream", autofocus: true %>
 
 
         <p style="font-style: italic">
-          Enter words that are more likely to occur in your target customer's tweet language.
+          Enter words that are likely to occur in your target customer's tweet.
         </p>
 
         <%= f.fields_for :keywords do |keywords_form| %>
@@ -65,6 +65,10 @@
         <div class="city_seperator">
           And
         </div>
+
+        <p style="font-style: italic">
+          Select a country. We will find and process all the tweets within in this country.
+        </p>
 
         <%= f.collection_select(:country_id, Country.all, :id, :name) %>
 

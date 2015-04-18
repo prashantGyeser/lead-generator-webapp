@@ -164,3 +164,16 @@ p
   margin: 20px 0;
   
 }
+
+
+/* COUNTRY SELECT STYLING -- START */
+.select2-container{
+  width: 100% !important;
+}
+.select2-choices
+{
+  min-height: 150px !important;
+  max-height: 150px !important;
+  overflow-y: auto !important;
+}
+/* COUNTRY SELECT STYLING -- END */

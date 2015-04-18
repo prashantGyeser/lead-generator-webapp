@@ -24,6 +24,12 @@ namespace :setup do
     CountrySubdivision.create(radius: 1680, latitude: 61.90544, longitude:-132.53817, country_id: Country.find_by_name("Canada").id )
     CountrySubdivision.create(radius: 1390, latitude: 57.85363, longitude:-77.51864, country_id: Country.find_by_name("Canada").id )
 
+    CountrySubdivision.create(radius: 2277, latitude: -29.48732, longitude:133.07201, country_id: Country.find_by_name("Australia").id )
+
+    CountrySubdivision.create(radius: 1170, latitude: 19.85143, longitude: 79.05077, country_id: Country.find_by_name("India").id )
+
+    CountrySubdivision.create(radius: 1000, latitude: -40.900557, longitude: 174.885971, country_id: Country.find_by_name("India").id )
+
   end
 
 end
