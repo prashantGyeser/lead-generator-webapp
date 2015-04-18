@@ -15,14 +15,14 @@ namespace :setup do
   desc "Setup the country subdivisions"
   task country_subdivisions: :environment do
 
-    CountrySubdivision.create(radius: 1005, latitiude: 39.90973, longitude:-114.87304, country_id: Country.find_by_name("United States").id )
-    CountrySubdivision.create(radius: 1204, latitiude: 38.41055, longitude:-97.03125, country_id: Country.find_by_name("United States").id )
-    CountrySubdivision.create(radius: 1198, latitiude: 33.6512, longitude: -72.99316, country_id: Country.find_by_name("United States").id )
+    CountrySubdivision.create(radius: 1005, latitude: 39.90973, longitude:-114.87304, country_id: Country.find_by_name("United States").id )
+    CountrySubdivision.create(radius: 1204, latitude: 38.41055, longitude:-97.03125, country_id: Country.find_by_name("United States").id )
+    CountrySubdivision.create(radius: 1198, latitude: 33.6512, longitude: -72.99316, country_id: Country.find_by_name("United States").id )
 
-    CountrySubdivision.create(radius: 650, latitiude: 55.378051, longitude:-3.435973, country_id: Country.find_by_name("United Kingdom").id )
+    CountrySubdivision.create(radius: 650, latitude: 55.378051, longitude:-3.435973, country_id: Country.find_by_name("United Kingdom").id )
 
-    CountrySubdivision.create(radius: 1680, latitiude: 61.90544, longitude:-132.53817, country_id: Country.find_by_name("Canada").id )
-    CountrySubdivision.create(radius: 1390, latitiude: 57.85363, longitude:-77.51864, country_id: Country.find_by_name("Canada").id )
+    CountrySubdivision.create(radius: 1680, latitude: 61.90544, longitude:-132.53817, country_id: Country.find_by_name("Canada").id )
+    CountrySubdivision.create(radius: 1390, latitude: 57.85363, longitude:-77.51864, country_id: Country.find_by_name("Canada").id )
 
   end
 
