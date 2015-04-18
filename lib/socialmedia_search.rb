@@ -23,6 +23,9 @@ class SocialmediaSearch
     duplicate_count = parse_and_store_results.twitter(search_results, keyword.id)
 
     stats.set_search_stats(total_results, duplicate_count, keyword )
+
+    sleep 2.minutes
+
   end
 
 
