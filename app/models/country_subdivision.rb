@@ -13,4 +13,7 @@
 
 class CountrySubdivision < ActiveRecord::Base
   belongs_to :country
+
+  validates :country_id, :uniqueness => {scope: [:radius, :latitude, :longitude]}
+
 end
