@@ -32,7 +32,7 @@ class SocialmediaSearch
 
   def search_active_keywords(admin_search=false, no_delay=false)
 
-    puts "Function called"
+    puts "Function called: admin_search: #{admin_search}, no_delay: #{no_delay}"
 
     subscription_helper = SubscriptionHelper.new
 
@@ -53,11 +53,12 @@ class SocialmediaSearch
           lead_streams.each do |lead_stream|
 
             if no_delay == true
+              puts "It is in the no dela function"
               keywords = lead_stream.keywords.active
             else
               keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
             end
-
+            puts "The toal keywords are: #{keywords.count}"
 
             if lead_stream.search_type == "country"
 
