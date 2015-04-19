@@ -37,7 +37,11 @@ class SocialmediaSearch
     subscription_helper = SubscriptionHelper.new
 
     User.find_each do |user|
+      puts "User email: #{user.email}"
       if subscription_helper.is_active?(user)
+
+        puts "Active user: #{user.email}"
+
         lead_streams = user.lead_streams
 
         if admin_search == false
