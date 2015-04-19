@@ -105,7 +105,7 @@ class SocialmediaSearch
       country = Country.find(lead_stream.country_id)
       country_subdivisions = country.country_subdivisions
       country_subdivisions.each do |country_subdivision|
-        lat_lon_hash = {latitude: country_subdivision.latitide, longitude: country_subdivision.longitude}
+        lat_lon_hash = {latitude: country_subdivision.latitude, longitude: country_subdivision.longitude}
         twitter_geocode_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword, lat_lon_hash, country_subdivision.radius)
       end
     end
