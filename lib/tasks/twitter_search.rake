@@ -49,7 +49,7 @@ namespace :search do
   desc "Search based on country"
   task admin_country_search_no_24_hr_wait: :environment do
     socialmedia_search = SocialmediaSearch.new
-    socialmedia_search.search_active_keywords(true, false)
+    socialmedia_search.search_active_keywords(true, true)
   end
 
 
