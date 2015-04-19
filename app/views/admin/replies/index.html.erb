@@ -1,0 +1,47 @@
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    Replies Sent
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:14%">Email</th>
+            <th style="width:22%" data-hide="phone,tablet">Message</th>
+            <th style="width:13%">Lead Id</th>
+          </tr>
+          </thead>
+
+          <tbody>
+
+          <% @tweet_replies.each do |reply| %>
+            <tr>
+              <td><%= User.find(reply.user_id).email %></td>
+              <td><%= reply.message %></td>
+              <td><%= reply.lead_id %></td>
+            </tr>
+          <% end %>
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

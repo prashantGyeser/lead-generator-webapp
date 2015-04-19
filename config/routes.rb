@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'replies/index'
+  end
+
   post 'beta_signups' => 'beta_signups#create'
 
   # This is the route to get an email notification to mandrill from mailchimp
