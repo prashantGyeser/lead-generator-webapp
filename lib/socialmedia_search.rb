@@ -97,6 +97,22 @@ class SocialmediaSearch
   end
 
 
+  def admin_single_keyword(keyword_id)
+    keyword = Keyword.find(keyword_id)
+    lead_stream = LeadStream.find(keyword.lead_stream_id)
+
+    if !lead_stream.country_id.nil?
+      country = Country.find(lead_stream.country_id)
+      country_subdivisions = country.country_subdivisions
+      country_subdivisions.each do |country_subdivision|
+        lat_lon_hash = {latitude: country_subdivision.latitide, longitude: country_subdivision.longitude}
+        twitter_geocode_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword, lat_lon_hash, country_subdivision.radius)
+      end
+    end
+
+
+  end
+
 
   private
   def active_keywords
