@@ -30,7 +30,7 @@ class SocialmediaSearch
 
 
 
-  def search_active_keywords
+  def search_active_keywords(admin_search=false, no_delay=false)
 
     puts "Function called"
 
@@ -39,11 +39,21 @@ class SocialmediaSearch
     User.find_each do |user|
       if subscription_helper.is_active?(user)
         lead_streams = user.lead_streams
-        token = Token.where(user_id: user.id).last
 
-        if token
+        if admin_search == false
+          token = Token.where(user_id: user.id).last
+        end
+
+
+        if token || (admin_search == true)
           lead_streams.each do |lead_stream|
-            keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
+
+            if no_delay == true
+              keywords = lead_stream.keywords.active
+            else
+              keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
+            end
+
 
             if lead_stream.search_type == "country"
 
@@ -60,7 +70,13 @@ class SocialmediaSearch
 
                   puts "searching for term:#{keyword.term}"
 
-                  twitter_geocode_search(token.oauth_token, token.oauth_secret, keyword, latitude_longitude_hash, country_subdivision.radius)
+                  if admin_search == true
+                    twitter_geocode_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword, latitude_longitude_hash, country_subdivision.radius)
+                  else
+                    twitter_geocode_search(token.oauth_token, token.oauth_secret, keyword, latitude_longitude_hash, country_subdivision.radius)
+                  end
+
+
                 end
               end
 
