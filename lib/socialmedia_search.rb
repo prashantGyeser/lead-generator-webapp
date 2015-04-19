@@ -97,7 +97,7 @@ class SocialmediaSearch
   end
 
 
-  def admin_single_keyword(keyword_id)
+  def admin_country_single_keyword(keyword_id)
     keyword = Keyword.find(keyword_id)
     lead_stream = LeadStream.find(keyword.lead_stream_id)
 

@@ -53,6 +53,15 @@ namespace :search do
   end
 
 
+  desc "Search based on country for a single keyword. 24 hour delay ignored"
+  task :admin_country_single_keyword, [:keyword_id] => [:environment] do |t, args|
+    socialmedia_search = SocialmediaSearch.new
+    socialmedia_search.admin_country_single_keyword(args[:keyword_id])
+  end
+
+
+
+
 
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do
