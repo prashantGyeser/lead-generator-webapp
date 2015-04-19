@@ -83,6 +83,8 @@ class Admin::AngularAdminController < Admin::ApplicationController
     keywords.each do |keyword|
       keyword_to_return = {}
 
+      puts keyword.lead_stream_id
+
       lead_stream = LeadStream.find(keyword.lead_stream_id)
       user = User.find(lead_stream.user_id)
 

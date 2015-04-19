@@ -13,6 +13,9 @@
 #  longitude     :float
 #  name          :string(255)
 #  email_left_id :integer
+#  search_type   :string(255)
+#  country_name  :string(255)
+#  country_id    :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

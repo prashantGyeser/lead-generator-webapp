@@ -13,6 +13,9 @@
 #  longitude     :float
 #  name          :string(255)
 #  email_left_id :integer
+#  search_type   :string(255)
+#  country_name  :string(255)
+#  country_id    :integer
 #
 
 require 'rails_helper'
