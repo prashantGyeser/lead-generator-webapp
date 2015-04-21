@@ -16,9 +16,6 @@ Rails.application.routes.draw do
 
   get 'verified_accounts/index'
 
-  namespace :admin do
-  get 'export/leads'
-  end
 
   namespace :dashboard do
   get 'lead_streams/index'
@@ -126,6 +123,9 @@ Rails.application.routes.draw do
     get 'angular_admin/all_keywords'
     get 'emails_left/index'
     post 'emails_left/create_lead_stream'
+    get 'export/leads/:user_id' => 'export#leads'
+    get 'export/non_leads/:user_id' => 'export#non_leads'
+    get 'export/unprocessed_leads/:user_id' => 'export#unprocessed_leads'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'
