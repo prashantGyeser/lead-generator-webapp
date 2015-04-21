@@ -125,7 +125,7 @@ Rails.application.routes.draw do
     post 'emails_left/create_lead_stream'
     get 'export/leads/:user_id' => 'export#leads'
     get 'export/non_leads/:user_id' => 'export#non_leads'
-    get 'export/unprocessed_leads/:user_id' => 'export#unprocessed_leads'
+    get 'export/unprocessed_tweets/:user_id' => 'export#unprocessed_tweets'
   end
 
   get 'auth/:provider/callback', to: 'sessions#create'
