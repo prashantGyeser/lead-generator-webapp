@@ -23,7 +23,7 @@ class Admin::ExportController < Admin::ApplicationController
   end
 
   def unprocessed_tweets
-    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: @keyword_ids).where(processed: nil).first(10000)
+    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: @keyword_ids).where(processed: nil).first(5000)
 
     respond_to do |format|
       format.html
