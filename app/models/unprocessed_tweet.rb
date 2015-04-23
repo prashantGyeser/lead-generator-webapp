@@ -44,9 +44,9 @@ class UnprocessedTweet < ActiveRecord::Base
 
   def self.to_csv(all_user_unprocessed_tweets)
     CSV.generate do |csv|
-      csv << ['Username', 'Tweet', 'Created On(mm-dd--yyyy)']
-      all_user_unprocessed_tweets.each do |lead|
-        csv << [lead.poster_screen_name, lead.tweet_body, lead.created_at.strftime('%m-%d-%Y')]
+      csv << ['id', 'tweet_id', 'keyword_term', 'category', 'tweet_body', 'created_at', 'updated_at', 'training_data_type']
+      all_user_unprocessed_tweets.each do |unprocessed_tweet|
+        csv << [unprocessed_tweet.id, unprocessed_tweet.tweet_id, '', 'Shop', unprocessed_tweet.tweet_body, unprocessed_tweet.created_at, unprocessed_tweet.updated_at, '']
       end
     end
   end
