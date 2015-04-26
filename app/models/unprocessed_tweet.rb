@@ -51,7 +51,7 @@ class UnprocessedTweet < ActiveRecord::Base
     unprocessed_lead_to_store_attr.delete('updated_at')
 
 
-    if is_lead == 'true'
+    if is_lead == true
       results = TempLead.create(unprocessed_lead_to_store_attr)
     else
       results = TempNonLead.create(unprocessed_lead_to_store_attr)
