@@ -26,7 +26,7 @@ class Classifier
 
       puts "The result is: #{result}"
 
-      if result == :lead
+      if result.to_s == "lead"
         unprocessed_tweet.move_tweet_temp(true)
       else
         unprocessed_tweet.move_tweet_temp(false)
