@@ -42,6 +42,24 @@ class UnprocessedTweet < ActiveRecord::Base
 
   end
 
+  def move_tweet_temp(is_lead)
+
+    unprocessed_lead_to_store_attr = self.attributes
+    unprocessed_lead_to_store_attr.delete('id')
+    unprocessed_lead_to_store_attr.delete('processed')
+    unprocessed_lead_to_store_attr.delete('created_at')
+    unprocessed_lead_to_store_attr.delete('updated_at')
+
+
+    if is_lead == 'true'
+      results = TempLead.create(unprocessed_lead_to_store_attr)
+    else
+      results = TempNonLead.create(unprocessed_lead_to_store_attr)
+    end
+
+  end
+
+
   def self.to_csv(all_user_unprocessed_tweets)
     CSV.generate do |csv|
       csv << ['id', 'tweet_id', 'keyword_term', 'category', 'tweet_body', 'created_at', 'updated_at', 'training_data_type']

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417055635) do
+ActiveRecord::Schema.define(version: 20150426053601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -273,6 +273,38 @@ ActiveRecord::Schema.define(version: 20150417055635) do
     t.string   "account_code"
     t.string   "plan_code"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "temp_leads", force: true do |t|
+    t.string   "poster_id"
+    t.string   "poster_name"
+    t.string   "poster_screen_name"
+    t.integer  "poster_follower_count"
+    t.integer  "poster_friends_count"
+    t.boolean  "poster_verified"
+    t.integer  "poster_statuses_count"
+    t.string   "tweet_body"
+    t.integer  "keyword_id"
+    t.string   "poster_profile_image_url"
+    t.string   "tweet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "temp_non_leads", force: true do |t|
+    t.string   "poster_id"
+    t.string   "poster_name"
+    t.string   "poster_screen_name"
+    t.integer  "poster_follower_count"
+    t.integer  "poster_friends_count"
+    t.boolean  "poster_verified"
+    t.integer  "poster_statuses_count"
+    t.string   "tweet_body"
+    t.integer  "keyword_id"
+    t.string   "poster_profile_image_url"
+    t.string   "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

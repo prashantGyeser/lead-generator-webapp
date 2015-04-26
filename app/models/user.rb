@@ -59,6 +59,12 @@ class User < ActiveRecord::Base
 
   after_update :send_emails
 
+  def get_keyword_ids
+    keyword_ids = []
+    self.lead_streams.map { |l| keyword_ids << l.keywords.pluck(:id) }
+    return keyword_ids.flatten
+  end
+
   def self.active
     subscription_helper = SubscriptionHelper.new
 
