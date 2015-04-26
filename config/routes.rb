@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'temp_processed_tweets/temp_leads'
+  end
+
+  namespace :admin do
+  get 'temp_processed_tweets/temp_non_leads'
+  end
+
+  namespace :admin do
   get 'replies/index'
   end
 

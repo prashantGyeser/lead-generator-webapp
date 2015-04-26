@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>
+    Temp Leads
+  </h1>
+
+
+
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+
+      <div class="grid-body">
+        <div class="opportunities">
+
+          <ul>
+
+            <% @temp_leads.each do |temp_lead| %>
+              <li>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <div class="tweet">
+                      <%= temp_lead.tweet_body %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+
+
+
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
