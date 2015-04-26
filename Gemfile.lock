@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/alexandru/stuff-classifier.git
+  revision: 23bce7ed6780930c7e50c801c4f6e6a3be12a02f
+  specs:
+    stuff-classifier (0.5)
+      redis
+      ruby-stemmer
+      sequel
+
+GIT
   remote: git://github.com/radar/by_star
   revision: d972c500b235196e6c512ce24440bd5857839bf5
   specs:
@@ -115,7 +124,6 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    fast-stemmer (1.0.2)
     ffi (1.9.6)
     figaro (0.7.0)
       bundler (~> 1.0)
@@ -172,7 +180,6 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.3.5)
-    msgpack (0.5.11)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
@@ -235,6 +242,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.2.1)
     reek (1.3.8)
       rainbow (>= 1.99, < 3.0)
       ruby2ruby (>= 2.0.8, < 3.0)
@@ -260,6 +268,7 @@ GEM
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
     ruby-progressbar (1.7.5)
+    ruby-stemmer (0.9.6)
     ruby2ruby (2.1.3)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
@@ -295,12 +304,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.10)
-    stuff-classifier (0.5)
-      fast-stemmer (>= 1.0)
-      msgpack
-      sequel
-      sqlite3
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -393,7 +396,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   spring
-  stuff-classifier
+  stuff-classifier!
   therubyracer
   traceroute
   turbolinks
