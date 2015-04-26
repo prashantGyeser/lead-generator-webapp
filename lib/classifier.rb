@@ -24,6 +24,8 @@ class Classifier
     unprocessed_tweets.find_each do |unprocessed_tweet|
       result = bayesian_classifier(bayes_classifier, unprocessed_tweet.tweet_body)
 
+      puts "The result is: #{result}"
+
       if result == :lead
         unprocessed_tweet.move_tweet_temp(true)
       else
