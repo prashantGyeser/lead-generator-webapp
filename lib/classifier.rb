@@ -26,7 +26,8 @@ class Classifier
 
       puts "The result is: #{result}"
 
-      if result.to_s == "lead"
+      if result == :lead
+        puts "It is getting into the true part"
         unprocessed_tweet.move_tweet_temp(true)
       else
         unprocessed_tweet.move_tweet_temp(false)
