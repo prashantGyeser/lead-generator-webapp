@@ -96,7 +96,7 @@ gem 'informant-rails'
 
 gem 'gender_detector'
 
-gem 'stuff-classifier'
+gem 'stuff-classifier', :git => 'git://github.com/alexandru/stuff-classifier.git'
 
 
 group :development, :test do
