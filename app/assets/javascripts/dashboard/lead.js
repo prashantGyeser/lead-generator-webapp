@@ -95,6 +95,7 @@ ready = function() {
             {
                 alert("Something went wrong, please try again later.");
                 console.log("The error thrown is:", errorThrown);
+                console.log("The error thrown is:", textStatus);
             }
         });
 
@@ -136,11 +137,13 @@ ready = function() {
         console.log("Done!");
         reply_button.replaceWith('<i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>').show();
         $('.message_container').hide();
+        $('.send_reply_error').hide();
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
-        alert("Something went wrong, please try again later.");
-        console.log("The error thrown is:", errorThrown);
+        console.log("The error thrown is:", jqXHR.responseText);
+        $('.send_reply_error').show();
+        $('#reply_error_message').text(jqXHR.responseText)
       }
     });
 

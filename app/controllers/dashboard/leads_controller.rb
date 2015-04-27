@@ -80,22 +80,34 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
     message = params[:message]
 
     message_to_send = "@#{lead.poster_screen_name} " + message.to_s
-    #tweet_reply_status = client.update(message_to_send)
+
+
+    if message_to_send.length > 140
+      character_count_exceeded = true
+    else
+      character_count_exceeded = false
+      tweet_reply_status = client.update(message_to_send)
+    end
 
     tweet_reply = TweetReply.new(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: token.id, tweet_id: lead.tweet_id )
 
     respond_to do |format|
-      if tweet_reply.save
+      if tweet_reply.save && (character_count_exceeded == false)
         format.json { render :json => tweet_reply, status: :created }
       else
 
-        Honeybadger.notify(
-            :error_class   => "Tweet Reply Error",
-            :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence} and the tweet_reply_status is: #{tweet_reply_status}",
-            :parameters    => params
-        )
+        if character_count_exceeded == true
+          format.json { render :json => "Your message has to be less than 140 characters. Reduce it and try again.", status: 500 }
+        else
+          Honeybadger.notify(
+              :error_class   => "Tweet Reply Error",
+              :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence} and the tweet_reply_status is: #{tweet_reply_status}",
+              :parameters    => params
+          )
 
-        format.json { render :json => tweet_reply.errors, status: 500 }
+          format.json { render :json => tweet_reply.errors, status: 500 }
+        end
+
       end
     end
 
