@@ -149,7 +149,13 @@ ready = function() {
 
 
 
-  })
+  });
+
+  $('.cancel_reply').click(function(e){
+    e.preventDefault();
+    $('.message_container').hide(200);
+    $('.reply_btn').show(200);
+  });
 
 
 
