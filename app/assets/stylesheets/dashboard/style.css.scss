@@ -124,3 +124,14 @@
   }
 }
 /* ADMIN STYLE END */
+
+
+/* REPLY CHARACTER COUNTER STYLE START */
+.character_counter{
+  display: block;
+}
+.character_counter_exceeded
+{
+  color: #E94847;
+}
+/* REPLY CHARACTER COUNTER STYLE END */

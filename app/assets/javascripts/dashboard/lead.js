@@ -1,6 +1,18 @@
 var ready;
 ready = function() {
 
+  $('.reply_input_box').characterCounter({
+    limit: '120',
+    counterCssClass: 'character_counter',
+    counterExceededCssClass: 'character_counter_exceeded',
+    onExceed: function(count){
+      $(".send_message").prop('disabled', true);
+    },
+    onDeceed: function(count){}
+  });
+
+  //
+
     $('.not_lead').click(function(event){
         event.preventDefault();
 

@@ -20,6 +20,7 @@
 //= require plugins/velocity/velocity.min
 //= require plugins/jquery-validation/js/jquery.validate.min
 //= require plugins/breakpoints
+//= require plugins/jquery-character-counter/jquery.charactercounter
 //= require dashboard/core
 //= require dashboard/chat
 //= require dashboard/demo
