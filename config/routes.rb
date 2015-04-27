@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-  get 'temp_processed_tweets/temp_leads'
+  get 'temp_processed_tweets/temp_leads/:user_id' => 'temp_processed_tweets#temp_leads'
   end
 
   namespace :admin do
-  get 'temp_processed_tweets/temp_non_leads'
+  get 'temp_processed_tweets/temp_non_leads/:user_id' => 'temp_processed_tweets#temp_non_leads'
   end
 
   namespace :admin do

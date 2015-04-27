@@ -46,7 +46,7 @@
               <tr>
               <td colspan="4" class="bold">
                 <a href="/admin/lead_streams/<%= user.id %>" class="btn btn-small">Customer View</a>
-                <%= user.email %> - <%= user.website %>
+                <%= user.email %> - <%= user.website %> - <a href="/admin/temp_processed_tweets/temp_leads/<%= user.id %>">QC Classified Leads</a>
                 <% if @subscription_helper.trial_active?(user) || @subscription_helper.is_subscribed?(user) %>
                   <span class='label label-success'>Active</span>
                 <% else %>
