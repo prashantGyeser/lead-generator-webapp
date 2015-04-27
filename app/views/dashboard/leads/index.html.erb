@@ -47,7 +47,7 @@
                       <a href="http://www.twitter.com/<%= lead.poster_screen_name %>/status/<%= lead.tweet_id %>" class="btn btn-white btn-xs btn-mini">View on Twitter</a>
                     </p>
                     <p style="color: #576477">
-                      <%= lead.tweet_body %>
+                      <%= auto_link(lead.tweet_body) %>
                     </p>
                     <p class="muted  small-text">
                       <%= lead.created_at.pretty %>
