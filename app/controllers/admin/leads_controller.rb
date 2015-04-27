@@ -30,7 +30,7 @@ class Admin::LeadsController < Admin::ApplicationController
     @keyword = Keyword.find(params[:keyword_id])
     @lead_stream = LeadStream.find(@keyword.lead_stream_id)
 
-    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: @keyword.id).where(processed: nil)
+    @unprocessed_tweets = UnprocessedTweet.where(keyword_id: @keyword.id).where(processed: nil).paginate(page: params[:page], per_page: 200).order('created_at DESC')
   end
 
   def qc_stream
