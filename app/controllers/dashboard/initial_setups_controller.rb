@@ -8,9 +8,6 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     @lead_stream = LeadStream.new
     3.times {@lead_stream.keywords.build}
-
-    #puts "The referre is: #{request.inspect}"
-
   end
 
   def create_lead_stream
@@ -33,6 +30,10 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
     end
 
+
+  end
+
+  def status
 
   end
 

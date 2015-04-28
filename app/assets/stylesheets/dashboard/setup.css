@@ -177,3 +177,12 @@ p
   overflow-y: auto !important;
 }
 /* COUNTRY SELECT STYLING -- END */
+
+
+/* STATUS PAGE STYLING -- START */
+.processing_status_list
+{
+  width: 100%;
+  margin-top: 20px;
+}
+/* STATUS PAGE STYLING -- END */

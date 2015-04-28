@@ -93,6 +93,7 @@ Rails.application.routes.draw do
     get 'account/plan' => 'account#plan'
     post '/initial_setups/create_lead_stream' =>'initial_setups#create_lead_stream'
     get '/initial_setups/connect_twitter' =>'initial_setups#connect_twitter'
+    get '/initial_setups/status' =>'initial_setups#status'
     post 'leads/mark_non_lead'
     get 'keyword' => 'keyword#index'
     post 'keyword/remove'
