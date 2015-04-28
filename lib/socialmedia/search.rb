@@ -18,7 +18,7 @@ class Search
   def twitter_geocode(term, lat_lon_hash, radius, client)
     puts "it is getting to the geocode search"
     begin
-      client.search( term, result_type: "recent", count: 100, geocode: "#{lat_lon_hash[:latitude]},#{lat_lon_hash[:longitude]},#{radius}km" ).collect
+      client.search( term, result_type: "recent", geocode: "#{lat_lon_hash[:latitude]},#{lat_lon_hash[:longitude]},#{radius}km" ).collect
     rescue => e
       Honeybadger.notify(
           :error_class   => "Twitter Search Error",
