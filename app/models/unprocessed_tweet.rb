@@ -17,6 +17,7 @@
 #  poster_profile_image_url :string(255)
 #  processed                :boolean
 #  tweet_id                 :string(255)
+#  geo_enabled              :string(255)
 #
 
 class UnprocessedTweet < ActiveRecord::Base
@@ -32,6 +33,7 @@ class UnprocessedTweet < ActiveRecord::Base
     unprocessed_lead_to_store_attr.delete('processed')
     unprocessed_lead_to_store_attr.delete('created_at')
     unprocessed_lead_to_store_attr.delete('updated_at')
+    unprocessed_lead_to_store_attr.delete('geo_enabled')
 
 
     if is_lead == 'true'
@@ -49,6 +51,7 @@ class UnprocessedTweet < ActiveRecord::Base
     unprocessed_lead_to_store_attr.delete('processed')
     unprocessed_lead_to_store_attr.delete('created_at')
     unprocessed_lead_to_store_attr.delete('updated_at')
+    unprocessed_lead_to_store_attr.delete('geo_enabled')
 
 
     if is_lead == true

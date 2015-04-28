@@ -16,6 +16,7 @@ class ParseSearchResults
       unprocessed_tweet_hash[:poster_profile_image_url] = search_result.user.profile_image_url.to_s
       unprocessed_tweet_hash[:keyword_id] = keyword_id
       unprocessed_tweet_hash[:tweet_id] = search_result.id.to_s
+      unprocessed_tweet_hash[:geo_enabled] = search_result.geo_enabled.to_s
 
       unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
