@@ -5,6 +5,8 @@ class ParseSearchResults
 
     search_results.each do |search_result|
 
+      puts search_result.inspect
+
       unprocessed_tweet_hash = {}
       unprocessed_tweet_hash[:poster_id] = search_result.user.id
       unprocessed_tweet_hash[:poster_name] = search_result.user.name
