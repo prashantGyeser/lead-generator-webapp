@@ -169,6 +169,9 @@ $(document).ready(function() {
             console.log(data.email);
 
             $('#email_entered').val(data.email);
+
+            var clicky_goal = { id: "2610" };
+
             openLoginModal();
 
 
