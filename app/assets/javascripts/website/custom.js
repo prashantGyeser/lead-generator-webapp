@@ -169,7 +169,7 @@ $(document).ready(function() {
             console.log(data.email);
 
             $('#email_entered').val(data.email);
-            
+
             var clicky_custom = clicky_custom || {};
             clicky_custom.goal = {
               id: "2610"
