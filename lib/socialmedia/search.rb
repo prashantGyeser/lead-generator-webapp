@@ -6,8 +6,8 @@ class Search
       client.search( term ).collect
     rescue => e
       Honeybadger.notify(
-          :error_class   => "Twitter Search Error",
-          :error_message => "Twitter Search Error: #{e.message}",
+          :error_class   => "Twitter Global Search Error",
+          :error_message => "Twitter Global Search Error: #{e.message}",
           :parameters    => {user_email: user.email}
       )
     end

@@ -122,6 +122,7 @@ group :development do
   # Performance improvement tools
   gem 'traceroute'
   gem 'rails_best_practices'
+  gem 'ruby-prof'
 
 end
 

@@ -29,6 +29,26 @@ class SocialmediaSearch
   end
 
 
+  def twitter_global_search(oauth_token, oauth_secret, keyword_term)
+    client = Client.initialize_twitter(oauth_token, oauth_secret)
+
+    search = Search.new
+    parse_and_store_results = ParseSearchResults.new
+    stats = SearchStats.new
+
+    search_results = search.twitter(keyword_term, client)
+
+    total_results = search_results.count
+
+    puts "Returned #{total_results} search results"
+
+    duplicate_count = parse_and_store_results.twitter(search_results, keyword.id)
+
+    stats.set_search_stats(total_results, duplicate_count, keyword )
+
+    sleep 2.minutes
+  end
+
 
   def search_active_keywords(admin_search=false, no_delay=false)
 
@@ -112,6 +132,31 @@ class SocialmediaSearch
 
 
   end
+
+
+  def admin_active_users_global
+    User.find_each do |user|
+      subscription_helper = SubscriptionHelper.new
+      if subscription_helper.is_active?(user)
+        lead_streams = user.lead_streams
+
+        lead_streams.each do |lead_stream|
+          if lead_stream.search_type == 'global'
+            lead_stream.keywords.find_each do |keyword|
+              if keyword.is_active_no_search_24_hrs?
+                twitter_global_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword.term)
+              end
+            end
+
+
+
+          end
+        end
+
+      end
+    end
+  end
+
 
 
   private

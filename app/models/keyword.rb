@@ -36,4 +36,21 @@ class Keyword < ActiveRecord::Base
     self.last_searched = DateTime.now
     self.save
   end
+
+  def is_active_no_search_24_hrs?
+
+    if self.last_searched.nil?
+      if (self.archived == false) && (self.last_searched.nil? )
+        return true
+      end
+    else
+      if (self.archived == false) && ((self.try(:last_searched) < (DateTime.now - 24.hours)) )
+        return true
+      end
+    end
+
+    return false
+
+  end
+
 end
