@@ -135,8 +135,9 @@ class SocialmediaSearch
 
 
   def admin_active_users_global
+    subscription_helper = SubscriptionHelper.new
     User.find_each do |user|
-      subscription_helper = SubscriptionHelper.new
+      puts user.email
       if subscription_helper.is_active?(user)
         lead_streams = user.lead_streams
 
@@ -144,6 +145,7 @@ class SocialmediaSearch
           if lead_stream.search_type == 'global'
             lead_stream.keywords.find_each do |keyword|
               if keyword.is_active_no_search_24_hrs?
+                puts "Searching: #{keyword.term}"
                 twitter_global_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword.term)
               end
             end

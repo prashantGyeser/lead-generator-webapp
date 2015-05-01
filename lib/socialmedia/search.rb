@@ -1,14 +1,36 @@
+
+
 class Search
 
   def twitter(term, client)
+    start = 0
+    search_results = client.search( term )
+
+    puts "It is getting to just past the search"
+    search_results.inspect
 
     begin
-      client.search( term ).collect
+      iterations = 0
+      search_results.each(start).with_index do |search_result, index|
+
+        puts "It is getting into the iteration"
+
+        iterations = index
+
+        puts search_result.to_h.inspect
+        puts '**********************************************************'
+
+      end
+
+    rescue Twitter::Error::TooManyRequests => error
+      start += iterations
+      sleep error.rate_limit.reset_in + 1
+      retry
     rescue => e
       Honeybadger.notify(
           :error_class   => "Twitter Global Search Error",
           :error_message => "Twitter Global Search Error: #{e.message}",
-          :parameters    => {user_email: user.email}
+          :parameters    => {term: term}
       )
     end
 
@@ -23,7 +45,7 @@ class Search
       Honeybadger.notify(
           :error_class   => "Twitter Search Error",
           :error_message => "Twitter Search Error: #{e.message}",
-          :parameters    => {user_email: user.email}
+          :parameters    => {term: term}
       )
     end
 
