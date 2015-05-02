@@ -91,11 +91,6 @@
 
 </script>
 
-<script>
-  var clicky_custom = {};
-  //clicky_custom.goal = { name: 'Email Left On Homepage' };
-  clicky_custom.goal = { id: 2610 };
-</script>
 
 <!-- ADDING THIS CODE HERE TO PREVENT THE TRACKIGN CODE VARIABLE FROM GETTING MINIFIED TO TEST AND SEE IF CLICKY WORKS -->
 <script type="text/javascript" charset="utf-8">
@@ -145,7 +140,8 @@
 
             $('#email_entered').val(data.email);
 
-
+            var clicky_custom = {};
+            clicky_custom.goal = { name: 'Email Left On Homepage' };
 
             openLoginModal();
 
