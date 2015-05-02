@@ -102,7 +102,9 @@
    ======================================== */
 
   var clicky_custom = {};
-  
+  //clicky_custom.goal = { name: 'Email Left On Homepage' };
+  clicky_custom.goal = { id: 2610 };
+
   $(function() {
     $('#signup-divider').submit(function(e) {
       e.preventDefault();
@@ -140,7 +142,7 @@
 
             $('#email_entered').val(data.email);
 
-            clicky_custom.goal = { name: 'Email Left On Homepage' };
+
 
             openLoginModal();
 
