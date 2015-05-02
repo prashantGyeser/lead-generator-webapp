@@ -170,10 +170,8 @@ $(document).ready(function() {
 
             $('#email_entered').val(data.email);
 
-            var clicky_custom = clicky_custom || {};
-            clicky_custom.goal = {
-              id: "2610"
-            };
+            var clicky_custom = {};
+            clicky_custom.goal = { name: 'Website Conversion' };
 
             openLoginModal();
 
