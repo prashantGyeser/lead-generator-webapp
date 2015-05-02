@@ -1,28 +1,36 @@
-
+require 'socialmedia/parse_search_results'
 
 class Search
 
-  def twitter(term, client)
+  def twitter(term, client, keyword_id)
     start = 0
     search_results = client.search( term )
 
+    parse_search_results = ParseSearchResults.new
+
     puts "It is getting to just past the search"
-    search_results.inspect
+
+    search_result_count = 0
 
     begin
       iterations = 0
-      search_results.each(start).with_index do |search_result, index|
+      search_results.each(start).with_index do |tweet, index|
+
+        search_result_count = search_result_count + 1
+
+        puts "Search result count: #{search_result_count}"
 
         puts "It is getting into the iteration"
 
         iterations = index
 
-        puts search_result.to_h.inspect
+        parse_search_results.single_tweet(tweet, keyword_id)
         puts '**********************************************************'
 
       end
 
     rescue Twitter::Error::TooManyRequests => error
+      puts "Hit the rate limit going to sleep for #{error.rate_limit.reset_in}"
       start += iterations
       sleep error.rate_limit.reset_in + 1
       retry
@@ -33,6 +41,8 @@ class Search
           :parameters    => {term: term}
       )
     end
+
+    return search_result_count
 
   end
 

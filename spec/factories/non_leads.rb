@@ -16,6 +16,7 @@
 #  created_at               :datetime
 #  updated_at               :datetime
 #  tweet_id                 :string(255)
+#  location                 :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

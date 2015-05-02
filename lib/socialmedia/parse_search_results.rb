@@ -19,6 +19,7 @@ class ParseSearchResults
       unprocessed_tweet_hash[:keyword_id] = keyword_id
       unprocessed_tweet_hash[:tweet_id] = search_result.id.to_s
       unprocessed_tweet_hash[:geo_enabled] = search_result.user.geo_enabled.to_s
+      unprocessed_tweet_hash[:location] = tweet.user.location.to_s
 
       unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
@@ -57,9 +58,9 @@ class ParseSearchResults
     unprocessed_tweet_hash[:keyword_id] = keyword_id
     unprocessed_tweet_hash[:tweet_id] = tweet.id.to_s
     unprocessed_tweet_hash[:geo_enabled] = tweet.user.geo_enabled.to_s
+    unprocessed_tweet_hash[:location] = tweet.user.location.to_s
 
     unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
-
     begin
       if unprocessed_tweet.save
 

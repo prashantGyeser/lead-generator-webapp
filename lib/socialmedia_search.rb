@@ -29,14 +29,14 @@ class SocialmediaSearch
   end
 
 
-  def twitter_global_search(oauth_token, oauth_secret, keyword_term)
+  def twitter_global_search(oauth_token, oauth_secret, keyword)
     client = Client.initialize_twitter(oauth_token, oauth_secret)
 
     search = Search.new
     parse_and_store_results = ParseSearchResults.new
     stats = SearchStats.new
 
-    search_results = search.twitter(keyword_term, client)
+    search_results = search.twitter(keyword.term, client, keyword.id)
 
     total_results = search_results.count
 
@@ -146,7 +146,7 @@ class SocialmediaSearch
             lead_stream.keywords.find_each do |keyword|
               if keyword.is_active_no_search_24_hrs?
                 puts "Searching: #{keyword.term}"
-                twitter_global_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword.term)
+                twitter_global_search(ENV['TWITTER_ADMIN_ACCESS_TOKEN'], ENV['TWITTER_ADMIN_TOKEN_SECRET'], keyword)
               end
             end
 
