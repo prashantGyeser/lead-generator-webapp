@@ -8,7 +8,9 @@
             <%= image_tag "logo-green.png" %>
           </div>
           <div class="col-md-6">
-            Estimated time
+            <span style="color: #a9a9a9">
+              Time remaining: <span style="font-weight: bold; color: #333"><%= @time_remaining %> hours</span>
+            </span>
           </div>
         </div>
 
@@ -28,6 +30,10 @@
         <%= @time_remaining %>
         <!--Todo: Set the expected time dynamically -->
         to collect and process your tweets based on the keywords you entered. With 42 people in the queue ahead of you.
+      </p>
+
+      <p>
+        You can close this page. We will send you an email as soon as we find leads for you.
       </p>
 
 
