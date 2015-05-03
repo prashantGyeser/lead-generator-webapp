@@ -35,6 +35,9 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
   def status
 
+    lead_streams = current_user.lead_streams.last
+    @keywords = lead_streams.keywords
+
   end
 
 

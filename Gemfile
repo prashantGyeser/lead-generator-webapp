@@ -136,3 +136,4 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'simplecov', :require => false, :group => :test

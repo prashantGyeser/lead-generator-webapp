@@ -1,5 +1,5 @@
 /* COLOR SCHEME */
-/* BASE GREEN: #1ABC9C */
+/* BASE GREEN: #27ae60 */
 /* CONTRAST RED: #F6223F */
 /* CONTRAST BLUE: #1F97B9 */
 /* CONTRAST YELLOW: #FFF323 */
@@ -180,6 +180,10 @@ p
 
 
 /* STATUS PAGE STYLING -- START */
+
+// Loader taken from
+// http://loadinggif.com/
+
 .processing_status_list
 {
   width: 100%;
@@ -187,7 +191,11 @@ p
 
   tr{
     td{
-      padding: 10px;
+      padding: 20px;
+
+      i{
+        color: #27ae60;
+      }
     }
   }
 
