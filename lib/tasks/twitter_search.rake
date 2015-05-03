@@ -201,9 +201,8 @@ namespace :search do
 
     keyword = "sushi"
 
-    client.search( keyword, geocode: "40.7127837,-74.0059413,25mi" ).collect do |tweet|
-      puts tweet.id
-    end
+    results = client.search( keyword, geocode: "40.7127837,-74.0059413,25mi" ).collect
+    puts results.count
   end
 
   # Enter the command line using rake task[argument]
