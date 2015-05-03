@@ -16,6 +16,8 @@
 #  created_at               :datetime
 #  updated_at               :datetime
 #  tweet_id                 :string(255)
+#  location                 :string(255)
+#  country                  :string(255)
 #
 
 class NonLead < ActiveRecord::Base

@@ -25,7 +25,7 @@
 
       <p style="font-style: italic">
         It will take approximately
-        8hrs 26mins
+        <%= @time_remaining %>
         <!--Todo: Set the expected time dynamically -->
         to collect and process your tweets based on the keywords you entered. With 42 people in the queue ahead of you.
       </p>
@@ -37,7 +37,12 @@
             Getting website content
           </td>
           <td>
-            <i class="fa fa-check-circle" style="font-size: 32px"></i>
+
+            <% if @time_remaining < 9 %>
+              <i class="fa fa-check-circle" style="font-size: 32px"></i>
+            <% else %>
+              <%= image_tag 'loader-grey.gif' %>
+            <% end %>
           </td>
         </tr>
 
@@ -46,71 +51,44 @@
             Building conversation profile from your website
           </td>
           <td>
-            <%= image_tag 'loader-grey.gif' %>
+            <% if @time_remaining < 7 %>
+              <i class="fa fa-check-circle" style="font-size: 32px"></i>
+            <% else %>
+              <%= image_tag 'loader-grey.gif' %>
+            <% end %>
           </td>
         </tr>
 
-        <tr>
-          <td>
-            Collecting tweets for -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
+        <% @keywords.each do |keyword| %>
+          <tr>
+            <td>
+              Collecting tweets for - <span style="font-weight: bold"><%= keyword.term %></span>
+            </td>
+            <td>
+              <% if @time_remaining < 6 %>
+                <i class="fa fa-check-circle" style="font-size: 32px"></i>
+              <% else %>
+                <%= image_tag 'loader-grey.gif' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
 
-
-        <tr>
-          <td>
-            Collecting tweets for -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Collecting tweets for -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Generating leads from -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Generating leads from -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            Generating leads from -
-            <!--Todo: Set the keyword dynamically-->
-          </td>
-          <td>
-            <%= image_tag 'loader-grey.gif' %>
-          </td>
-        </tr>
-
+        <% @keywords.each do |keyword| %>
+          <tr>
+            <td>
+              Generating leads for - <span style="font-weight: bold"><%= keyword.term %></span>
+              <!--Todo: Set the keyword dynamically-->
+            </td>
+            <td>
+              <% if @time_remaining < 1 %>
+                <i class="fa fa-check-circle" style="font-size: 32px"></i>
+              <% else %>
+                <%= image_tag 'loader-grey.gif' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
 
       </table>
 
