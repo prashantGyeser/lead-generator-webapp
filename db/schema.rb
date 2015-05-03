@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501074822) do
+ActiveRecord::Schema.define(version: 20150502121742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20150501074822) do
     t.boolean  "archived"
     t.string   "tweet_id"
     t.string   "gender"
+    t.string   "country"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
@@ -206,6 +207,7 @@ ActiveRecord::Schema.define(version: 20150501074822) do
     t.datetime "updated_at"
     t.string   "tweet_id"
     t.string   "location"
+    t.string   "country"
   end
 
   create_table "notifications", force: true do |t|
@@ -293,6 +295,7 @@ ActiveRecord::Schema.define(version: 20150501074822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.string   "country"
   end
 
   create_table "temp_non_leads", force: true do |t|
@@ -310,6 +313,7 @@ ActiveRecord::Schema.define(version: 20150501074822) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.string   "country"
   end
 
   create_table "tokens", force: true do |t|
@@ -362,6 +366,7 @@ ActiveRecord::Schema.define(version: 20150501074822) do
     t.string   "tweet_id"
     t.string   "geo_enabled"
     t.string   "location"
+    t.string   "country"
   end
 
   create_table "user_categories", force: true do |t|

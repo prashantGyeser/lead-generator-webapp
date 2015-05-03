@@ -17,6 +17,7 @@
 #  created_at               :datetime
 #  updated_at               :datetime
 #  location                 :string(255)
+#  country                  :string(255)
 #
 
 require 'rails_helper'

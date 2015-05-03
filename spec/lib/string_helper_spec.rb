@@ -1,5 +1,4 @@
 require 'string_helper'
-require 'rails_helper'
 
 RSpec.describe StringHelper do
 
@@ -14,6 +13,18 @@ RSpec.describe StringHelper do
 
   it "should return a signle word if the string only has one word" do
     expect(StringHelper.split_into_word_array("Test")).to eq ['Test']
+  end
+
+  it "should return true if some of the words exist in the second array" do
+    expect(StringHelper.elements_exist_in_second_array?(["hello", "welcome"], ["hello", "goodbye", "orange"])).to eq true
+  end
+
+  it "should return true if all the words exist in the second array" do
+    expect(StringHelper.elements_exist_in_second_array?(["hello", "welcome"], ["hello", "welcome"])).to eq true
+  end
+
+  it "should return false if none of the words exist in the second array" do
+    expect(StringHelper.elements_exist_in_second_array?(["hello", "welcome"], ["test", "test2"])).to eq false
   end
 
 end

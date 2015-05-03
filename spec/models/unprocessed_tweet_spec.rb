@@ -19,6 +19,7 @@
 #  tweet_id                 :string(255)
 #  geo_enabled              :string(255)
 #  location                 :string(255)
+#  country                  :string(255)
 #
 
 require 'rails_helper'

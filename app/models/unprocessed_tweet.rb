@@ -19,7 +19,10 @@
 #  tweet_id                 :string(255)
 #  geo_enabled              :string(255)
 #  location                 :string(255)
+#  country                  :string(255)
 #
+
+require 'string_helper'
 
 class UnprocessedTweet < ActiveRecord::Base
 
@@ -61,6 +64,15 @@ class UnprocessedTweet < ActiveRecord::Base
       results = TempNonLead.create(unprocessed_lead_to_store_attr)
     end
 
+  end
+
+  def set_country
+    if !(self.location == '') && !(self.location.nil?)
+      location_array = StringHelper.split_into_word_array(self.location)
+
+      
+
+    end
   end
 
 
