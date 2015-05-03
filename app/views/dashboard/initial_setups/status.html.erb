@@ -1,0 +1,111 @@
+<div class="wizard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag "logo-green.png" %>
+          </div>
+          <div class="col-md-6">
+            <span style="color: #a9a9a9">
+              Time remaining: <span style="font-weight: bold; color: #333"><%= @time_remaining %> hours</span>
+            </span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Processing</h1>
+
+      <p style="font-style: italic">
+        It will take approximately
+        <%= @time_remaining %>
+        <!--Todo: Set the expected time dynamically -->
+        to collect and process your tweets based on the keywords you entered. With 42 people in the queue ahead of you.
+      </p>
+
+      <p>
+        You can close this page. We will send you an email as soon as we find leads for you.
+      </p>
+
+
+      <table class="processing_status_list">
+        <tr>
+          <td>
+            Getting website content
+          </td>
+          <td>
+
+            <% if @time_remaining < 9 %>
+              <i class="fa fa-check-circle" style="font-size: 32px"></i>
+            <% else %>
+              <%= image_tag 'loader-grey.gif' %>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Building conversation profile from your website
+          </td>
+          <td>
+            <% if @time_remaining < 7 %>
+              <i class="fa fa-check-circle" style="font-size: 32px"></i>
+            <% else %>
+              <%= image_tag 'loader-grey.gif' %>
+            <% end %>
+          </td>
+        </tr>
+
+        <% @keywords.each do |keyword| %>
+          <tr>
+            <td>
+              Collecting tweets for - <span style="font-weight: bold"><%= keyword.term %></span>
+            </td>
+            <td>
+              <% if @time_remaining < 6 %>
+                <i class="fa fa-check-circle" style="font-size: 32px"></i>
+              <% else %>
+                <%= image_tag 'loader-grey.gif' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+
+        <% @keywords.each do |keyword| %>
+          <tr>
+            <td>
+              Generating leads for - <span style="font-weight: bold"><%= keyword.term %></span>
+              <!--Todo: Set the keyword dynamically-->
+            </td>
+            <td>
+              <% if @time_remaining < 1 %>
+                <i class="fa fa-check-circle" style="font-size: 32px"></i>
+              <% else %>
+                <%= image_tag 'loader-grey.gif' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+
+      </table>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+

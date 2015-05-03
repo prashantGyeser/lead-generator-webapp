@@ -98,6 +98,7 @@ gem 'gender_detector'
 
 gem 'stuff-classifier', :git => 'git://github.com/alexandru/stuff-classifier.git'
 
+gem "skylight"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -136,3 +137,4 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'simplecov', :require => false, :group => :test

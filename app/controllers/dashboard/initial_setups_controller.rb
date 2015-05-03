@@ -8,9 +8,6 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
   def index
     @lead_stream = LeadStream.new
     3.times {@lead_stream.keywords.build}
-
-    #puts "The referre is: #{request.inspect}"
-
   end
 
   def create_lead_stream
@@ -36,6 +33,22 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
 
   end
 
+  def status
+
+    lead_stream = current_user.lead_streams.last
+    @keywords = lead_stream.keywords
+
+
+
+    if lead_stream.time_left_for_processing_hours.nil?
+      set_time_for_processing(lead_stream)
+      @time_remaining = 9
+    else
+      @time_remaining = get_time_remaining_for_processing(lead_stream)
+    end
+
+  end
+
 
   def connect_twitter
     session[:user_id] = current_user.id
@@ -47,5 +60,13 @@ class Dashboard::InitialSetupsController < Dashboard::ApplicationController
     params.require(:lead_stream).permit(:city_name, :name, :country_id, keywords_attributes: [:term])
   end
 
+  def set_time_for_processing(lead_stream)
+    lead_stream.time_left_for_processing_hours = 9
+    lead_stream.save
+  end
+
+  def get_time_remaining_for_processing(lead_stream)
+    (((lead_stream.created_at + lead_stream.time_left_for_processing_hours.hours) - Time.now.utc)/ 1.hour).round
+  end
 
 end

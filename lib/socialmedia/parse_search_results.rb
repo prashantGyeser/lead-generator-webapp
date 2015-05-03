@@ -10,6 +10,7 @@ class ParseSearchResults
     return duplicate_count
   end
 
+
   def single_tweet(tweet, keyword_id)
 
     duplicate_count = 0

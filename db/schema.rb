@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502121742) do
+ActiveRecord::Schema.define(version: 20150503061220) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +102,8 @@ ActiveRecord::Schema.define(version: 20150502121742) do
     t.string   "search_type"
     t.string   "country_name"
     t.integer  "country_id"
+    t.integer  "time_left_for_processing_hours"
+    t.integer  "time_left_for_processing_mins"
   end
 
   create_table "leads", force: true do |t|

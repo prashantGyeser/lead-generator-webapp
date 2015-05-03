@@ -27,4 +27,8 @@ RSpec.describe StringHelper do
     expect(StringHelper.elements_exist_in_second_array?(["hello", "welcome"], ["test", "test2"])).to eq false
   end
 
+  it "should return true if the first string contains the second string" do
+    expect(StringHelper.contains_string?("New York", "New")).to eq true
+  end
+
 end

@@ -11,4 +11,8 @@ class StringHelper
     return true
   end
 
+  def self.contains_string?(string_1, string_2)
+    string_1.include?(string_2)
+  end
+
 end
