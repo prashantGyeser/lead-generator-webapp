@@ -20,8 +20,6 @@ class Search
 
         puts "Search result count: #{search_result_count}"
 
-        puts "It is getting into the iteration"
-
         iterations = index
 
         parse_search_results.single_tweet(tweet, keyword_id)
