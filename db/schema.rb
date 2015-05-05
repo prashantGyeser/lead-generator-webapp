@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503061220) do
+ActiveRecord::Schema.define(version: 20150505053814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(version: 20150503061220) do
     t.string   "tweet_id"
     t.string   "gender"
     t.string   "country"
+  end
+
+  create_table "locations", force: true do |t|
+    t.integer  "country_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|

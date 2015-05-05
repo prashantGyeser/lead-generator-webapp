@@ -22,7 +22,7 @@ class SocialmediaSearch
             keyword.set_last_run
             search.twitter(keyword.term, client, keyword.id, lead_stream.search_type)
             keyword.set_last_searched
-            
+
           end
 
         end
