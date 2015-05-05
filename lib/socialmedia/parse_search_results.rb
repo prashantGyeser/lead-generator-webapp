@@ -19,8 +19,6 @@ class ParseSearchResults
 
   def single_tweet(tweet, keyword_id, search_type)
 
-    puts "It is in the single tweet save"
-
 
     duplicate_count = 0
 
@@ -54,7 +52,6 @@ class ParseSearchResults
 
     begin
       if unprocessed_tweet.save
-        puts "Save the tweet: #{unprocessed_tweet.id}"
       else
         duplicate_count = duplicate_count + 1
       end

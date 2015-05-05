@@ -8,7 +8,6 @@ class Search
 
     parse_search_results = ParseSearchResults.new
 
-    puts "It is getting to just past the search"
 
     search_result_count = 0
 
@@ -19,10 +18,6 @@ class Search
         search_result_count = search_result_count + 1
         iterations = index
         save_results = parse_search_results.single_tweet(tweet, keyword_id, search_type)
-
-        puts "Search result count: #{search_result_count}"
-
-        puts "The save result is: #{save_results}"
 
         if search_result_count >= 5000
           return search_result_count
