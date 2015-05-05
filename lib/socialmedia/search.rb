@@ -2,9 +2,9 @@ require 'socialmedia/parse_search_results'
 
 class Search
 
-  def twitter(term, client, keyword_id)
+  def twitter(term, client, keyword_id, search_type)
     start = 0
-    search_results = client.search( term )
+    search_results = client.search( term, lang: 'en' )
 
     parse_search_results = ParseSearchResults.new
 
@@ -17,13 +17,14 @@ class Search
       search_results.each(start).with_index do |tweet, index|
 
         search_result_count = search_result_count + 1
+        iterations = index
+        parse_search_results.single_tweet(tweet, keyword_id, search_type)
 
         puts "Search result count: #{search_result_count}"
 
-        iterations = index
-
-        parse_search_results.single_tweet(tweet, keyword_id)
-        puts '**********************************************************'
+        if search_result_count >= 5000
+          return search_result_count
+        end
 
       end
 

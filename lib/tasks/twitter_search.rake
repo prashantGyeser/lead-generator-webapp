@@ -66,6 +66,13 @@ namespace :search do
   end
 
 
+  desc "Global search 2"
+  task admin_global: :environment do
+    socialmedia_search = SocialmediaSearch.new
+    socialmedia_search.admin_search_active_users
+  end
+
+
 
   desc "Search every keyword that has not been used to search in the last 24 hours"
   task twitter: :environment do

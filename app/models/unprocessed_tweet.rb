@@ -22,7 +22,7 @@
 #  country                  :string(255)
 #
 
-require 'string_helper'
+require 'country_helper'
 
 class UnprocessedTweet < ActiveRecord::Base
 
@@ -67,11 +67,14 @@ class UnprocessedTweet < ActiveRecord::Base
   end
 
   def set_country
+
+    country_helper = CountryHelper.new
+
     if !(self.location == '') && !(self.location.nil?)
-      location_array = StringHelper.split_into_word_array(self.location)
-
-      
-
+      if country_helper.is_location_in_us?(self.location)
+        self.country = 'US'
+        self.save
+      end
     end
   end
 

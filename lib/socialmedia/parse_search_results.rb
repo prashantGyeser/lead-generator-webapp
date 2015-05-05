@@ -1,17 +1,19 @@
+
+
 class ParseSearchResults
 
-  def twitter(search_results, keyword_id)
+  def twitter(search_results, keyword_id, search_type)
     duplicate_count = 0
 
     search_results.each do |search_result|
-      single_tweet(search_result, keyword_id)
+      single_tweet(search_result, keyword_id,search_type)
     end
 
     return duplicate_count
   end
 
 
-  def single_tweet(tweet, keyword_id)
+  def single_tweet(tweet, keyword_id, search_type)
 
     duplicate_count = 0
 
@@ -28,6 +30,11 @@ class ParseSearchResults
     unprocessed_tweet_hash[:tweet_id] = tweet.id.to_s
     unprocessed_tweet_hash[:geo_enabled] = (tweet.user.geo_enabled?).to_s
     unprocessed_tweet_hash[:location] = tweet.user.location.to_s
+
+    if search_type == 'country'
+      # Todo: Set the country for the tweet
+      # Todo: Delete tweets that do not match the country criteria
+    end
 
     unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
