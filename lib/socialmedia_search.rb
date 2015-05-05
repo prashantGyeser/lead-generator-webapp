@@ -18,11 +18,9 @@ class SocialmediaSearch
           keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
 
           keywords.each do |keyword|
-
             keyword.set_last_run
             search.twitter(keyword.term, client, keyword.id, lead_stream.search_type)
             keyword.set_last_searched
-
           end
 
         end

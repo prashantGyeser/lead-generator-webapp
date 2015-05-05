@@ -19,6 +19,9 @@ class ParseSearchResults
 
   def single_tweet(tweet, keyword_id, search_type)
 
+    puts "It is in the single tweet save"
+
+
     duplicate_count = 0
 
     unprocessed_tweet_hash = {}
@@ -36,19 +39,22 @@ class ParseSearchResults
     unprocessed_tweet_hash[:location] = tweet.user.location.to_s
 
     if search_type == 'country'
+
       country_id = save_tweet(unprocessed_tweet_hash[:location], keyword_id)
+
       if country_id != false
-        unprocessed_tweet_hash[:location] = country_id
+        unprocessed_tweet_hash[:country_id] = country_id
       else
         return false
       end
     end
 
+
     unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
     begin
       if unprocessed_tweet.save
-
+        puts "Save the tweet: #{unprocessed_tweet.id}"
       else
         duplicate_count = duplicate_count + 1
       end
@@ -62,8 +68,10 @@ class ParseSearchResults
 
   end
 
-  private
   def save_tweet(profile_location, keyword_id)
+    if profile_location.blank?
+      return false
+    end
     country_details = @country_helper.detect_country(profile_location)
     lead_stream = LeadStream.find(Keyword.find(keyword_id).lead_stream_id)
 
@@ -72,6 +80,7 @@ class ParseSearchResults
     else
       return false
     end
+
   end
 
   def tweet_has_lead_stream_country?(country_id, lead_stream)
