@@ -14,21 +14,20 @@ class SocialmediaSearch
       if subscription_helper.is_active?(user)
         lead_streams = user.lead_streams
 
-        if !lead_streams.search_type.nil?
           lead_streams.each do |lead_stream|
-            keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
+            if !lead_stream.search_type.nil?
+              keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
 
-            keywords.each do |keyword|
+              keywords.each do |keyword|
 
-              puts "The keyword being searched is: #{keyword.term}"
+                puts "The keyword being searched is: #{keyword.term}"
 
-              keyword.set_last_run
-              search.twitter(keyword.term, client, keyword.id, lead_stream.search_type)
-              keyword.set_last_searched
+                keyword.set_last_run
+                search.twitter(keyword.term, client, keyword.id, lead_stream.search_type)
+                keyword.set_last_searched
+              end
             end
-
           end
-        end
 
 
       end
