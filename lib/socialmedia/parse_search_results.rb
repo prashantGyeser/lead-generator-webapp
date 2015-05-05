@@ -1,6 +1,10 @@
-
+require 'country_helper'
 
 class ParseSearchResults
+
+  def initialize
+    @country_helper = CountryHelper.new
+  end
 
   def twitter(search_results, keyword_id, search_type)
     duplicate_count = 0
@@ -32,8 +36,12 @@ class ParseSearchResults
     unprocessed_tweet_hash[:location] = tweet.user.location.to_s
 
     if search_type == 'country'
-      # Todo: Set the country for the tweet
-      # Todo: Delete tweets that do not match the country criteria
+      country_id = save_tweet(unprocessed_tweet_hash[:location], keyword_id)
+      if country_id != false
+        unprocessed_tweet_hash[:location] = country_id
+      else
+        return false
+      end
     end
 
     unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
@@ -52,6 +60,25 @@ class ParseSearchResults
       )
     end
 
+  end
+
+  private
+  def save_tweet(profile_location, keyword_id)
+    country_details = @country_helper.detect_country(profile_location)
+    lead_stream = LeadStream.find(Keyword.find(keyword_id).lead_stream_id)
+
+    if tweet_has_lead_stream_country?(country_details[:country_id], lead_stream)
+      return country_details[:country_id]
+    else
+      return false
+    end
+  end
+
+  def tweet_has_lead_stream_country?(country_id, lead_stream)
+    if country_id == lead_stream.country_id
+      return true
+    end
+    return false
   end
 
 end

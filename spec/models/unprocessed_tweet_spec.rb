@@ -20,6 +20,7 @@
 #  geo_enabled              :string(255)
 #  location                 :string(255)
 #  country                  :string(255)
+#  country_id               :integer
 #
 
 require 'rails_helper'

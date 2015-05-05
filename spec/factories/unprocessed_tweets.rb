@@ -20,6 +20,7 @@
 #  geo_enabled              :string(255)
 #  location                 :string(255)
 #  country                  :string(255)
+#  country_id               :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
