@@ -32,4 +32,25 @@ namespace :setup do
 
   end
 
+  desc 'Setup US locations'
+  task us_locations: :environment do
+    csv = CSV.read('us_locations.csv')
+    location_array = csv.flatten
+
+    puts 'Storing locations against the US...'
+    country = Country.find_by_name('United States')
+
+    location_array.each do |location|
+      location_saved = Location.create(name: location, country_id: country.id)
+      if location_saved.id.nil?
+        puts "Failed to save #{location} with errors #{location_saved.errors.messages.inspect}"
+      end
+    end
+
+    puts "Total locations: #{Location.count}"
+
+
+
+  end
+
 end

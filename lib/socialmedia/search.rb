@@ -1,16 +1,49 @@
+require 'socialmedia/parse_search_results'
+
 class Search
 
-  def twitter(term, client)
+  def twitter(term, client, keyword_id, search_type)
+    start = 0
+    search_results = client.search( term, lang: 'en' )
+
+    parse_search_results = ParseSearchResults.new
+
+    puts "It is getting to just past the search"
+
+    search_result_count = 0
 
     begin
-      client.search( term ).collect
+      iterations = 0
+      search_results.each(start).with_index do |tweet, index|
+
+        search_result_count = search_result_count + 1
+        iterations = index
+        save_results = parse_search_results.single_tweet(tweet, keyword_id, search_type)
+
+        puts "Search result count: #{search_result_count}"
+
+        puts "The save result is: #{save_results}"
+
+        if search_result_count >= 5000
+          return search_result_count
+        end
+
+      end
+
+    rescue Twitter::Error::TooManyRequests => error
+      puts "Hit the rate limit going to sleep for #{error.rate_limit.reset_in}"
+      start += iterations
+      sleep error.rate_limit.reset_in + 1
+      retry
     rescue => e
       Honeybadger.notify(
-          :error_class   => "Twitter Search Error",
-          :error_message => "Twitter Search Error: #{e.message}",
-          :parameters    => {user_email: user.email}
+          :error_class   => "Twitter Global Search Error",
+          :error_message => "Twitter Global Search Error: #{e.message}",
+          :parameters    => {term: term}
       )
     end
+
+    return search_result_count
 
   end
 
@@ -23,7 +56,7 @@ class Search
       Honeybadger.notify(
           :error_class   => "Twitter Search Error",
           :error_message => "Twitter Search Error: #{e.message}",
-          :parameters    => {user_email: user.email}
+          :parameters    => {term: term}
       )
     end
 

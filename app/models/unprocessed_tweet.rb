@@ -18,7 +18,12 @@
 #  processed                :boolean
 #  tweet_id                 :string(255)
 #  geo_enabled              :string(255)
+#  location                 :string(255)
+#  country                  :string(255)
+#  country_id               :integer
 #
+
+require 'country_helper'
 
 class UnprocessedTweet < ActiveRecord::Base
 
@@ -60,6 +65,18 @@ class UnprocessedTweet < ActiveRecord::Base
       results = TempNonLead.create(unprocessed_lead_to_store_attr)
     end
 
+  end
+
+  def set_country
+
+    country_helper = CountryHelper.new
+
+    if !(self.location == '') && !(self.location.nil?)
+      if country_helper.is_location_in_us?(self.location)
+        self.country = 'US'
+        self.save
+      end
+    end
   end
 
 

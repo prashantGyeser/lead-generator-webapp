@@ -11,6 +11,7 @@
 
 class Country < ActiveRecord::Base
   has_many :country_subdivisions
+  has_many :locations
 
   validates_uniqueness_of :name
 

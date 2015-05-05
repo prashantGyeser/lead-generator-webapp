@@ -59,7 +59,11 @@ namespace :search do
     socialmedia_search.admin_country_single_keyword(args[:keyword_id])
   end
 
-
+  desc "Admin search"
+  task admin_search: :environment do
+    socialmedia_search = SocialmediaSearch.new
+    socialmedia_search.admin_search_active_users
+  end
 
 
 

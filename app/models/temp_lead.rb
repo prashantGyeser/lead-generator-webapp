@@ -16,6 +16,9 @@
 #  tweet_id                 :string(255)
 #  created_at               :datetime
 #  updated_at               :datetime
+#  location                 :string(255)
+#  country                  :string(255)
+#  country_id               :integer
 #
 
 class TempLead < ActiveRecord::Base

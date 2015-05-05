@@ -35,6 +35,8 @@
 #  archived                           :boolean
 #  tweet_id                           :string(255)
 #  gender                             :string(255)
+#  country                            :string(255)
+#  country_id                         :integer
 #
 
 require 'rails_helper'
