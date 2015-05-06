@@ -8,7 +8,6 @@ class Search
 
     parse_search_results = ParseSearchResults.new
 
-
     search_result_count = 0
 
     begin

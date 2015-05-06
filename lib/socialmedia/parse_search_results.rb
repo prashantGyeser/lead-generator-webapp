@@ -69,11 +69,11 @@ class ParseSearchResults
     if profile_location.blank?
       return false
     end
-    country_details = @country_helper.detect_country(profile_location)
+
     lead_stream = LeadStream.find(Keyword.find(keyword_id).lead_stream_id)
 
-    if tweet_has_lead_stream_country?(country_details[:country_id], lead_stream)
-      return country_details[:country_id]
+    if @country_helper.location_in_country?(profile_location, lead_stream.country_id)
+      lead_stream.country_id
     else
       return false
     end
