@@ -49,8 +49,25 @@ namespace :setup do
 
     puts "Total locations: #{Location.count}"
 
+  end
 
+  desc 'Setup US locations'
+  task global_locations: :environment do
+    csv = CSV.read('country_cities/world_cities.csv')
 
+    puts "Total locations at the start: #{Location.count}"
+
+    csv.each do |row|
+      country = Country.find_by_name(row[0])
+      if country.nil?
+        puts "Invalid country: #{row[0]}"
+      else
+        location_saved = Location.create(name: row[1], country_id: country.id)
+      end
+
+    end
+
+    puts "Total locations at the end: #{Location.count}"
   end
 
 end
