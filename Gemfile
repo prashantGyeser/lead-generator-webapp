@@ -100,6 +100,8 @@ gem 'stuff-classifier', :git => 'git://github.com/alexandru/stuff-classifier.git
 
 gem "skylight"
 
+gem 'yajl-ruby', require: 'yajl'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"

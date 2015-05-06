@@ -34,7 +34,7 @@ namespace :setup do
 
   desc 'Setup US locations'
   task us_locations: :environment do
-    csv = CSV.read('us_locations.csv')
+    csv = CSV.read('country_cities/us_locations.csv')
     location_array = csv.flatten
 
     puts 'Storing locations against the US...'
