@@ -11,7 +11,6 @@ ready = function() {
     onDeceed: function(count){}
   });
 
-  //
 
     $('.not_lead').click(function(event){
         event.preventDefault();
@@ -114,6 +113,36 @@ ready = function() {
     var lead_id = $(this).data("id");
     var div_to_show = $('#' + lead_id);
     div_to_show.velocity("fadeIn", { duration: 1000 }).show();
+  });
+
+  $('.follow_btn').click(function(e){
+    e.preventDefault();
+
+    var lead_id = $(this).data("id");
+
+    var data_to_post = {lead_id: lead_id};
+
+    var parent = $(this).parent();
+    var btn_clicked = $(this);
+
+
+    $.ajax({
+      url : "/dashboard/leads/follow",
+      type: "POST",
+      data : data_to_post,
+      success: function(data, textStatus, jqXHR)
+      {
+        btn_clicked.hide();
+        parent.prepend('<span class="label label-success">Following</span>').velocity("fadeIn", { duration: 500 });
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+        alert("Something went wrong, please try again later.");
+        console.log("The error thrown is:", errorThrown);
+        console.log("The error thrown is:", textStatus);
+      }
+    });
+
   });
 
 

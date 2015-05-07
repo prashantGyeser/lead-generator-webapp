@@ -87,6 +87,7 @@ Rails.application.routes.draw do
     get '/initial_setups/set_status' => 'initial_setups#set_status'
     get 'leads/:stream_id' => 'leads#index'
     post 'leads/send_reply'
+    post 'leads/follow'
     get 'configurations/twitter_accounts'
     get 'configurations/lead_streams'
     get 'account' => 'account#index'

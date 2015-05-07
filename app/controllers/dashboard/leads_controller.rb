@@ -113,6 +113,37 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
 
   end
 
+  def follow
+
+    lead = Lead.find(params[:lead_id])
+
+    token = Token.where(:user_id => current_user.id).last
+
+    # Client initialization
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['TWITTER_KEY']
+      config.consumer_secret     = ENV['TWITTER_SECRET']
+      config.access_token        = token.oauth_token
+      config.access_token_secret = token.oauth_secret
+    end
+
+    follow_result = client.follow(lead.poster_screen_name)
+
+    puts follow_result.inspect
+
+    follow = Follow.create(twitter_screen_name: lead.poster_screen_name, user_id: current_user.id )
+
+    respond_to do |format|
+      if !follow_result.first.screen_name.nil?
+        format.json { render :json => follow_result, status: :created }
+      else
+        format.json { render :json => "Error following #{lead.poster_screen_name}", status: 500 }
+      end
+
+    end
+
+  end
+
   def mark_non_lead
 
     lead = Lead.find(params[:lead_id])

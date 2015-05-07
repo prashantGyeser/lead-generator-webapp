@@ -78,7 +78,17 @@
                 </div>
                 <div class="inline pull-right">
                   <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline">
-                    <% tweet_replies = TweetReply.where(tweet_id: lead.tweet_id).count %>
+
+                    <% follow = Follow.where(twitter_screen_name: lead.poster_screen_name).where(user_id: current_user.id).count %>
+                    <% if follow > 0 %>
+                      <span class="label label-success">Following</span>
+                    <% else %>
+                      <button class="btn follow_btn" data-id="<%= lead.id %>"><i class="fa fa-user-plus"></i></button>
+                    <% end %>
+
+
+
+                    <% tweet_replies = TweetReply.where(tweet_id: lead.tweet_id).where(user_id: current_user.id).count %>
                     <% if tweet_replies > 0 %>
                       <i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>
                     <% else %>
