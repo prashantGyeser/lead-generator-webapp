@@ -28,6 +28,7 @@ class Search
       puts "Hit the rate limit going to sleep for #{error.rate_limit.reset_in}"
       start += iterations
       sleep error.rate_limit.reset_in + 1
+      sleep 15.minutes
       retry
     rescue => e
       Honeybadger.notify(
