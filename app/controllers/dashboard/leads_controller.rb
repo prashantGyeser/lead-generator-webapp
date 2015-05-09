@@ -86,7 +86,7 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
       character_count_exceeded = true
     else
       character_count_exceeded = false
-      tweet_reply_status = client.update(message_to_send)
+      tweet_reply_status = client.update(message_to_send, in_reply_to_tweet_id: lead.tweet_id)
     end
 
     tweet_reply = TweetReply.new(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: token.id, tweet_id: lead.tweet_id )

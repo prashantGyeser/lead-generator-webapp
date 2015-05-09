@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'keyword_reports/index/:keyword_id' => 'keyword_reports#index'
+  end
+
+  namespace :admin do
   get 'temp_processed_tweets/temp_leads/:user_id' => 'temp_processed_tweets#temp_leads'
   end
 

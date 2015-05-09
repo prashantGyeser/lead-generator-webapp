@@ -37,6 +37,7 @@
 #  gender                             :string(255)
 #  country                            :string(255)
 #  country_id                         :integer
+#  description                        :text
 #
 
 class Lead < ActiveRecord::Base

@@ -35,6 +35,7 @@ class ParseSearchResults
     unprocessed_tweet_hash[:tweet_id] = tweet.id.to_s
     unprocessed_tweet_hash[:geo_enabled] = (tweet.user.geo_enabled?).to_s
     unprocessed_tweet_hash[:location] = tweet.user.location.to_s
+    unprocessed_tweet_hash[:description] = tweet.user.description
 
     if search_type == 'country'
 

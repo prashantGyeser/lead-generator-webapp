@@ -21,6 +21,7 @@
 #  location                 :string(255)
 #  country                  :string(255)
 #  country_id               :integer
+#  description              :text
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

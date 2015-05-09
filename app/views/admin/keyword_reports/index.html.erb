@@ -1,0 +1,52 @@
+
+
+<!-- BEGIN PAGE TITLE -->
+<div class="page-title">
+  <h3 class="semi-bold">
+    Active Users
+  </h3>
+
+</div>
+<!-- END PAGE TITLE -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="grid simple">
+      <div class="grid-body">
+        <h3></h3>
+
+
+        <table class="table table-condensed m-t-30" id="example">
+          <thead>
+          <tr>
+            <th style="width:10%">Today</th>
+            <th style="width:10%">Yesterday</th>
+            <th style="width:10%">2 days before</th>
+            <th style="width: 10%" data-hide="phone,tablet">3 days before</th>
+            <th style="width:10%" data-hide="phone,tablet">4 days before</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr>
+            <td><%= @unprocessed_tweet_count[0] %></td>
+            <td><%= @unprocessed_tweet_count[1] %></td>
+            <td><%= @unprocessed_tweet_count[2] %></td>
+            <td><%= @unprocessed_tweet_count[3] %></td>
+            <td><%= @unprocessed_tweet_count[4] %></td>
+          </tr>
+
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

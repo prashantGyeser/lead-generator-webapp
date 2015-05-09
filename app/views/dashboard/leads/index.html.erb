@@ -55,6 +55,8 @@
                       Followers: <%= lead.poster_follower_count %>
                       |
                       Friends: <%= lead.poster_friends_count %>
+                      |
+                      Location: <%= lead.location %>
                       <% if @gender_beta_active %>
                       |
                       Gender: <%# lead.gender %>
@@ -83,7 +85,7 @@
                     <% if follow > 0 %>
                       <span class="label label-success">Following</span>
                     <% else %>
-                      <button class="btn follow_btn" data-id="<%= lead.id %>"><i class="fa fa-user-plus"></i></button>
+                      <button class="btn follow_btn" data-id="<%= lead.id %>" data-original-title="Follow" type="button" data-toggle="tooltip" title=""><i class="fa fa-user-plus"></i></button>
                     <% end %>
 
 
@@ -92,7 +94,7 @@
                     <% if tweet_replies > 0 %>
                       <i class="fa fa-check-circle" style="font-size: 39px; color: #0aa699"></i>
                     <% else %>
-                      <button class="btn reply_btn" data-id="<%= lead.id %>"><i class="fa fa-reply"></i></button>
+                      <button class="btn reply_btn tip" data-id="<%= lead.id %>" data-original-title="Reply" type="button" data-toggle="tooltip" title=""><i class="fa fa-reply"></i></button>
                     <% end %>
 
                   </div>
