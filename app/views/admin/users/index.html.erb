@@ -97,7 +97,8 @@
                     <% keywords.each do |keyword| %>
                       <tr>
                         <td style="border: none" class="bold">
-                          <%= keyword.id %> |
+                          <a href="/admin/keyword_reports/index/<%= keyword.id %>"><i class="fa fa-bar-chart"></i></a>
+                          | <%= keyword.id %> |
                           <% if keyword.admin_created%>
                             <a href="/admin/leads/qc/<%= keyword.id %>" class="text-success"><%= keyword.term %></a>
                           <%elsif keyword.archived%>
