@@ -21,6 +21,7 @@
 #  location                 :string(255)
 #  country                  :string(255)
 #  country_id               :integer
+#  description              :text
 #
 
 require 'rails_helper'

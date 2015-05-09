@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507163312) do
+ActiveRecord::Schema.define(version: 20150509050722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20150507163312) do
     t.string   "gender"
     t.string   "country"
     t.integer  "country_id"
+    t.text     "description"
   end
 
   create_table "locations", force: true do |t|
@@ -226,6 +227,7 @@ ActiveRecord::Schema.define(version: 20150507163312) do
     t.string   "location"
     t.string   "country"
     t.integer  "country_id"
+    t.text     "description"
   end
 
   create_table "notifications", force: true do |t|
@@ -315,6 +317,7 @@ ActiveRecord::Schema.define(version: 20150507163312) do
     t.string   "location"
     t.string   "country"
     t.integer  "country_id"
+    t.text     "description"
   end
 
   create_table "temp_non_leads", force: true do |t|
@@ -334,6 +337,7 @@ ActiveRecord::Schema.define(version: 20150507163312) do
     t.string   "location"
     t.string   "country"
     t.integer  "country_id"
+    t.text     "description"
   end
 
   create_table "tokens", force: true do |t|
@@ -388,6 +392,7 @@ ActiveRecord::Schema.define(version: 20150507163312) do
     t.string   "location"
     t.string   "country"
     t.integer  "country_id"
+    t.text     "description"
   end
 
   create_table "user_categories", force: true do |t|
