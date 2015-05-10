@@ -4,54 +4,28 @@ class Admin::KeywordReportsController < Admin::ApplicationController
     @keyword = Keyword.find(params[:keyword_id])
 
     @unprocessed_tweet_count = []
+    @lead_count = []
     @keyword_efficiency = []
 
-    @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).today.count
-    @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).yesterday.count
-    @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).between_times(Time.zone.now - 72.hours,Time.zone.now - 48.hours).count
-    @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).between_times(Time.zone.now - 96.hours,Time.zone.now - 72.hours).count
-    @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).between_times(Time.zone.now - 120.hours,Time.zone.now - 96.hours).count
+    i = 0
+    while i < 120
 
+      # Unprocessed Tweet Counter
+      @unprocessed_tweet_count << UnprocessedTweet.where(keyword_id: @keyword.id).between_times(Time.zone.now - (i+24).hours,Time.zone.now - i.hours).count
 
-    # Leads/(Leads + NonLeads) * 100
-    leads = Lead.where(keyword_id: @keyword.id).today.count
-    non_leads = NonLead.where(keyword_id: @keyword.id).today.count
-    if (leads + non_leads) == 0
-      @keyword_efficiency << 0
-    else
-      @keyword_efficiency << (leads/(leads + non_leads)) * 100
-    end
+      # Efficiency counter
+      leads = Lead.where(keyword_id: @keyword.id).between_times(Time.zone.now - (i+24).hours,Time.zone.now - i.hours).count
+      non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - 72.hours,Time.zone.now - 48.hours).count
 
-    leads = Lead.where(keyword_id: @keyword.id).yesterday.count
-    non_leads = NonLead.where(keyword_id: @keyword.id).yesterday.count
-    if (leads + non_leads) == 0
-      @keyword_efficiency << 0
-    else
-      @keyword_efficiency << (leads/(leads + non_leads)) * 100
-    end
+      @lead_count << leads
 
-    leads = Lead.where(keyword_id: @keyword.id).yesterday.count
-    non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - 72.hours,Time.zone.now - 48.hours).count
-    if (leads + non_leads) == 0
-      @keyword_efficiency << 0
-    else
-      @keyword_efficiency << (leads/(leads + non_leads)) * 100
-    end
+      if (leads + non_leads) == 0
+        @keyword_efficiency << 0
+      else
+        @keyword_efficiency << (leads/(leads + non_leads)) * 100
+      end
 
-    leads = Lead.where(keyword_id: @keyword.id).yesterday.count
-    non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - 96.hours,Time.zone.now - 72.hours).count
-    if (leads + non_leads) == 0
-      @keyword_efficiency << 0
-    else
-      @keyword_efficiency << (leads/(leads + non_leads)) * 100
-    end
-
-    leads = Lead.where(keyword_id: @keyword.id).yesterday.count
-    non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - 120.hours,Time.zone.now - 96.hours).count
-    if (leads + non_leads) == 0
-      @keyword_efficiency << 0
-    else
-      @keyword_efficiency << (leads/(leads + non_leads)) * 100
+      i = i + 24
     end
 
   end
