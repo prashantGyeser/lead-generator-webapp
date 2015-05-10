@@ -82,7 +82,7 @@
                   <div class="tiles white p-t-5 p-l-5 p-b-5 p-r-5 inline">
 
                     <% follow = Follow.where(twitter_screen_name: lead.poster_screen_name).where(user_id: current_user.id).count %>
-                    <% if follow > 0 %>
+                    <% if follow > 0 %>cd <Doc></Doc>
                       <span class="label label-success">Following</span>
                     <% else %>
                       <button class="btn follow_btn" data-id="<%= lead.id %>" data-original-title="Follow" type="button" data-toggle="tooltip" title=""><i class="fa fa-user-plus"></i></button>
