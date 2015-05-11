@@ -5,7 +5,7 @@ class Admin::KeywordReportsController < Admin::ApplicationController
 
     @unprocessed_tweet_count = []
     @lead_count = []
-    @keyword_efficiency = []
+    @non_lead_count = []
 
     i = 0
     while i < 120
@@ -19,11 +19,7 @@ class Admin::KeywordReportsController < Admin::ApplicationController
 
       @lead_count << leads
 
-      if (leads + non_leads) == 0
-        @keyword_efficiency << 0
-      else
-        @keyword_efficiency << (leads/(leads + non_leads)) * 100
-      end
+      @non_lead_count << non_leads
 
       i = i + 24
     end
