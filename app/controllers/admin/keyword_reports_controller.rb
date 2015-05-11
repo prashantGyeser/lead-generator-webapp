@@ -15,7 +15,7 @@ class Admin::KeywordReportsController < Admin::ApplicationController
 
       # Efficiency counter
       leads = Lead.where(keyword_id: @keyword.id).between_times(Time.zone.now - (i+24).hours,Time.zone.now - i.hours).count
-      non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - 72.hours,Time.zone.now - 48.hours).count
+      non_leads = NonLead.where(keyword_id: @keyword.id).between_times(Time.zone.now - (i+24).hours,Time.zone.now - i.hours).count
 
       @lead_count << leads
 
