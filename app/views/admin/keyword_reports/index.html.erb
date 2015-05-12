@@ -15,7 +15,7 @@
       <div class="grid-body">
         <h3></h3>
 
-        Incoming Tweet Count | Lead Count | Non Leads Count
+        Incoming Tweet Count | Lead Count | Non Leads Count | Efficiency
 
         <table class="table table-condensed m-t-30" id="example">
           <thead>
@@ -30,11 +30,56 @@
           <tbody>
 
           <tr>
-            <td><%= @unprocessed_tweet_count[0] %> | <%= @lead_count[0] %> | <%= @non_lead_count[0] %></td>
-            <td><%= @unprocessed_tweet_count[1] %> | <%= @lead_count[1] %> | <%= @non_lead_count[1] %></td>
-            <td><%= @unprocessed_tweet_count[2] %> | <%= @lead_count[2] %> | <%= @non_lead_count[2] %></td>
-            <td><%= @unprocessed_tweet_count[3] %> | <%= @lead_count[3] %> | <%= @non_lead_count[3] %></td>
-            <td><%= @unprocessed_tweet_count[4] %> | <%= @lead_count[4] %> | <%= @non_lead_count[4] %></td>
+            <td>
+              <%= @unprocessed_tweet_count[0] %> | <%= @lead_count[0] %> | <%= @non_lead_count[0] %> |
+              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% if (total_processed) == 0 %>
+                0
+              <% else %>
+                <%= (@lead_count[0]/total_processed) * 100 %>
+              <% end %>
+              %
+            </td>
+            <td>
+              <%= @unprocessed_tweet_count[1] %> | <%= @lead_count[1] %> | <%= @non_lead_count[1] %> |
+              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% if (total_processed) == 0 %>
+                0
+              <% else %>
+                <%= (@lead_count[0]/total_processed) * 100 %>
+              <% end %>
+              %
+            </td>
+            <td>
+              <%= @unprocessed_tweet_count[2] %> | <%= @lead_count[2] %> | <%= @non_lead_count[2] %> |
+              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% if (total_processed) == 0 %>
+                0
+              <% else %>
+                <%= (@lead_count[0]/total_processed) * 100 %>
+              <% end %>
+              %
+            </td>
+            <td>
+              <%= @unprocessed_tweet_count[3] %> | <%= @lead_count[3] %> | <%= @non_lead_count[3] %> |
+              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% if (total_processed) == 0 %>
+                0
+              <% else %>
+                <%= (@lead_count[0]/total_processed) * 100 %>
+              <% end %>
+              %
+            </td>
+            <td>
+              <%= @unprocessed_tweet_count[4] %> | <%= @lead_count[4] %> | <%= @non_lead_count[4] %> |
+              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% if (total_processed) == 0 %>
+                0
+              <% else %>
+                <%= (@lead_count[0]/total_processed) * 100 %>
+              <% end %>
+              %
+            </td>
           </tr>
 
 
