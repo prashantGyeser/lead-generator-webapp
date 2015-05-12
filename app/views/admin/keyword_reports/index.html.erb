@@ -42,41 +42,41 @@
             </td>
             <td>
               <%= @unprocessed_tweet_count[1] %> | <%= @lead_count[1] %> | <%= @non_lead_count[1] %> |
-              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% total_processed = @lead_count[1] + @non_lead_count[1] %>
               <% if (total_processed) == 0 %>
                 0
               <% else %>
-                <%= (@lead_count[0]/total_processed) * 100 %>
+                <%= (@lead_count[1]/total_processed) * 100 %>
               <% end %>
               %
             </td>
             <td>
               <%= @unprocessed_tweet_count[2] %> | <%= @lead_count[2] %> | <%= @non_lead_count[2] %> |
-              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% total_processed = @lead_count[2] + @non_lead_count[2] %>
               <% if (total_processed) == 0 %>
                 0
               <% else %>
-                <%= (@lead_count[0]/total_processed) * 100 %>
+                <%= (@lead_count[2]/total_processed) * 100 %>
               <% end %>
               %
             </td>
             <td>
               <%= @unprocessed_tweet_count[3] %> | <%= @lead_count[3] %> | <%= @non_lead_count[3] %> |
-              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% total_processed = @lead_count[3] + @non_lead_count[3] %>
               <% if (total_processed) == 0 %>
                 0
               <% else %>
-                <%= (@lead_count[0]/total_processed) * 100 %>
+                <%= (@lead_count[3]/total_processed) * 100 %>
               <% end %>
               %
             </td>
             <td>
               <%= @unprocessed_tweet_count[4] %> | <%= @lead_count[4] %> | <%= @non_lead_count[4] %> |
-              <% total_processed = @lead_count[0] + @non_lead_count[0] %>
+              <% total_processed = @lead_count[4] + @non_lead_count[4] %>
               <% if (total_processed) == 0 %>
                 0
               <% else %>
-                <%= (@lead_count[0]/total_processed) * 100 %>
+                <%= (@lead_count[4]/total_processed) * 100 %>
               <% end %>
               %
             </td>
