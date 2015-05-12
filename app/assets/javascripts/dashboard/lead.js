@@ -1,6 +1,17 @@
 var ready;
 ready = function() {
 
+  $('.poster_description_btn').click(function(e){
+    e.preventDefault();
+    var lead_id = $(this).data('lead-id');
+    var description_to_show = '#poster_description_' + lead_id;
+
+    $(description_to_show).show(300);
+
+    $(this).hide(300);
+
+  });
+
   $('.reply_input_box').characterCounter({
     limit: '120',
     counterCssClass: 'character_counter',

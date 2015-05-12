@@ -45,7 +45,11 @@
                     <p>
                       <a href="http://www.twitter.com/<%= lead.poster_screen_name %>">@<%= lead.poster_screen_name %></a> -
                       <a href="http://www.twitter.com/<%= lead.poster_screen_name %>/status/<%= lead.tweet_id %>" class="btn btn-white btn-xs btn-mini">View on Twitter</a>
+                      <a href="" class="btn btn-white btn-xs btn-mini poster_description_btn" data-lead-id="<%= lead.id %>">View Poster Description</a>
+
                     </p>
+
+
                     <p style="color: #576477">
                       <%= auto_link(lead.tweet_body) %>
                     </p>
@@ -75,6 +79,12 @@
 
                       <% end %>
                     </p>
+
+                    <p style="font-size: .9em; display: none;" class="poster_description" id="poster_description_<%= lead.id %>">
+                      <%# lead.description %>
+                      This is a test description
+                    </p>
+
                   </div>
                   <div class="clearfix"></div>
                 </div>
