@@ -17,6 +17,7 @@ class Dashboard::LeadStreamsController < Dashboard::ApplicationController
     @unprocessed_count = UnprocessedTweet.where(keyword_id: keyword_ids).count
     @lead_count = Lead.where(keyword_id: keyword_ids).count
     @reply_count = TweetReply.where(user_id: current_user.id).count
+    @reply_count_today = TweetReply.where(user_id: current_user.id).today.count
 
     if current_user.new_user?
       @new_user = true

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-6 col-vlg-6 col-sm-6">
+  <div class="col-md-4 col-vlg-4 col-sm-4">
     <div class="tiles blue m-b-10">
       <div class="tiles-body text-center">
         <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
@@ -14,8 +14,21 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6 col-vlg-6 col-sm-6">
+  <div class="col-md-4 col-vlg-4 col-sm-4">
     <div class="tiles purple m-b-10 text-center">
+      <div class="tiles-body">
+        <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="tiles-title text-black">TOTAL REPLIES SENT TODAY</div>
+        <div class="widget-stats ">
+          <div class="wrapper last">
+            <span class="item-count animate-number semi-bold" data-value="<%= @reply_count_today %>" data-animation-duration="700" style="font-size: 30px;"><%= @reply_count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-vlg-4 col-sm-4">
+    <div class="tiles green m-b-10 text-center">
       <div class="tiles-body">
         <div class="controller"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
         <div class="tiles-title text-black">TOTAL REPLIES SENT</div>
