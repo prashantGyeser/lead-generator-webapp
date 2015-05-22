@@ -4,7 +4,7 @@ class RonSearch
 
   def setup_lead_stream
     user = User.find_by_email("ronkatz@bpr.buzz")
-    lead__stream = LeadStream.create(user_id: user.id, search_type: 'geocoded', name: "Hampstead Leads")
+    lead_stream = LeadStream.create(user_id: user.id, search_type: 'geocoded', name: "Hampstead Leads")
 
     keyword_list = ['illegal immigration', 'illegal immigrant', 'boarder controls', 'national health service', 'patient care nhs','complaints nhs','high taxes', 'unfair taxation', 'tax rise', 'high unemployment', "can find job",  "can find work", "elder care", 'neglect disabled', 'abuse disabled', 'education standards', 'schools quality', 'gun control', 'public safety', 'law enforcement', 'drunk driving', 'drug abuse', 'alcohol treatment', 'mental illness', 'sexual harrassment', 'domestic violence', 'bully children', 'social media bullying', 'teen suicide', 'pension senior citizens', 'care for aged', 'conditons senior citizens', 'high prices', 'cost of living', 'low wages']
 
