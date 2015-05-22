@@ -52,6 +52,8 @@ class ParseSearchResults
 
     unprocessed_tweet = UnprocessedTweet.new(unprocessed_tweet_hash)
 
+
+
     begin
       if unprocessed_tweet.save
       else

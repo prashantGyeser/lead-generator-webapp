@@ -1,3 +1,5 @@
+require 'csv'
+
 class TwitterSearch
   attr_reader :client, :search_term, :search_type, :latitude, :longitude, :keyword
 
@@ -18,6 +20,7 @@ class TwitterSearch
       when "geocoded"
         puts "It is in the geocoded search"
         find_geocoded
+
       else
         return nil
     end

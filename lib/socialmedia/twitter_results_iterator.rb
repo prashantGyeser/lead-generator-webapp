@@ -54,11 +54,11 @@ class TwitterResultsIterator
   end
 
   def set_iterations(index)
-    iterations = index
+    @iterations = index
   end
 
   def stop_search?
-    if search_result_count >= max_results
+    if @search_result_count >= @max_results
       true
     end
 
