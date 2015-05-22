@@ -19,6 +19,7 @@ class ParseSearchResults
 
   def single_tweet(tweet, keyword_id, search_type)
 
+    puts "It is getting to the search function parse with tweet: #{tweet.text}"
 
     duplicate_count = 0
 
