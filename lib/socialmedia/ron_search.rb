@@ -15,7 +15,7 @@ class RonSearch
     search_args[:longitude] = -0.173440
 
     keyword_list.each do |term|
-      keyword = Keyword.create(lead_stream_id: lead_stream.id, term: term, admin_create: true)
+      keyword = Keyword.create(lead_stream_id: lead_stream.id, term: term, admin_created: true)
 
       search_args[:keyword] = keyword
 
