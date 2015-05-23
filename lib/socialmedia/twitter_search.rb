@@ -20,7 +20,6 @@ class TwitterSearch
       when "geocoded"
         puts "It is in the geocoded search"
         find_geocoded
-
       else
         return nil
     end

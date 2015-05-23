@@ -15,7 +15,7 @@ class SocialmediaSearch
         lead_streams = user.lead_streams
 
           lead_streams.each do |lead_stream|
-            if !lead_stream.search_type.nil?
+            if !lead_stream.search_type.nil? && (lead_stream.search_type != 'geocoded')
               keywords = lead_stream.keywords.active.no_search_in_24_hrs_or_never_searched
 
               keywords.each do |keyword|
