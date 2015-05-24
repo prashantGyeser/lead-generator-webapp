@@ -31,7 +31,7 @@ class TwitterSearch
   end
 
   def find_geocoded
-    client.search( keyword.term, geocode: "#{latitude},#{longitude},15km" )
+    client.search( keyword.term, geocode: "#{latitude},#{longitude},25km" )
   end
 
 
