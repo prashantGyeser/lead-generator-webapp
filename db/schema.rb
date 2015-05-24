@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509050722) do
+ActiveRecord::Schema.define(version: 20150524073752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20150509050722) do
     t.integer  "country_id"
     t.integer  "time_left_for_processing_hours"
     t.integer  "time_left_for_processing_mins"
+    t.boolean  "archived",                       default: false
   end
 
   create_table "leads", force: true do |t|

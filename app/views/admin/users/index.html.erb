@@ -76,53 +76,57 @@
 
               <% user.lead_streams.each do |lead_stream| %>
 
+                <% if lead_stream.archived == true %>
+                  <%= lead_stream.name %> - Archived
+                <% else %>
+                  <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+
+                  <% keyword_ids = lead_stream.keywords.pluck(:id) %>
+
+                  <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
+                  <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
+                  <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
+
+                  <tr>
+                    <td style="border-top: none;">
+                    <span class="">
+                      <%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %>
+                      <span class="label">City: <%= lead_stream.city_name %></span>
+                    </span>
+
+                      <table>
+                        <% keywords.each do |keyword| %>
+                          <tr>
+                            <td style="border: none" class="bold">
+                              <a href="/admin/keyword_reports/index/<%= keyword.id %>"><i class="fa fa-bar-chart"></i></a>
+                              | <%= keyword.id %> |
+                              <% if keyword.admin_created%>
+                                <a href="/admin/leads/qc/<%= keyword.id %>" class="text-success"><%= keyword.term %></a>
+                              <%elsif keyword.archived%>
+                                <%= keyword.term %>
+                              <%else%>
+                                <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
+                              <%end%>
 
 
-              <% keywords = Keyword.where(lead_stream_id: lead_stream.id) %>
+                              <% tweets_to_qc = UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %>
+                              <span class="badge <%= tweets_to_qc < 5 ? "badge-important":"badge-success" %>"><%= tweets_to_qc %></span>
+                            </td>
+                          </tr>
+                        <% end %>
 
-              <% keyword_ids = lead_stream.keywords.pluck(:id) %>
-
-              <% unprocessed_tweet_count = UnprocessedTweet.where(keyword_id: keyword_ids).where(processed: nil).count %>
-              <% leads_today = Lead.where(keyword_id: keyword_ids).where("created_at >= ?", Time.zone.now.beginning_of_day).count %>
-              <% leads_this_month = Lead.where(keyword_id: keyword_ids).past_month.count %>
-
-              <tr>
-                <td style="border-top: none;">
-                  <span class="">
-                    <%= lead_stream.name.nil? ? (lead_stream.city_name):(lead_stream.name) %>
-                    <span class="label">City: <%= lead_stream.city_name %></span>
-                  </span>
-
-                  <table>
-                    <% keywords.each do |keyword| %>
-                      <tr>
-                        <td style="border: none" class="bold">
-                          <a href="/admin/keyword_reports/index/<%= keyword.id %>"><i class="fa fa-bar-chart"></i></a>
-                          | <%= keyword.id %> |
-                          <% if keyword.admin_created%>
-                            <a href="/admin/leads/qc/<%= keyword.id %>" class="text-success"><%= keyword.term %></a>
-                          <%elsif keyword.archived%>
-                            <%= keyword.term %>
-                          <%else%>
-                            <a href="/admin/leads/qc/<%= keyword.id %>"><%= keyword.term %></a>
-                          <%end%>
+                      </table>
+                    </td>
+                    <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
+                    <td style="border-top: none;"><%= leads_today %></td>
+                    <td style="border-top: none;"><%= leads_this_month %></td>
+                    <td style="border-top: none;"><button class="btn open_add_keyword_modal" data-lead-stream-id="<%= lead_stream.id %>" data-toggle="modal" data-target="#myModal">Add Keyword</button></td>
 
 
-                          <% tweets_to_qc = UnprocessedTweet.where(keyword_id: keyword.id).where(processed: nil).count %>
-                          <span class="badge <%= tweets_to_qc < 5 ? "badge-important":"badge-success" %>"><%= tweets_to_qc %></span>
-                        </td>
-                      </tr>
-                    <% end %>
-
-                  </table>
-                </td>
-                <td style="border-top: none;"><%= unprocessed_tweet_count %></td>
-                <td style="border-top: none;"><%= leads_today %></td>
-                <td style="border-top: none;"><%= leads_this_month %></td>
-                <td style="border-top: none;"><button class="btn open_add_keyword_modal" data-lead-stream-id="<%= lead_stream.id %>" data-toggle="modal" data-target="#myModal">Add Keyword</button></td>
+                  </tr>
+                <% end %>
 
 
-              </tr>
 
               <% end %>
 

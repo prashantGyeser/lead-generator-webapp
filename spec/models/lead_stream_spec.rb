@@ -18,6 +18,7 @@
 #  country_id                     :integer
 #  time_left_for_processing_hours :integer
 #  time_left_for_processing_mins  :integer
+#  archived                       :boolean          default(FALSE)
 #
 
 require 'rails_helper'
