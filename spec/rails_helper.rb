@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara-screenshot/rspec'
+require 'vcr'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -18,6 +19,15 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+VCR.configure do |c|
+  c.hook_into :webmock
+  c.cassette_library_dir = 'spec/support/vcr_cassettes'
+  c.configure_rspec_metadata!
+  #c.allow_http_connections_when_no_cassette = true
+  c.default_cassette_options = {:record => :new_episodes}
+end
+
 
 RSpec.configure do |config|
 
@@ -67,6 +77,10 @@ RSpec.configure do |config|
     #screenshot_and_save_page
 
   end
+
+
+  # Using vcr for remote calls
+  #config.extend VCR::RSpec::Macros
 
 
 end

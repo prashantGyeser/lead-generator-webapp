@@ -133,6 +133,8 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara-screenshot'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do
