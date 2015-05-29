@@ -113,6 +113,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do

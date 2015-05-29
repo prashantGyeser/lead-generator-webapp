@@ -1,11 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+require 'vcr'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara-screenshot/rspec'
-require 'vcr'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -24,7 +24,7 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = 'spec/support/vcr_cassettes'
   c.configure_rspec_metadata!
-  #c.allow_http_connections_when_no_cassette = true
+  c.allow_http_connections_when_no_cassette = true
   c.default_cassette_options = {:record => :new_episodes}
 end
 
