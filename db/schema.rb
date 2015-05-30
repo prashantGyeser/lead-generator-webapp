@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524073752) do
+ActiveRecord::Schema.define(version: 20150530035434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,17 @@ ActiveRecord::Schema.define(version: 20150524073752) do
     t.integer  "country_id"
     t.text     "description"
   end
+
+  create_table "links", force: true do |t|
+    t.string   "in_url"
+    t.text     "out_url"
+    t.integer  "http_status", default: 301
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "links", ["in_url"], name: "index_links_on_in_url", using: :btree
 
   create_table "locations", force: true do |t|
     t.integer  "country_id"

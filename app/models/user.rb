@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
   has_many :user_categories
   has_many :leads
   has_many :lead_streams
+  has_many :links
 
   after_create :generic_email_domain_check
 
