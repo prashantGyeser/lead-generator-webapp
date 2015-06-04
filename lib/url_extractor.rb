@@ -6,7 +6,12 @@ class UrlExtractor
   end
 
   def get_urls
-    URI.extract(text_with_url)
+    extract_urls(text_with_url)
+  end
+
+  private
+  def extract_urls(string_to_extract_from)
+    string_to_extract_from.scan(/\S+[.]\S+/xms)
   end
 
 end
