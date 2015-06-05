@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531122444) do
+ActiveRecord::Schema.define(version: 20150605015233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 20150531122444) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "tweet_reply_id"
+    t.integer  "views"
   end
 
   add_index "links", ["in_url"], name: "index_links_on_in_url", using: :btree

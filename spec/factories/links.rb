@@ -9,6 +9,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  tweet_reply_id :integer
+#  views          :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

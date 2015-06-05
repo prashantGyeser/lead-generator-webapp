@@ -9,6 +9,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  tweet_reply_id :integer
+#  views          :integer
 #
 
 require 'rails_helper'

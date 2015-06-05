@@ -63,6 +63,7 @@ class LinksController < ApplicationController
 
   def go
     @link = Link.find_by_in_url!(params[:in_url])
+    @link.increment_views
     redirect_to @link.out_url, :status => @link.http_status
   end
 

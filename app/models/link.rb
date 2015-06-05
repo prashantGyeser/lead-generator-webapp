@@ -9,8 +9,14 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  tweet_reply_id :integer
+#  views          :integer
 #
 
 class Link < ActiveRecord::Base
   belongs_to :tweet_reply
+
+  def self.increment_views
+    self.views = self.views + 1
+    self.save
+  end
 end
