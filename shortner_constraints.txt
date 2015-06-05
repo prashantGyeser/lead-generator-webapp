@@ -1,3 +1,5 @@
 1. It will reshorten and create a new url in case the same url is repeated twice in the same reply
 2. Currently only supports well formed urls i.e. http://google.com
 3. Does not check for the uniqueness of a generated url, still need to implement a check
+4. Shortner still does not handle a link in case it is longer after shortening in the message and the message becomes more than 140 characters after shortening
+5. Links are shortened in the background, so still need to figure out how to show errors in case of messages being sent

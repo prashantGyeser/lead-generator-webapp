@@ -18,6 +18,14 @@ class TweetReply < ActiveRecord::Base
 
   has_many :links
 
+  before_create :append_screen_name
+  after_create :shorten_links
+
+  def append_screen_name
+    lead = Lead.find(self.lead_id)
+    self.message = "@#{lead.poster_screen_name}" + self.message
+  end
+
   def shorten_links
     shortened_url_container =  LinkManager.new(self.message).shorten_all_urls
     store_urls(shortened_url_container[:url_details])
@@ -31,10 +39,11 @@ class TweetReply < ActiveRecord::Base
 
   def update_shortened_urls(shortened_url_container)
     self.message = shortened_url_container[:text_with_shortened_links]
+    self.save
   end
 
   def send_reply
-    #Todo
+    TwitterReply.new(self.message, Token.find(token_id), Lead.find(self.lead_id).tweet_id)
   end
 
 

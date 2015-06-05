@@ -27,6 +27,7 @@ class TwitterReply
     if in_reply_to.empty?
       twitter_client.update(message)
     else
+      puts "It is in the right place #{in_reply_to}"
       twitter_client.update(message, in_reply_to_tweet_id: in_reply_to)
     end
   end

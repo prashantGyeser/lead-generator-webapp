@@ -61,6 +61,11 @@ class LinksController < ApplicationController
     end
   end
 
+  def go
+    @link = Link.find_by_in_url!(params[:in_url])
+    redirect_to @link.out_url, :status => @link.http_status
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link

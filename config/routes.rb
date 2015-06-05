@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :links
-
   namespace :admin do
   get 'keyword_reports/index/:keyword_id' => 'keyword_reports#index'
   end
@@ -167,6 +165,9 @@ Rails.application.routes.draw do
 
   post 'website_email' => 'website_email#create'
 
+
+  resources :links
+  get ':in_url' => 'links#go'
 
 
 

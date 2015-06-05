@@ -13,8 +13,8 @@ describe UrlExtractor do
   end
 
   it "should extract multiple urls" do
-    text_with_url = "This is a test with a fully formed url google.com and http://yahoo.com"
-    expect(UrlExtractor.new(text_with_url).get_urls).to eq ["google.com", "http://yahoo.com"]
+    text_with_url = "This is a test with a fully formed url google.com and http://yahoo.com and blog.google.com and www.google.com"
+    expect(UrlExtractor.new(text_with_url).get_urls).to eq ["google.com", "http://yahoo.com", "blog.google.com", "www.google.com"]
   end
 
 end
