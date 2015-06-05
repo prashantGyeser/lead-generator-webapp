@@ -102,8 +102,6 @@ gem "skylight"
 
 gem 'yajl-ruby', require: 'yajl'
 
-gem 'twitter-text', '~> 1.12.0'
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"

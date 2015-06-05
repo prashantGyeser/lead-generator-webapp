@@ -62,52 +62,20 @@ class Dashboard::LeadsController < Dashboard::ApplicationController
   end
 
   def send_reply
-    #@tweet_reply = TweetReply.new(tweet_reply_params)
 
-    token = Token.where(:user_id => current_user.id).last
-
-    #token = Token.find(params[:tweet_reply][:token_id])
-
-    # Client initialization
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['TWITTER_KEY']
-      config.consumer_secret     = ENV['TWITTER_SECRET']
-      config.access_token        = token.oauth_token
-      config.access_token_secret = token.oauth_secret
-    end
-
-    lead = Lead.find(params[:lead_id])
-    message = params[:message]
-
-    message_to_send = "@#{lead.poster_screen_name} " + message.to_s
-
-
-    if message_to_send.length > 140
-      character_count_exceeded = true
-    else
-      character_count_exceeded = false
-      tweet_reply_status = client.update(message_to_send, in_reply_to_tweet_id: lead.tweet_id)
-    end
-
-    tweet_reply = TweetReply.new(:message => message_to_send, :lead_id => lead.id, :user_id => current_user.id, token_id: token.id, tweet_id: lead.tweet_id )
+    @tweet_reply = TweetReply.new(message: params[:message], lead_id: params[:lead_id], user_id: current_user.id)
 
     respond_to do |format|
-      if tweet_reply.save && (character_count_exceeded == false)
+      if tweet_reply.save
         format.json { render :json => tweet_reply, status: :created }
       else
+        Honeybadger.notify(
+            :error_class   => "Tweet Reply Error",
+            :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence} and the tweet_reply_status is: #{tweet_reply_status}",
+            :parameters    => params
+        )
 
-        if character_count_exceeded == true
-          format.json { render :json => "Your message has to be less than 140 characters. Reduce it and try again.", status: 500 }
-        else
-          Honeybadger.notify(
-              :error_class   => "Tweet Reply Error",
-              :error_message => "Tweet Reply Error: Unable to save tweet reply #{tweet_reply.errors.full_messages.to_sentence} and the tweet_reply_status is: #{tweet_reply_status}",
-              :parameters    => params
-          )
-
-          format.json { render :json => tweet_reply.errors, status: 500 }
-        end
-
+        format.json { render :json => tweet_reply.errors, status: 500 }
       end
     end
 

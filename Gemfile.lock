@@ -383,16 +383,11 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
-    twitter-text (1.12.0)
-      unf (~> 0.1.0)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.1)
     unicode_utils (1.4.0)
     unicorn (4.8.3)
       kgio (~> 2.6)
@@ -470,7 +465,6 @@ DEPENDENCIES
   traceroute
   turbolinks
   twitter
-  twitter-text (~> 1.12.0)
   uglifier (>= 1.3.0)
   unicorn
   vcr

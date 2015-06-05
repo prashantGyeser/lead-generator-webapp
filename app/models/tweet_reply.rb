@@ -19,11 +19,22 @@ class TweetReply < ActiveRecord::Base
   has_many :links
 
   before_create :append_screen_name
+  before_create :set_token
+  before_create :set_tweet_id
   after_create :shorten_links
 
   def append_screen_name
     lead = Lead.find(self.lead_id)
     self.message = "@#{lead.poster_screen_name}" + self.message
+  end
+
+  def set_token
+    token = Token.where(:user_id => self.user_id).last
+    self.token_id = token.id
+  end
+
+  def set_tweet_id
+    self.tweet_id = Lead.find(self.lead_id).tweet_id
   end
 
   def shorten_links
