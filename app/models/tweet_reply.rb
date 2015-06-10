@@ -2,14 +2,17 @@
 #
 # Table name: tweet_replies
 #
-#  id         :integer          not null, primary key
-#  lead_id    :integer
-#  message    :string(255)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  token_id   :integer
-#  tweet_id   :string(255)
+#  id              :integer          not null, primary key
+#  lead_id         :integer
+#  message         :string(255)
+#  user_id         :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  token_id        :integer
+#  tweet_id        :string(255)
+#  retweet_count   :integer
+#  favorites_count :integer
+#  reply_tweet_id  :string(255)
 #
 
 class TweetReply < ActiveRecord::Base
@@ -41,7 +44,8 @@ class TweetReply < ActiveRecord::Base
     shortened_url_container =  LinkManager.new(self.message).shorten_all_urls
     store_urls(shortened_url_container[:url_details])
     update_shortened_urls(shortened_url_container)
-    send_reply
+    twitter_reply = send_reply
+    set_reply_tweet_id(twitter_reply, self)
   end
 
   def store_urls(links)
@@ -54,9 +58,11 @@ class TweetReply < ActiveRecord::Base
   end
 
   def send_reply
-    TwitterReply.new(self.message, Token.find(token_id), Lead.find(self.lead_id).tweet_id)
+    TwitterReply.new(self.message, Token.find(token_id), Lead.find(self.lead_id).tweet_id).send_reply
   end
 
-
+  def set_reply_tweet_id(tweet, tweet_reply)
+    tweet_reply.reply_tweet_id = tweet.id
+  end
 
 end

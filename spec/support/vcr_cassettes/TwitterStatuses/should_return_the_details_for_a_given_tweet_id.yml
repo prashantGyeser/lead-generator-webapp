@@ -1,0 +1,247 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/lookup.json
+    body:
+      encoding: UTF-8
+      string: id=598231234792194048
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="7399f19924cd8d6250c1ed54cbd16305",
+        oauth_signature="dQsfboEgjkZ%2BXKthvH%2FX4VoWH48%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433559437", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1131'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 06 Jun 2015 02:57:17 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 06 Jun 2015 02:57:17 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143355943765268466; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Jun-2017 02:57:17 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - ca0dfd8ebbb098267f15a814d8f57176
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '179'
+      X-Rate-Limit-Reset:
+      - '1433560337'
+      X-Response-Time:
+      - '347'
+      X-Transaction:
+      - 0ae50a725efe4b17
+      X-Tsa-Request-Body-Time:
+      - '96'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '[{"created_at":"Tue May 12 21:00:15 +0000 2015","id":598231234792194048,"id_str":"598231234792194048","text":"10
+        Hacks to Help Your Website Generate More Leads, Sales and Revenue #ecommerce
+        #conversion #growth #digital 245454 http:\/\/t.co\/1UTz17piMF","source":"\u003ca
+        href=\"http:\/\/klout.com\" rel=\"nofollow\"\u003ePost with Klout\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":2328561949,"id_str":"2328561949","name":"UrbanZeak","screen_name":"UrbanZeak","location":"Toronto","description":"Automatically
+        mine conversations on Twitter to find your customers. Inviting you for a free
+        trial #socialselling #leadgeneration #machinelearning","url":"http:\/\/t.co\/f0EW4zWkkN","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/f0EW4zWkkN","expanded_url":"http:\/\/www.urbanzeak.com","display_url":"urbanzeak.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":234,"friends_count":96,"listed_count":39,"created_at":"Wed
+        Feb 05 10:18:36 +0000 2014","favourites_count":59,"utc_offset":19800,"time_zone":"Chennai","geo_enabled":true,"verified":false,"statuses_count":3632,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/582580039067275264\/kLxOfXNT_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/582580039067275264\/kLxOfXNT_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/2328561949\/1427735017","profile_link_color":"4A913C","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":3,"entities":{"hashtags":[{"text":"ecommerce","indices":[69,79]},{"text":"conversion","indices":[80,91]},{"text":"growth","indices":[92,99]},{"text":"digital","indices":[100,108]}],"symbols":[],"user_mentions":[],"urls":[{"url":"http:\/\/t.co\/1UTz17piMF","expanded_url":"http:\/\/klou.tt\/1hhc1vekbjhdo","display_url":"klou.tt\/1hhc1vekbjhdo","indices":[116,138]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"en"}]'
+    http_version: 
+  recorded_at: Sat, 06 Jun 2015 02:57:18 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/retweets/598231234792194048.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="db040c30ebb7c06aac8a452e71a32b63",
+        oauth_signature="8uTNZhOhS6j1sqLLuhjNW8zRHtA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433598714", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '28'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 06 Jun 2015 13:51:54 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 06 Jun 2015 13:51:54 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143359871472153343; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Jun-2017 13:51:54 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 002963c44936c5d6d809670a12fede10
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '59'
+      X-Rate-Limit-Reset:
+      - '1433599614'
+      X-Response-Time:
+      - '231'
+      X-Transaction:
+      - a4b25aa74bd4698a
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Sat, 06 Jun 2015 13:51:54 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/show/598231234792194048.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="c4201068d23efeff15a10b48485d1496",
+        oauth_signature="%2FL5wcRhAmTaFEJGdkTIUJ%2F%2BBjig%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433598824", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1139'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 06 Jun 2015 13:53:44 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 06 Jun 2015 13:53:44 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143359882485184671; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Jun-2017 13:53:44 UTC
+      - lang=en
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 3a9013339c580f34498aaab3690ec478
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '179'
+      X-Rate-Limit-Reset:
+      - '1433599724'
+      X-Response-Time:
+      - '246'
+      X-Transaction:
+      - c2b2615d32db91cf
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"Tue May 12 21:00:15 +0000 2015","id":598231234792194048,"id_str":"598231234792194048","text":"10
+        Hacks to Help Your Website Generate More Leads, Sales and Revenue #ecommerce
+        #conversion #growth #digital 245454 http:\/\/t.co\/1UTz17piMF","source":"\u003ca
+        href=\"http:\/\/klout.com\" rel=\"nofollow\"\u003ePost with Klout\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":2328561949,"id_str":"2328561949","name":"UrbanZeak","screen_name":"UrbanZeak","location":"Toronto","description":"Automatically
+        mine conversations on Twitter to find your customers. Inviting you for a free
+        trial #socialselling #leadgeneration #machinelearning","url":"http:\/\/t.co\/f0EW4zWkkN","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/f0EW4zWkkN","expanded_url":"http:\/\/www.urbanzeak.com","display_url":"urbanzeak.com","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":234,"friends_count":96,"listed_count":39,"created_at":"Wed
+        Feb 05 10:18:36 +0000 2014","favourites_count":59,"utc_offset":19800,"time_zone":"Chennai","geo_enabled":true,"verified":false,"statuses_count":3632,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/582580039067275264\/kLxOfXNT_normal.png","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/582580039067275264\/kLxOfXNT_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/2328561949\/1427735017","profile_link_color":"4A913C","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":3,"entities":{"hashtags":[{"text":"ecommerce","indices":[69,79]},{"text":"conversion","indices":[80,91]},{"text":"growth","indices":[92,99]},{"text":"digital","indices":[100,108]}],"symbols":[],"user_mentions":[],"urls":[{"url":"http:\/\/t.co\/1UTz17piMF","expanded_url":"http:\/\/klou.tt\/1hhc1vekbjhdo","display_url":"klou.tt\/1hhc1vekbjhdo","indices":[116,138]}]},"favorited":false,"retweeted":false,"possibly_sensitive":false,"possibly_sensitive_appealable":false,"lang":"en"}'
+    http_version: 
+  recorded_at: Sat, 06 Jun 2015 13:53:45 GMT
+recorded_with: VCR 2.9.3

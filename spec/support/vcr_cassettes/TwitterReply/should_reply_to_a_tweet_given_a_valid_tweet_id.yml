@@ -77,4 +77,310 @@ http_interactions:
         Apr 07 10:22:34 +0000 2014","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":1,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}'
     http_version: 
   recorded_at: Thu, 04 Jun 2015 13:57:24 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: in_reply_to_tweet_id=603936893957439488&status=This+is+a+test+post+to+see+how+things+look+2
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="bafdc1e481250f7860eae71acdc9616d",
+        oauth_signature="2aTwbrqMphHhsrk8UpdDnqCeIgA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433764140", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '85'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 08 Jun 2015 11:49:01 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 08 Jun 2015 11:49:01 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143376414142483481; Domain=.twitter.com; Path=/; Expires=Wed,
+        07-Jun-2017 11:49:01 UTC
+      - lang=en
+      Status:
+      - 403 Forbidden
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - d21d3d6ea9464abda362aa4af16350fa
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '327'
+      X-Transaction:
+      - 8603e5f0a1fd5f6c
+      X-Tsa-Request-Body-Time:
+      - '157'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":187,"message":"Status is a duplicate."}]}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2015 11:49:01 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="1167abccfc4d8de866b8901ce184e015",
+        oauth_signature="tbwwGXOtldcK5cIDrNQfRFzIH6c%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433764141", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '762'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 08 Jun 2015 11:49:02 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 08 Jun 2015 11:49:02 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143376414236740825; Domain=.twitter.com; Path=/; Expires=Wed,
+        07-Jun-2017 11:49:02 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 9bb76011f7df97b61600258178491924
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '178'
+      X-Rate-Limit-Reset:
+      - '1433765040'
+      X-Response-Time:
+      - '250'
+      X-Transaction:
+      - a31a8890f7243557
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '[{"created_at":"Mon Jun 08 11:48:58 +0000 2015","id":607876971096215552,"id_str":"607876971096215552","text":"This
+        is a test post to see how things look 2","source":"\u003ca href=\"http:\/\/urbanzeak.com\"
+        rel=\"nofollow\"\u003eurbanzeak\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":2431831016,"id_str":"2431831016","name":"Prashant","screen_name":"prasGyeser","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":8,"friends_count":4,"listed_count":0,"created_at":"Mon
+        Apr 07 10:22:34 +0000 2014","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":1,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}]'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2015 11:49:02 GMT
+- request:
+    method: post
+    uri: https://api.twitter.com/1.1/statuses/update.json
+    body:
+      encoding: UTF-8
+      string: in_reply_to_tweet_id=603936893957439488&status=This+is+a+test+post+to+see+how+things+look+2
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="29538b6017b447a8fe6bb51424048c8b",
+        oauth_signature="JxQsDoH9%2BUv1MN3AQRJTFooFvuI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433764142", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '85'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 08 Jun 2015 11:49:03 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 08 Jun 2015 11:49:03 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143376414342533354; Domain=.twitter.com; Path=/; Expires=Wed,
+        07-Jun-2017 11:49:03 UTC
+      - lang=en
+      Status:
+      - 403 Forbidden
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - b12559d84bae3baa85e7156571b12e12
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Response-Time:
+      - '457'
+      X-Transaction:
+      - f79d2ed86df8354a
+      X-Tsa-Request-Body-Time:
+      - '162'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":187,"message":"Status is a duplicate."}]}'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2015 11:49:03 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 5.11.0
+      Authorization:
+      - OAuth oauth_consumer_key="IfbvdRkhk70qY41ytxKenzlKN", oauth_nonce="87dfbb6488c6b61996008e759ff5ef86",
+        oauth_signature="ueRW9bMR4tnLbvQlX8pP%2BKMpvmI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1433764143", oauth_token="2431831016-cQXzpH7eoR7iSBO2A3nb7OLWzNcPBGngAeIxlEz",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '762'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 08 Jun 2015 11:49:04 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Mon, 08 Jun 2015 11:49:04 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_k
+      Set-Cookie:
+      - guest_id=v1%3A143376414447692764; Domain=.twitter.com; Path=/; Expires=Wed,
+        07-Jun-2017 11:49:04 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - 81c52e21fb083bb2a6f41cd9695fecb8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '177'
+      X-Rate-Limit-Reset:
+      - '1433765040'
+      X-Response-Time:
+      - '275'
+      X-Transaction:
+      - a3882ac7f3d005fb
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '[{"created_at":"Mon Jun 08 11:48:58 +0000 2015","id":607876971096215552,"id_str":"607876971096215552","text":"This
+        is a test post to see how things look 2","source":"\u003ca href=\"http:\/\/urbanzeak.com\"
+        rel=\"nofollow\"\u003eurbanzeak\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":2431831016,"id_str":"2431831016","name":"Prashant","screen_name":"prasGyeser","location":"","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":8,"friends_count":4,"listed_count":0,"created_at":"Mon
+        Apr 07 10:22:34 +0000 2014","favourites_count":0,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":1,"lang":"en","contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_image_url_https":"https:\/\/abs.twimg.com\/sticky\/default_profile_images\/default_profile_6_normal.png","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":true,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"}]'
+    http_version: 
+  recorded_at: Mon, 08 Jun 2015 11:49:04 GMT
 recorded_with: VCR 2.9.3

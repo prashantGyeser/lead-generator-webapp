@@ -2,14 +2,17 @@
 #
 # Table name: tweet_replies
 #
-#  id         :integer          not null, primary key
-#  lead_id    :integer
-#  message    :string(255)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  token_id   :integer
-#  tweet_id   :string(255)
+#  id              :integer          not null, primary key
+#  lead_id         :integer
+#  message         :string(255)
+#  user_id         :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  token_id        :integer
+#  tweet_id        :string(255)
+#  retweet_count   :integer
+#  favorites_count :integer
+#  reply_tweet_id  :string(255)
 #
 
 require 'rails_helper'
@@ -35,6 +38,10 @@ RSpec.describe TweetReply, :vcr, :type => :model do
 
   it "should have a users screen name in the reply" do
     expect(@tweet_reply.message).to include "@mark_abe"
+  end
+
+  it "should set the twitter reply id once it sends a message" do
+    expect(@tweet_reply.reply_tweet_id).to eq 608094434299764736
   end
 
 end

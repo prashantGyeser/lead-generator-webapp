@@ -8,10 +8,12 @@ describe TwitterReply, :vcr do
   end
 
   it "should send a reply given a valid message" do
-    TwitterReply.new(@message, @twitter_credentials).send_reply
+    reply = TwitterReply.new(@message, @twitter_credentials).send_reply
+    expect(reply.id).to eq 606334303920754688
   end
 
   it "should reply to a tweet given a valid tweet id" do
-    TwitterReply.new(@message, @twitter_credentials, '603936893957439488').send_reply
+    reply = TwitterReply.new(@message, @twitter_credentials, '603936893957439488').send_reply
+    expect(reply.id).not_to eq 606334303920754688
   end
 end

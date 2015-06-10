@@ -2,14 +2,17 @@
 #
 # Table name: tweet_replies
 #
-#  id         :integer          not null, primary key
-#  lead_id    :integer
-#  message    :string(255)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  token_id   :integer
-#  tweet_id   :string(255)
+#  id              :integer          not null, primary key
+#  lead_id         :integer
+#  message         :string(255)
+#  user_id         :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  token_id        :integer
+#  tweet_id        :string(255)
+#  retweet_count   :integer
+#  favorites_count :integer
+#  reply_tweet_id  :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
