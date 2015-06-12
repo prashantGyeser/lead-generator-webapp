@@ -21,11 +21,14 @@
 //= require plugins/jquery-validation/js/jquery.validate.min
 //= require plugins/breakpoints
 //= require plugins/jquery-character-counter/jquery.charactercounter
+//= require plugins/jquery-flot/jquery.flot.animator.min
+//= require plugins/jquery-flot/jquery.flot.min
 //= require dashboard/core
 //= require dashboard/chat
 //= require dashboard/demo
 //= require dashboard/lead_streams
 //= require dashboard/lead
+//= require dashboard/reports
 
 
 $(document).ready(function(e){
