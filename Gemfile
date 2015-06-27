@@ -102,6 +102,10 @@ gem "skylight"
 
 gem 'yajl-ruby', require: 'yajl'
 
+# Keyword Extractors
+gem 'highscore'
+gem 'stemmer'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "better_errors"
